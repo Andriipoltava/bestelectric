@@ -1,0 +1,137 @@
+.c-features-list {
+  margin-bottom: 40px;
+  @include mq(768) {
+    margin-bottom: 0;
+  }
+}
+
+.c-features-list--unique {
+  margin-bottom: 40px;
+  @include mq(768) {
+    margin-bottom: 100px;
+  }
+}
+
+.c-product-features-list__title {
+  margin-bottom: 34px;
+  @include font(s-large, 40, 700);
+  color: #000;
+  text-align: center;
+  @include mq(576) {
+    text-align: left;
+  }
+  @include mq(992) {
+    margin-bottom: 82px;
+  }
+
+  .c-features-list--unique & {
+    margin-bottom: 24px;
+  }
+}
+
+.c-product-features-list__items {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  .c-features-list--unique & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.c-product-features-list__item {
+  padding-left: 66px;
+  margin: 44px 0;
+  list-style-type: none;
+  @include mq(480) {
+    margin: 32px 0;
+  }
+  @include mq(992) {
+    margin: 44px 0;
+  }
+  .c-features-list--unique & {
+    margin: 22px 0;
+    padding: 0 15px 0 66px;
+    width: 100%;
+    @include mq(576) {
+      margin: 16px 0;
+      width: 50%;
+    }
+    @include mq(992) {
+      margin: 22px 0;
+      width: 33.33%;
+    }
+  }
+}
+
+.c-product-features-list__header {
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  cursor: pointer;
+
+}
+
+.c-product-features-list__icon {
+  position: absolute;
+  top:50%;
+  left:-70px;
+  transform: translateY(-50%);
+  color: palette(primary);
+  font-size: 52px;
+  &:before{
+    margin: 0;
+    width: auto;
+  }
+  @include mq(576){
+    font-size: 46px;
+  }
+  @include mq(992){
+    font-size: 54px;
+  }
+}
+
+.c-product-features-list__name {
+  position: relative;
+  padding-right: 28px;
+  @include font(small, 17, 400);
+  color: palette(text, 200);
+  &:after {
+    content: '\f107';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    //transform: translateY(-50%);
+    font-size: 14px;
+    font-family: "Font Awesome 5 Free";
+    line-height: 1;
+    font-weight: 900;
+    transition: all 0.3s ease-in-out;
+    @include mq(768) {
+      top: 6px;
+    }
+  }
+  .is-active & {
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include mq(768) {
+    padding-right: 34px;
+    @include font(mid, 22, 400);
+  }
+}
+
+.c-product-features-list__description {
+  display: none;
+  color: palette(text, 200);
+  p {
+    @include font(small, 20, 400);
+    margin-bottom: 0;
+    @include mq(768) {
+      @include font(base, 22, 400);
+    }
+  }
+}

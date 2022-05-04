@@ -1,0 +1,147 @@
+.c-calc-button {
+
+
+}
+
+.c-calc-button--desktop{
+  display: none;
+  @include mq(992){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .o-product-top__calc-btn--mobile &{
+    display: flex;
+    @include mq(992){
+      display: none;
+    }
+  }
+}
+
+.c-calc-button--mobile{
+  margin-top: 40px;
+  display: flex;
+  @include mq(991){
+    display: none;
+  }
+}
+
+.c-calc-button--big {
+  padding:16px 10px;
+  color: palette(text, 500);
+  background-color: #FDF3E0;
+  @include mq(1200) {
+    padding: 6px 10px;
+  }
+}
+
+
+.c-calc-button__icon {
+  img {
+    margin: 0 auto;
+  }
+  .c-calc-button--big & {
+    padding: 15px;
+    width: 72px;
+    height: 72px;
+    //flex: 0 0 72px;
+    min-width: 72px;
+    img {
+      max-width: 100%;
+    }
+
+    @include mq(1200) {
+      padding: 15px;
+      width: 72px;
+      height: 72px;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  .c-calc-button--small & {
+
+  }
+}
+
+.c-calc-button__icon--rounded {
+  background-color: #FFA200;
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+}
+
+.c-calc-button__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ flex-wrap: wrap;
+  flex-grow: 1;
+  margin: 0;
+  padding-left: 30px;
+  @include mq(600) {
+    width: auto;
+    padding: 0;
+  }
+  p {
+    margin-bottom: 0;
+    max-width: 200px;
+    @include font(small, 19, 400);
+
+    @include mq(600){
+      max-width: 100%;
+    }
+
+    @include mq(992){
+      @include font(small, 25, 400);
+    }
+  }
+}
+
+.c-calc-button__text{
+  width: 100%;
+  @include mq(600){
+    width: auto;
+    padding: 0 15px;
+  }
+}
+
+.c-calc-button__title {
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.52px;
+  @include font(mid, 22, 700);
+
+  @include mq(600){
+    margin: 0;
+  }
+  @include mq(1200) {
+    @include font(mid, 25, 700);
+  }
+}
+
+.c-calc-button__label {
+  margin-top: 12px;
+  @include mq(600){
+    margin: 0;
+    padding: 0 15px;
+  }
+}
+
+.c-calc-button__label-text {
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+  @include font(small, 25, 700);
+  &:after {
+    content: '\f054';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 10px;
+    font-family: "Font Awesome 5 Free";
+    line-height: 1;
+    font-weight: 900;
+  }
+}

@@ -1,0 +1,13 @@
+//Main setting
+@import '1-Settings/settings';
+
+//Tools setting
+@import '2-Tools/tools';
+
+@import "8-Plugins/calculator/components.checkbox";
+@import "8-Plugins/calculator/components.radio";
+
+@import "8-Plugins/calculator/sections.productCalculator";
+
+@import "8-Plugins/calculator/organisms.calculator";
+@import "8-Plugins/woocommerce/product/organisms.popup";

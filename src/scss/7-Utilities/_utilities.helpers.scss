@@ -1,0 +1,63 @@
+.u-bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.u-desktop-only {
+  display: none;
+  @include mq(1025) {
+    display: block;
+  }
+}
+
+.u-tablet-only {
+  display: none;
+  @include mq($max: 1025, $min: 768) {
+    display: block;
+  }
+}
+
+.u-mobile{
+  display: block;
+  @include mq(1025){
+    display: none;
+  }
+}
+
+
+
+.u-mobile-full-width {
+
+  @include mq($max: 1025) {
+    width: 100%;
+  }
+}
+
+
+.u-hidden-tab{
+  display: none;
+}
+
+
+
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -135% 0%;
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -135% 0%;
+  }
+}
+
+

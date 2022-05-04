@@ -1,0 +1,45 @@
+.woocommerce-variation-add-to-cart {
+  &.variations_button {
+    display: flex;
+    align-items: center;
+    .c-quantity-btn {
+      flex: 0 0 30px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      margin-left: 0!important;
+      outline: none;
+      font-size:22px !important;
+      line-height: 32px !important;
+      cursor: pointer;
+      color:palette(text,600);
+      font-weight: 700;
+    }
+    .quantity{
+      padding: 0 !important;
+      input[type="number"]{
+        width: 30px;
+        height: 32px !important;
+        background-color: #fff;
+        outline: none;
+        -moz-appearance: textfield;
+        //border:none !important;
+        border: 1px solid #A4A4A4;
+        padding: 5px;
+        &::-webkit-outer-spin-button,&::-webkit-inner-spin-button{
+          margin: 0;
+          -webkit-appearance: none;
+        }
+      }
+    }
+    .single_add_to_cart_button{
+      margin:20px 0;
+      width: 100%;
+      @include mq(480){
+        width: auto;
+        margin:0 0 0 20px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,20 @@
+@import '../1-Settings/settings';
+
+//Tools setting
+@import '../2-Tools/tools';
+
+@import '../4-Components/components.searchForm';
+
+@include mq(null,1025) {
+  .o-header__col-search {
+    position: absolute;
+    z-index: 3;
+    top: 100%;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.product_cat-electric-radiators .woo-variation-items-wrapper #pa_wattage ~ .c-radiators-select {
+  display: none;
+}

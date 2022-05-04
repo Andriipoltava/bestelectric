@@ -1,0 +1,167 @@
+.c-newsletter {
+  position: relative;
+  z-index: 3;
+  padding: 26px 20px;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0px 3px 35px 0px rgba(0, 0, 0, 0.1);
+  margin: 35px 0;
+
+  @include mq(768) {
+    padding: 32px;
+  }
+}
+
+.c-newsletter__description {
+  color: palette(text);
+
+  margin-bottom: 26px;
+  @include mq(992) {
+    margin-bottom: 0;
+  }
+
+  h1, h2, h3, h4 {
+    margin-bottom: 10px;
+    @include font(large, 30, 300);
+    text-transform: uppercase;
+    color: palette(text);
+    strong {
+      font-weight: 400;
+    }
+    @include mq(768) {
+      @include font(s-large, 32, 300);
+    }
+    @include mq(1200) {
+      @include font(m-large, 36, 300);
+    }
+  }
+  p {
+    margin-bottom: 0;
+    @include font(mid-large, 24, 300);
+    @include mq(992) {
+      max-width: 426px;
+    }
+  }
+}
+
+
+.c-newsletter__form {
+  position: relative;
+
+  @include mq(768) {
+    padding-left: 40px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 30px;
+      height: 32px;
+      background-image: url("../../img/icons/newsletter-arrow.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .elementor-widget-container {
+    .elementor-form {
+      .elementor-form-fields-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        .elementor-field-type-email {
+          order: 1;
+          width: 100%;
+          margin-bottom: 20px;
+          @include mq(440) {
+            width: auto;
+            flex-grow: 1;
+            padding-right: 20px;
+            margin-bottom: 0;
+          }
+        }
+        .elementor-field-type-submit {
+          width: 100%;
+          order: 2;
+          @include mq(440) {
+            width: auto;
+          }
+          .elementor-button {
+            border-radius: 8px !important;
+            outline: none;
+            width: 100%;
+            @include mq(440) {
+              width: auto;
+            }
+          }
+
+        }
+        .elementor-field-type-acceptance {
+          margin: 12px 0 0;
+          order: 3;
+          .elementor-field-subgroup {
+            display: block;
+          }
+          .elementor-field-option {
+            position: relative;
+            input[type="checkbox"] {
+              position: absolute;
+              top: 0;
+              left: 0;
+              margin: 0;
+              border: none;
+              z-index: -333;
+              opacity: 0;
+            }
+            label {
+              position: relative;
+              display: inline-block;
+              padding-left: 30px;
+              max-width: 480px;
+              @include font(small, 17, 300);
+              color: palette(text);
+              &:before, &:after {
+                content: '';
+                position: absolute;
+              }
+              &:before {
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #CCCCCC;
+                background: #F7F7F7;
+              }
+              &:after {
+                top: 3px;
+                left: 4px;
+                display: block;
+                width: 14px;
+                height: 13px;
+                background-image: url("../../img/icons/checkbox-checked.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+              }
+            }
+            input[type="checkbox"]:checked + label {
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .elementor-button, .elementor-field-option label {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+

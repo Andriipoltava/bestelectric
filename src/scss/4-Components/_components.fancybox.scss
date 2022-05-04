@@ -1,0 +1,17 @@
+.fancybox-container{
+  .fancybox-button{
+    color: white;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 10px;
+
+  }
+}
+#cvy_reel_image .fancybox-button{
+  color: #0d0d0d;
+  border: none;
+  &:focus-visible,&:focus{
+    outline: none;
+  }
+}

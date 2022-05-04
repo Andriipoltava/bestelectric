@@ -1,0 +1,117 @@
+.s-product-compare-sizes {
+  overflow: hidden;
+  padding-top: 24px;
+  @include mq(768) {
+    padding-top: 30px;
+  }
+  @include mq(992) {
+    padding-top: 90px;
+  }
+}
+
+.s-product-compare-sizes__grid {
+  display: flex;
+}
+
+.s-product-compare-sizes__aside {
+  position: relative;
+  display: none;
+  padding: 45px 0;
+  width: 170px;
+  background-color: palette(secondary);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: -100vw;
+    height: 100%;
+    background-color: palette(secondary);
+  }
+
+  @include mq(768) {
+    display: block;
+  }
+}
+
+.s-product-compare-sizes__slider-wrapper {
+  width: 100%;
+  @include mq(768) {
+    width: calc(100% - 170px);
+  }
+}
+
+.s-product-all-features__intro--sizes {
+  position: relative;
+  .s-product-all-features__title {
+    text-align: center;
+
+    @include mq($max:576){
+      margin-bottom: 45px;
+     // @include font(s2-large,41,300);
+    }
+
+    @include mq($max:768){
+      @include font(s2-large,41,300);
+    }
+
+    @include mq(576){
+      text-align: left;
+    }
+    @include mq(992) {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.s-product-compare-sizes__title--desktop {
+  //display: none;
+
+  @include mq(576) {
+    padding-right: 120px;
+  }
+  @include mq(1300) {
+    padding-right: 0;
+  }
+}
+
+.s-product-compare-sizes__title--mobile {
+  display: block;
+  @include mq(768) {
+    display: none;
+  }
+  &.s-product-all-features__title {
+    @include font(s-large, 32, 300);
+  }
+}
+
+.s-product-compare-sizes__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mq(576) {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.s-product-compare-sizes__container {
+  padding: 0;
+  @include mq(576) {
+    padding: 0 15px;
+  }
+}
+
+.s-product-compare-sizes__nav-arrow-fr {
+  @include font(small, 14, 400);
+  color: palette(text, 600);
+  letter-spacing: 3px;
+  @include mq(576) {
+    min-width: 35px;
+    font-size: 0;
+  }
+}

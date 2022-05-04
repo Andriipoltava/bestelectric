@@ -1,0 +1,225 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+.s-product-video {
+  position: relative;
+  padding: 82px 0 120px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: 26% center;
+  background-size: cover; }
+  @media screen and (min-width: 768px) {
+    .s-product-video {
+      padding: 150px 0 156px;
+      background-position: 30% center; } }
+
+.s-product-video__content {
+  position: relative;
+  z-index: 2;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .s-product-video__content {
+      max-width: 100%; } }
+
+.s-product-video__title {
+  margin-bottom: 26px;
+  font-size: 1.875rem;
+  line-height: 1.36667;
+  font-weight: 700;
+  color: #333333; }
+  @media screen and (min-width: 768px) {
+    .s-product-video__title {
+      font-size: 3.125rem;
+      line-height: 1.16;
+      font-weight: 700; } }
+
+.s-product-video__image {
+  position: absolute;
+  top: calc(50% + 16px);
+  right: 0;
+  transform: translate(240px, -50%);
+  z-index: 1; }
+  @media screen and (min-width: 768px) {
+    .s-product-video__image {
+      top: calc(50% + 36px);
+      transform: translate(45%, -50%); } }
+  @media screen and (min-width: 992px) {
+    .s-product-video__image {
+      transform: translate(120px, -50%); } }
+
+.s-product-video__button {
+  display: inline-block; }
+
+.s-product-video__button-label {
+  margin: 0 0 32px 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 300;
+  color: #333333; }
+
+.s-product-video__icon {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: #B8D048;
+  border-radius: 50%;
+  overflow: hidden; }
+  .s-product-video__icon:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 10px);
+    transform: translate(-50%, -50%);
+    border: 14px solid transparent;
+    border-left: 24px solid #fff; }

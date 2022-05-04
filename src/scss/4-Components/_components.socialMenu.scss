@@ -1,0 +1,42 @@
+.c-socials-menu {
+
+}
+
+.c-socials-menu__list {
+  display: flex;
+  align-items: center;
+  margin: 0 -3px;
+}
+
+.c-socials-menu__item {
+  padding: 3px;
+  line-height: 0;
+}
+
+.c-socials-menu__link {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  color: palette(primary);
+  background: transparent;
+  border: 1px solid palette(primary);
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    border-color: palette(text,500);
+    color: palette(text, 500);
+  }
+}
+
+.c-socials-menu__icon {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+
+  svg{
+    height: 15px;
+    width: 18px;
+  }
+}

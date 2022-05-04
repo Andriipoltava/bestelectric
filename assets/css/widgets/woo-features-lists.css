@@ -1,0 +1,313 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+.c-features-list {
+  margin-bottom: 40px; }
+  @media screen and (min-width: 768px) {
+    .c-features-list {
+      margin-bottom: 0; } }
+
+.c-features-list--unique {
+  margin-bottom: 40px; }
+  @media screen and (min-width: 768px) {
+    .c-features-list--unique {
+      margin-bottom: 100px; } }
+
+.c-product-features-list__title {
+  margin-bottom: 34px;
+  font-size: 1.625rem;
+  line-height: 1.53846;
+  font-weight: 700;
+  color: #000;
+  text-align: center; }
+  @media screen and (min-width: 576px) {
+    .c-product-features-list__title {
+      text-align: left; } }
+  @media screen and (min-width: 992px) {
+    .c-product-features-list__title {
+      margin-bottom: 82px; } }
+  .c-features-list--unique .c-product-features-list__title {
+    margin-bottom: 24px; }
+
+.c-product-features-list__items {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+  .c-features-list--unique .c-product-features-list__items {
+    display: flex;
+    flex-wrap: wrap; }
+
+.c-product-features-list__item {
+  padding-left: 66px;
+  margin: 44px 0;
+  list-style-type: none; }
+  @media screen and (min-width: 480px) {
+    .c-product-features-list__item {
+      margin: 32px 0; } }
+  @media screen and (min-width: 992px) {
+    .c-product-features-list__item {
+      margin: 44px 0; } }
+  .c-features-list--unique .c-product-features-list__item {
+    margin: 22px 0;
+    padding: 0 15px 0 66px;
+    width: 100%; }
+    @media screen and (min-width: 576px) {
+      .c-features-list--unique .c-product-features-list__item {
+        margin: 16px 0;
+        width: 50%; } }
+    @media screen and (min-width: 992px) {
+      .c-features-list--unique .c-product-features-list__item {
+        margin: 22px 0;
+        width: 33.33%; } }
+
+.c-product-features-list__header {
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  cursor: pointer; }
+
+.c-product-features-list__icon {
+  position: absolute;
+  top: 50%;
+  left: -70px;
+  transform: translateY(-50%);
+  color: #B8D048;
+  font-size: 52px; }
+  .c-product-features-list__icon:before {
+    margin: 0;
+    width: auto; }
+  @media screen and (min-width: 576px) {
+    .c-product-features-list__icon {
+      font-size: 46px; } }
+  @media screen and (min-width: 992px) {
+    .c-product-features-list__icon {
+      font-size: 54px; } }
+
+.c-product-features-list__name {
+  position: relative;
+  padding-right: 28px;
+  font-size: 0.875rem;
+  line-height: 1.21429;
+  font-weight: 400;
+  color: #707070; }
+  .c-product-features-list__name:after {
+    content: '\f107';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 14px;
+    font-family: "Font Awesome 5 Free";
+    line-height: 1;
+    font-weight: 900;
+    transition: all 0.3s ease-in-out; }
+    @media screen and (min-width: 768px) {
+      .c-product-features-list__name:after {
+        top: 6px; } }
+  .is-active .c-product-features-list__name:after {
+    transform: rotate(180deg); }
+  @media screen and (min-width: 768px) {
+    .c-product-features-list__name {
+      padding-right: 34px;
+      font-size: 1.125rem;
+      line-height: 1.22222;
+      font-weight: 400; } }
+
+.c-product-features-list__description {
+  display: none;
+  color: #707070; }
+  .c-product-features-list__description p {
+    font-size: 0.875rem;
+    line-height: 1.42857;
+    font-weight: 400;
+    margin-bottom: 0; }
+    @media screen and (min-width: 768px) {
+      .c-product-features-list__description p {
+        font-size: 1rem;
+        line-height: 1.375;
+        font-weight: 400; } }
+
+.s-product-all-features {
+  padding-top: 24px;
+  padding-bottom: 40px; }
+  @media screen and (min-width: 768px) {
+    .s-product-all-features {
+      padding-top: 30px; } }
+  @media screen and (min-width: 992px) {
+    .s-product-all-features {
+      padding-top: 58px; } }
+
+.s-product-all-features__intro {
+  margin-bottom: 30px; }
+  @media screen and (min-width: 992px) {
+    .s-product-all-features__intro {
+      margin-bottom: 132px; } }
+
+.s-product-all-features__title {
+  font-size: 1.8125rem;
+  line-height: 1.41379;
+  font-weight: 300;
+  color: #333333;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .s-product-all-features__title {
+      font-size: 2.75rem;
+      line-height: 1.25;
+      font-weight: 300; } }
+  .s-product-all-features__title sup {
+    font-size: 0.625rem;
+    line-height: 1.2;
+    font-weight: 300;
+    text-transform: uppercase; }
+    @media screen and (min-width: 768px) {
+      .s-product-all-features__title sup {
+        font-size: 1.0625rem;
+        line-height: 1.23529;
+        font-weight: 300; } }

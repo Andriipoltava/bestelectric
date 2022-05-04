@@ -1,0 +1,299 @@
+.c-compare-sizes-product {
+  padding: 22px 0 0;
+  @include mq(576) {
+    padding: 45px 0 0;
+  }
+}
+
+.c-compare-sizes-product__thumb {
+  text-align: center;
+  min-height: 124px;
+
+  a {
+    display: inline-block;
+    outline: none;
+
+  }
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.JS--compare-sizes-slider.swiper-container-initialized {
+  overflow: hidden;
+}
+.slider_arrow-fraction{
+  min-width: 35px;
+  text-align: center;
+}
+
+.notScroll {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.c-compare-sizes-product__wrap {
+  display: none;
+  padding: 0 30px;
+  margin-bottom: 44px;
+  @include mq(768) {
+    min-height: 398px;
+    margin-bottom: 0;
+  }
+
+  &.is-visible {
+    display: block;
+  }
+
+  &:not(:first-child) {
+    position: relative;
+    transform: translateY(0);
+  }
+}
+
+.product_cat-electric-towel-rails .c-compare-sizes-product__wrap {
+  @include mq(768) {
+    min-height: 298px;
+  }
+}
+
+.c-compare-sizes-product__wattage {
+  margin-bottom: 24px;
+  @include font(sm-large, 30, 300);
+  color: palette(text, 500);
+  text-align: center;
+}
+
+.c-compare-sizes-form {
+  // padding: 0 6px;
+  .available-on-backorder {
+    margin: 0 !important;
+    font-size: 14px;
+    text-align: center;
+    color: red;
+
+    strong {
+      font-weight: 400;
+    }
+  }
+
+  .cvy_quantity.cvy_property_quantity {
+    .stock {
+      text-align: right;
+      margin: 0 !important;
+    }
+
+    .cvy_input_trigger {
+      width: 34px;
+      font-size: 22px;
+      color: palette(text, 600);
+      background: #fff;
+      border-radius: 0;
+    }
+
+    input[type="text"] {
+      line-height: 26px;
+      height: 30px;
+      border: none;
+    }
+  }
+}
+
+.c-compare-sizes-form__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //margin: 0 -6px;
+}
+
+.c-compare-sizes-form__column {
+  //padding: 0 6px;
+}
+
+.c-compare-sizes-form__price {
+
+  .price {
+    .woocommerce-Price-amount.amount {
+      @include font(mid-large, 40, 400);
+      color: palette(text, 600);
+    }
+  }
+}
+
+.c-compare-sizes-product__colors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.c-compare-sizes-product__colors-label {
+  margin-bottom: 10px;
+  @include font(base, 19, 700);
+  color: palette(text, 500);
+  text-align: center;
+
+  span {
+    font-weight: 400;
+  }
+}
+
+
+.c-compare-sizes__slide {
+  .c-compare-sizes-form__submit {
+    display: block;
+    max-width: 172px;
+    width: 100%;
+    margin: 8px auto 0;
+    padding: 6px 6px 5px;
+    color: #fff;
+    @include font(small, 24, 400);
+    text-transform: uppercase;
+    text-align: center;
+    background-color: palette(primary);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include mq(576) {
+      max-width: 100%;
+      margin-top: 4px;
+    }
+  }
+
+  .c-compare-sizes-product {
+    &__color-btn {
+      position: relative;
+      display: block;
+      width: 26px;
+      height: 26px;
+      margin: 0 3px;
+      border-radius: 50%;
+      border: 1px solid palette(text, 200);
+      outline: 0;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 2px #ffffff;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+
+      &.is-active {
+        border: none;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.28);
+
+        &:after {
+          border: 3px solid palette(primary);
+        }
+      }
+    }
+
+    &__insulation {
+      @include mq(576) {
+        height: 150px;
+      }
+    }
+
+    &__details {
+      display: none;
+      padding: 32px 30px 26px;
+      text-align: center;
+      background-color: palette(secondary);
+      @include mq(576) {
+        padding: 38px 30px 45px;
+        background-color: #fff;
+      }
+
+      &.is-visible {
+        display: block;
+      }
+    }
+
+    &__dimensions {
+      margin-top: 40px;
+      @include mq(576) {
+        margin-top: 16px;
+      }
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        padding: 8px 0;
+        list-style-type: none;
+        @include font(base, 20, 400);
+        color: palette(text, 500);
+        @include mq($max: 768) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    &__list-title {
+      text-align: left;
+      display: block;
+      margin-bottom: 5px;
+      @include font(s-large, 32, 300);
+      color: palette(text, 500);
+      @include mq(768) {
+        display: none;
+      }
+    }
+
+    &__list--mobile-info {
+      display: inline;
+      @include mq(768) {
+        display: none;
+      }
+    }
+
+
+    &__types {
+      margin: 0 0 10px;
+      text-align: center;
+    }
+
+    &__type-btn {
+      display: inline-block;
+      padding: 6px;
+      @include font(base, 16, 400);
+      color: palette(text, 600);
+      text-align: center;
+      border: 2px solid palette(text, 600);
+      cursor: pointer;
+
+      &.is-active {
+        border: 3px solid palette(primary);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .28);
+      }
+
+      &:not(:first-child) {
+        margin-left: 4px;
+      }
+    }
+  }
+
+
+}
+
+
+

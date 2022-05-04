@@ -1,0 +1,20 @@
+.woocommerce-cart{
+  &.woocommerce-page{
+    .wc-proceed-to-checkout{
+      .checkout-button{
+        padding:15px !important;
+        line-height: 25px;
+      }
+    }
+  }
+}
+
+.custom-backorder_notification + .backorder_notification{
+  display: none !important;
+}
+
+.custom-backorder_notification{
+  &.backorder_notification{
+    margin-bottom: 6px !important;
+  }
+}

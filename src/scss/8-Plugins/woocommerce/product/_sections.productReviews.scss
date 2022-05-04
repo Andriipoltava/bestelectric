@@ -1,0 +1,87 @@
+.s-product-reviews {
+  //display: none;
+
+
+  @include mq(768) {
+    padding-bottom: 70px;
+    display: block;
+  }
+}
+
+.s-product-reviews__content {
+  padding: 70px 0 0;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  @include mq(768){
+    padding: 315px 0 0;
+  }
+}
+
+.product-reviews__content-holder {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 50px 20px 110px;
+  background: #fff;
+  box-shadow: 0 3px 35px -3px rgba(0, 0, 0, 0.10);
+}
+
+.product-reviews__intro {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-reviews__title {
+  margin-bottom: 12px;
+  @include font(s-large, 30, 300);
+  color: palette(text);
+
+  @include mq(768){
+    margin-bottom: 26px;
+    @include font(l-m-large, 46, 300);
+  }
+}
+
+.product-reviews__description {
+  @include font(base, 22, 400);
+  color: palette(text);
+}
+
+.s-product-reviews__widget {
+  margin-top: -62px;
+
+}
+
+.s-product-reviews__script, .s-product-reviews__script--custom {
+  position: relative;
+  max-width: 920px;
+  padding: 0 20px 50px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 3px 35px -3px rgba(0, 0, 0, 0.10);
+
+  .widget-code-area {
+    min-height: 20px;
+    //background: #f2f2f2;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: #fff;
+  }
+}
+
+.s-product-reviews__script--custom {
+  #trustpilot-widget-trustbox-0-wrapper {
+    display: none !important;
+  }
+}
+

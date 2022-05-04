@@ -1,0 +1,49 @@
+.c-header-message {
+  padding: 4px 0;
+  background-color: #333333;
+}
+
+.c-header-message__content {
+  color: #fff;
+  text-align: center;
+  @include mq(992) {
+    text-align: left;
+  }
+
+  p {
+    margin-bottom: 0;
+    color: #fff;
+    @include font(small, 26, 400);
+
+    strong {
+      @include font(small, 26, 400);
+    }
+
+    a {
+      color: #FC9E4E;
+      margin-left: 4px;
+      @include mq(992) {
+        margin-left: 0;
+      }
+      @include font(small, 26, 400);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.c-header-message__content--desktop {
+  display: none;
+  @include mq(992) {
+    display: block;
+  }
+}
+
+.c-header-message__content--mobile {
+  display: block;
+  @include mq(992) {
+    display: none;
+  }
+}

@@ -1,0 +1,164 @@
+.s-calc-banner {
+
+  &:not(.s-calc-banner--compare) {
+    padding: 10px 0 0;
+
+    @include mq(992) {
+      padding: 0 0 20px;
+
+    }
+  }
+}
+
+.s-calc-banner--compare {
+  padding: 50px 0;
+
+  @include mq(768) {
+    padding: 70px 0;
+  }
+
+  @include mq(1200) {
+    padding: 100px 0;
+  }
+}
+
+
+.s-calc-banner__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 36px 10px 0;
+  background-color: palette(oranges, 100);
+  @include mq(480) {
+    padding: 36px 20px 0;
+  }
+  @include mq(992) {
+    padding: 20px 26px 0 36px;
+    flex-wrap: nowrap;
+  }
+
+}
+
+.s-calc-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  margin-bottom: 40px;
+  @include mq(992) {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0 18px 20px 0;
+  }
+
+  @include mq(1200) {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .s-calc-banner--compare & {
+    @include mq(992) {
+      padding-right: 44px;
+    }
+  }
+}
+
+.s-calc-banner__text, .s-calc-banner__button, .s-calc-banner__image {
+  @include mq(992) {
+    padding: 0 12px;
+  }
+}
+
+.s-calc-banner__text {
+  width: 100%;
+  max-width: 246px;
+  text-align: center;
+  @include mq(420) {
+    max-width: 100%;
+  }
+  @include mq(992) {
+    max-width: 500px;
+    text-align: left;
+  }
+
+  .s-calc-banner--compare & {
+    max-width: 300px;
+    @include mq(420) {
+      max-width: 100%;
+    }
+  }
+}
+
+.s-calc-banner__title {
+  margin-bottom: 26px;
+  @include font(sm-large, 33, 900);
+  color: palette(text, 600);
+
+  @include mq(992) {
+    margin-bottom: 10px;
+  }
+
+}
+
+.s-calc-banner__description {
+  margin-bottom: 34px;
+  color: palette(text, 600);
+
+  p {
+    @include font(mid-large, 24, 300);
+    @include mq(1200) {
+      @include font(large, 29, 300);
+    }
+  }
+
+  @include mq(992) {
+    margin-bottom: 0;
+  }
+}
+
+.s-calc-banner__btn {
+  display: inline-block;
+  min-width: 168px;
+  padding: 10px 23px;
+
+  @include font(small, 20, 400);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  background: palette(oranges);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    //opacity: 0.9;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .3);
+  }
+}
+
+.s-calc-banner__image {
+  align-self: flex-end;
+  max-width: 540px;
+  max-height: 110px;
+  @include mq(480) {
+    max-height: 190px;
+  }
+
+  img {
+    height: inherit;
+    max-height: inherit;
+  }
+
+  .s-calc-banner--compare & {
+    max-height: initial;
+    @include mq(1200) {
+      max-width: 456px;
+    }
+
+    img {
+      @include mq(1200) {
+        padding: 0 20px;
+      }
+    }
+  }
+}

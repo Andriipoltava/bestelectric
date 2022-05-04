@@ -1,0 +1,516 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+@media screen and (min-width: 768px) {
+  .c-compare-sizes-aside__header {
+    height: 398px; } }
+
+@media screen and (min-width: 768px) {
+  .product_cat-electric-towel-rails .c-compare-sizes-aside__header {
+    height: 298px; } }
+
+.c-compare-sizes-aside__dimensions {
+  margin-top: 40px; }
+
+.c-compare-sizes-aside__title {
+  margin-bottom: 5px;
+  font-size: 1.625rem;
+  line-height: 1.23077;
+  font-weight: 300;
+  color: #282828; }
+
+.c-compare-sizes-aside__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+.c-compare-sizes-aside__item {
+  padding: 8px 0;
+  list-style-type: none;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: 400;
+  color: #282828; }
+
+.s-product-compare-sizes {
+  overflow: hidden;
+  padding-top: 24px; }
+  @media screen and (min-width: 768px) {
+    .s-product-compare-sizes {
+      padding-top: 30px; } }
+  @media screen and (min-width: 992px) {
+    .s-product-compare-sizes {
+      padding-top: 90px; } }
+
+.s-product-compare-sizes__grid {
+  display: flex; }
+
+.s-product-compare-sizes__aside {
+  position: relative;
+  display: none;
+  padding: 45px 0;
+  width: 170px;
+  background-color: #F7F7F7; }
+  .s-product-compare-sizes__aside:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: -100vw;
+    height: 100%;
+    background-color: #F7F7F7; }
+  @media screen and (min-width: 768px) {
+    .s-product-compare-sizes__aside {
+      display: block; } }
+
+.s-product-compare-sizes__slider-wrapper {
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .s-product-compare-sizes__slider-wrapper {
+      width: calc(100% - 170px); } }
+
+.s-product-all-features__intro--sizes {
+  position: relative; }
+  .s-product-all-features__intro--sizes .s-product-all-features__title {
+    text-align: center; }
+    @media screen and (max-width: 575px) {
+      .s-product-all-features__intro--sizes .s-product-all-features__title {
+        margin-bottom: 45px; } }
+    @media screen and (max-width: 767px) {
+      .s-product-all-features__intro--sizes .s-product-all-features__title {
+        font-size: 1.8125rem;
+        line-height: 1.41379;
+        font-weight: 300; } }
+    @media screen and (min-width: 576px) {
+      .s-product-all-features__intro--sizes .s-product-all-features__title {
+        text-align: left; } }
+    @media screen and (min-width: 992px) {
+      .s-product-all-features__intro--sizes .s-product-all-features__title {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto; } }
+
+@media screen and (min-width: 576px) {
+  .s-product-compare-sizes__title--desktop {
+    padding-right: 120px; } }
+
+@media screen and (min-width: 1300px) {
+  .s-product-compare-sizes__title--desktop {
+    padding-right: 0; } }
+
+.s-product-compare-sizes__title--mobile {
+  display: block; }
+  @media screen and (min-width: 768px) {
+    .s-product-compare-sizes__title--mobile {
+      display: none; } }
+  .s-product-compare-sizes__title--mobile.s-product-all-features__title {
+    font-size: 1.625rem;
+    line-height: 1.23077;
+    font-weight: 300; }
+
+.s-product-compare-sizes__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  @media screen and (min-width: 576px) {
+    .s-product-compare-sizes__nav {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%); } }
+
+.s-product-compare-sizes__container {
+  padding: 0; }
+  @media screen and (min-width: 576px) {
+    .s-product-compare-sizes__container {
+      padding: 0 15px; } }
+
+.s-product-compare-sizes__nav-arrow-fr {
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 400;
+  color: #333333;
+  letter-spacing: 3px; }
+  @media screen and (min-width: 576px) {
+    .s-product-compare-sizes__nav-arrow-fr {
+      min-width: 35px;
+      font-size: 0; } }
+
+.c-compare-sizes-product {
+  padding: 22px 0 0; }
+  @media screen and (min-width: 576px) {
+    .c-compare-sizes-product {
+      padding: 45px 0 0; } }
+
+.c-compare-sizes-product__thumb {
+  text-align: center;
+  min-height: 124px; }
+  .c-compare-sizes-product__thumb a {
+    display: inline-block;
+    outline: none; }
+  .c-compare-sizes-product__thumb img {
+    margin: 0 auto; }
+
+.JS--compare-sizes-slider.swiper-container-initialized {
+  overflow: hidden; }
+
+.slider_arrow-fraction {
+  min-width: 35px;
+  text-align: center; }
+
+.notScroll {
+  transform: translate3d(0, 0, 0) !important; }
+
+.c-compare-sizes-product__wrap {
+  display: none;
+  padding: 0 30px;
+  margin-bottom: 44px; }
+  @media screen and (min-width: 768px) {
+    .c-compare-sizes-product__wrap {
+      min-height: 398px;
+      margin-bottom: 0; } }
+  .c-compare-sizes-product__wrap.is-visible {
+    display: block; }
+  .c-compare-sizes-product__wrap:not(:first-child) {
+    position: relative;
+    transform: translateY(0); }
+
+@media screen and (min-width: 768px) {
+  .product_cat-electric-towel-rails .c-compare-sizes-product__wrap {
+    min-height: 298px; } }
+
+.c-compare-sizes-product__wattage {
+  margin-bottom: 24px;
+  font-size: 1.875rem;
+  line-height: 1;
+  font-weight: 300;
+  color: #282828;
+  text-align: center; }
+
+.c-compare-sizes-form .available-on-backorder {
+  margin: 0 !important;
+  font-size: 14px;
+  text-align: center;
+  color: red; }
+  .c-compare-sizes-form .available-on-backorder strong {
+    font-weight: 400; }
+
+.c-compare-sizes-form .cvy_quantity.cvy_property_quantity .stock {
+  text-align: right;
+  margin: 0 !important; }
+
+.c-compare-sizes-form .cvy_quantity.cvy_property_quantity .cvy_input_trigger {
+  width: 34px;
+  font-size: 22px;
+  color: #333333;
+  background: #fff;
+  border-radius: 0; }
+
+.c-compare-sizes-form .cvy_quantity.cvy_property_quantity input[type="text"] {
+  line-height: 26px;
+  height: 30px;
+  border: none; }
+
+.c-compare-sizes-form__row {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.c-compare-sizes-form__price .price .woocommerce-Price-amount.amount {
+  font-size: 1.25rem;
+  line-height: 2;
+  font-weight: 400;
+  color: #333333; }
+
+.c-compare-sizes-product__colors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin-bottom: 14px;
+  width: 100%; }
+
+.c-compare-sizes-product__colors-label {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.1875;
+  font-weight: 700;
+  color: #282828;
+  text-align: center; }
+  .c-compare-sizes-product__colors-label span {
+    font-weight: 400; }
+
+.c-compare-sizes__slide .c-compare-sizes-form__submit {
+  display: block;
+  max-width: 172px;
+  width: 100%;
+  margin: 8px auto 0;
+  padding: 6px 6px 5px;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #B8D048;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer; }
+  .c-compare-sizes__slide .c-compare-sizes-form__submit:hover {
+    opacity: 0.8; }
+  @media screen and (min-width: 576px) {
+    .c-compare-sizes__slide .c-compare-sizes-form__submit {
+      max-width: 100%;
+      margin-top: 4px; } }
+
+.c-compare-sizes__slide .c-compare-sizes-product__color-btn {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 0 3px;
+  border-radius: 50%;
+  border: 1px solid #707070;
+  outline: 0;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px #ffffff; }
+  .c-compare-sizes__slide .c-compare-sizes-product__color-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
+  .c-compare-sizes__slide .c-compare-sizes-product__color-btn.is-active {
+    border: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.28); }
+    .c-compare-sizes__slide .c-compare-sizes-product__color-btn.is-active:after {
+      border: 3px solid #B8D048; }
+
+@media screen and (min-width: 576px) {
+  .c-compare-sizes__slide .c-compare-sizes-product__insulation {
+    height: 150px; } }
+
+.c-compare-sizes__slide .c-compare-sizes-product__details {
+  display: none;
+  padding: 32px 30px 26px;
+  text-align: center;
+  background-color: #F7F7F7; }
+  @media screen and (min-width: 576px) {
+    .c-compare-sizes__slide .c-compare-sizes-product__details {
+      padding: 38px 30px 45px;
+      background-color: #fff; } }
+  .c-compare-sizes__slide .c-compare-sizes-product__details.is-visible {
+    display: block; }
+
+.c-compare-sizes__slide .c-compare-sizes-product__dimensions {
+  margin-top: 40px; }
+  @media screen and (min-width: 576px) {
+    .c-compare-sizes__slide .c-compare-sizes-product__dimensions {
+      margin-top: 16px; } }
+
+.c-compare-sizes__slide .c-compare-sizes-product__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+  .c-compare-sizes__slide .c-compare-sizes-product__list li {
+    padding: 8px 0;
+    list-style-type: none;
+    font-size: 1rem;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #282828; }
+    @media screen and (max-width: 767px) {
+      .c-compare-sizes__slide .c-compare-sizes-product__list li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; } }
+
+.c-compare-sizes__slide .c-compare-sizes-product__list-title {
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.625rem;
+  line-height: 1.23077;
+  font-weight: 300;
+  color: #282828; }
+  @media screen and (min-width: 768px) {
+    .c-compare-sizes__slide .c-compare-sizes-product__list-title {
+      display: none; } }
+
+.c-compare-sizes__slide .c-compare-sizes-product__list--mobile-info {
+  display: inline; }
+  @media screen and (min-width: 768px) {
+    .c-compare-sizes__slide .c-compare-sizes-product__list--mobile-info {
+      display: none; } }
+
+.c-compare-sizes__slide .c-compare-sizes-product__types {
+  margin: 0 0 10px;
+  text-align: center; }
+
+.c-compare-sizes__slide .c-compare-sizes-product__type-btn {
+  display: inline-block;
+  padding: 6px;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 400;
+  color: #333333;
+  text-align: center;
+  border: 2px solid #333333;
+  cursor: pointer; }
+  .c-compare-sizes__slide .c-compare-sizes-product__type-btn.is-active {
+    border: 3px solid #B8D048;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.28); }
+  .c-compare-sizes__slide .c-compare-sizes-product__type-btn:not(:first-child) {
+    margin-left: 4px; }

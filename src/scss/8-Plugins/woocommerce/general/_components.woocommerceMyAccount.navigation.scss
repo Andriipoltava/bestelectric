@@ -1,0 +1,203 @@
+.woocommerce {
+  .woocommerce-MyAccount-navigation {
+    ul {
+      margin: 0;
+      .woocommerce-MyAccount-navigation-link {
+        list-style: none;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom-width: 0;
+        a {
+          display: block;
+          padding: .5em 1em;
+          transition: all 0.2s ease-in-out;
+        }
+        &.is-active {
+          a {
+            color: palette(text);
+            background-color: #fbfbfb;
+          }
+        }
+        &:last-child {
+          border-bottom-width: 1px;
+        }
+        &:hover {
+          a {
+            color: palette(text);
+          }
+        }
+      }
+    }
+  }
+}
+
+.u-columns{
+  .u-column1, .u-column2{
+    max-width: 100%;
+    padding: 0;
+    flex: none;
+  }
+}
+#customer_login.u-columns {
+  .u-column1, .u-column2 {
+    max-width: initial;
+    padding: 0;
+    h2 {
+      @include font(s-large,34,400);
+    }
+    .woocommerce-form__label{
+      color: #333333;
+      &:not(.inline){
+        display: block;
+        color: #333333;
+
+      }
+    }
+    form{
+      .form-row{
+        label{
+          color:#333333;
+        }
+      }
+      input[type="text"],input[type="password"],input[type="email"]{
+        width: 100%;
+        margin: 0;
+        padding: 12px;
+        height: auto;
+        color: #666;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 0;
+        box-shadow: none;
+        transition: all .2s linear;
+        outline: 0;
+        line-height: 1;
+        -webkit-appearance: none;
+      }
+      .woocommerce-form-login__submit{
+        position: relative;
+        left: auto;
+        margin: 10px 0 0;
+        text-decoration: none;
+        overflow: visible;
+        @include font(base,16,700);
+        padding: 10px 15px;
+        border-radius: 3px;
+        color: #fff;
+        background: palette(primary);
+        border: 0;
+        display: inline-block;
+        background-image: none;
+        box-shadow: none;
+        text-shadow: none;
+        cursor: pointer;
+        &:hover{
+          border-color: #3a3a3a;
+          background-color: #3a3a3a;
+        }
+      }
+      a{
+        &:hover{
+          color:palette(text);
+        }
+      }
+    }
+  }
+}
+
+
+.woocommerce-MyAccount-content{
+  .woocommerce-orders-table{
+    .woocommerce-orders-table__cell-order-actions{
+      a{
+        background-color: palette(primary);
+        color:#fff;
+        &:not(:first-child){
+          margin-left: 6px;
+        }
+        &:hover{
+          background-color: #333;
+        }
+      }
+    }
+  }
+  .woocommerce-Message{
+    &.woocommerce-Message--info{
+      border-top-color: palette(primary);
+      &:before{
+        content: '\e015';
+        color:palette(primary)
+      }
+    }
+  }
+}
+
+.woocommerce-Addresses{
+  .woocommerce-Address{
+    .woocommerce-Address-title{
+      background: #fbfbfb;
+      padding: .5em;
+      margin-bottom: 0;
+      border-width: 1px 1px 0 1px;
+      border-style: solid;
+      border-color: #e5e5e5;
+      h3{
+        margin: 0;
+        padding: 12px 18px;
+        @include font(mid,25,400);
+      }
+      a{
+        padding: 10px 15px;
+      }
+    }
+    address{
+      padding: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 0;
+    }
+  }
+}
+
+.woocommerce-EditAccountForm{
+  .woocommerce-form-row{
+    input[type="text"],input[type="password"],input[type="email"]{
+      width: 100%;
+      margin: 0;
+      padding: 12px;
+      height: auto;
+      color: #666;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 0;
+      box-shadow: none;
+      transition: all .2s linear;
+      outline: 0;
+      line-height: 1;
+      -webkit-appearance: none;
+    }
+  }
+  fieldset{
+    border: 0;
+    margin: 1em 0 0;
+    padding: 3px;
+    legend{
+      padding: 3px 0;
+      border-bottom: 1px solid #e5e5e5;
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  .woocommerce-Button{
+    margin: 15px 0 0 3px !important;
+  }
+}
+
+
+.woocommerce-account{
+  .woocommerce{
+    .woocommerce-notices-wrapper{
+      .woocommerce-error{
+        margin: 0 0 30px 0;
+      }
+    }
+  }
+}

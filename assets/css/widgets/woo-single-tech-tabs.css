@@ -1,0 +1,320 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+.c-product-tech-accordion__header {
+  position: relative;
+  padding: 26px 20px 26px 0;
+  cursor: pointer; }
+
+.c-product-tech-accordion__title {
+  padding-right: 20px;
+  font-size: 1.125rem;
+  line-height: 1.11111;
+  font-weight: 700;
+  color: #333333; }
+  @media screen and (min-width: 576px) {
+    .c-product-tech-accordion__title {
+      font-size: 1.5rem;
+      line-height: 1.08333;
+      font-weight: 700; } }
+
+.c-product-tech-accordion__icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: block;
+  width: 17px;
+  height: 17px; }
+  .c-product-tech-accordion__icon:after, .c-product-tech-accordion__icon:before {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #333333; }
+  .c-product-tech-accordion__icon:after {
+    height: 3px;
+    width: 100%;
+    top: 7px;
+    left: 0; }
+  .c-product-tech-accordion__icon:before {
+    height: 100%;
+    width: 3px;
+    top: 0;
+    left: 7px;
+    opacity: 1;
+    transform: rotate(0);
+    transition: opacity 0.1s ease-in-out 0.5s, transform 0.4s ease-in-out;
+    transition-delay: 0s; }
+  .is-active .c-product-tech-accordion__icon:before {
+    opacity: 0;
+    transform: rotate(-0.25turn);
+    transition: opacity 0.1s ease-in-out 0.5s, transform 0.4s ease-in-out; }
+
+.c-product-tech-accordion__content {
+  display: none;
+  padding: 14px 20px 44px 0;
+  max-width: 800px; }
+  .c-product-tech-accordion__content p {
+    max-width: 630px;
+    font-size: 1rem;
+    line-height: 1.25;
+    font-weight: 400;
+    color: #676767; }
+    @media screen and (min-width: 576px) {
+      .c-product-tech-accordion__content p {
+        font-size: 1.125rem;
+        line-height: 1.44444;
+        font-weight: 400; } }
+  .c-product-tech-accordion__content.is-active {
+    display: block; }
+  .c-product-tech-accordion__content.c-product-tech-accordion__content--full {
+    max-width: 100%; }
+
+.wib {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  margin: 0 -15px; }
+
+.wib > div {
+  padding: 15px; }
+
+.wib div p {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  font-weight: 700;
+  color: #333333; }
+
+.wib img {
+  width: auto;
+  margin-bottom: 32px; }
+
+.c-product-tech-tabs-nav {
+  margin-bottom: 20px; }
+  @media screen and (min-width: 1025px) {
+    .c-product-tech-tabs-nav {
+      margin-bottom: 52px; } }
+
+.c-product-tech-tabs-nav__list {
+  list-style-type: none;
+  border-bottom: 1px solid #b1b1b1; }
+
+.c-product-tech-tabs-nav__item {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-size: 1.25rem;
+  line-height: 2.25;
+  font-weight: 300;
+  color: #333333;
+  cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    .c-product-tech-tabs-nav__item {
+      display: inline-block; } }
+  @media screen and (min-width: 1025px) {
+    .c-product-tech-tabs-nav__item {
+      font-size: 1.75rem;
+      line-height: 1.82143;
+      font-weight: 300; } }
+  .c-product-tech-tabs-nav__item span {
+    display: block;
+    padding: 3px 0; }
+    @media screen and (min-width: 768px) {
+      .c-product-tech-tabs-nav__item span {
+        display: inline-block;
+        padding: 6px 10px; } }
+    @media screen and (min-width: 1025px) {
+      .c-product-tech-tabs-nav__item span {
+        padding: 6px 22px; } }
+    .c-product-tech-tabs-nav__item span:after {
+      display: block;
+      content: attr(title);
+      font-weight: 700;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden; }
+  .c-product-tech-tabs-nav__item.is-active {
+    font-weight: 700; }
+  .c-product-tech-tabs-nav__item:first-child span {
+    padding-left: 0; }
+
+.c-product-tech-specs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px; }
+
+.c-product-tech-specs__item {
+  margin-bottom: 30px; }
+
+.c-product-tech-box__title {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  line-height: 1.1875;
+  font-weight: 900;
+  color: #333333; }
+
+.c-product-tech-box__content {
+  font-size: 1rem;
+  line-height: 1.1875;
+  font-weight: 400;
+  color: #333333; }
+
+.s-product-tech-specs {
+  padding: 30px 0;
+  background-color: #F7F7F7; }
+  @media screen and (min-width: 576px) {
+    .s-product-tech-specs {
+      padding: 60px 0 20px; } }
+  @media screen and (min-width: 1025px) {
+    .s-product-tech-specs {
+      padding: 85px 0 22px; } }

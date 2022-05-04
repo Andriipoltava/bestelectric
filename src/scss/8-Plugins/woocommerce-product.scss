@@ -1,0 +1,53 @@
+//Main setting
+@import '../1-Settings/settings';
+
+//Tools setting
+@import '../2-Tools/tools';
+
+//Base Woocommerce
+// @import "woocommerce/product/woocommerce-general";
+
+//Compontents
+// @import "woocommerce/product/components.woocommerceMyAccount.navigation";
+@import "woocommerce/product/components.galleryLoader";
+
+
+@import "woocommerce/product/components.productTechAccordion";
+@import "woocommerce/product/components.featuresSlide";
+@import "woocommerce/product/components.iconSliderNav";
+//@import "woocommerce/product/components.compareRanges";
+@import "woocommerce/product/components.productTabsNav";
+@import "woocommerce/product/components.productFeaturesList";
+@import "woocommerce/product/components.productCompareSizesAside";
+@import "woocommerce/product/components.compareSizes";
+@import "woocommerce/product/components.optionsBtns";
+@import "woocommerce/product/components.imageTooltip";
+@import "woocommerce/product/components.keyFeaturesList";
+@import "woocommerce/product/components.productImageSlider";
+@import "woocommerce/product/components.productIconFont";
+
+//Sections
+//@import "woocommerce/product/sections.compareRanges";
+@import "woocommerce/product/sections.produuctVideo";
+@import "woocommerce/product/sections.productTechnicalSpecs";
+@import "woocommerce/product/sections.productReviews";
+@import "woocommerce/product/sections.productMoreSlider";
+@import "woocommerce/product/sections.featuresSlider";
+@import "woocommerce/product/sections.productAllFeatures";
+@import "woocommerce/product/sections.productCompareSizes";
+@import "woocommerce/product/sections.productSummary";
+@import "woocommerce/product/sections.productImageSlider";
+@import "woocommerce/product/sections.productFeaturesColumns";
+
+//Organisms
+
+@import "woocommerce/product/organisms.singleAccessories";
+// @import "woocommerce/product/organisms.checkout";
+// @import "woocommerce/product/organisms.basket";
+
+// Calcualtor (needs to be separated)
+@import "calculator/components.checkbox";
+@import "calculator/components.radio";
+@import "calculator/sections.productCalculator";
+@import "woocommerce/product/organisms.popup";
+@import "calculator/organisms.calculator";

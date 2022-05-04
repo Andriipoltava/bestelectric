@@ -1,0 +1,61 @@
+//Main setting
+@import '1-Settings/settings';
+
+//Tools setting
+@import '2-Tools/tools';
+
+// Elements styles
+@import '3-Elements/elements';
+
+@import '4-Components/components.partnersLogos';
+@import '4-Components/components.trustpilotReviews';
+@import '4-Components/components.swiper';
+@import '4-Components/components.fancybox';
+
+//  footer
+@import '6-Organisms/organisms.footer';
+
+//// PLugins
+//@import '8-Plugins/elementor/elementor';
+//
+///*  7 - UTILITIES
+// *  High-specificity, very explicit selectors.
+// *  Overrides and helper classes.
+// =========================================================== */
+//@import '7-Utilities/utilities';
+
+.header-top-section {
+  .col-logo, .col-icon {
+    @include mq(1025) {
+      width: 50%;
+      font-size: 20px;
+
+    }
+
+  }
+
+}
+
+.header-menu-section {
+  .col-menu {
+    @include mq(1025) {
+      width: 82%;
+      .elementor-widget-wrap{
+        padding: 0;
+      }
+    }
+  }
+  .col-search {
+    @include mq(1025) {
+      width: 18%;
+    }
+  }
+}
+
+.c-product-buttons{
+  margin-top: -24px;
+}
+.bg-white{
+  background-color:white;
+}
+

@@ -1,0 +1,85 @@
+.c-options-btns {
+  margin: 10px 0 0;
+  width: 100%;
+  //order: -1;
+  @include mq(480) {
+    width: auto;
+    margin: 0;
+    //order: initial;
+  }
+}
+
+.c-options-btns__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+  .icon-compare-sizes {
+    position: static;
+    transform: none;
+  }
+
+  @include font(small, 16, 400);
+  color: palette(text, 500);
+  @include mq(480) {
+    padding-left: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+    @include font(base, 18, 400);
+  }
+
+  &:not(:last-child) {
+    margin-right: 20px;
+
+    @include mq(1200) {
+      margin-right: 26px;
+    }
+  }
+
+  &:after {
+    content: '\f107';
+    display: inline-block;
+    transform: translateY(-50%);
+    transform: rotate(-90deg);
+    font-size: 12px;
+    font-family: "Font Awesome 5 Free";
+    line-height: 1;
+    font-weight: 900;
+    margin-left: 5px;
+  }
+}
+
+.c-options-btns__icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: palette(text, 500);
+
+  &:before {
+    margin: 0;
+  }
+}
+
+.c-options-btns__icon--calc {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 20px;
+  background-image: url("../../../img/icons/orange-calculator-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.c-options-btns__item--wattage {
+  padding-left: 24px;
+}
+
+.c-options-btns__item--calc {
+
+}
+

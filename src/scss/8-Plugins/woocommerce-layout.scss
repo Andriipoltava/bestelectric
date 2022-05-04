@@ -1,0 +1,19 @@
+/*
+* WooCommerce Global Styles
+*/
+
+//Main setting
+@import '../1-Settings/settings';
+
+//Tools setting
+@import '../2-Tools/tools';
+
+@import "woocommerce/layout/woocommerce-layout";
+
+//Compontents
+@import "woocommerce/layout/components.productLoop";
+@import "woocommerce/layout/components.productLabel";
+
+@include mq($max:768){
+	@import "woocommerce/layout/woocommerce-smallscreen";
+}

@@ -1,0 +1,230 @@
+.c-compare-ranges {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 3px 35px #0000000D;
+}
+
+.c-compare-ranges__thumb {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  .c-compare-ranges-terms {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+}
+
+
+.c-compare-ranges__thumb-link {
+  display: block;
+  padding-bottom: 15px;
+  outline: none;
+}
+
+.c-compare-ranges__label {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+
+  display: inline-block;
+  padding: 6px 14px 5px;
+  min-width: 180px;
+  @include font(m4-small, 20, 400);
+  color: #fff;
+  text-align: center;
+  background-color: palette(oranges);
+  border-radius: 30px;
+}
+
+.c-compare-ranges__label--blue {
+  background-color: palette(c-blue);
+}
+
+.c-compare-ranges__body {
+  position: relative;
+  flex-grow: 1;
+  padding: 12px 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.c-compare-ranges__body--calc {
+  padding: 26px 30px 202px;
+}
+
+.c-compare-ranges__recommended {
+  padding: 10px 0;
+  margin: 0 -30px 12px -30px;
+  width: calc(100% + 60px);
+  color: palette(text, 600);
+  text-align: center;
+  background-color: palette(secondary);
+}
+
+.c-compare-ranges__recommended-label {
+  margin-bottom: 5px!important;
+  @include font(base, 22, 400);
+
+}
+
+.c-compare-ranges__recommended-wattage {
+  @include font(mid-large, 22, 700);
+}
+
+.c-compare-ranges__title {
+  margin-bottom: 16px;
+  @include font(s-large, 32, 400);
+  color: palette(text, 600);
+
+  sup {
+    @include font(m4-small, 16, 300);
+    text-transform: uppercase;
+  }
+}
+
+.c-compare-ranges__description {
+  @include font(base, 22, 400);
+  color: palette(text);
+
+  p {
+    line-height: inherit;
+  }
+
+  .features-icons-container {
+    display: none;
+  }
+
+  margin-bottom: 10px;
+}
+
+.c-compare-ranges__ksp {
+  margin: 0!important;
+  padding: 0 0 15px 0;
+
+
+  &-item {
+    list-style-type: none!important;
+
+    padding: 1px 0;
+    @include font(base, 22, 700);
+    color: palette(text, 600);
+    //text-transform: uppercase;
+  }
+}
+
+.c-compare-ranges__footer {
+  top: auto;
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: left;
+}
+
+.c-compare-ranges__footer--calc {
+  bottom: 12px;
+}
+
+.c-compare-ranges__price, .c-compare-ranges__btn, .c-compare-ranges__colors {
+  //padding: 0 6px;
+}
+
+.c-compare-ranges__colors {
+  width: 100%;
+}
+
+.c-compare-ranges__product-link {
+  display: inline-block;
+  min-width: 80px;
+  padding: 13px;
+  @include font(small, 14, 400);
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: palette(primary);
+  border-radius: 6px;
+  outline: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.c-compare-ranges__price {
+  @include font(base, 24, 300);
+  color: palette(text, 600);
+
+  .woocommerce-Price-amount {
+    margin-left: 2px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.c-compare-ranges__colors-label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 6px;
+  @include font(x-small, 10, 300);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.c-compare-ranges__colors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+  .c-compare-ranges__footer--calc & {
+    margin-bottom: 14px;
+  }
+}
+
+.c-compare-ranges__colors--reverse {
+  flex-direction: row-reverse;
+}
+
+.c-compare-ranges__color-btn {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 3px;
+  border-radius: 50%;
+  border: 1px solid palette(text, 200);
+  outline: none;
+}
+
+.c-compare-ranges__thumb--secondary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease-in-out;
+
+  &.visible-thumb {
+    opacity: 1;
+    visibility: visible;
+  }
+}

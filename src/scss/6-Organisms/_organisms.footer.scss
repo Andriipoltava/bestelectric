@@ -1,0 +1,122 @@
+
+
+
+.o-footer__newsletter{
+  position: relative;
+  overflow: hidden;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 50%;
+    width: 100%;
+    background: #fff;
+  }
+}
+
+.newsletter-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.newsletter-email {
+  width: auto;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}    
+@media screen and (min-width: 440px) {
+	.newsletter-email {
+	  padding-right: 20px;
+	  margin-bottom: 0;
+	}
+}	
+	
+.newsletter-email label {
+	display: none;
+}
+.newsletter-email input {
+	background-color: #F7F7F7;
+	font-size: 16px;
+	min-height: 47px;
+	padding: 6px 16px;
+	width: 100%;
+	border: 1px solid #CCC;
+	color: #373a3c;
+	vertical-align: middle;
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+}
+.newsletter-terms {
+	position: relative;
+  margin: 12px 0 0;
+}
+.newsletter-terms input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	border: none;
+	z-index: -333;
+	opacity: 0;
+}
+.newsletter-terms label {
+	position: relative;
+	display: inline-block;
+	padding-left: 30px;
+	max-width: 480px;
+	font-size: .875rem;
+	line-height: 1.21429;
+	font-weight: 300;
+	color: #6d6e71;
+}
+.newsletter-terms label:hover {
+  cursor: pointer;
+}
+.newsletter-terms label:before {
+  content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+}
+.newsletter-terms label:after {
+  content: '';
+  position: absolute;
+	top: 3px;
+	left: 4px;
+	display: block;
+	width: 14px;
+	height: 13px;
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC4wMDIiIGhlaWdodD0iMTMuMDY4IiB2aWV3Qm94PSIwIDAgMTQuMDAyIDEzLjA2OCI+DQogIDxwYXRoIGlkPSJQYXRoXzQzOCIgZGF0YS1uYW1lPSJQYXRoIDQzOCIgZD0iTTIxOS45NzksMzIuMzU2bDMuNzM0LDUuMTM0LDEwLjI2OC0xMy4wNjlMMjIzLjcxMywzMy4yOVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMTkuOTc5IC0yNC40MjIpIiBmaWxsPSIjMjgyODI4Ii8+DQo8L3N2Zz4NCg==);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0;
+	transition: opacity .2s ease-in-out;
+}
+.newsletter-terms input[type=checkbox]:checked+label:after {
+	opacity: 1;
+}
+
+.newsletter-submit {
+  width: 100%;
+}
+@media screen and (min-width: 440px) {
+	.newsletter-submit {
+	  width: auto;
+	}
+}
+.newsletter-submit input {
+	min-height: 47px;
+	width: 100%;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 8px;
+	padding: 0px 16px 0px 16px;
+}

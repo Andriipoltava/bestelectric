@@ -1,0 +1,141 @@
+.s-compare-ranges {
+  //padding: 48px 15px !important;
+  overflow: hidden;
+
+  &.s-compare-ranges--notitle {
+    padding: 0 !important;
+  }
+
+  .swiper-slide {
+    padding: 0 15px;
+    height: auto;
+    @include mq(1200) {
+      padding: 0 20px;
+    }
+  }
+
+
+  .swiper-wrapper {
+    padding: 30px 0;
+    @include mq(1440) {
+      justify-content: center;
+    }
+  }
+}
+
+.s-compare-ranges__title {
+  @include font(large, 36, 300);
+  text-align: left;
+
+
+  @include mq(567, 1024) {
+    @include font(m-large, 42, 300);
+  }
+  @include mq(1024) {
+    text-align: center;
+    @include font(l2-large, 53, 300);
+  }
+}
+
+.s-compare-ranges {
+  &__slide {
+    display: block !important;
+    //height: inherit;
+    background-color: #fff;
+  }
+
+  &__intro {
+    position: relative;
+    padding-bottom: 15px;
+
+    &.s-compare-ranges__notitle {
+      min-height: 60px;
+      justify-content: flex-end;
+    }
+
+    @include mq(1025, 1400) {
+      padding: 0 15px;
+
+    }
+
+    @include mq(null, 1025) {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 15px;
+      .s-compare-ranges__nav {
+        position: static;
+      }
+    }
+  }
+
+  .s-compare-ranges__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include mq(1400) {
+      display: none;
+    }
+
+    .c-features-slide__nav-arrow-fr {
+      min-width: 20px;
+    }
+
+    &-arrow {
+      z-index: 11;
+      cursor: pointer;
+
+      &.swiper-button-disabled {
+        opacity: 0.4;
+        cursor: inherit;
+      }
+
+      svg {
+        max-width: 24px;
+        height: 30px;
+        @include mq(760) {
+          height: 48px;
+        }
+      }
+
+      &-fr {
+        min-width: 35px;
+        text-align: center;
+      }
+    }
+
+  }
+
+  &:not(.s-compare-ranges--notitle) {
+    .s-compare-ranges__nav {
+      @include mq(1025) {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.JS-compare-ranges-slider {
+  @include mq(null, 1025) {
+    max-width: 80%;
+    overflow: visible !important;
+    .s-compare-ranges__intro {
+      width: 120%;
+    }
+  }
+
+  &:not(.swiper-container-initialized) {
+    display: none;
+  }
+
+  .s-compare-ranges__slider {
+
+    @include mq(1400) {
+      transform: translate3d(0px, 0, 0) !important;
+    }
+  }
+}
+

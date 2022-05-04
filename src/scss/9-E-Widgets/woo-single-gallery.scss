@@ -1,0 +1,15 @@
+//Main setting
+
+@import '../1-Settings/settings';
+
+//Tools setting
+@import '../2-Tools/tools';
+
+@import "../8-Plugins/woocommerce/product/components.gallery";
+@import "../8-Plugins/woocommerce/product/components.galleryLoader";
+@import "../8-Plugins/woocommerce/product/sections.productImageSlider";
+@import "../8-Plugins/woocommerce/product/components.productButtons";
+
+.c-product-buttons{
+  margin-top: -24px;
+}

@@ -1,0 +1,63 @@
+.c-partners-logos {
+
+}
+
+.c-partners-logos__grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.c-partners-logos__item {
+  padding: 15px;
+  width: 50%;
+
+  @include mq(768){
+    width: auto;
+  }
+}
+
+.c-partners-logos__item--title {
+  width: 100%;
+  @include mq(992) {
+    width: auto;
+    flex: 0 0 220px;
+  }
+}
+
+.c-partners-logos__title {
+  margin-bottom: 0;
+  @include font(large, 26, 400);
+  color: #989898;
+  text-align: center;
+  @include mq(992){
+    text-align: left;
+  }
+}
+
+.c-partners-logos__link {
+  display: block;
+  img{
+    margin: 0 auto;
+    filter: grayscale(100%);
+    @include mq(768){
+      //margin: 0 auto;
+    }
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.c-partners-logos__img {
+  margin: 0 auto;
+  filter: grayscale(100%);
+  @include mq(768){
+    //margin: 0 auto;
+  }
+  &:hover {
+    filter: grayscale(0);
+  }
+}

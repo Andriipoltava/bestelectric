@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'ber-ui-icons';
+  src: url('../font/ber-ui-icons.eot?54430730');
+  src: url('../font/ber-ui-icons.eot?54430730#iefix') format('embedded-opentype'),
+       url('../font/ber-ui-icons.woff2?54430730') format('woff2'),
+       url('../font/ber-ui-icons.woff?54430730') format('woff'),
+       url('../font/ber-ui-icons.ttf?54430730') format('truetype'),
+       url('../font/ber-ui-icons.svg?54430730#ber-ui-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'ber-ui-icons';
+    src: url('../font/ber-ui-icons.svg?54430730#ber-ui-icons') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-ui-"]:before, [class*=" icon-ui-"]:before, .fas:before, .fab:before {
+  font-family: "ber-ui-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-ui-plus:before, .fa-plus:before { content: '\e800'; } /* '' */
+.icon-ui-minus:before, .fa-minus:before { content: '\e801'; } /* '' */
+.icon-ui-twitter:before, .fa-twitter:before { content: '\f099'; } /* '' */
+.icon-ui-facebook:before, .fa-facebook-f:before, .fa-facebook:before { content: '\f09a'; } /* '' */
+.icon-ui-linkedin:before, .fa-linkedin-in:before, .fa-linkedin:before { content: '\f0e1'; } /* '' */
+.icon-ui-angle-down:before, .fa-angle-down:before { content: '\f107'; } /* '' */
+.icon-ui-instagram:before, .fa-instagram:before { content: '\f16d'; } /* '' */
+.icon-ui-book:before, .fa-book:before { content: '\e802'; } /* '' */
+.icon-ui-arrows-cw:before, .fa-sync-alt:before { content: '\e803'; } /* '' */
+.icon-ui-videocam:before, .fa-video:before { content: '\e804';} /* '' */
+.icon-ui-cw:before, .fa-redo:before { content: '\e805'; } /* '' */
+.icon-ui-menu:before, .fa-menu:before { content: '\f0c9'; } /* '' */
+.icon-ui-pinterest:before, .fa-pinterest:before { content: '\f231'; } /* '' */

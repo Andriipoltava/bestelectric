@@ -1,0 +1,29 @@
+.s-product-calculator {
+  padding: 60px 0;
+  background-color: #f8f8f8;
+  #cvy_calculator_rows {
+    margin-bottom: 24px;
+  }
+}
+
+.s-product-calculator__title {
+  margin-bottom: 20px;
+  @include font(sm-large, 40, 400);
+  text-align: center;
+}
+
+.s-product-calculator__help {
+  margin-top: 50px;
+  padding: 0 15px;
+  text-align: center;
+  color:palette(text,600);
+  h4 {
+    @include font(large, 40, 400);
+    @include mq(768){
+      @include font(sm-large, 40, 400);
+    }
+  }
+  p {
+    @include font(mid, 30, 400);
+  }
+}

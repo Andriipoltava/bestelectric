@@ -1,0 +1,234 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+.s-product-more-slider {
+  padding: 90px 0 20px; }
+  @media screen and (max-width: 1024px) {
+    .s-product-more-slider {
+      padding: 50px 0 0; } }
+  @media screen and (min-width: 1025px) and (max-width: 1439px) {
+    .s-product-more-slider {
+      padding: 60px 40px 10px; } }
+  .s-product-more-slider__title {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.65625;
+    font-weight: 300;
+    text-align: left; }
+    .s-product-more-slider__title span {
+      font-weight: 400;
+      font-style: italic; }
+    @media screen and (min-width: 576px) {
+      .s-product-more-slider__title {
+        text-align: center; } }
+  @media screen and (min-width: 1400px) {
+    .s-product-more-slider__slide {
+      width: 370px; } }
+  .s-product-more-slider__img img {
+    width: 100%; }
+    @media screen and (max-width: 479px) {
+      .s-product-more-slider__img img {
+        width: 100%; } }
+  .s-product-more-slider__content {
+    text-align: center;
+    color: #282828;
+    padding: 24px;
+    box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.05); }
+    @media screen and (min-width: 480px) {
+      .s-product-more-slider__content {
+        text-align: left;
+        padding: 23px 0 0;
+        box-shadow: none; } }
+  .s-product-more-slider__subtitle {
+    margin: 0 0 18px;
+    font-size: 1.5rem;
+    line-height: 1.66667;
+    font-weight: 300; }
+  .s-product-more-slider__description p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400; }
+  .s-product-more-slider__nav {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center; }
+  .s-product-more-slider__nav-arrow {
+    color: #333333;
+    cursor: pointer; }
+    .s-product-more-slider__nav-arrow.swiper-button-disabled {
+      opacity: 0.4;
+      cursor: inherit; }
+    .s-product-more-slider__nav-arrow svg {
+      max-width: 24px;
+      height: 30px; }
+      @media screen and (min-width: 760px) {
+        .s-product-more-slider__nav-arrow svg {
+          height: 48px; } }
+    .s-product-more-slider__nav-arrow-fr {
+      min-width: 35px;
+      text-align: center; }
+  .s-product-more-slider__nav-arrow-fr {
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: 3px; }
+    @media screen and (min-width: 480px) {
+      .s-product-more-slider__nav-arrow-fr {
+        min-width: 35px;
+        font-size: 0; } }
+
+.s-more-slider__intro {
+  position: relative;
+  margin-bottom: 40px; }

@@ -1,0 +1,35 @@
+.s-product-all-features {
+  padding-top: 24px;
+  padding-bottom: 40px;
+  @include mq(768){
+    padding-top: 30px;
+  }
+  @include mq(992){
+    padding-top: 58px;
+  }
+}
+
+.s-product-all-features__intro {
+  margin-bottom: 30px;
+  @include mq(992){
+    margin-bottom: 132px;
+  }
+}
+
+
+
+.s-product-all-features__title {
+  @include font(s2-large, 41, 300);
+  color: palette(text, 600);
+  text-align: center;
+  @include mq(768){
+    @include font(l2-large, 55, 300);
+  }
+  sup {
+    @include font(m-small, 12, 300);
+    text-transform: uppercase;
+    @include mq(768){
+      @include font(s-mid, 21, 300);
+    }
+  }
+}

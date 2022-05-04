@@ -1,0 +1,11 @@
+.s-product-tech-specs{
+  padding: 30px 0;
+  background-color: palette(secondary);
+
+  @include mq(576){
+    padding: 60px 0 20px;
+  }
+  @include mq(1025){
+    padding: 85px 0 22px;
+  }
+}

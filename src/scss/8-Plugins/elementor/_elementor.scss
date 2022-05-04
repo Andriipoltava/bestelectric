@@ -1,0 +1,32 @@
+.elementor-heading-title{
+  color:palette(text,500);
+}
+
+h1.elementor-heading-title{
+  @include font(sm-large,30,400);
+  @include mq(768){
+    @include font(l-large,35,400);
+  }
+}
+
+h2 {
+
+}
+
+h3.elementor-heading-title{
+  @include font(mid-large,28,400);
+  @include mq(768){
+    @include font(large,35,400);
+  }
+}
+
+.elementor-button{
+  background-color: palette(primary);
+}
+
+.secondary .elementor-button{
+  background: none;
+  border: 1px solid;
+  border-color: palette(primary);
+  color: palette(primary);
+}

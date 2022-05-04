@@ -1,0 +1,212 @@
+.woocommerce-checkout{
+  &.woocommerce-page{
+    .woocommerce-info{
+      border-top-color: palette(primary);
+      &:before{
+        color:palette(primary);
+      }
+    }
+    form{
+      &.checkout{
+        &.woocommerce-checkout{
+          .col2-set{
+            @include mq(768){
+              width: 55%;
+              float: left;
+              margin-right: 4.347826087%;
+            }
+            .col-1,.col-2{
+              padding: 0;
+              float: none;
+              width: auto;
+              max-width: 100%;
+            }
+            h3{
+              padding: 20px 0 14px;
+              margin: 0 0 20px;
+              @include font(mid,25,400);
+              border-bottom: 1px solid #ebebeb;
+              width: 100%;
+            }
+          }
+          .woocommerce-billing-fields__field-wrapper,.woocommerce-additional-fields__field-wrapper,.woocommerce-account-fields {
+            label,strong{
+              color:palette(text,500);
+              span{
+                color:palette(text,500);
+              }
+            }
+            input[type="text"],input[type="tel"],input[type="email"],textarea{
+              width: 100%;
+              margin: 0;
+              padding: 12px;
+              height: auto;
+              @include font(l-small,15,400);
+              color: #666;
+              background: #fff;
+              border: 1px solid #ddd;
+              border-radius: 0;
+              box-shadow: none;
+              transition: all .2s linear;
+              outline: 0;
+              line-height: 1;
+              -webkit-appearance: none;
+            }
+            textarea{
+             line-height: 1.5;
+            }
+          }
+          #order_review_heading,#order_review{
+            @include mq(768){
+              width: 40%;
+              float: right;
+              margin-right: 0;
+              clear: right;
+            }
+          }
+          #order_review_heading{
+            @include font(mid,25,400);
+            border-width: 2px 2px 0 2px;
+            border-style: solid;
+            margin: 0;
+            padding: 27px 27px 18px;
+            border-color: #ebebeb;
+          }
+          #order_review{
+            padding: 0 30px;
+            border-width: 0 2px 2px;
+            border-style: solid;
+            border-color: #ebebeb;
+            #payment{
+              background: #fff;
+              
+              input[type=radio] {
+              	border: none;
+              	width: 1.3em;
+              	height: 1.3em;
+              	vertical-align: middle;
+              }
+            }
+            .shop_table{
+              border:none;
+              th,td{
+                color:palette(text,500);
+                border-top: 0;
+                border-right: 0;
+                padding-left: 0;
+                border-bottom: 1px solid #ebebeb;
+              }
+            }
+            .wc_payment_methods,.place-order{
+              padding: 0;
+              background: #fff;
+            }
+            .place-order{
+              padding-bottom: 30px;
+            }
+            .wc_payment_methods{
+              margin-bottom: 15px;
+              border:none;
+              li{
+                list-style-type: none;
+                .payment_box{
+                  background-color: #f7f7f7;
+                  &:before{
+                    border-bottom-color: #f7f7f7;
+                  }
+                }
+                img{
+                  display: inline-block;
+                }
+                a{
+                  font-size: 12px !important;
+                  &:hover{
+                    color:palette(text,500);
+                  }
+                }
+                p{
+                  font-size: 14px;
+                  color:palette(text,500);
+                }
+              }
+            }
+            .woocommerce-terms-and-conditions-wrapper{
+              p{
+                font-size: 14px;
+                color:palette(text,500);
+              }
+            }
+            button[type="submit"]{
+              width: 100%;
+            }
+            .woocommerce-form__label{
+              font-size: 15px;
+              line-height: 18px;
+              color:palette(text,500);
+              cursor: pointer;
+            }
+            .mailchimp-newsletter{
+              line-height: 18px;
+              margin-bottom: 0;  
+              padding: 10px;
+              margin: 0 0 10px;
+              background: #f7f7f7;
+            }
+
+          }
+        }
+      }
+    }
+  }
+  .woocommerce-form-login, .woocommerce-form-coupon {
+    input[type="text"],input[type="tel"],input[type="email"],input[type="password"],textarea{ 
+      width: 100%;
+      margin: 0;
+      padding: 12px;
+      height: auto;
+      @include font(l-small,15,400);
+      color: #666;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 0;
+      box-shadow: none;
+      transition: all .2s linear;
+      outline: 0;
+      line-height: 1;
+      -webkit-appearance: none;
+    }
+  }
+  
+  
+}
+
+#mailchimp-gdpr-fields{
+  margin-bottom: 10px;
+  padding:5px 10px 10px;
+  background: palette(secondary);
+  p{
+    margin: 0 0 0 20px;
+    color:palette(text,500);
+    font-weight: 700;
+  }
+}
+
+#sagepaydirect-cc-form {
+	border: none;
+	padding: 1em 0;
+	
+	select {
+    background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%), 
+    radial-gradient(#b8cf40 70%, transparent 72%);
+    background-position: calc(99% - 22px) 20px, calc(99% - 17px) 20px, calc(99% - 10px) 10px !important;
+    background-size: 5px 5px, 5px 5px, 24px 24px;
+    background-repeat: no-repeat;
+    background-color: #fff !important;
+  }
+  .wc-credit-card-form-card-type, .wc-credit-card-form-card-expiry-date, .wc-credit-card-form-card-number, 
+  .wc-credit-card-form-card-expiry, .wc-credit-card-form-card-cvc {
+  	font-size: 1.3em !important;
+  	background-color: #fff !important;
+  	width: 100% !important;
+  }
+}

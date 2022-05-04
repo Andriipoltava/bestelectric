@@ -1,0 +1,130 @@
+.s-product-image-slider {
+  padding: 50px 0 0;
+  @include mq(1200) {
+    padding: 60px 40px 0;
+  }
+  @include mq(1480) {
+    padding: 60px 0 0;
+  }
+}
+
+.s-product-image-slider__intro {
+  margin-bottom: 26px;
+  color: palette(text, 600);
+
+  @include mq(768) {
+    margin-bottom: 58px;
+  }
+}
+
+.s-product-image-slider__title {
+  margin-bottom: 12px;
+  @include font(m-mid-large, 30, 700);
+  text-align: center;
+
+  @include mq(480) {
+    @include font(m-large, 40, 700);
+  }
+}
+
+.s-product-image-slider__description {
+  @include font(base, 22, 300);
+  text-align: center;
+
+  @include mq(480) {
+    @include font(mid, 26, 300);
+  }
+
+  p {
+    line-height: inherit;
+  }
+}
+
+.s-product-image-slider__slider.swiper-custom.swiper-container-initialized {
+  overflow: visible !important;
+  position: relative;
+
+}
+
+.c-product-image-slider__slide {
+  transition: opacity 0.5s ease;
+
+  &.swiper-slide.swiper-slide-active {
+    opacity: 1;
+  }
+
+  &.swiper-slide {
+    opacity: 0;
+  }
+}
+
+
+.s-product-image-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none !important;
+  cursor: pointer;
+
+  svg {
+    height: 48px;
+    max-width: 24px;
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: inherit;
+  }
+
+  z-index: 11;
+  @include mq(1200) {
+    display: block !important;
+  }
+}
+
+.s-product-image-slider__prev {
+  left: -25px;
+
+  @include mq(1480) {
+    left: -50px;
+  }
+}
+
+.s-product-image-slider__next {
+  right: -25px;
+  @include mq(1480) {
+    right: -50px;
+  }
+}
+
+.s-product-image-slider__dots {
+  margin-top: 30px;
+
+  &-list {
+    display: flex;
+    justify-content: center;
+
+    .swiper-pagination-bullet {
+      display: inline-block;
+      cursor: pointer;
+      width: 17px !important;
+      height: 17px !important;
+      font-size: 0;
+      border: 1px solid palette(text, 200);
+      border-radius: 50%;
+      background-color: #fff !important;
+
+      &.swiper-pagination-bullet-active {
+
+        background-color: palette(text, 200) !important;
+
+      }
+
+      &:not(:last-child) {
+        margin-right: 22px;
+      }
+    }
+
+  }
+}
+

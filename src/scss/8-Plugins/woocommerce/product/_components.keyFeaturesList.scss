@@ -1,0 +1,46 @@
+.c-key-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  @include mq(480){
+    padding-left: 22px;
+    margin: 0 -15px;
+  }
+}
+
+.c-key-features-list__item {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 10px;
+  @include font(base, 20, 400);
+  color: #303D3D;
+
+  @include mq(480){
+    padding: 0 15px;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+
+  @include mq(992){
+    @include font(mid, 22, 400);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #303D3D;
+    @include mq(480){
+      top: 8px;
+      left: -5px;
+      width: 6px;
+      height: 6px;
+    }
+  }
+}

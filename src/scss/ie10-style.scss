@@ -1,0 +1,40 @@
+/*- IE10 STYLE -*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .woocommerce ul.products li.product .price {
+    margin-bottom: 15px !important;
+  }
+  .elementor-element.elementor-products-grid ul.products {
+    display: flex !important;
+  }
+  .woocommerce-page.rel-up-columns-2 div.product .related.products ul.products li.product,
+  .woocommerce-page.rel-up-columns-2 div.product .up-sells ul.products li.product,
+  .woocommerce.rel-up-columns-2 div.product .related.products ul.products li.product,
+  .woocommerce.rel-up-columns-2 div.product .up-sells ul.products li.product {
+    width: calc(50% - 10px) !important;
+  }
+  .woocommerce-page.rel-up-columns-3 div.product .related.products ul.products li.product,
+  .woocommerce-page.rel-up-columns-3 div.product .up-sells ul.products li.product,
+  .woocommerce.rel-up-columns-3 div.product .related.products ul.products li.product,
+  .woocommerce.rel-up-columns-3 div.product .up-sells ul.products li.product {
+    width: 100% !important;
+  }
+  .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+    float: left !important;
+    margin: 0 20px 2.992em 0 !important;
+    padding: 0 !important;
+  }
+  .woocommerce-page.rel-up-columns-2 div.product .related.products ul.products li.product:nth-child(2n), .woocommerce-page.rel-up-columns-2 div.product .up-sells ul.products li.product:nth-child(2n), .woocommerce.rel-up-columns-2 div.product .related.products ul.products li.product:nth-child(2n), .woocommerce.rel-up-columns-2 div.product .up-sells ul.products li.product:nth-child(2n) {
+    margin-right: 0 !important;
+    clear: right !important;
+  }
+  .woocommerce-page.columns-2 ul.products li.product:nth-child(2n), .woocommerce.columns-2 ul.products li.product:nth-child(2n) {
+    margin-right: 0 !important;
+    clear: right !important;
+  }
+  .woocommerce-page.columns-3 ul.products li.product:nth-child(3n), .woocommerce.columns-3 ul.products li.product:nth-child(3n) {
+    margin-right: 0 !important;
+    clear: right !important;
+  }
+}
+
+/*- END IE10 STYLE -*/

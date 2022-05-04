@@ -1,0 +1,120 @@
+.s-features-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.s-features-slider__header {
+  padding: 26px 0;
+  @include mq(768){
+    padding: 15px 0;
+  }
+}
+
+.s-features-top-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.s-features-top-nav__title {
+  flex-grow: 1;
+  padding: 10px 0;
+  margin-bottom: 0;
+  @include font(m-mid-large, 26, 300);
+  color: palette(text, 600);
+  text-align: left;
+  span {
+    font-weight: 400;
+    font-style: italic;
+  }
+  @include mq(768) {
+    //min-width: 360px;
+    @include font(m-large, 36, 300);
+    //text-align: center;
+   // width: 100%;
+  }
+  @include mq(1200) {
+    max-width: 360px;
+    width: auto;
+    text-align: left;
+  }
+}
+
+.s-features-top-nav__icons {
+  display: none;
+  @include mq(768) {
+    //width: 100%;
+
+  }
+  @include mq(1200) {
+    display: block;
+    width: auto;
+  }
+}
+
+.s-features-slider__slide {
+  position: relative;
+  padding: 20px 0 126px;
+  min-height: 500px;
+  background-position: 90% 100% !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+
+  @include mq(1024){
+    //background-position: center center !important;
+  }
+  @include mq($max:768){
+   background-image: none !important;
+  }
+  @include mq(768){
+    background-position: center center !important;
+    min-height: 750px;
+    padding: 76px 0 126px;
+  }
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.s-features-slider__slide--mobile-bg{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  //background-repeat: no-repeat !important;
+  //background-size: cover !important;
+  //background-position: 90% 100% !important;
+  @include mq(768){
+    //display: none;
+    //width: 0;
+    //height: 0;
+  }
+  img{
+    object-fit: cover;
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.s-features-slider__footer {
+  display: none;
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: 75px;
+  width: 100%;
+
+  @include mq(1200) {
+    display: block;
+  }
+}
+
+.s-features-top-nav__arrows {
+  display: block;
+  @include mq(1200) {
+    display: none;
+  }
+}

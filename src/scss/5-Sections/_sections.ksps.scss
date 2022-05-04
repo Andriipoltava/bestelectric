@@ -1,0 +1,125 @@
+
+.hero-p:before {
+  height: 32px !important;
+}
+
+.hero-p {
+  margin-bottom: 0 !important;
+  position: relative;
+  color: #525252;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+@include mq(576) {
+  .hero-p {
+    max-width: 85% !important;
+  }
+}
+
+#hp1:before {
+  content: url('/wp-content/uploads/2019/03/icon1.svg');
+  display: block;
+}
+
+#hp2:before {
+  content: url('/wp-content/uploads/2019/03/icon2.svg');
+  display: block;
+}
+
+#hp3:before {
+  content: url('/wp-content/uploads/2019/03/icon3.svg');
+  display: block;
+}
+
+#hp4:before {
+  content: url('/wp-content/uploads/2019/03/icon4.svg');
+  display: block;
+}
+
+.s-ksps {
+  padding: 66px 0;
+
+  @include mq(576) {
+    padding: 124px 0;
+  }
+}
+
+.s-ksps__slider__box {
+  text-align: center;
+}
+
+.s-ksps__slider__img {
+  display: inline-block;
+  margin-bottom: 26px;
+
+  img {
+    padding: 6px;
+    background-color: palette(primary, 400);
+    border-radius: 50%;
+    width: 80px!important;
+    height: 80px;
+  }
+}
+
+.s-ksps__slider__content {
+
+  @include mq(576) {
+    padding: 0 18px;
+  }
+}
+
+.s-ksps__slider__title {
+  @include font(mid-large, 22, 400);
+  color: palette(text, 600);
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.s-ksps__slider__desc {
+  max-width: 234px;
+  margin: 0 auto;
+  @include font(small, 24, 400);
+  p {
+    @include font(small, 24, 400);
+  }
+  color: palette(text, 200);
+}
+
+.s-ksps {
+  .slick-slider {
+    .slick-dots {
+      margin: 42px 0 0 0;
+
+      li {
+        button {
+          width: 23px;
+          height: 23px;
+          border: 2px solid palette(text);
+          background: transparent;
+        }
+
+        &.slick-active {
+          button {
+            border-color: palette(primary);
+            box-shadow: 0 3px 6px rgba(#000, 0.24);
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 17px;
+        }
+      }
+    }
+  }
+}
+
+@include mq(1400) {
+  .s-ksps__slider {
+    transform: translate3d(0px, 0, 0) !important;
+  }
+
+}

@@ -1,0 +1,89 @@
+#twlRPS {
+  max-width: 570px;
+  overflow: hidden;
+}
+
+#twlRPS .trustpilot-widget {
+  width: 880px;
+  left: -248px;
+}
+
+#sp_temp-trust #twlRPS {
+  width: 850px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  margin-left: calc(-44% + 3px);
+}
+
+.product_cat-accessories {
+  #sp_temp-trust {
+    #twlRPS {
+      margin-left: calc(-41% + 3px);
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  #sp_temp-trust #twlRPS {
+    width: 640px !important;
+  }
+
+  #s_menu-col2 #twlRPS {
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+  #s_menu-col2 #twlRPS .trustpilot-widget {
+    width: 650px;
+    left: -180px;
+  }
+}
+@media screen and (max-width: 991px) {
+
+  #s_menu-col2 #twlRPS {
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+  #s_menu-col2 #twlRPS .trustpilot-widget {
+    width: 650px;
+    left: -180px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+  #sp_temp-trust #twlRPS {
+    width: auto !important;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+
+  #sp_temp-trust #twlRPS {
+    width: 100% !important;
+    display: block !important;
+    margin: 10px 0 !important;
+  }
+  #sp_temp-trust #twlRPS .trustpilot-widget {
+    width: auto;
+    left: auto;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 639px) {
+
+  #twlRPS .trustpilot-widget {
+    width: 300px;
+    left: -35px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+
+   #twlRPS .trustpilot-widget {
+    width: 300px;
+    left: -35px;
+  }
+}

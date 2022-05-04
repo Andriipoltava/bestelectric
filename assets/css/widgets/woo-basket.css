@@ -1,0 +1,399 @@
+@charset "UTF-8";
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+.с-cart-btn {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 400;
+  color: #6d6e71; }
+  @media screen and (min-width: 768px) {
+    .с-cart-btn {
+      padding: 14px 14px 5px 0; } }
+  @media screen and (min-width: 1025px) {
+    .с-cart-btn {
+      padding: 14px; } }
+
+.с-cart-btn__icon svg {
+  width: 20px;
+  height: 18px;
+  min-width: 20px; }
+  @media screen and (min-width: 768px) {
+    .с-cart-btn__icon svg {
+      width: 22px;
+      height: 20px;
+      min-width: 22px; } }
+
+.с-cart-btn__count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  font-size: 0.5625rem;
+  line-height: 1.55556;
+  font-weight: 400;
+  text-align: center;
+  background: #FC9E4E;
+  border-radius: 50%;
+  color: #fff; }
+  @media screen and (min-width: 768px) {
+    .с-cart-btn__count {
+      top: 6px;
+      right: 6px; } }
+
+.c-cart-content {
+  position: absolute;
+  top: calc(100% + 18px);
+  bottom: 0;
+  right: -15px;
+  z-index: 9999;
+  display: none;
+  width: 100vw;
+  text-align: left; }
+  @media screen and (min-width: 480px) {
+    .c-cart-content {
+      width: 375px; } }
+  @media screen and (min-width: 768px) {
+    .c-cart-content {
+      right: 0; } }
+  @media screen and (min-width: 1025px) {
+    .c-cart-content {
+      top: 100%; } }
+  @media screen and (min-width: 1025px) {
+    .o-header__cart:hover .c-cart-content {
+      display: block !important; } }
+  .c-mobile-header__cta-item .c-cart-content {
+    display: none; }
+
+.c-cart-content__wrapper {
+  position: relative;
+  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.29);
+  background-color: #F2F2F2; }
+  @media screen and (min-width: 480px) {
+    .c-cart-content__wrapper {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.29); } }
+  .c-cart-content__wrapper:after, .c-cart-content__wrapper:before {
+    bottom: 100%;
+    left: auto;
+    right: 24px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+    @media screen and (min-width: 1025px) {
+      .c-cart-content__wrapper:after, .c-cart-content__wrapper:before {
+        right: 12px; } }
+  .c-cart-content__wrapper:before {
+    border-color: rgba(230, 230, 230, 0);
+    border-bottom-color: #e6e6e6;
+    border-width: 10px;
+    right: 24px; }
+    @media screen and (min-width: 1025px) {
+      .c-cart-content__wrapper:before {
+        right: 12px; } }
+  .c-cart-content__wrapper:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #F2F2F2;
+    border-width: 10px; }
+  .c-cart-content__wrapper .elr-mini-cart-product-empty {
+    margin: 0;
+    padding: 18px;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 400;
+    background: #F2F2F2;
+    color: #000; }
+  .c-cart-content__wrapper .widget_shopping_cart_content {
+    background: #F2F2F2; }
+    .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list {
+      padding: 14px 0 0;
+      border-bottom: none; }
+      .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product {
+        padding: 10px 32px 10px 15px; }
+        @media screen and (min-width: 480px) {
+          .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product {
+            padding: 10px 32px 10px 18px; } }
+        .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-thumbnail img {
+          width: 60px;
+          margin: 0; }
+        .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-info .variation {
+          border: none;
+          padding: 0;
+          margin: 0; }
+          .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-info .variation dt, .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-info .variation dd {
+            padding: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            display: inline-block;
+            float: left; }
+            .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-info .variation dt p, .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-info .variation dd p {
+              margin-bottom: 0; }
+          .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .elr-mini-cart-info .variation dt {
+            font-weight: 700;
+            clear: left; }
+        .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .remove_from_cart_button {
+          position: absolute;
+          right: 8px;
+          top: 12px;
+          width: 22px;
+          height: 22px;
+          font-size: 19px;
+          line-height: 19px;
+          color: #000 !important;
+          text-align: center;
+          border: 1px solid #000;
+          border-radius: 50%;
+          transition: all 0.2s ease-in-out; }
+          .c-cart-content__wrapper .widget_shopping_cart_content .woocommerce-mini-cart.cart_list .elr-mini-cart-product .remove_from_cart_button:hover {
+            color: #fff !important;
+            border-color: red;
+            background-color: red; }
+
+.elr-minicart-top-products {
+  padding: 15px;
+  border-bottom: 1px solid #ececec; }
+
+.elr-mini-cart-subtotal {
+  margin-bottom: 0;
+  padding: 18px 15px 8px;
+  font-size: 1.125rem;
+  line-height: 1.22222;
+  font-weight: 700;
+  color: #000; }
+  .elr-mini-cart-subtotal strong {
+    margin-left: 8px; }
+  @media screen and (min-width: 480px) {
+    .elr-mini-cart-subtotal {
+      padding: 18px 18px 8px; } }
+
+.c-cart-content__btns {
+  padding: 20px 8px; }
+  @media screen and (min-width: 480px) {
+    .c-cart-content__btns {
+      padding: 20px 10px; } }
+
+.c-cart-content__btn {
+  display: inline-block;
+  width: calc(50% - 16px);
+  margin: 0 7px;
+  padding: 9px 16px;
+  font-size: 0.875rem;
+  line-height: 1.42857;
+  font-weight: 400;
+  color: #282828;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #B8D048;
+  box-shadow: 0px 3px 6px #00000029;
+  transition: all 0.2s ease-in-out; }
+
+.c-cart-content__btn--primary {
+  color: #fff;
+  background-color: #B8D048; }
+  .c-cart-content__btn--primary:hover {
+    opacity: 0.8; }
+
+.c-cart-content__btn--grey {
+  color: #B8D048;
+  background-color: transparent; }
+  .c-cart-content__btn--grey:hover {
+    color: #fff;
+    background-color: #B8D048; }
+
+.elr-mini-cart-product {
+  position: relative;
+  display: flex;
+  padding-right: 22px; }
+
+.elr-mini-cart-thumbnail {
+  width: 60px; }
+
+.elr-mini-cart-info {
+  padding: 3px 0 0 14px; }
+  @media screen and (min-width: 480px) {
+    .elr-mini-cart-info {
+      padding: 3px 0 0 16px; } }
+
+.elr-mini-cart-title {
+  display: block;
+  margin-bottom: 7px;
+  color: #000; }
+  .elr-mini-cart-title:hover {
+    color: #B8D048; }
+
+.elr-mini-cart-title__text {
+  font-size: 1rem;
+  line-height: 1.1875;
+  font-weight: 400;
+  color: #000; }
+  .elr-mini-cart-title__text sup {
+    margin-right: 4px;
+    font-size: 0.5rem;
+    line-height: 1.75;
+    font-weight: 400;
+    text-transform: uppercase; }
+
+.elr-mini-cart-quantity, .elr-mini-cart-price {
+  font-size: 1.125rem;
+  line-height: 1.22222;
+  font-weight: 700;
+  color: #000; }
+
+.elr-mini-cart-price .woocommerce-Price-amount {
+  margin-left: 8px;
+  font-weight: 700; }

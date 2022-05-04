@@ -1,0 +1,49 @@
+.c-product-buttons {
+  padding: 12px 0;
+  margin:0 0 20px;
+  background: palette(secondary,150);
+  @include mq(480) {
+    margin: 0;
+    padding: 10px 0 40px;
+    background: transparent;
+  }
+}
+
+.c-product-buttons__grid {
+  display: flex;
+}
+
+.c-product-buttons__column {
+  width: 33.3%;
+}
+
+.c-product-buttons__btn {
+  text-align: center;
+  @include mq(480) {
+    padding: 10px 0;
+  }
+
+  .c-product-buttons__column:nth-child(2) & {
+    border-left: 2px solid #e6e6e6;
+    border-right: 2px solid #e6e6e6;
+  }
+}
+
+.c-product-buttons__link {
+  color: palette(text, 500);
+  @include font(m3-small, 12, 400);
+  @include mq(480) {
+    @include font(base, 16, 400);
+  }
+}
+
+.c-product-buttons__icon {
+  font-size: 16px;
+  margin: 0 0 0 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.c-product-buttons__text{
+  vertical-align: middle;
+}

@@ -1,0 +1,75 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+
+$_color-primary-400: #eaefd3 !default;
+$_color-primary-500: #B8D048 !default;
+$_color-primary-700: #77A464 !default;
+
+$_color-secondary-100: #F7F7F7 !default;
+$_color-secondary-150: #F2F2F2 !default;
+$_color-secondary-160: #F4F4F4 !default;
+$_color-secondary-180: #e9e9e9 !default;
+$_color-secondary-190: #efefef !default;
+$_color-secondary-200: #AAAAAA !default;
+
+//$_color-secondary-500: #c2c9d0 !default;
+$_color-text-90: #969696 !default;
+$_color-text-100: #676767 !default;
+$_color-text-200: #707070 !default;
+$_color-text-300: #6d6e71 !default;
+$_color-text-500: #282828 !default;
+$_color-text-600: #333333 !default;
+
+$_color-oranges-100: #FDF3E0 !default;
+$_color-oranges-200: #FAE0AF !default;
+$_color-oranges-500: #FC9E4E !default;
+
+$_color-blue-500: #21A1BC !default;
+
+$_color-positive-100: #28a745 !default;
+$_color-negative-100: #dc3545 !default;
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+$palettes: (
+        'primary': (
+                400: $_color-primary-400,
+                base: $_color-primary-500,
+                700: $_color-primary-700,
+        ),
+        'secondary': (
+                base: $_color-secondary-100,
+                150: $_color-secondary-150,
+                160: $_color-secondary-160,
+                180: $_color-secondary-180,
+                190: $_color-secondary-190,
+                200: $_color-secondary-200,
+        ),
+        'text': (
+                90:$_color-text-90,
+                100:$_color-text-100,
+                200:$_color-text-200,
+                base: $_color-text-300,
+                500: $_color-text-500,
+                600: $_color-text-600
+        ),
+        'oranges': (
+                100: $_color-oranges-100,
+                200:$_color-oranges-200,
+                base: $_color-oranges-500,
+        ),
+        'c-blue': (
+                base: $_color-blue-500,
+        ),
+        'positive': (
+                base: $_color-positive-100,
+        ),
+        'negative': (
+                base: $_color-negative-100,
+        ),
+);
+
+

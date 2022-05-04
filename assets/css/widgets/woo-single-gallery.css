@@ -1,0 +1,379 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+/*------------------Single product gallery slider---------------------------------*/
+@media screen and (min-width: 1025px) {
+  .elementor-widget-custom-woo-single-slider {
+    position: sticky !important;
+    top: 30px; } }
+
+@media screen and (min-width: 1200px) {
+  .single-product .o-product-top .o-product-top__img {
+    padding-right: 18px; } }
+
+.single-product .o-product-top .o-product-top__img .svi-gallery-top .swiper-wrapper .swiper-slide {
+  cursor: zoom-in; }
+  @media screen and (min-width: 480px) {
+    .single-product .o-product-top .o-product-top__img .svi-gallery-top .swiper-wrapper .swiper-slide {
+      transition: none !important; } }
+  @media screen and (min-width: 480px) {
+    .single-product .o-product-top .o-product-top__img .svi-gallery-top .swiper-wrapper .swiper-slide.swiper-slide-active {
+      z-index: 9; } }
+
+.single-product .o-product-top .o-product-top__img .svi-gallery-top .swiper-pagination .swiper-pagination-bullet {
+  position: static;
+  margin: 0 10px;
+  background: #fff;
+  border: 1px solid #282828;
+  opacity: 1;
+  outline: none;
+  transform: none; }
+  .single-product .o-product-top .o-product-top__img .svi-gallery-top .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #282828; }
+
+.single-product .o-product-top .o-product-top__img .svi-gallery-thumbs, .single-product .o-product-top .o-product-top__img .svi-thumbsection {
+  padding: 0 35px;
+  margin-top: -40px;
+  overflow: hidden; }
+  @media screen and (min-width: 480px) {
+    .single-product .o-product-top .o-product-top__img .svi-gallery-thumbs, .single-product .o-product-top .o-product-top__img .svi-thumbsection {
+      display: block !important; } }
+  .single-product .o-product-top .o-product-top__img .svi-gallery-thumbs .swiper-wrapper .swiper-slide, .single-product .o-product-top .o-product-top__img .svi-thumbsection .swiper-wrapper .swiper-slide {
+    background: #F2F2F2; }
+
+@media screen and (min-width: 480px) {
+  .c-gallery-loader {
+    margin-top: -8px;
+    padding-bottom: 25px; } }
+
+.c-gallery-loader.is-loaded {
+  display: none; }
+
+.c-gallery-loader__grid {
+  display: none; }
+  @media screen and (min-width: 480px) {
+    .c-gallery-loader__grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -40px;
+      padding: 0 35px; } }
+
+.c-gallery-loader__thumb {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #efefef 0%, #fcfcfc 50%, #efefef 100%);
+  background-size: 400% 400%;
+  animation: loading 1.2s ease-in-out infinite; }
+  .c-gallery-loader__grid .c-gallery-loader__thumb {
+    max-width: 98px;
+    border: 3px solid #fff; }
+    .c-gallery-loader__grid .c-gallery-loader__thumb:not(:last-child) {
+      margin-right: 3.8%; }
+    @media screen and (min-width: 1400px) {
+      .c-gallery-loader__grid .c-gallery-loader__thumb {
+        max-height: 98px; } }
+
+@media screen and (min-width: 1400px) {
+  .c-gallery__wrap {
+    min-height: 549px;
+    max-width: 650px; } }
+
+.c-gallery-loader__thumb--big svg {
+  max-height: 549px; }
+
+.s-product-image-slider {
+  padding: 50px 0 0; }
+  @media screen and (min-width: 1200px) {
+    .s-product-image-slider {
+      padding: 60px 40px 0; } }
+  @media screen and (min-width: 1480px) {
+    .s-product-image-slider {
+      padding: 60px 0 0; } }
+
+.s-product-image-slider__intro {
+  margin-bottom: 26px;
+  color: #333333; }
+  @media screen and (min-width: 768px) {
+    .s-product-image-slider__intro {
+      margin-bottom: 58px; } }
+
+.s-product-image-slider__title {
+  margin-bottom: 12px;
+  font-size: 1.375rem;
+  line-height: 1.36364;
+  font-weight: 700;
+  text-align: center; }
+  @media screen and (min-width: 480px) {
+    .s-product-image-slider__title {
+      font-size: 2rem;
+      line-height: 1.25;
+      font-weight: 700; } }
+
+.s-product-image-slider__description {
+  font-size: 1rem;
+  line-height: 1.375;
+  font-weight: 300;
+  text-align: center; }
+  @media screen and (min-width: 480px) {
+    .s-product-image-slider__description {
+      font-size: 1.125rem;
+      line-height: 1.44444;
+      font-weight: 300; } }
+  .s-product-image-slider__description p {
+    line-height: inherit; }
+
+.s-product-image-slider__slider.swiper-custom.swiper-container-initialized {
+  overflow: visible !important;
+  position: relative; }
+
+.c-product-image-slider__slide {
+  transition: opacity 0.5s ease; }
+  .c-product-image-slider__slide.swiper-slide.swiper-slide-active {
+    opacity: 1; }
+  .c-product-image-slider__slide.swiper-slide {
+    opacity: 0; }
+
+.s-product-image-slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none !important;
+  cursor: pointer;
+  z-index: 11; }
+  .s-product-image-slider__arrow svg {
+    height: 48px;
+    max-width: 24px; }
+  .s-product-image-slider__arrow.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: inherit; }
+  @media screen and (min-width: 1200px) {
+    .s-product-image-slider__arrow {
+      display: block !important; } }
+
+.s-product-image-slider__prev {
+  left: -25px; }
+  @media screen and (min-width: 1480px) {
+    .s-product-image-slider__prev {
+      left: -50px; } }
+
+.s-product-image-slider__next {
+  right: -25px; }
+  @media screen and (min-width: 1480px) {
+    .s-product-image-slider__next {
+      right: -50px; } }
+
+.s-product-image-slider__dots {
+  margin-top: 30px; }
+  .s-product-image-slider__dots-list {
+    display: flex;
+    justify-content: center; }
+    .s-product-image-slider__dots-list .swiper-pagination-bullet {
+      display: inline-block;
+      cursor: pointer;
+      width: 17px !important;
+      height: 17px !important;
+      font-size: 0;
+      border: 1px solid #707070;
+      border-radius: 50%;
+      background-color: #fff !important; }
+      .s-product-image-slider__dots-list .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-color: #707070 !important; }
+      .s-product-image-slider__dots-list .swiper-pagination-bullet:not(:last-child) {
+        margin-right: 22px; }
+
+.c-product-buttons {
+  padding: 12px 0;
+  margin: 0 0 20px;
+  background: #F2F2F2; }
+  @media screen and (min-width: 480px) {
+    .c-product-buttons {
+      margin: 0;
+      padding: 10px 0 40px;
+      background: transparent; } }
+
+.c-product-buttons__grid {
+  display: flex; }
+
+.c-product-buttons__column {
+  width: 33.3%; }
+
+.c-product-buttons__btn {
+  text-align: center; }
+  @media screen and (min-width: 480px) {
+    .c-product-buttons__btn {
+      padding: 10px 0; } }
+  .c-product-buttons__column:nth-child(2) .c-product-buttons__btn {
+    border-left: 2px solid #e6e6e6;
+    border-right: 2px solid #e6e6e6; }
+
+.c-product-buttons__link {
+  color: #282828;
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 400; }
+  @media screen and (min-width: 480px) {
+    .c-product-buttons__link {
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 400; } }
+
+.c-product-buttons__icon {
+  font-size: 16px;
+  margin: 0 0 0 6px;
+  display: inline-block;
+  vertical-align: middle; }
+
+.c-product-buttons__text {
+  vertical-align: middle; }
+
+.c-product-buttons {
+  margin-top: -24px; }

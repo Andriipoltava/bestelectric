@@ -1,0 +1,52 @@
+.с-cart-btn {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  @include font(small, 14, 400);
+  color: palette(text);
+
+  @include mq(768){
+    padding: 14px 14px 5px 0;
+  }
+
+ @include mq(1025){
+   padding: 14px;
+ }
+
+  .c-mobile-header__cta-item &{
+    //pointer-events: none;
+  }
+}
+
+.с-cart-btn__icon {
+  svg {
+    width: 20px;
+    height: 18px;
+    min-width: 20px;
+    @include mq(768){
+      width: 22px;
+      height: 20px;
+      min-width: 22px;
+    }
+  }
+}
+
+
+.с-cart-btn__count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  @include font(x1-small,14,400);
+  text-align: center;
+  background: palette(oranges);
+  border-radius: 50%;
+  color:#fff;
+
+  @include mq(768){
+    top: 6px;
+    right: 6px;
+  }
+}

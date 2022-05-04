@@ -1,0 +1,139 @@
+
+.c-range-menu__product {
+  display: flex;
+  margin: 0 -6px;
+  border: none;
+  outline: none;
+  @include mq(1025) {
+    margin: 0 -9px;
+  }
+}
+
+.c-range-menu__product-image, .c-range-menu__product-details {
+  padding: 0 6px;
+  @include mq(1025) {
+    padding: 0 9px;
+  }
+}
+
+.c-range-menu__product-image {
+  position: relative;
+  flex: 0 0 88px;
+  height: 70px;
+
+  @include mq(576) {
+    flex: 0 0 102px;
+    height: 84px;
+  }
+}
+
+.c-range-menu__product-image--main, .c-range-menu__product-image--secondary {
+  position: absolute;
+  top: 0;
+  left: 9px;
+  width: calc(100% - 18px);
+  transition: all 0.3s ease-in-out;
+}
+
+.c-range-menu__product-image--main {
+  opacity: 1;
+  visibility: visible;
+
+  .c-range-menu__product:hover & {
+
+    @include mq(1024) {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.c-range-menu__product-image--secondary {
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+
+  .c-range-menu__product:hover & {
+
+    @include mq(1024) {
+      opacity: 1;
+      z-index: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.c-range-menu__product-details {
+
+  line-height: 1;
+  @include mq(576) {
+    max-width: 210px;
+  }
+}
+
+.c-range-menu__product-title {
+  display: inline-block;
+  margin-bottom: 7px;
+  @include font(base, 19, 400);
+  color: palette(text);
+  text-transform: none;
+  transition: color 0.2s ease-in-out;
+
+  sup {
+    margin-right: 2px;
+    @include font(m-small, 14, 400);
+    //color:palette(text,600);
+    text-transform: uppercase;
+  }
+
+  @include mq(576) {
+    margin-bottom: 4px;
+  }
+
+  .c-range-menu__product:hover & {
+    color: palette(primary);
+  }
+}
+
+.c-range-menu__product-footer {
+
+}
+
+.c-range-menu__product-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 2px 8px 3px;
+  @include font(m2-small, 13, 700);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: $border-radius-medium;
+  background: palette(oranges);
+
+  @include mq(576) {
+    margin-bottom: 3px;
+    @include font(m-small, 12, 700);
+  }
+
+
+}
+
+.c-range-menu__product-label--blue {
+  background: palette(c-blue);
+}
+
+.c-range-menu__label-empty {
+  display: inline-block;
+  line-height: 12px;
+}
+
+.c-range-menu__product-price {
+  color: palette(text, 200);
+  @include font(small, 19, 300);
+
+  strong {
+    margin-left: 2px;
+    @include font(base, 19, 700);
+  }
+
+}

@@ -1,0 +1,42 @@
+.c-compare-sizes-aside {
+
+}
+
+.c-compare-sizes-aside__header {
+//  height: 370px;
+  @include mq(768){
+    height: 398px;
+  }
+}
+.product_cat-electric-towel-rails .c-compare-sizes-aside__header {
+  @include mq(768){
+    height: 298px;
+  }
+}
+
+.c-compare-sizes-aside__room-sizes {
+
+}
+
+.c-compare-sizes-aside__dimensions {
+  margin-top: 40px;
+}
+
+.c-compare-sizes-aside__title {
+  margin-bottom: 5px;
+  @include font(s-large, 32, 300);
+  color: palette(text, 500);
+}
+
+.c-compare-sizes-aside__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.c-compare-sizes-aside__item {
+  padding: 8px 0;
+  list-style-type: none;
+  @include font(base, 20, 400);
+  color: palette(text, 500);
+}

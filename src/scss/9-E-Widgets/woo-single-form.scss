@@ -1,0 +1,14 @@
+//Main setting
+
+@import '../1-Settings/settings';
+
+//Tools setting
+@import '../2-Tools/tools';
+@import "../8-Plugins/woocommerce/product/components.accordion";
+@import "../8-Plugins/woocommerce/product/components.variationsProductList";
+@import "../8-Plugins/woocommerce/product/organisms.singleProduct";
+@import "../8-Plugins/woocommerce/product/components.calcButton";
+@import "../8-Plugins/woocommerce/product/components.quantityBtn";
+@import "../8-Plugins/woocommerce/product/components.radiatorsSelect";
+@import "../8-Plugins/woocommerce/product/components.imageTooltip";
+@import "../8-Plugins/woocommerce/product/components.optionsBtns";

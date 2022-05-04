@@ -1,0 +1,30 @@
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+  color:palette(text,500);
+}
+
+h1,.h1{
+  @include font(sm-large,30,400);
+  @include mq(768){
+    @include font(l-large,35,400);
+  }
+}
+
+h2 {
+
+}
+
+h3{
+  @include font(mid-large,28,400);
+  @include mq(768){
+    @include font(large,35,400);
+  }
+}
+
+h4,.entry-content h4{
+  @include font(mid-large,30,400);
+}
+
+h5 {
+
+}

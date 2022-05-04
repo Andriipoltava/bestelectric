@@ -1,0 +1,132 @@
+.woo-variation-items-wrapper {
+  ul.c-radiators-select {
+    //margin: 0 0 16px 0;
+    min-height: 54px;
+    margin: 0;
+    width: 100%;
+    //box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
+    @include mq($max: 480) {
+      z-index: 998;
+    }
+    @include mq(480) {
+      min-height: 62px;
+    }
+    @include mq(768) {
+      min-height: 64px;
+    }
+
+    .cvy_variation_list_item {
+      position: relative;
+      padding-right: 40px;
+      border: 1px solid #a4a4a4 !important;
+
+      &:after {
+        content: '\f107';
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: rotate(0deg) translateY(-50%);
+        transform-origin: 50% 0;
+        font-size: 14px;
+        font-family: "Font Awesome 5 Free";
+        line-height: 1;
+        font-weight: 900;
+        transition: all 0.2s linear;
+        @include mq(340) {
+          font-size: 16px;
+          right: 14px;
+        }
+        @include mq(768) {
+          right: 20px;
+        }
+      }
+
+      &.selected {
+        &:not(.no-match) {
+
+        }
+      }
+
+      .cvy_field_groups {
+        @include mq($max: 480) {
+          max-width: 150px !important;
+          justify-content: flex-start !important;
+          .cvy_property_field {
+            .cvy_wattage {
+              margin-right: 8px !important;
+            }
+          }
+          .cvy_property_area {
+            min-width: 67px !important;
+          }
+        }
+      }
+
+      .variation-dropdown-price {
+        @include mq($max: 480) {
+          flex: none !important;
+        }
+      }
+    }
+
+    li {
+      background: #fff !important;
+
+      a {
+        .cvy_product_thumbnail {
+          max-width: 40px !important;
+          @include mq(480) {
+            max-width: 54px !important;
+          }
+        }
+      }
+
+      .cvy_field_groups {
+        padding: 10px 0 !important;
+        @include mq(480) {
+          padding: 18px 0 18px 0px !important;
+        }
+        @include mq(1200) {
+          padding: 18px 0 18px 15px !important;
+        }
+      }
+    }
+
+    &.is-opened {
+      //position:relative;
+
+      & + ul {
+        @include mq($max: 480) {
+          z-index: 999 !important;
+          li:first-child {
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              width: 100%;
+              display: block;
+              height: 10px;
+              //box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .26);
+              background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 13%, rgba(0, 0, 0, .01) 90%);
+            }
+          }
+        }
+      }
+
+      @include mq($max: 480) {
+        //box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .26);
+      }
+
+      li {
+        .cvy_field_groups, a, .variation-dropdown-price {
+          opacity: 0.3;
+        }
+
+        &:after {
+          transform: rotate(-180deg) translateY(-50%);
+        }
+      }
+    }
+  }
+}
+

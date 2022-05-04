@@ -1,0 +1,29 @@
+.cvy_label {
+  position: absolute;
+  font-size: 13px;
+  line-height: 13px;
+  padding: 9px 15px;
+  border-radius: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 200px;
+  max-width: calc(100% - 10px);
+  bottom: 0;
+  color: #fff;
+  background: #FC9E4E;
+  text-transform: none !important;
+  font-weight: 400 !important;
+  z-index: 1;
+}
+
+.cvy_label--blue{
+  background: palette(c-blue);
+}
+
+@media screen and (max-width: 991px) {
+  .cvy_label {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
