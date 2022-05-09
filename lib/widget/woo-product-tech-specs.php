@@ -8,9 +8,10 @@ class CustomWooProductTechSpecs extends Widget_Base
     {
         return ['ber-js-product-tech-tabs'];
     }
+
     public function get_style_depends()
     {
-        return ['ber-css-single-tech-tabs','ber-bootstrap'];
+        return ['ber-css-single-tech-tabs', 'ber-bootstrap'];
     }
 
     public function get_name()
@@ -37,6 +38,7 @@ class CustomWooProductTechSpecs extends Widget_Base
     {
         return 'product';
     }
+
     public function get_categories()
     {
         return ['hello-elementor-theme'];
@@ -69,8 +71,8 @@ class CustomWooProductTechSpecs extends Widget_Base
             'title_padding',
             [
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'label' => esc_html__( 'Padding', 'bestelectric' ),
-                'size_units' => [ 'px', 'em', '%' ],
+                'label' => esc_html__('Padding', 'bestelectric'),
+                'size_units' => ['px', 'em', '%'],
                 'selectors' => [
                     '{{WRAPPER}} .s-product-tech-specs' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
@@ -90,9 +92,50 @@ class CustomWooProductTechSpecs extends Widget_Base
         $id = get_edit_id_page();
 
 
-        $product_specification_title = get_field('product_specifications_title',$id);
+        $product_specification_title = get_field('product_specifications_title', $id);
+        $id = get_edit_id_page();
 
-        if (have_rows('product_technical_specs',$id) || have_rows('tech_specs_boxes',$id)): ?>
+        global $product;
+
+        // If the product object is not defined, we get it from the product ID
+        if (!is_a($product, 'WC_Product') && get_post_type($id) === 'product') {
+            $product = wc_get_product($id);
+        }
+        if (get_post($id)->post_type !== 'product') {
+            return '';
+        }
+
+        if ($product->get_upsell_ids()) : ?>
+
+            <section class="up-sells upsells products elementor">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3><?php esc_html_e('Optional Extras', 'woocommerce') ?></h3>
+
+                            <?php woocommerce_product_loop_start(); ?>
+                            <?php foreach ($product->get_upsell_ids() as $upsell) : ?>
+
+
+                                <?php
+                                $post_object = get_post($upsell);
+                                setup_postdata($GLOBALS['post'] =& $post_object);
+                                wc_get_template_part('content', 'product'); ?>
+
+
+                            <?php endforeach; ?>
+
+                            <?php woocommerce_product_loop_end(); ?>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        <?php endif;
+
+
+        if (have_rows('product_technical_specs', $id) || have_rows('tech_specs_boxes', $id)): ?>
             <section class="s-product-tech-specs">
                 <div class="s-product-tech-specs__nav">
                     <div class="container">
@@ -109,10 +152,10 @@ class CustomWooProductTechSpecs extends Widget_Base
                                         <?php endif; ?>
                                         <?php
                                         $counter_tab = 2;
-                                        while (have_rows('product_technical_specs',$id)): the_row();
+                                        while (have_rows('product_technical_specs', $id)): the_row();
                                             $title = get_sub_field('product_technical_specs_title');
                                             ?>
-                                            <li class="c-product-tech-tabs-nav__item JS--product-tech-tab-nav <?php echo (!$product_specification_title && $counter_tab == 2) ? 'is-active' : null;  ?>"
+                                            <li class="c-product-tech-tabs-nav__item JS--product-tech-tab-nav <?php echo (!$product_specification_title && $counter_tab == 2) ? 'is-active' : null; ?>"
                                                 data-spec-tab="<?php echo $counter_tab; ?>">
 
                                         <span class="c-product-tech-tabs-nav__item-title"
@@ -134,13 +177,13 @@ class CustomWooProductTechSpecs extends Widget_Base
                             <div class="col-12">
                                 <div class="s-product-tech-specs__accordion">
                                     <div class="c-product-tech-accordion">
-                                        <?php if (have_rows('tech_specs_boxes',$id)) : ?>
+                                        <?php if (have_rows('tech_specs_boxes', $id)) : ?>
                                             <div class="c-product-tech-accordion__content c-product-tech-accordion__content--full JS--product-specs-tab is-active"
                                                  data-spec-tab="1">
                                                 <div class="row">
                                                     <div class="col-12 col-sm-6 col-md-4">
                                                         <?php
-                                                        while (have_rows('tech_specs_boxes',$id)):
+                                                        while (have_rows('tech_specs_boxes', $id)):
                                                         the_row();
                                                         $content_title = get_sub_field('tech_specs_title');
                                                         $content_spec = get_sub_field('tech_specs_content');
@@ -174,11 +217,11 @@ class CustomWooProductTechSpecs extends Widget_Base
 
                                         <?php
                                         $counter = 2;
-                                        while (have_rows('product_technical_specs',$id)): the_row();
+                                        while (have_rows('product_technical_specs', $id)): the_row();
 
                                             $content = get_sub_field('product_technical_specs_content');
                                             ?>
-                                            <div class="c-product-tech-accordion__content JS--product-specs-tab <?php echo (!$product_specification_title && $counter == 2) ? 'is-active' : null;  ?>"
+                                            <div class="c-product-tech-accordion__content JS--product-specs-tab <?php echo (!$product_specification_title && $counter == 2) ? 'is-active' : null; ?>"
                                                  data-spec-tab="<?php echo $counter; ?>">
                                                 <?= $content; ?>
                                             </div>
@@ -198,7 +241,6 @@ class CustomWooProductTechSpecs extends Widget_Base
 
 
     }
-
 
 
 }

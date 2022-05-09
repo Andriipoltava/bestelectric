@@ -120,8 +120,8 @@ function get_gtin($value, $attr_field, $product)
 add_filter('trustpilot_inventory_attribute_value', 'get_gtin', 10, 3);
 
 add_filter('woocommerce_product_price_class', function ($class) {
-    if (!has_term(18, 'product_cat') ){
-        $class.=' mobile-variation-price JS--mobile-price';
+    if (!has_term(18, 'product_cat')) {
+        $class .= ' mobile-variation-price JS--mobile-price';
     }
     return $class;
 });
@@ -156,6 +156,8 @@ function wpse223576_search_woocommerce_only($query)
                     'field' => 'name',
                     'terms' => is_numeric($_GET['s']) ? $_GET['s'] . 'w' : $_GET['s'],
                 ),
+                term('pa_brand'), term('pa_dimensions'), term('pa_control-type'), term('pa_colour'), term('pa_capacity'),
+
             ),
         ]);
         if (count($p))
@@ -170,3 +172,12 @@ function wpse223576_search_woocommerce_only($query)
 add_filter('get_search_query', function ($query) {
     return isset($_GET) && isset($_GET['s']) && !is_admin() && is_search() ? $_GET['s'] : $query;
 });
+
+add_filter('woocommerce_loop_add_to_cart_link', function ($arg) {
+
+
+    if (strrpos($arg, 'View') !== false) {
+        $arg = str_replace('View', 'Shop', $arg);
+    }
+    return $arg;
+}, 11);

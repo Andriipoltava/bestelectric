@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  *  Global color variables.
  *	The underscore Never use them directly in the styles, only for functions and mixins.
@@ -318,3 +319,73 @@
   @media screen and (min-width: 1025px) {
     .s-product-tech-specs {
       padding: 85px 0 22px; } }
+
+.elementor-widget-custom-woo-tech-specs .upsells {
+  background: #F7F7F7;
+  padding: 30px 0 0; }
+  @media screen and (min-width: 1025px) {
+    .elementor-widget-custom-woo-tech-specs .upsells {
+      padding: 80px 0 0; } }
+  .elementor-widget-custom-woo-tech-specs .upsells h3 {
+    font-size: 2rem;
+    line-height: 1.65625;
+    font-weight: 300;
+    padding-bottom: 50px;
+    color: #333333; }
+  .elementor-widget-custom-woo-tech-specs .upsells ul.products {
+    display: flex; }
+    .elementor-widget-custom-woo-tech-specs .upsells ul.products li.product {
+      margin-bottom: 0;
+      max-width: 210px;
+      width: 100%;
+      background: white;
+      margin-right: 0;
+      padding: 0; }
+      .elementor-widget-custom-woo-tech-specs .upsells ul.products li.product:not(:last-child) {
+        margin-right: 15px; }
+        @media screen and (min-width: 500px) {
+          .elementor-widget-custom-woo-tech-specs .upsells ul.products li.product:not(:last-child) {
+            margin-right: 30px; } }
+  .elementor-widget-custom-woo-tech-specs .upsells .с-product-loop-block {
+    background: #FFFFFF 0 0 no-repeat padding-box;
+    box-shadow: 0 3px 35px #0000000D; }
+    .elementor-widget-custom-woo-tech-specs .upsells .с-product-loop-block img {
+      object-fit: contain;
+      max-width: 125px;
+      max-height: 125px;
+      min-height: 125px;
+      height: 100% !important; }
+    .elementor-widget-custom-woo-tech-specs .upsells .с-product-loop-block .woocommerce-loop-product__link {
+      padding: 15px 15px 0 !important;
+      margin: 0 auto; }
+    .elementor-widget-custom-woo-tech-specs .upsells .с-product-loop-block .button {
+      box-shadow: 0px 3px 6px #00000029; }
+  .elementor-widget-custom-woo-tech-specs .upsells .c-product-loop-title {
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.35714;
+    font-weight: 900; }
+    .elementor-widget-custom-woo-tech-specs .upsells .c-product-loop-title a {
+      font-size: 0.875rem;
+      line-height: 1.35714;
+      font-weight: 900; }
+    @media screen and (min-width: 500px) {
+      .elementor-widget-custom-woo-tech-specs .upsells .c-product-loop-title {
+        padding: 5px;
+        font-size: 1rem;
+        line-height: 1.1875;
+        font-weight: 900; }
+        .elementor-widget-custom-woo-tech-specs .upsells .c-product-loop-title a {
+          font-size: 1rem;
+          line-height: 1.1875;
+          font-weight: 900; } }
+  .elementor-widget-custom-woo-tech-specs .upsells .c-product-loop-footer {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center !important; }
+    .elementor-widget-custom-woo-tech-specs .upsells .c-product-loop-footer .woocommerce-Price-amount bdi {
+      font-size: 0.8125rem;
+      line-height: 1.23077;
+      font-weight: 900; }
