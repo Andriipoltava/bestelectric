@@ -30,7 +30,7 @@
       .c-product-loop-title {
         color: palette(text, 500);
         @include font(base, 24, 300);
-        text-transform: uppercase;
+        text-transform: capitalize;
         @include mq(768){
           @include font(mid-large, 30, 300);
         }

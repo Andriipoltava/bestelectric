@@ -18,7 +18,7 @@ function themes_widgets_registered($widgets_manager)
 }
 
 add_action('elementor/frontend/after_register_scripts', function () {
-    $script_version = '1.1.4';
+    $script_version = time();
     $path_min = ".min";
     if (defined('WP_DEBUG') && true === WP_DEBUG) {
         $path_min = "";
@@ -44,7 +44,7 @@ add_action('elementor/frontend/after_register_scripts', function () {
 
 add_action('elementor/frontend/after_register_styles', function () {
 
-    $script_version = '1.1.3';
+    $script_version = time();
     $path_min = ".min";
     if (defined('WP_DEBUG') && true === WP_DEBUG) {
         $script_version = time();

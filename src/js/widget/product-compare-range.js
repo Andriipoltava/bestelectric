@@ -83,8 +83,14 @@
         let l = $this.currentBreakpoint, bl
         if (l === 'max') {
             bl = min
-        } else
+        } else{
             bl = $this.originalParams.breakpoints[l].slidesPerView
+
+        }
+        if (bl > $this.slides.length) {
+            bl = $this.slides.length
+        }
+
         return bl;
     }
 })(jQuery);

@@ -46,7 +46,8 @@
                                 let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
                                 $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + count.length)
 
-                            }, update: function () {
+                            },
+                            update: function () {
                                 let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
                                 $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + count.length)
 
@@ -131,6 +132,10 @@
             bl = min
         } else
             bl = $this.originalParams.breakpoints[l].slidesPerView
+
+        if (bl > $this.slides.length) {
+            bl = $this.slides.length
+        }
         return bl;
     }
 })(jQuery);

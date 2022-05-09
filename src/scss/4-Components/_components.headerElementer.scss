@@ -1,0 +1,92 @@
+
+body .elementor-location-header .header-top-section {
+  display: block;
+}
+
+
+.elementor-widget-text-editor {
+  ul, ol {
+    margin-left: 15px;
+
+  }
+
+  ul li {
+    list-style-type: disc;
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+}
+
+
+
+.header-top-section {
+  .col-ham {
+    @include mq(null, 1025) {
+      width: 11%;
+    }
+  }
+
+  .col-logo {
+
+    width: 48%;
+    .elementor-widget-theme-site-logo{
+      width: 100%;
+      img{
+        width: 100%;
+        max-width: 145px;
+        display: block;
+      }
+    }
+
+  }
+
+  .col-icon {
+    @include mq(null, 1025) {
+      width: 35%;
+      .elementor-icon{
+        font-size: 18px;
+      }
+      .mob-icon{
+        &-basket,&-tel,&-search{
+          width: 33%;
+          max-height: 20px;
+        }
+      }
+    }
+  }
+  .col-logo, .col-icon {
+    @include mq(1025) {
+      width: 50%;
+      font-size: 20px;
+
+    }
+
+  }
+
+}
+
+.header-menu-section {
+  .col-menu {
+    @include mq(1025) {
+      width: 82%;
+      .elementor-widget-wrap{
+        padding: 0;
+      }
+    }
+  }
+  .col-search {
+    @include mq(1025) {
+      width: 18%;
+    }
+  }
+}
+
+.c-product-buttons {
+  margin-top: -24px;
+}
+
+.bg-white {
+  background-color: white;
+}

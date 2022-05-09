@@ -23,9 +23,10 @@
   @include mq(992) {
     margin-bottom: 82px;
   }
-
-  .c-features-list--unique & {
-    margin-bottom: 24px;
+  @include mq(992) {
+    .c-features-list--unique & {
+      margin-bottom: 54px;
+    }
   }
 }
 
@@ -50,6 +51,7 @@
   @include mq(992) {
     margin: 44px 0;
   }
+
   .c-features-list--unique & {
     margin: 22px 0;
     padding: 0 15px 0 66px;
@@ -70,24 +72,29 @@
   display: inline-block;
   padding: 10px 0;
   cursor: pointer;
+  @include mq(null, 576) {
+    width: 100%;
+  }
 
 }
 
 .c-product-features-list__icon {
   position: absolute;
-  top:50%;
-  left:-70px;
+  top: 50%;
+  left: -70px;
   transform: translateY(-50%);
   color: palette(primary);
   font-size: 52px;
-  &:before{
+
+  &:before {
     margin: 0;
     width: auto;
   }
-  @include mq(576){
+
+  @include mq(576) {
     font-size: 46px;
   }
-  @include mq(992){
+  @include mq(992) {
     font-size: 54px;
   }
 }
@@ -97,6 +104,13 @@
   padding-right: 28px;
   @include font(small, 17, 400);
   color: palette(text, 200);
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
+
   &:after {
     content: '\f107';
     position: absolute;
@@ -111,7 +125,11 @@
     @include mq(768) {
       top: 6px;
     }
+
+      position: static;
+
   }
+
   .is-active & {
     &:after {
       transform: rotate(180deg);
@@ -127,6 +145,7 @@
 .c-product-features-list__description {
   display: none;
   color: palette(text, 200);
+
   p {
     @include font(small, 20, 400);
     margin-bottom: 0;

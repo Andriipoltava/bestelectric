@@ -141,7 +141,7 @@ class CustomWooCalcCompare extends Widget_Base
 
                 <?php foreach ($filtered_variations as $filtered_variation) : ?>
                     <div class="c-compare-sizes__slide  swiper-slide">
-                        <div class="c-compare-sizes-product ">
+                        <div class="c-compare-sizes-product  JS--compare-size-product">
                             <?php foreach ($filtered_variation as $var_product) :
                                 $variation_id = $var_product['variation_id'];
                                 $first_element = reset($filtered_variation);

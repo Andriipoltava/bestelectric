@@ -126,7 +126,6 @@ add_filter('woocommerce_product_price_class', function ($class) {
     return $class;
 });
 
-
 add_action('pre_get_posts', 'wpse223576_search_woocommerce_only');
 
 function wpse223576_search_woocommerce_only($query)
@@ -140,8 +139,34 @@ function wpse223576_search_woocommerce_only($query)
 
     }
     if (!is_admin() && is_search() && $query->is_main_query()) {
-        $query->set('post_type', 'product');
+        $posts = get_posts([
+            'post_type' => 'product',
+            'post_status' => 'publish',
+            's' => $_GET['s'],
+        ]);
+        $ids = array_column($posts, 'ID');
+        $p = get_posts([
+            'post_status' => 'publish',
+            'post_type' => array('product', 'product_variation'),
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'pa_wattage',
+                    'field' => 'name',
+                    'terms' => is_numeric($_GET['s']) ? $_GET['s'] . 'w' : $_GET['s'],
+                ),
+            ),
+        ]);
+        if (count($p))
+            $ids = array_merge($ids, array_column($p, 'ID'));
+        $query->set('post__in', $ids);
+        $query->set('s', ' ');
     }
 
 
 }
+
+add_filter('get_search_query', function ($query) {
+    return isset($_GET) && isset($_GET['s']) && !is_admin() && is_search() ? $_GET['s'] : $query;
+});

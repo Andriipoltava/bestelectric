@@ -1,0 +1,22 @@
+@media screen and (min-width: 1025px) {
+  .header-top-section .col-logo, .header-top-section .col-icon {
+    width: 50%;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .header-menu-section .col-menu {
+    width: 82%;
+  }
+
+  .header-menu-section .col-menu .elementor-widget-wrap {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .header-menu-section .col-search {
+    width: 18%;
+  }
+}

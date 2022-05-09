@@ -132,6 +132,10 @@
             bl = min
         } else
             bl = $this.originalParams.breakpoints[l].slidesPerView
+
+        if (bl > $this.slides.length) {
+            bl = $this.slides.length
+        }
         return bl;
     }
 })(jQuery);

@@ -229,13 +229,14 @@
       margin: 0; }
 
 .c-features-slide__subtitle {
-  margin-bottom: 3px;
+  display: block;
   font-size: 1.125rem;
   line-height: 1.22222;
   font-weight: 300;
   color: #282828; }
   @media screen and (min-width: 1024px) {
     .c-features-slide__subtitle {
+      margin-bottom: 11px;
       font-size: 1.5rem;
       line-height: 1.20833;
       font-weight: 300; } }

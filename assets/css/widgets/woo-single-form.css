@@ -245,7 +245,6 @@
 .accordions__bottom {
   text-align: center;
   border-top: 2px solid #e5e5e5;
-  padding-top: 15px;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -253,7 +252,8 @@
     font-size: 1rem;
     line-height: 1.1875;
     font-weight: 700;
-    color: #000000; }
+    color: #000000;
+    padding: 15px; }
     .accordions__bottom a .acc-plus {
       margin-left: 15px;
       font-weight: 700; }

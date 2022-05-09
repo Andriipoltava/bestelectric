@@ -38,10 +38,12 @@
 }
 
 .c-features-slide__subtitle {
-  margin-bottom: 3px;
+  display: block;
+
   @include font(mid, 22, 300);
   color: palette(text, 500);
   @include mq(1024) {
+    margin-bottom: 11px;
     @include font(large, 29, 300);
   }
 }

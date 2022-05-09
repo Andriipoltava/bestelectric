@@ -533,7 +533,7 @@
                                         }
 
                                     });
-                                    console.log(li.parent().parent())
+
                                     if(li.parent().parent()[0].swiper){
                                         li.parent().parent()[0].swiper.update()
                                     }

@@ -382,13 +382,14 @@
       margin: 0; }
 
 .c-features-slide__subtitle {
-  margin-bottom: 3px;
+  display: block;
   font-size: 1.125rem;
   line-height: 1.22222;
   font-weight: 300;
   color: #282828; }
   @media screen and (min-width: 1024px) {
     .c-features-slide__subtitle {
+      margin-bottom: 11px;
       font-size: 1.5rem;
       line-height: 1.20833;
       font-weight: 300; } }
@@ -568,131 +569,6 @@
     font-size: 26px; }
     .c-product-tabs-nav__item--small .c-product-tabs-nav__icon:before {
       font-weight: 700; }
-
-.c-features-list {
-  margin-bottom: 40px; }
-  @media screen and (min-width: 768px) {
-    .c-features-list {
-      margin-bottom: 0; } }
-
-.c-features-list--unique {
-  margin-bottom: 40px; }
-  @media screen and (min-width: 768px) {
-    .c-features-list--unique {
-      margin-bottom: 100px; } }
-
-.c-product-features-list__title {
-  margin-bottom: 34px;
-  font-size: 1.625rem;
-  line-height: 1.53846;
-  font-weight: 700;
-  color: #000;
-  text-align: center; }
-  @media screen and (min-width: 576px) {
-    .c-product-features-list__title {
-      text-align: left; } }
-  @media screen and (min-width: 992px) {
-    .c-product-features-list__title {
-      margin-bottom: 82px; } }
-  .c-features-list--unique .c-product-features-list__title {
-    margin-bottom: 24px; }
-
-.c-product-features-list__items {
-  padding: 0;
-  margin: 0;
-  list-style-type: none; }
-  .c-features-list--unique .c-product-features-list__items {
-    display: flex;
-    flex-wrap: wrap; }
-
-.c-product-features-list__item {
-  padding-left: 66px;
-  margin: 44px 0;
-  list-style-type: none; }
-  @media screen and (min-width: 480px) {
-    .c-product-features-list__item {
-      margin: 32px 0; } }
-  @media screen and (min-width: 992px) {
-    .c-product-features-list__item {
-      margin: 44px 0; } }
-  .c-features-list--unique .c-product-features-list__item {
-    margin: 22px 0;
-    padding: 0 15px 0 66px;
-    width: 100%; }
-    @media screen and (min-width: 576px) {
-      .c-features-list--unique .c-product-features-list__item {
-        margin: 16px 0;
-        width: 50%; } }
-    @media screen and (min-width: 992px) {
-      .c-features-list--unique .c-product-features-list__item {
-        margin: 22px 0;
-        width: 33.33%; } }
-
-.c-product-features-list__header {
-  position: relative;
-  display: inline-block;
-  padding: 10px 0;
-  cursor: pointer; }
-
-.c-product-features-list__icon {
-  position: absolute;
-  top: 50%;
-  left: -70px;
-  transform: translateY(-50%);
-  color: #B8D048;
-  font-size: 52px; }
-  .c-product-features-list__icon:before {
-    margin: 0;
-    width: auto; }
-  @media screen and (min-width: 576px) {
-    .c-product-features-list__icon {
-      font-size: 46px; } }
-  @media screen and (min-width: 992px) {
-    .c-product-features-list__icon {
-      font-size: 54px; } }
-
-.c-product-features-list__name {
-  position: relative;
-  padding-right: 28px;
-  font-size: 0.875rem;
-  line-height: 1.21429;
-  font-weight: 400;
-  color: #707070; }
-  .c-product-features-list__name:after {
-    content: '\f107';
-    position: absolute;
-    top: 2px;
-    right: 0;
-    font-size: 14px;
-    font-family: "Font Awesome 5 Free";
-    line-height: 1;
-    font-weight: 900;
-    transition: all 0.3s ease-in-out; }
-    @media screen and (min-width: 768px) {
-      .c-product-features-list__name:after {
-        top: 6px; } }
-  .is-active .c-product-features-list__name:after {
-    transform: rotate(180deg); }
-  @media screen and (min-width: 768px) {
-    .c-product-features-list__name {
-      padding-right: 34px;
-      font-size: 1.125rem;
-      line-height: 1.22222;
-      font-weight: 400; } }
-
-.c-product-features-list__description {
-  display: none;
-  color: #707070; }
-  .c-product-features-list__description p {
-    font-size: 0.875rem;
-    line-height: 1.42857;
-    font-weight: 400;
-    margin-bottom: 0; }
-    @media screen and (min-width: 768px) {
-      .c-product-features-list__description p {
-        font-size: 1rem;
-        line-height: 1.375;
-        font-weight: 400; } }
 
 @media screen and (min-width: 768px) {
   .c-compare-sizes-aside__header {

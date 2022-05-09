@@ -628,7 +628,7 @@
     font-size: 1rem;
     line-height: 1.5;
     font-weight: 300;
-    text-transform: uppercase; }
+    text-transform: capitalize; }
     @media screen and (min-width: 768px) {
       .woocommerce ul.products li.product .c-product-loop-title {
         font-size: 1.25rem;

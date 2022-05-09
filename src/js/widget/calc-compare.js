@@ -2,8 +2,25 @@
     const CalcCompare = function ($scope, $) {
 
         var compareTypeBtn = $scope.find('.JS--compare-sizes-type-btn');
+        $($scope).on('click', '.cvy_input_trigger', function () {
+            var input = $(this).parent().find('input'),
+                value = +$(input).val(),
+                step = +$(input).data('step'),
+                max = +$(input).data('max'),
+                min = +$(input).data('min');
 
-        $('body').on('click', '.JS--compare-sizes-color', function () {
+            if ($(this).hasClass('cvy_minus_trigger'))
+                value -= step;
+            else
+                value += step;
+
+            if (value < min || (max && value >= max))
+                return;
+
+            $(input).val(value);
+        });
+
+        $($scope).on('click', '.JS--compare-sizes-color', function () {
             var dataCompareColor = $(this).attr('data-compare-color');
             $(this).closest('.JS--compare-size-product').find('.JS--compare-item').filter("[data-compare!=" + dataCompareColor + "]").hide();
             $(this).closest('.JS--compare-size-product').find('.JS--compare-item').filter("[data-compare=" + dataCompareColor + "]").show();
@@ -12,7 +29,7 @@
             $(this).closest('.JS--compare-size-product').find('.JS--compare-sizes-color').filter("[data-compare-color!=" + dataCompareColor + "]").removeClass('is-active');
         });
 
-        $('body').on('click', '.JS--compare-sizes-type-btn', function () {
+        $($scope).on('click', '.JS--compare-sizes-type-btn', function () {
             var dataCompareType = $(this).attr('data-compare-type');
             $(this).closest('.JS--compare-size-product').find('.JS--compare-item').filter("[data-compare!=" + dataCompareType + "]").hide();
             $(this).closest('.JS--compare-size-product').find('.JS--compare-item').filter("[data-compare=" + dataCompareType + "]").show();
@@ -20,7 +37,6 @@
             $(this).closest('.JS--compare-size-product').find('.JS--compare-sizes-type-btn').filter("[data-compare-type=" + dataCompareType + "]").addClass('is-active');
             $(this).closest('.JS--compare-size-product').find('.JS--compare-sizes-type-btn').filter("[data-compare-type!=" + dataCompareType + "]").removeClass('is-active');
         });
-
 
         if (compareTypeBtn.length !== 0) {
             $('.JS--compare-size-product').each(function () {
