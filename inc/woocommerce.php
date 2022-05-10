@@ -64,8 +64,8 @@ function wp_enqueue_woocommerce_style()
     }
     if (is_page('blog') || is_singular('post')) {
         wp_enqueue_script('elementor-sticky');
-
     }
+
     // Product specific Scripts
     if (is_product()) {
         wp_enqueue_style('ber-css-single-form');
