@@ -184,10 +184,25 @@ add_filter('woocommerce_loop_add_to_cart_link', function ($arg) {
     return $arg;
 }, 11);
 
-function ber_query_term($name){
-    return     array(
+function ber_query_term($name)
+{
+    return array(
         'taxonomy' => $name,
         'field' => 'name',
-        'terms' =>  $_GET['s'],
+        'terms' => $_GET['s'],
     );
 }
+
+add_filter('woocommerce_email_styles', function ($styles) {
+    $styles .= "
+    .top_header_link{
+        font-size: 16px;
+        color: #707070;
+        text-transform: uppercase;
+        padding: 0 15px;
+    }
+    
+    ";
+
+    return $styles;
+});
