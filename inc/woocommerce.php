@@ -130,6 +130,7 @@ add_action('pre_get_posts', 'wpse223576_search_woocommerce_only');
 
 function wpse223576_search_woocommerce_only($query)
 {
+
     if (is_archive()) {
 
         $cat = get_queried_object();
@@ -144,19 +145,20 @@ function wpse223576_search_woocommerce_only($query)
             'post_status' => 'publish',
             's' => $_GET['s'],
         ]);
+
         $ids = array_column($posts, 'ID');
         $p = get_posts([
             'post_status' => 'publish',
             'post_type' => array('product', 'product_variation'),
             'posts_per_page' => -1,
             'tax_query' => array(
-                'relation' => 'AND',
+                'relation' => 'OR',
                 array(
                     'taxonomy' => 'pa_wattage',
                     'field' => 'name',
                     'terms' => is_numeric($_GET['s']) ? $_GET['s'] . 'w' : $_GET['s'],
                 ),
-                term('pa_brand'), term('pa_dimensions'), term('pa_control-type'), term('pa_colour'), term('pa_capacity'),
+                ber_query_term('pa_brand'), ber_query_term('pa_dimensions'), ber_query_term('pa_control-type'), ber_query_term('pa_colour'), ber_query_term('pa_capacity'),
 
             ),
         ]);
@@ -181,3 +183,11 @@ add_filter('woocommerce_loop_add_to_cart_link', function ($arg) {
     }
     return $arg;
 }, 11);
+
+function ber_query_term($name){
+    return     array(
+        'taxonomy' => $name,
+        'field' => 'name',
+        'terms' =>  $_GET['s'],
+    );
+}
