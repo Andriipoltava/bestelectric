@@ -133,7 +133,7 @@ class CustomWooProductTechSpecs extends Widget_Base
             </section>
 
         <?php endif;
-
+        wp_reset_query();
 
         if (have_rows('product_technical_specs', $id) || have_rows('tech_specs_boxes', $id)): ?>
             <section class="s-product-tech-specs">
