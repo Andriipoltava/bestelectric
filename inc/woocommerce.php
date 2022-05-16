@@ -193,16 +193,35 @@ function ber_query_term($name)
     );
 }
 
-add_filter('woocommerce_email_styles', function ($styles) {
-    $styles .= "
-    .top_header_link{
-        font-size: 16px;
-        color: #707070;
-        text-transform: uppercase;
-        padding: 0 15px;
-    }
-    
-    ";
-
-    return $styles;
+add_action('woocommerce_email', function ($email_class) {
+    remove_action('woocommerce_email_customer_details', array($email_class, 'customer_details'), 10, 3);
+    remove_action('woocommerce_email_customer_details', array($email_class, 'email_addresses'), 20, 3);
+    add_action('woocommerce_email_before_order_table', array($email_class, 'customer_details'), 7, 3);
+    add_action('woocommerce_email_before_order_table', array($email_class, 'email_addresses'), 8, 3);
 });
+add_filter('woocommerce_email_order_item_quantity', function ($quantity) {
+
+    return esc_html('Quantity: ', 'woocommerce'). $quantity;
+});
+
+add_filter( 'woocommerce_email_order_items_args', function ( $args ) {
+    $args['show_image'] = true;
+    $args['image_size'] = array( 115, 115 );
+    return $args;
+} );
+
+add_action('woocommerce_email_header', 'add_css_to_email');
+
+function add_css_to_email() {
+    echo '
+ <style type="text/css">
+ /* Put CSS here */
+ @font-face {
+   font-family: "Lato", sans-serif;
+   src: url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+ }
+
+
+ </style>';
+}
+

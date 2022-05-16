@@ -2111,6 +2111,9 @@ body:not(.search-results) .twentysixteen .entry-summary {
   background: #222 !important;
   transition: all .3s; }
 
+.woocommerce-order h2.woocommerce-column__title {
+  padding-bottom: 20px; }
+
 .woocommerce .woocommerce-MyAccount-navigation ul {
   margin: 0; }
   .woocommerce .woocommerce-MyAccount-navigation ul .woocommerce-MyAccount-navigation-link {

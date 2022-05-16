@@ -1,11 +1,11 @@
 (function ($) {
     const Slider3Image = function ($scope, $) {
+        console.log(213)
             const swiper = new Swiper($scope.find('.slider-3-image'), {
                 loop: true,
                 init: true,
                 dots: false,
                 slidesPerView: 1,
-                slideContent: '.slider-3-image__wrap',
                 pagination: {
                     el: '.slider-3-image__pagination',
                     clickable: true,

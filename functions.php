@@ -71,6 +71,11 @@ if (function_exists('acf_add_options_page')) {
         'menu_title' => 'Global settings',
         'parent_slug' => 'theme-general-settings',
     ));
+    acf_add_options_sub_page(array(
+        'page_title' => 'Email',
+        'menu_title' => 'Email Template',
+        'parent_slug' => 'theme-general-settings',
+    ));
 
 
 }

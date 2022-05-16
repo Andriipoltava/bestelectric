@@ -2363,3 +2363,9 @@ body:not(.search-results) .twentysixteen .entry-summary {
     transition: all .3s;
 }
 
+
+.woocommerce-order {
+    h2.woocommerce-column__title {
+        padding-bottom: 20px;
+    }
+}

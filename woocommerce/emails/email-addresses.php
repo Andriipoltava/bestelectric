@@ -15,40 +15,71 @@
  * @version 5.6.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
 $text_align = is_rtl() ? 'right' : 'left';
-$address    = $order->get_formatted_billing_address();
-$shipping   = $order->get_formatted_shipping_address();
+$address = $order->get_formatted_billing_address();
+$address = preg_replace('/^(<br\s*?\/?>)+|(<br\s*\/?>)+$/', '', $address);
 
-?><table id="addresses" cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding:0;" border="0">
-	<tr>
-		<td style="text-align:<?php echo esc_attr( $text_align ); ?>; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; border:0; padding:0;" valign="top" width="50%">
-			<h2><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
+$shipping = $order->get_formatted_shipping_address();
 
-			<address class="address">
-				<?php echo wp_kses_post( $address ? $address : esc_html__( 'N/A', 'woocommerce' ) ); ?>
-				<?php if ( $order->get_billing_phone() ) : ?>
-					<br/><?php echo wc_make_phone_clickable( $order->get_billing_phone() ); ?>
-				<?php endif; ?>
-				<?php if ( $order->get_billing_email() ) : ?>
-					<br/><?php echo esc_html( $order->get_billing_email() ); ?>
-				<?php endif; ?>
-			</address>
-		</td>
-		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && $shipping ) : ?>
-			<td style="text-align:<?php echo esc_attr( $text_align ); ?>; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; padding:0;" valign="top" width="50%">
-				<h2><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
+?>
+<div>
+    <div class="table_main_order_item">
+        <h3><?php esc_html_e('Billing address', 'woocommerce'); ?></h3>
 
-				<address class="address">
-					<?php echo wp_kses_post( $shipping ); ?>
-					<?php if ( $order->get_shipping_phone() ) : ?>
-						<br /><?php echo wc_make_phone_clickable( $order->get_shipping_phone() ); ?>
-					<?php endif; ?>
-				</address>
-			</td>
-		<?php endif; ?>
-	</tr>
-</table>
+        <address class="address">
+
+            <?php echo $order->billing_first_name; ?>  <?php echo $order->billing_last_name; ?>,
+            <br> <?php echo $order->billing_address_1; ?>, <?php echo $order->billing_address_2; ?>
+            , <?php echo $order->billing_city; ?>, <?php echo $order->billing_state; ?>,
+            <?php echo $order->billing_postcode; ?>, <?php echo $order->billing_country; ?>
+            <?php if ($order->get_billing_phone()) : ?>
+                <br/><?php echo wc_make_phone_clickable($order->get_billing_phone()); ?>
+            <?php endif; ?>
+            <?php if ($order->get_billing_email()) : ?>
+                <br/><a href="mailto:<?php echo esc_html($order->get_billing_email()); ?>">
+                    <?php echo esc_html($order->get_billing_email()); ?>
+                </a>
+            <?php endif; ?>
+        </address>
+    </div>
+    <div class="table_main_order_item">
+        <?php if (!wc_ship_to_billing_address_only() && $order->needs_shipping_address() && $shipping) : ?>
+
+            <h3><?php esc_html_e('Shipping address', 'woocommerce'); ?></h3>
+
+            <address class="address">
+                <?php echo $order->shipping_first_name; ?>  <?php echo $order->shipping_last_name; ?>,
+                <br> <?php echo $order->billing_address_1; ?>, <?php echo $order->shipping_address_2; ?>
+                , <?php echo $order->shipping_city; ?>, <?php echo $order->shipping_state; ?>,
+                <?php echo $order->shipping_postcode; ?>, <?php echo $order->shipping_country; ?>
+
+                <?php if ($order->get_shipping_phone()) : ?>
+                    <br/><?php echo wc_make_phone_clickable($order->get_shipping_phone()); ?>
+                <?php endif; ?>
+            </address>
+
+        <?php endif; ?>
+    </div>
+    <?php $item_totals = $order->get_order_item_totals();
+
+    if ($item_totals) {
+        foreach ($item_totals as $key => $total) {
+            if ($key == 'shipping' || $key == 'payment_method') {
+                $total['label']=str_replace(':','',$total['label']);
+                ?>
+                <div class="table_main_order_item">
+                    <h3><?php echo wp_kses_post($total['label']); ?></h3>
+                    <div class="address"><?php echo wp_kses_post($total['value']); ?></div>
+                </div>
+                <?php
+            }
+        }
+    } ?>
+
+
+</div>
+

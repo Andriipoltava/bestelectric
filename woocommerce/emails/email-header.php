@@ -15,57 +15,78 @@
  * @version 4.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
 }
 
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
-		<title><?php echo get_bloginfo( 'name', 'display' ); ?></title>
-	</head>
-	<body <?php echo is_rtl() ? 'rightmargin' : 'leftmargin'; ?>="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
-		<div id="wrapper" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
-			<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
-				<tr>
-					<td align="center" valign="top">
-						<div id="template_header_image">
-							<?php
-							if ( $img = get_option( 'woocommerce_email_header_image' ) ) {
-								echo '<p style="margin-top:0;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>';
-							}
-							?>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo('charset'); ?>"/>
+    <title><?php echo get_bloginfo('name', 'display'); ?></title>
+</head>
+<body <?php echo is_rtl() ? 'rightmargin' : 'leftmargin'; ?>="0" marginwidth="0" topmargin="0" marginheight="0" offset="
+0">
+<div id="wrapper" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
+    <table border="0" cellpadding="0" cellspacing="0"  width="100%">
+        <tr>
+            <td align="center" valign="top">
+                <div id="template_header_image">
+                    <?php
+                    if ($img = get_option('woocommerce_email_header_image')) {
+                        echo '<p style="margin-top:0;"><img src="' . esc_url($img) . '" alt="' . get_bloginfo('name', 'display') . '" /></p>';
+                    }
+                    ?>
 
-                            <p class="top_header">
-                                <a class="top_header_link" href="<?php echo home_url().'/c/electric-radiators/'?>">ELECTRIC RADIATORS</a>
-                                <a  class="top_header_link" href="<?php echo home_url().'/c/electric-towel-rails/'?>">ELECTRIC TOWEL RAILS</a>
-                                <a  class="top_header_link" href="<?php echo home_url().'/c/electric-water-heaters/'?>">ELECTRIC WATER HEATERS</a>
-                            </p>
-						</div>
-						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
-							<tr>
-								<td align="center" valign="top">
-									<!-- Header -->
-									<table border="0" cellpadding="0" cellspacing="0" width="100%" id="template_header">
-										<tr>
-											<td id="header_wrapper">
-												<h1><?php echo $email_heading; ?></h1>
-											</td>
-										</tr>
-									</table>
-									<!-- End Header -->
-								</td>
-							</tr>
-							<tr>
-								<td align="center" valign="top">
-									<!-- Body -->
-									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_body">
-										<tr>
-											<td valign="top" id="body_content">
-												<!-- Content -->
-												<table border="0" cellpadding="20" cellspacing="0" width="100%">
-													<tr>
-														<td valign="top">
-															<div id="body_content_inner">
+                    <?php
+                    $accessories = get_field('category_email_template', 'options');
+                    if ($accessories) {
+                        ; ?>
+                        <p class="top_header">
+                            <?php while (have_rows('category_email_template', 'options')): the_row();
+                                $image = get_sub_field('image');
+                                $link = get_sub_field('link');
+                                $link_url = $link['url'];
+                                $link_title = $link['title'];
+                                $link_target = $link['target'] ?: '_self';
+                                ?>
+
+                                <a class="top_header_link" href="<?php echo $link_url ?>"
+                                   target="<?php echo esc_attr($link_target); ?>"
+                                   title="<?php echo esc_html($link_title); ?>"><?php echo esc_html($link_title); ?></a>
+
+                            <?php endwhile; ?>
+
+
+                        </p>
+
+                    <?php }; ?>
+
+
+                </div>
+                <table border="0" cellpadding="0" cellspacing="0" width="730" id="template_container">
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- Header -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="template_header">
+                                <tr>
+                                    <td id="header_wrapper">
+                                        <h1><?php echo $email_heading; ?></h1>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- End Header -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- Body -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="730" id="template_body">
+                                <tr>
+                                    <td valign="top" id="body_content">
+                                        <!-- Content -->
+                                        <table border="0" cellpadding="20" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td valign="top">
+                                                    <div id="body_content_inner">
