@@ -92,11 +92,12 @@ class CustomWooProductCompareRange extends Widget_Base
         $cat = get_queried_object();
         $parent_category = $cat->term_id ?: $setting['ids'];
         // If the product object is not defined, we get it from the product ID
-        if (!is_a($product, 'WC_Product') && get_post_type($id) === 'product') {
+        if (!is_a($product, 'WC_Product') && get_post_type($id) === 'product' ) {
             $product = wc_get_product($id);
         }
 
-        if ($product) {
+
+        if ($product && !is_tax()) {
             $cat = get_the_terms($product->get_id(), 'product_cat');
             foreach ($cat as $categoria) {
                 if ($categoria->parent == 0) {
@@ -104,8 +105,14 @@ class CustomWooProductCompareRange extends Widget_Base
                 }
             }
         }
+
+
+
         if ($setting['ids'])
             $parent_category = $setting['ids'];
+
+
+
 
         $products_args = array(
             'post_type' => 'any',
