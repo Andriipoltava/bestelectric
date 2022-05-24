@@ -6,6 +6,11 @@
                 init: true,
                 dots: false,
                 slidesPerView: 1,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                slideContent: '.slider-3-image__wrap',
                 pagination: {
                     el: '.slider-3-image__pagination',
                     clickable: true,
