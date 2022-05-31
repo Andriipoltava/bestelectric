@@ -265,7 +265,7 @@ class CustomWooProductCompareRange extends Widget_Base
         $variations = $product->get_available_variations();
         $var = [];
         foreach ($variations as $key => $variation) :
-            $var[] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html']), 'filter_wattage' => $variation['attributes']['attribute_pa_wattage'], 'filter_colour' => $variation['attributes']['attribute_pa_colour']];
+            $var[] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html']), 'filter_wattage' => $variation['attributes']['attribute_pa_wattage'] ?? '', 'filter_colour' => $variation['attributes']['attribute_pa_colour']]??'';
 
         endforeach;
 
@@ -285,9 +285,9 @@ class CustomWooProductCompareRange extends Widget_Base
                 $product_variation = new \WC_Product_Variation($var[array_key_first($var)]['id']);
                 $price = (count($var) > 1 ? 'From: ' : '') . $product_variation->get_price_html();
                 $link = (count($var) > 1 ? $link : $product_variation->get_permalink());
+            }else{
+                continue;
             }
-
-
         }
         ?>
         <div class="s-compare-ranges__slide swiper-slide">
