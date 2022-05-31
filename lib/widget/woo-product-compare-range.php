@@ -275,7 +275,7 @@ class CustomWooProductCompareRange extends Widget_Base
             foreach ($var as $index => $item) {
                 $i = 0;
                 foreach ($_GET as $key => $value) {
-                    if ($item[$key] == $value || $value == '' && strpos('')) $i++;
+                    if ($item[$key] == $value || ($value == '' || $item[$key] == '') && strpos($key,'filter')!==false) $i++;
                 }
                 if ($i !== count($_GET)) {
                     unset($var[$index]);
