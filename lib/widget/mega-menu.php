@@ -425,7 +425,8 @@ class CustomMegaMenu extends Widget_Base
 
                                     <a href="<?php echo get_permalink($post->ID); ?>" class="c-range-menu__product">
                                         <div class="c-range-menu__product-image">
-                                            <?php echo wp_get_attachment_image(get_post_thumbnail_id($post->ID)); ?>
+
+                                            <?php echo wp_get_attachment_image(get_post_thumbnail_id($post->ID),'woocommerce_thumbnail'); ?>
                                         </div>
                                         <div class="c-range-menu__product-details">
                                             <?php if ($label) : ?>
