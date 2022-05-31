@@ -959,7 +959,7 @@
     z-index: 11; }
     @media screen and (min-width: 580px) {
       .woo-variation-items-wrapper.swiper-custom:before, .woo-variation-items-wrapper.swiper-custom:after {
-        left: calc(129% + 20px); } }
+        left: calc(130% + 20px); } }
     @media screen and (min-width: 460px) and (max-width: 579px) {
       .woo-variation-items-wrapper.swiper-custom:before, .woo-variation-items-wrapper.swiper-custom:after {
         left: calc(100%); } }

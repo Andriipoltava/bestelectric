@@ -1125,7 +1125,7 @@
     height: calc(100% + 30px);
 
     @include mq(580) {
-      left:calc(129% + 20px);;
+      left:calc(130% + 20px);;
     }
     @include mq(460,580) {
       left: calc(100%);
