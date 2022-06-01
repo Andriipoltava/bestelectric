@@ -11,16 +11,17 @@ function preload_featured_image(){
 
 	if (is_product_category()){
 		$term = get_queried_object();
-	}
+        $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+    }
 
-	$preload_images = get_field('preload_images',$term);
 	
-	if ($preload_images){
-		echo '<link rel="preload" as="image" href="' . $preload_images . '" />';
+	if ($thumbnail_id){
+		echo '<link rel="preload" as="image" href="' . wp_get_attachment_image_url($thumbnail_id,'full') . '" />';
 	} else if(has_post_thumbnail()){
 		$imageSrc = get_the_post_thumbnail_url($post, 'full');
 		echo '<link rel="preload" as="image" href="' . $imageSrc . '" />';
 	}
+
 }
 
 add_action('wp_head', 'preload_featured_image');

@@ -108,5 +108,24 @@ function sh_section_ksps()
         </section>
     <?php endif;
 
-    return  ob_end_clean();
+    return ob_end_clean();
 }
+
+add_shortcode('the_term_thumbnail', function () {
+    ob_start();
+    global $post;
+
+    $term = "";
+
+    if (is_product_category()) {
+        $term = get_queried_object();
+        $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+    }
+
+    if ($thumbnail_id) {
+        echo wp_get_attachment_image($thumbnail_id,'full',null,['style'=>'    height: 100%;    object-fit: cover;    max-height: 368px;']);
+    } else if (has_post_thumbnail()) {
+        echo get_the_post_thumbnail($post, 'full');
+    }
+    return ob_get_clean();
+});
