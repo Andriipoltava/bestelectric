@@ -123,7 +123,7 @@ add_shortcode('the_term_thumbnail', function () {
     }
 
     if ($thumbnail_id) {
-        echo wp_get_attachment_image($thumbnail_id,'full',null,['style'=>'    height: 100%;    object-fit: cover;    max-height: 368px;']);
+        echo wp_get_attachment_image($thumbnail_id,'full',null,['style'=>'    height: 100%;    object-fit: cover;    max-height: 379px;']);
     } else if (has_post_thumbnail()) {
         echo get_the_post_thumbnail($post, 'full');
     }
