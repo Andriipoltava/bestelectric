@@ -248,6 +248,22 @@ function remove_default_stylesheet() {
     wp_enqueue_style('bestelectric-load', get_stylesheet_directory_uri() . '/assets/css/load.css', );
 }
 
+add_action( 'wp_enqueue_scripts', 'remove_variations_swiper', 999999 );
+
+function remove_variations_swiper() {
+    if(is_product_category()){
+        wp_dequeue_script( 'ezplus');
+        wp_dequeue_script( 'smart-variations-images-swiper');
+        wp_dequeue_script( 'smart-variations-images-imagesloaded');
+        wp_dequeue_script( 'smart-variations-images-ezplus');
+        wp_dequeue_script( 'smart-variations-images-photoswipe');
+        wp_dequeue_script( 'smart-variations-images-photoswipe-ui-default');
+        wp_dequeue_script( 'smart-variations-images-manifest');
+        wp_dequeue_script( 'smart-variations-images-vendor');
+
+    }
+}
+
 
 
 function features_post_type()
