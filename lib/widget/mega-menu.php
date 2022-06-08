@@ -34,7 +34,7 @@ class CustomMegaMenu extends Widget_Base
 
     public function get_style_depends()
     {
-        return ['ber-css-mego-menu', ];
+        return ['ber-css-mego-menu',];
     }
 
     public function get_script_depends()
@@ -589,17 +589,15 @@ class CustomMegaMenu extends Widget_Base
             }
         </style>
 
-        <div class="o-header__nav" >
-            <div class="o-header__col-menu">
-                <div class="c-header-nav">
-                    <?php wp_nav_menu(array(
-                        'menu' => $settings['menu'],
-                        'container_class' => 'c-header-nav__primary',
-                        'container' => 'nav'
-                    )); ?>
-                </div>
-            </div>
+
+        <div class="c-header-nav">
+            <?php wp_nav_menu(array(
+                'menu' => $settings['menu'],
+                'container_class' => 'c-header-nav__primary',
+                'container' => 'nav'
+            )); ?>
         </div>
+
 
         <?php
     }
