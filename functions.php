@@ -265,8 +265,18 @@ function remove_variations_swiper() {
         wp_dequeue_style( 'smart-variations-images-photoswipe-ui-default');
         wp_dequeue_script( 'smart-variations-images-manifest');
         wp_dequeue_script( 'smart-variations-images-vendor');
-        wp_dequeue_style( 'ber-css-calculator');
 
+    }
+    if(is_product_category(21)){
+        wp_dequeue_style( 'woocommerce-general');
+        wp_dequeue_style( 'wc-blocks-style');
+        wp_dequeue_style( 'woo_discount_pro_style');
+        wp_dequeue_style( 'smart-variations-images-photoswipe-default-skin');
+        wp_dequeue_style( 'woo-variation-swatches-theme-override');
+        wp_dequeue_style( 'woo-variation-swatches-tooltip');
+        wp_dequeue_style( 'afwssv_front');
+        wp_dequeue_style( 'wc-gateway-ppec-frontend');
+        wp_dequeue_script( 'dynamic-conditions');
     }
 }
 
