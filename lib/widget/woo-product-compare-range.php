@@ -264,14 +264,37 @@ class CustomWooProductCompareRange extends Widget_Base
         $short_description = get_field('loop_short_description');
         $variations = $product->get_available_variations();
         $var = [];
-        foreach ($variations as $key => $variation) :
-            $var[] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html']), 'filter_wattage' => $variation['attributes']['attribute_pa_wattage'] ?? '', 'filter_colour' => $variation['attributes']['attribute_pa_colour'], 'filter_el_type' => $variation['attributes']['attribute_pa_el_type']] ?? '';
 
-        endforeach;
-
-        $price = $product->get_price_html();
-        $link = get_permalink();
         if (isset($_GET)) {
+            foreach ($variations as $key => $variation) :
+                $var[$key] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html'])] ?? '';
+                foreach ($_GET as $name => $value) {
+
+                    if ($value != '' && strpos($name, 'filter') !== false && isset($variation['attributes'])) {
+                        if (isset($variation['attributes']['attribute_pa' . str_replace('filter', '', $name)])) {
+                            $var[$key][$name] = $variation['attributes']['attribute_pa' . str_replace('filter', '', $name)];
+
+                        } else {
+                            $attributes = $product->get_attributes();
+                            $attribute = sanitize_title('pa' . str_replace('filter', '', $name));
+                            $attribute_object = $attributes[$attribute];
+                            if ($attribute_object->is_taxonomy()) {
+                                $tax = wc_get_product_terms($product->get_id(), $attribute_object->get_name(), array('fields' => 'slugs'));
+                                $var[$key][$name]=  count($tax) == 1 ? implode(', ', $tax):'';
+
+                            }
+
+
+                        }
+                    }
+
+
+                }
+            endforeach;
+            $price = $product->get_price_html();
+            $link = get_permalink();
+
+//            var_dump($var);
             foreach ($var as $index => $item) {
                 $i = 0;
                 foreach ($_GET as $key => $value) {
