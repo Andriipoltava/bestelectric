@@ -265,7 +265,7 @@ class CustomWooProductCompareRange extends Widget_Base
         $variations = $product->get_available_variations();
         $var = [];
         foreach ($variations as $key => $variation) :
-            $var[] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html']), 'filter_wattage' => $variation['attributes']['attribute_pa_wattage'] ?? '', 'filter_colour' => $variation['attributes']['attribute_pa_colour']]??'';
+            $var[] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html']), 'filter_wattage' => $variation['attributes']['attribute_pa_wattage'] ?? '', 'filter_colour' => $variation['attributes']['attribute_pa_colour'], 'filter_el_type' => $variation['attributes']['attribute_pa_el_type']] ?? '';
 
         endforeach;
 
@@ -275,7 +275,7 @@ class CustomWooProductCompareRange extends Widget_Base
             foreach ($var as $index => $item) {
                 $i = 0;
                 foreach ($_GET as $key => $value) {
-                    if ($item[$key] == $value || ($value == '' || $item[$key] == '') && strpos($key,'filter')!==false) $i++;
+                    if ($item[$key] == $value || ($value == '' || $item[$key] == '' && $item[$key] !== null) && strpos($key, 'filter') !== false) $i++;
                 }
                 if ($i !== count($_GET)) {
                     unset($var[$index]);
@@ -285,7 +285,7 @@ class CustomWooProductCompareRange extends Widget_Base
                 $product_variation = new \WC_Product_Variation($var[array_key_first($var)]['id']);
                 $price = (count($var) > 1 ? 'From: ' : '') . $product_variation->get_price_html();
                 $link = (count($var) > 1 ? $link : $product_variation->get_permalink());
-            }else{
+            } else {
                 continue;
             }
         }
@@ -353,7 +353,7 @@ class CustomWooProductCompareRange extends Widget_Base
                             <?php echo $price ?>
                         </div>
                         <div class="c-compare-ranges__btn">
-                            <a href="<?php echo $link; ?>" data-link="<?php  echo $link; ?>"
+                            <a href="<?php echo $link; ?>" data-link="<?php echo $link; ?>"
                                class="c-compare-ranges__product-link JS--recommended-product-link">Shop</a>
                         </div>
                     </div>
