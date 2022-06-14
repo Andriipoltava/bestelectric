@@ -92,12 +92,15 @@
                                 swiper.update()
                             }, 100)
                         })
-
+                        jQuery('.cvy_variation_list_item:not(.no-match)').each(function (i) {
+                            if ($(this).hasClass('selected') ) {
+                                index = i;
+                            }
+                        })
                         setTimeout(function () {
                             swiper.update()
+                            swiper.slideTo(index)
                             $scope.find('.variations-item.var_slider_wattage').addClass('is-loaded')
-
-
                         }, 500)
 
                     }, 500)
