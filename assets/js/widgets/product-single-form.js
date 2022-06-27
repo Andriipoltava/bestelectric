@@ -18,7 +18,7 @@
         })
         if ($scope.find('.variable-items-wrapper').length) {
             $scope.find('.variable-items-wrapper').each(function () {
-                if ($(this).data('attribute_name') === 'attribute_pa_wattage') {
+                if ($(this).data('attribute_name') === 'attribute_pa_wattage' && $(this).closest('.variations-item').hasClass('var_slider_wattage')) {
                     const lists = $(this)
                     lists.find('li').addClass('swiper-slide')
                     lists.addClass('swiper-wrapper')
