@@ -1,7 +1,7 @@
 .c-product-buttons {
   padding: 12px 0;
-  margin:0 0 20px;
-  background: palette(secondary,150);
+  margin: 0 0 20px;
+  background: palette(secondary, 150);
   @include mq(480) {
     margin: 0;
     padding: 10px 0 40px;
@@ -11,10 +11,15 @@
 
 .c-product-buttons__grid {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .c-product-buttons__column {
-  width: 33.3%;
+  width: 41.3%;
+  @include mq(null, 670) {
+    width: 45.3%;
+  }
 }
 
 .c-product-buttons__btn {
@@ -23,10 +28,6 @@
     padding: 10px 0;
   }
 
-  .c-product-buttons__column:nth-child(2) & {
-    border-left: 2px solid #e6e6e6;
-    border-right: 2px solid #e6e6e6;
-  }
 }
 
 .c-product-buttons__link {
@@ -37,13 +38,40 @@
   }
 }
 
-.c-product-buttons__icon {
-  font-size: 16px;
-  margin: 0 0 0 6px;
-  display: inline-block;
-  vertical-align: middle;
+.c-product-buttons {
+  .c-product-buttons__icon {
+    display: inline-block;
+    vertical-align: middle;
+
+    img {
+      @include mq(null, 480) {
+        max-width: 40px;
+      }
+    }
+  }
 }
 
-.c-product-buttons__text{
+.c-product-buttons__text {
   vertical-align: middle;
+  @include font(sm-mid-large, 18, 700);
+  @include mq(null, 480) {
+    @include font(base, 16, 400);
+  }
+  color: #333333;
+  text-decoration: underline;
 }
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.ml-11 {
+  margin-left: 11px;
+}
+
+.ml-lg-22 {
+  @include mq(1025) {
+    margin-left: 22px;
+  }
+}
+

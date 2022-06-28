@@ -6,12 +6,12 @@ class CustomWooSingleSlider extends Widget_Base
 {
     public function get_style_depends()
     {
-        return [ 'ber-css-single-gallery', 'cvy_fancybox'];
+        return ['ber-css-single-gallery', 'cvy_fancybox'];
     }
 
     public function get_script_depends()
     {
-        return ['ber-woo-scripts','jquery', 'ber-js-product-gallery', 'sweet_alert', 'cvy_fancybox', 'jquery-ui-core','smart-variations-images-premium'];
+        return ['ber-woo-scripts', 'jquery', 'ber-js-product-gallery', 'sweet_alert', 'cvy_fancybox', 'jquery-ui-core', 'smart-variations-images-premium'];
     }
 
     public function get_name()
@@ -122,28 +122,17 @@ class CustomWooSingleSlider extends Widget_Base
 
             <div class="c-product-buttons__grid">
 
-                <?php if ($guide) : ?>
-                    <div class="c-product-buttons__column">
-                        <div class="c-product-buttons__btn">
-                            <a href="<?php echo $guide; ?>" id="user_guide" class="c-product-buttons__link"
-                               target="_blank">
-                                <span class="c-product-buttons__text"><?php _e('User Guide', 'bestelectric'); ?></span>
-                                <span class="c-product-buttons__icon">
-                             <i class="fas fa-book"></i>
-                        </span>
-                            </a>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
                 <?php if ($views['photo_1']) : ?>
                     <div class="c-product-buttons__column">
                         <div class="c-product-buttons__btn">
                             <a href="#cvy_reel_image" id="view_360" class="c-product-buttons__link">
-                                <span class="c-product-buttons__text"><?php _e('View 360', 'bestelectric'); ?></span>
                                 <span class="c-product-buttons__icon">
-                         <i class="fas fa-sync-alt"></i>
-                    </span>
+                                    <img width="60" height="59"
+                                         src="<?php echo get_stylesheet_directory_uri() ?>/img/360-view.png"
+                                         alt="<?php _e('View 360', 'bestelectric'); ?>">
+                                </span>
+                                <span class="c-product-buttons__text ml-5"><?php _e('View 360', 'bestelectric'); ?></span>
+
                             </a>
                         </div>
                     </div>
@@ -152,11 +141,15 @@ class CustomWooSingleSlider extends Widget_Base
                 <?php if ($video) : ?>
                     <div class="c-product-buttons__column">
                         <div class="c-product-buttons__btn">
-                            <a href="<?php echo $video; ?>" class="c-product-buttons__link js--open-video-popup">
-                                <span class="c-product-buttons__text"> <?php _e('Watch Video', 'bestelectric'); ?></span>
-                                <span class="c-product-buttons__icon">
-                            <i class="fas fa-video"></i>
-                        </span>
+                            <a href="<?php echo $video; ?>" class="c-product-buttons__link js--open-video-popup ">
+                            <span class="c-product-buttons__icon">
+                                    <img width="58" height="42"
+                                         src="<?php echo get_stylesheet_directory_uri() ?>/img/watch-video.png"
+                                         alt="<?php _e('Watch Video', 'bestelectric'); ?>">
+                            </span>
+
+                                <span class="c-product-buttons__text ml-lg-22 ml-11"> <?php _e('Watch Video', 'bestelectric'); ?></span>
+
                             </a>
                         </div>
                     </div>
