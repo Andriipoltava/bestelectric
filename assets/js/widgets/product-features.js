@@ -17,6 +17,8 @@
                     nextEl: '.s-product-image-slider__next'
                 },
             })
+
+
         if ($scope.find('.s-product-more-slider').length)
             var swiperMore = new Swiper($scope.find('.s-product-more-slider'), {
                 loop: false,
@@ -59,6 +61,7 @@
                 },
 
             })
+
         setTimeout(function () {
 
             $scope.find('.o-product-features').css({display: 'block'})
@@ -75,5 +78,6 @@
     };
     $(window).on('elementor/frontend/init', function () {
         elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-features.default', ProductFeatures);
+        elementorFrontend.hooks.addAction('frontend/element_ready/more-slider.default', ProductFeatures);
     });
 })(jQuery);
