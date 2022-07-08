@@ -343,17 +343,17 @@
   transition: all 0.2s ease-in-out; }
 
 .c-cart-content__btn--primary {
-  color: #fff;
-  background-color: #B8D048; }
-  .c-cart-content__btn--primary:hover {
-    opacity: 0.8; }
-
-.c-cart-content__btn--grey {
   color: #B8D048;
   background-color: transparent; }
-  .c-cart-content__btn--grey:hover {
+  .c-cart-content__btn--primary:hover {
     color: #fff;
     background-color: #B8D048; }
+
+.c-cart-content__btn--grey {
+  color: #fff;
+  background-color: #B8D048; }
+  .c-cart-content__btn--grey:hover {
+    opacity: 0.8; }
 
 .elr-mini-cart-product {
   position: relative;

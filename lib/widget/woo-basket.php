@@ -92,7 +92,7 @@ class CustomBasketWoo extends Widget_Base
         $settings = $this->get_settings_for_display();
         ?>
         <div class="o-header__cart">
-            <a class="с-cart-btn" href="<?php echo wc_get_cart_url(); ?>"
+            <a class="с-cart-btn" href="<?php echo function_exists('wc_get_cart_url')?wc_get_cart_url():'' ?>"
                title="<?php _e('View your shopping basket'); ?>">
                 <span class="с-cart-btn__icon">
                     <svg width="22" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -105,10 +105,10 @@ class CustomBasketWoo extends Widget_Base
                             " />
                     </svg>
                 </span>
-                <span class="с-cart-btn__count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                <span class="с-cart-btn__count"><?php echo function_exists(' WC')? WC()->cart->get_cart_contents_count():''; ?></span>
 
             </a>
-            <?php if (!is_cart()) : ?>
+            <?php if (function_exists('is_cart')&&!is_cart()) : ?>
                 <div class="c-cart-content" style="display: none;">
                     <div class="c-cart-content__wrapper">
                         <div class="widget_shopping_cart_content">
