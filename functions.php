@@ -177,6 +177,8 @@ function bestelectric_scripts()
 
     wp_enqueue_style('ber-css-mego-menu');
     wp_enqueue_style('ber-css-search-form');
+    wp_enqueue_script('ber-scripts-preload', get_stylesheet_directory_uri() . '/assets/js/preload.js', array('jquery'), $script_version, true);
+
     if (!is_singular('post')) {
         wp_enqueue_script('ber-scripts', get_stylesheet_directory_uri() . '/assets/js/globalScripts' . $path_min . '.js', array('jquery'), $script_version, true);
         wp_localize_script('ber-scripts', 'my_ajax_object',
@@ -251,33 +253,35 @@ function remove_default_stylesheet() {
 add_action( 'wp_enqueue_scripts', 'remove_variations_swiper', 999999 );
 
 function remove_variations_swiper() {
+    if(function_exists('is_product_category')){
+        if(is_product_category()){
+            wp_dequeue_script( 'ezplus');
+            wp_dequeue_script( 'smart-variations-images-swiper');
+            wp_dequeue_style( 'smart-variations-images-swiper');
+            wp_dequeue_style( 'smart-variations-images');
+            wp_dequeue_script( 'smart-variations-images-imagesloaded');
+            wp_dequeue_script( 'smart-variations-images-ezplus');
+            wp_dequeue_script( 'smart-variations-images-photoswipe');
+            wp_dequeue_style( 'smart-variations-images-photoswipe');
+            wp_dequeue_script( 'smart-variations-images-photoswipe-ui-default');
+            wp_dequeue_style( 'smart-variations-images-photoswipe-ui-default');
+            wp_dequeue_script( 'smart-variations-images-manifest');
+            wp_dequeue_script( 'smart-variations-images-vendor');
 
-    if(is_product_category()){
-        wp_dequeue_script( 'ezplus');
-        wp_dequeue_script( 'smart-variations-images-swiper');
-        wp_dequeue_style( 'smart-variations-images-swiper');
-        wp_dequeue_style( 'smart-variations-images');
-        wp_dequeue_script( 'smart-variations-images-imagesloaded');
-        wp_dequeue_script( 'smart-variations-images-ezplus');
-        wp_dequeue_script( 'smart-variations-images-photoswipe');
-        wp_dequeue_style( 'smart-variations-images-photoswipe');
-        wp_dequeue_script( 'smart-variations-images-photoswipe-ui-default');
-        wp_dequeue_style( 'smart-variations-images-photoswipe-ui-default');
-        wp_dequeue_script( 'smart-variations-images-manifest');
-        wp_dequeue_script( 'smart-variations-images-vendor');
+        }
+        if(is_product_category(21)){
+            wp_dequeue_style( 'woocommerce-general');
+            wp_dequeue_style( 'wc-blocks-style');
+            wp_dequeue_style( 'woo_discount_pro_style');
+            wp_dequeue_style( 'smart-variations-images-photoswipe-default-skin');
+            wp_dequeue_style( 'woo-variation-swatches-theme-override');
+            wp_dequeue_style( 'woo-variation-swatches-tooltip');
+            wp_dequeue_style( 'afwssv_front');
+            wp_dequeue_style( 'wc-gateway-ppec-frontend');
+            wp_dequeue_script( 'dynamic-conditions');
+        }
+    }
 
-    }
-    if(is_product_category(21)){
-        wp_dequeue_style( 'woocommerce-general');
-        wp_dequeue_style( 'wc-blocks-style');
-        wp_dequeue_style( 'woo_discount_pro_style');
-        wp_dequeue_style( 'smart-variations-images-photoswipe-default-skin');
-        wp_dequeue_style( 'woo-variation-swatches-theme-override');
-        wp_dequeue_style( 'woo-variation-swatches-tooltip');
-        wp_dequeue_style( 'afwssv_front');
-        wp_dequeue_style( 'wc-gateway-ppec-frontend');
-        wp_dequeue_script( 'dynamic-conditions');
-    }
 }
 
 function features_post_type()
@@ -347,4 +351,6 @@ add_action( 'wp_enqueue_scripts', function() {
     // Remove inline global CSS on the front end.
     wp_dequeue_style( 'global-styles' );
 }, 20 );
+
+
 
