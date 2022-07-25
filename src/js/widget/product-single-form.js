@@ -23,6 +23,7 @@
                     lists.find('li').addClass('swiper-slide')
                     lists.addClass('swiper-wrapper')
                     lists.closest('.variations-item').addClass('variations-item__slider')
+                    lists.parent().show()
                     const swiper = new Swiper(lists.parent(), {
                         loop: false,
                         init: true,
@@ -72,7 +73,9 @@
                     setTimeout(function () {
                         jQuery('.variations_form').WooVariationSwatchesMod()
                         $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
+
                         swiper.update()
+
                         let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
 
                         $scope.find('.var-slider__nav-arrow-fr').text((swiper.realIndex + sliderIndexF(swiper)) + '/' + count.length)
@@ -93,7 +96,7 @@
                             }, 100)
                         })
                         jQuery('.cvy_variation_list_item:not(.no-match)').each(function (i) {
-                            if ($(this).hasClass('selected') ) {
+                            if ($(this).hasClass('selected')) {
                                 index = i;
                             }
                         })
@@ -105,11 +108,13 @@
 
                     }, 500)
                 } else {
-                    setTimeout(function () {
+                    $(document).ready(function () {
                         if ($('.JS--gallery-loader').length !== 0) {
                             $('.JS--gallery-loader').hide();
                         }
-                    }, 500)
+
+                    })
+
                 }
             })
         } else {
@@ -123,7 +128,32 @@
 
 
     };
+
+
+    $(document).ready(function () {
+
+        if ($('.elementor-widget-custom-woo-single-product-form')) {
+            $('.elementor-widget-custom-woo-single-product-form').each(function (item) {
+                const _self = $(this)
+
+                setTimeout(function () {
+                    console.log(5)
+                    ProductForm(_self, $)
+                }, 1000)
+            })
+
+        } else {
+            $(window).on('elementor/frontend/init', function () {
+                console.log(3)
+                elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-single-product-form.default', ProductForm);
+            });
+        }
+
+
+    })
     $(window).on('elementor/frontend/init', function () {
+
+
         elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-single-product-form.default', ProductForm);
 
     });

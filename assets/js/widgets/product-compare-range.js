@@ -75,9 +75,23 @@
 
 
     };
-    $(window).on('elementor/frontend/init', function () {
-        elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-compare-range.default', CompareRange);
-    });
+
+
+        $(document).ready(function () {
+            if ($('.elementor-widget-custom-woo-compare-range').length) {
+                $('.elementor-widget-custom-woo-compare-range').each(function (item) {
+                    const _self = $(this)
+                    CompareRange(_self, $)
+                });
+            } else {
+                $(window).on('elementor/frontend/init', function () {
+                    elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-compare-range.default', CompareRange);
+                });
+            }
+
+
+        })
+
     function sliderIndexF($this, min = 1) {
 
         let l = $this.currentBreakpoint, bl

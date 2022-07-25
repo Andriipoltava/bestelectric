@@ -45,7 +45,16 @@
         })
 
     };
-    $(window).on('elementor/frontend/init', function () {
-        elementorFrontend.hooks.addAction('frontend/element_ready/slider-icon-list.default', SliderIconList);
-    });
+    $(document).ready(function () {
+        if ($('.elementor-widget-slider-icon-list')) {
+            $('.elementor-widget-slider-icon-list').each(function (item) {
+                const _self = $(this)
+                SliderIconList(_self, $)
+            })
+        } else {
+            $(window).on('elementor/frontend/init', function () {
+                elementorFrontend.hooks.addAction('frontend/element_ready/slider-icon-list.default', SliderIconList);
+            });
+        }
+    })
 })(jQuery);

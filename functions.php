@@ -195,38 +195,37 @@ function bestelectric_scripts()
     }
 
 
-    if ( function_exists( 'is_woocommerce' ) ) {
-        if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
+    if (function_exists('is_woocommerce')) {
+        if (!is_woocommerce() && !is_cart() && !is_checkout()) {
             # Styles
-            wp_dequeue_style( 'woocommerce-smallscreen' );
-            wp_dequeue_style( 'woocommerce_frontend_styles' );
-            wp_dequeue_style( 'woocommerce_fancybox_styles' );
-            wp_dequeue_style( 'wc-blocks-vendors-style' );
+            wp_dequeue_style('woocommerce-smallscreen');
+            wp_dequeue_style('woocommerce_frontend_styles');
+            wp_dequeue_style('woocommerce_fancybox_styles');
+            wp_dequeue_style('wc-blocks-vendors-style');
 
             # Scripts
-            wp_dequeue_script( 'wc_price_slider' );
-            wp_dequeue_script( 'wc-single-product' );
+            wp_dequeue_script('wc_price_slider');
+            wp_dequeue_script('wc-single-product');
 //            wp_dequeue_script( 'wc-add-to-cart' );
 //            wp_dequeue_script( 'wc-cart-fragments' );
-            wp_dequeue_script( 'wc-checkout' );
+            wp_dequeue_script('wc-checkout');
 //            wp_dequeue_script( 'wc-add-to-cart-variation' );
-            wp_dequeue_script( 'wc-single-product' );
-            wp_dequeue_script( 'wc-cart' );
-            wp_dequeue_script( 'wc-chosen' );
-            wp_dequeue_script( 'woocommerce' );
-            wp_dequeue_script( 'prettyPhoto' );
-            wp_dequeue_script( 'prettyPhoto-init' );
-            wp_dequeue_script( 'jquery-blockui' );
-            wp_dequeue_script( 'jquery-placeholder' );
-            wp_dequeue_script( 'fancybox' );
-            wp_dequeue_script( 'jqueryui' );
+            wp_dequeue_script('wc-single-product');
+            wp_dequeue_script('wc-cart');
+            wp_dequeue_script('wc-chosen');
+            wp_dequeue_script('woocommerce');
+            wp_dequeue_script('prettyPhoto');
+            wp_dequeue_script('prettyPhoto-init');
+            wp_dequeue_script('jquery-blockui');
+            wp_dequeue_script('jquery-placeholder');
+            wp_dequeue_script('fancybox');
+            wp_dequeue_script('jqueryui');
 
 
         }
     }
-    wp_dequeue_style( 'hello-elementor' );
-    wp_dequeue_style( 'hello-elementor-theme-style' );
-
+    wp_dequeue_style('hello-elementor');
+    wp_dequeue_style('hello-elementor-theme-style');
 
 
 }
@@ -244,41 +243,43 @@ function bestelectric_enqueue_scripts()
 
 add_action('wp_enqueue_scripts', 'bestelectric_enqueue_scripts', 11);
 
-add_action( 'wp_enqueue_scripts', 'remove_default_stylesheet', 20 );
+add_action('wp_enqueue_scripts', 'remove_default_stylesheet', 20);
 
-function remove_default_stylesheet() {
+function remove_default_stylesheet()
+{
     wp_enqueue_style('bestelectric-load', get_stylesheet_directory_uri() . '/assets/css/load.css', );
 }
 
-add_action( 'wp_enqueue_scripts', 'remove_variations_swiper', 999999 );
+add_action('wp_enqueue_scripts', 'remove_variations_swiper', 999999);
 
-function remove_variations_swiper() {
-    if(function_exists('is_product_category')){
-        if(is_product_category()){
-            wp_dequeue_script( 'ezplus');
-            wp_dequeue_script( 'smart-variations-images-swiper');
-            wp_dequeue_style( 'smart-variations-images-swiper');
-            wp_dequeue_style( 'smart-variations-images');
-            wp_dequeue_script( 'smart-variations-images-imagesloaded');
-            wp_dequeue_script( 'smart-variations-images-ezplus');
-            wp_dequeue_script( 'smart-variations-images-photoswipe');
-            wp_dequeue_style( 'smart-variations-images-photoswipe');
-            wp_dequeue_script( 'smart-variations-images-photoswipe-ui-default');
-            wp_dequeue_style( 'smart-variations-images-photoswipe-ui-default');
-            wp_dequeue_script( 'smart-variations-images-manifest');
-            wp_dequeue_script( 'smart-variations-images-vendor');
+function remove_variations_swiper()
+{
+    if (function_exists('is_product_category')) {
+        if (is_product_category()) {
+            wp_dequeue_script('ezplus');
+            wp_dequeue_script('smart-variations-images-swiper');
+            wp_dequeue_style('smart-variations-images-swiper');
+            wp_dequeue_style('smart-variations-images');
+            wp_dequeue_script('smart-variations-images-imagesloaded');
+            wp_dequeue_script('smart-variations-images-ezplus');
+            wp_dequeue_script('smart-variations-images-photoswipe');
+            wp_dequeue_style('smart-variations-images-photoswipe');
+            wp_dequeue_script('smart-variations-images-photoswipe-ui-default');
+            wp_dequeue_style('smart-variations-images-photoswipe-ui-default');
+            wp_dequeue_script('smart-variations-images-manifest');
+            wp_dequeue_script('smart-variations-images-vendor');
 
         }
-        if(is_product_category(21)){
-            wp_dequeue_style( 'woocommerce-general');
-            wp_dequeue_style( 'wc-blocks-style');
-            wp_dequeue_style( 'woo_discount_pro_style');
-            wp_dequeue_style( 'smart-variations-images-photoswipe-default-skin');
-            wp_dequeue_style( 'woo-variation-swatches-theme-override');
-            wp_dequeue_style( 'woo-variation-swatches-tooltip');
-            wp_dequeue_style( 'afwssv_front');
-            wp_dequeue_style( 'wc-gateway-ppec-frontend');
-            wp_dequeue_script( 'dynamic-conditions');
+        if (is_product_category(21)) {
+            wp_dequeue_style('woocommerce-general');
+            wp_dequeue_style('wc-blocks-style');
+            wp_dequeue_style('woo_discount_pro_style');
+            wp_dequeue_style('smart-variations-images-photoswipe-default-skin');
+            wp_dequeue_style('woo-variation-swatches-theme-override');
+            wp_dequeue_style('woo-variation-swatches-tooltip');
+            wp_dequeue_style('afwssv_front');
+            wp_dequeue_style('wc-gateway-ppec-frontend');
+            wp_dequeue_script('dynamic-conditions');
         }
     }
 
@@ -310,14 +311,14 @@ function features_post_type()
         'label' => __('Features', 'bestelectric'),
         'description' => __('BER Features', 'bestelectric'),
         'labels' => $labels,
-        'supports' => array('title', 'editor', 'thumbnail','revisions'),
+        'supports' => array('title', 'editor', 'thumbnail', 'revisions'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
         'show_in_menu' => true,
         'show_in_nav_menus' => true,
         'show_in_admin_bar' => true,
-        'menu_icon'     => 'dashicons-list-view',
+        'menu_icon' => 'dashicons-list-view',
         'menu_position' => 56,
         'rewrite' => array('slug' => 'features', 'with_front' => false),
         'can_export' => true,
@@ -335,22 +336,121 @@ add_action('init', 'features_post_type');
 
 
 // Disable Gutenberg on the back end.
-add_filter( 'use_block_editor_for_post', '__return_false' );
+add_filter('use_block_editor_for_post', '__return_false');
 
 // Disable Gutenberg for widgets.
-add_filter( 'use_widgets_blog_editor', '__return_false' );
+add_filter('use_widgets_blog_editor', '__return_false');
 
 
-add_action( 'wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
     // Remove CSS on the front end.
-    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style('wp-block-library');
 
     // Remove Gutenberg theme.
-    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style('wp-block-library-theme');
 
     // Remove inline global CSS on the front end.
-    wp_dequeue_style( 'global-styles' );
-}, 20 );
+    wp_dequeue_style('global-styles');
+}, 20);
 
+add_action('wp_enqueue_scripts', function () {
+    if (!is_product()) {
+        return;
+    }
 
+    $product = wc_get_product(get_the_ID());
+    $gallery_images = $product->get_gallery_image_ids();
+    if (!empty($gallery_images)) {
+        return;
+    }
 
+    $custom_css = ".woocommerce-product-gallery{ opacity: 1 !important; }";
+    wp_add_inline_style('woocommerce-layout', $custom_css);
+});
+
+add_filter('rocket_delay_js_exclusions', 'bestelectric_js_exclusions');
+
+function bestelectric_js_exclusions($exclusions)
+{
+    if (is_front_page() && wp_is_mobile()) {
+        $exclusions[] = 'widget.trustpilot.com/bootstrap';
+        $exclusions[] = 'widget.trustpilot.com';
+        $exclusions[] = '/wp-content/plugins/trustpilot-reviews/review/(.*)';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/slider3image.js';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/preload.js';
+        $exclusions[] = 'ElementorProFrontendConfig';
+        $exclusions[] = 'elementorFrontendConfig';
+        $exclusions[] = '/elementor/';
+        $exclusions[] = '/elementor-pro/';
+        $exclusions[] = '/wp-includes/js/underscore.min.js';
+        $exclusions[] = '/wp-includes/js/jquery/ui/core.min.js';
+        $exclusions[] = '/wp-includes/js/backbone.min.js';
+        $exclusions[] = 'elementorAdminBarConfig';
+        $exclusions[] = 'elementorCommonConfig';
+        $exclusions[] = 'elementorWebCliConfig';
+        $exclusions[] = 'elementorFrontend';
+    }
+    if (is_front_page()) {
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/preload.js';
+    } else {
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/slider-icon-list.js';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/slider-icon-list.min.js';
+    }
+//    if (is_product_category()) {
+//        $exclusions[] = '/jquery-?[0-9.](.*)(.min|.slim|.slim.min)?.js';
+//        $exclusions[] = '/jquery-migrate(.min)?.js';
+//        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-compare-range.js';
+//        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-compare-range.min.js';
+//
+//    }
+    if (!is_product()) {
+        return $exclusions;
+    }
+
+    $product = wc_get_product(get_the_ID());
+    $gallery_images = $product->get_gallery_image_ids();
+    if (empty($gallery_images)) {
+        return $exclusions;
+    }
+
+    $exclusions[] = '/jquery-?[0-9.](.*)(.min|.slim|.slim.min)?.js';
+    $exclusions[] = '/jquery-migrate(.min)?.js';
+    $exclusions[] = 'swiper-bundle.min.js';
+    $exclusions[] = '/smart-variations-images-premium/';
+    $exclusions[] = '/woocommerce/assets/js/zoom/jquery.zoom.min.js';
+    $exclusions[] = '/woocommerce/assets/js/flexslider/jquery.flexslider.min.js';
+    $exclusions[] = '/woocommerce/assets/js/photoswipe/photoswipe.min.js';
+    $exclusions[] = '/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js';
+    $exclusions[] = '/woocommerce/assets/js/frontend/single-product.min.js';
+    $exclusions[] = '/woocommerce/assets/js/frontend/add-to-cart-variation.min.js';
+    $exclusions[] = '/wp-includes/js/dist/api-fetch.min.js';
+    $exclusions[] = '/wp-includes/js/dist/hooks.min.js';
+    $exclusions[] = '/wp-includes/js/dist/i18n.min.js';
+    $exclusions[] = '/wp-includes/js/underscore.min.js';
+    $exclusions[] = '/wp-includes/js/imagesloaded.min.js';
+    $exclusions[] = '/wp-includes/js/wp-util.min.js';
+    $exclusions[] = '/wp-includes/js/dist/vendor/moment.min.js';
+    $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-gallery.js';
+    $exclusions[] = '/wp-content/themes/bestelectric/assets/js/productScripts.js';
+    $exclusions[] = '/wp-content/themes/bestelectric/assets/js/productScripts.min.js';
+    $exclusions[] = '/wp-content/plugins/woo-variation-swatches/assets/js/(.*)';
+    $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/calc-compare.js';
+    $exclusions[] = '/wp-content/themes/bestelectric/assets/js/calculatorScripts.min.js';
+    $exclusions[] = '/wp-content/themes/bestelectric/assets/js/calculatorScripts.js';
+
+    if (!wp_is_mobile()) {
+        $exclusions[] = '/wp-includes/js/imagesloaded.min.js';
+        $exclusions[] = '/wp-includes/js/dist/vendor/moment.min.js';
+        $exclusions[] = 'js.stripe.com';
+        $exclusions[] = 'wc_single_product_params';
+        $exclusions[] = '/jquery/ui/';
+        $exclusions[] = 'underscore.min.js';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/jquery.reel-min.js';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/globalScripts.js';
+        $exclusions[] = '/woo-variation-swatches/';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-single-form.js';
+        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-single-form.js';
+
+    }
+    return $exclusions;
+}
