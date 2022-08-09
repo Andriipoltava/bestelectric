@@ -4,7 +4,19 @@
 add_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_wrapper_start', 5);
 function woocommerce_template_loop_product_wrapper_start()
 {
-    echo '<div class="с-product-loop-block">';
+    $product = wc_get_product(get_the_ID());
+    if (is_product_category('electric-radiators') && $product->get_parent_id()) {
+        echo '<div class="с-product-loop-block c-electric-radiators">';
+
+        $parent_id = $product->get_parent_id();
+        $product_label = get_field('label', $parent_id);
+        if ($product_label) :
+            echo '<div class="c-compare-ranges__thumb">';
+        endif;
+
+    } else {
+        echo '<div class="с-product-loop-block">';
+    }
 }
 
 // For reference
@@ -21,31 +33,67 @@ function woocommerce_template_loop_product_content()
     $label = get_field('label');
     $label_color = get_field('product_label_color');
     if ($label) {
-        echo '<div class="cvy_label '. __($label_color == 'blue' ? 'cvy_label--blue' : null).  '">' . $label . '</div>';
+        echo '<div class="cvy_label ' . __($label_color == 'blue' ? 'cvy_label--blue' : null) . '">' . $label . '</div>';
     }
 }
 
 // Move the link close to before the Title (after the thumbnail and label)
-remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
-add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close' );
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close');
 
 // For Reference
 // add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 
 // Remove the default Loop Title
-remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
 
 // Add the new Title and short description
 add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_description', 5);
 function woocommerce_template_description()
 {
-    echo '<div class="c-product-loop-content">';
-    echo '<div class="c-product-loop-title"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div>';
+    $product = wc_get_product(get_the_ID());
+    if (is_product_category('electric-radiators') && $product->get_parent_id()) {
+
+        $parent_id = $product->get_parent_id();
+        $product_label = get_field('label', $parent_id);
+        $label_color = get_field('product_label_color', $parent_id);
+
+        $color_terms = wp_get_post_terms($product->get_id(), 'pa_colour');
+
+        if ($product_label) :
+            echo '<div class="c-compare-ranges-terms "><div class="c-compare-ranges__colors ">';
+            foreach ($color_terms as $term) :
+                $product_color = get_term_meta($term->term_id);
+                echo '<a href="' . get_the_permalink($product->get_id()) . '"
+                                       data-colour="' . $term->slug . '"
+                                       class="c-compare-ranges__color-btn JS--compare-ranges-color"
+                                       style="background-color:' . $product_color['product_attribute_color'][0] . '"></a>';
+            endforeach;
+            echo '</div></div>';
+            echo ' <span class="c-compare-ranges__label ' . (($label_color == 'blue') ? 'c-compare-ranges__label--blue' : "") . ' ">' . $product_label . '</span> ';
+
+            echo '</div>';
+        endif;
+        echo '<div class="c-product-loop-content">';
+
+
+        echo '
+                <div class="c-product-loop-title"><a href="' . get_the_permalink() . '">' . str_replace('Wifi', '<sup>wifi</sup>', get_the_title($parent_id)) . '</a></div>
+                <div class="c-product-loop-wattage"> ' . $product->get_attribute('pa_wattage') . '</div>
+                <div class="c-product-loop-price"> ' . $product->get_price_html() . '</div>
+                
+                ';
+    } else {
+        echo '<div class="c-product-loop-content">';
+
+        echo '<div class="c-product-loop-title"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div>';
+    }
+
 
     $short_description = get_field('loop_short_description');
 
     if ($short_description) {
-        echo '<div class="c-product-loop-description">'. $short_description . '</div>';
+        echo '<div class="c-product-loop-description">' . $short_description . '</div>';
     }
     echo '<div class="c-product-loop-footer">';
 }
@@ -133,3 +181,13 @@ function remove_shop($link_output, $link)
     }
     return $link_output;
 }
+
+add_action('woocommerce_after_add_to_cart_form', function () {
+    if (get_field('payment_logos', 'option')) {
+        ?>
+        <div id="ppc-top-title"  class="hide" >
+            <?php _e('or checkout with'); ?>
+        </div>
+        <?php
+    }
+});

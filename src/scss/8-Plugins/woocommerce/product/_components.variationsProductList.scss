@@ -930,9 +930,10 @@
   }
 }
 
-.single-product .o-product-top__summary{
+.single-product .o-product-top__summary {
   overflow: hidden;
 }
+
 .single-product .product_cat-electric-radiators {
 
   .variations {
@@ -1084,13 +1085,13 @@
     max-width: 75%;
   }
 
-  @include mq(460,580) {
+  @include mq(460, 580) {
     max-width: 100%;
   }
   @include mq(340, 460) {
-    max-width: calc(100vw - 75px - 104px );
+    max-width: calc(100vw - 75px - 104px);
   }
-  @include mq(null,340) {
+  @include mq(null, 340) {
     max-width: 90%;
 
   }
@@ -1125,15 +1126,15 @@
     height: calc(100% + 30px);
 
     @include mq(580) {
-      left:calc(130% + 20px);;
+      left: calc(130% + 20px);;
     }
-    @include mq(460,580) {
+    @include mq(460, 580) {
       left: calc(100%);
     }
     @include mq(340, 460) {
       left: calc(100vw - 60px);
     }
-    @include mq(null,340) {
+    @include mq(null, 340) {
       left: calc(100vw - 60px);
     }
 
@@ -1226,5 +1227,20 @@
         display: none !important;
       }
     }
+  }
+}
+
+.variation-dropdown-specification__bottom__list {
+  .cvy_insulation_info {
+    bottom: 0px;
+    width: 14px;
+    height: 14px;
+    margin: 0px 0 0 4px;
+  }
+  span {
+    pointer-events: auto !important;
+  }
+  .cvy_tip {
+    display: inline-block !important;
   }
 }

@@ -1025,6 +1025,18 @@
     .variations .swiper-custom .swiper-wrapper .swiper-slide.no-match {
       display: none !important; }
 
+.variation-dropdown-specification__bottom__list .cvy_insulation_info {
+  bottom: 0px;
+  width: 14px;
+  height: 14px;
+  margin: 0px 0 0 4px; }
+
+.variation-dropdown-specification__bottom__list span {
+  pointer-events: auto !important; }
+
+.variation-dropdown-specification__bottom__list .cvy_tip {
+  display: inline-block !important; }
+
 .single-product .woocommerce-notices-wrapper {
   max-width: 1360px;
   margin: 0 auto; }
@@ -1957,3 +1969,51 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
 
 .c-options-btns__item--wattage {
   padding-left: 24px; }
+
+.variation-dropdown-specification {
+  width: 100%; }
+  .variation-dropdown-specification span {
+    font-size: 12px;
+    font-weight: bolder;
+    text-align: center;
+    position: relative; }
+    .variation-dropdown-specification span:before, .variation-dropdown-specification span:after {
+      transition: all 0.5s;
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 1px;
+      background: black;
+      right: -10px;
+      top: 50%; }
+    .variation-dropdown-specification span:before {
+      transform: rotate(90deg); }
+  .variation-dropdown-specification.active span:before, .variation-dropdown-specification.active span:after {
+    transform: rotate(180deg); }
+  .variation-dropdown-specification.active span:before {
+    opacity: 0; }
+  .variation-dropdown-specification__bottom {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background: #F7F7F7;
+    width: 100%;
+    padding: 0 5px; }
+    .variation-dropdown-specification__bottom.show {
+      opacity: 1;
+      height: 100%;
+      visibility: visible; }
+    .variation-dropdown-specification__bottom-title {
+      font-size: 12px;
+      text-align: start;
+      font-weight: bolder;
+      padding-top: 5px; }
+    .variation-dropdown-specification__bottom__list {
+      font-weight: normal;
+      font-size: 11px;
+      padding-bottom: 5px; }
+      .variation-dropdown-specification__bottom__list > div {
+        display: flex;
+        justify-content: space-between;
+        line-height: 20px; }
