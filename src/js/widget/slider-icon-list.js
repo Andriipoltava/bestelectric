@@ -18,6 +18,11 @@
             },
             on:{
                 init: function (data) {
+                    if(!data){
+                        setTimeout(function () {
+                            swiper.update()
+                        },1000)
+                    }
                     $scope.find('.c-ksp-icon-list ').css({opacity: 1})
                 },
             },

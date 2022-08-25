@@ -247,7 +247,7 @@ add_action('wp_enqueue_scripts', 'remove_default_stylesheet', 20);
 
 function remove_default_stylesheet()
 {
-    wp_enqueue_style('bestelectric-load', get_stylesheet_directory_uri() . '/assets/css/load.css', );
+    wp_enqueue_style('bestelectric-load', get_stylesheet_directory_uri() . '/assets/css/load.css',);
 }
 
 add_action('wp_enqueue_scripts', 'remove_variations_swiper', 999999);
@@ -454,3 +454,28 @@ function bestelectric_js_exclusions($exclusions)
     }
     return $exclusions;
 }
+
+add_filter('woocommerce_gallery_image_size',function ($size){
+
+    if(wp_is_mobile()){
+        return 'medium';
+    }
+    return $size;
+});
+
+add_filter('woocommerce_gallery_full_size',function ($size){
+
+    if(wp_is_mobile()){
+        return 'medium';
+    }
+    return $size;
+});
+
+
+add_filter('wpseo_breadcrumb_single_link', function ($link, $breadcrumb) {
+    $pos = strpos($link, '<a href="https://www.bestelectricradiators.co.uk/c/electric-radiators/">');
+    if ($pos !== false) {
+        return '';
+    }
+    return $link;
+}, 10, 2);
