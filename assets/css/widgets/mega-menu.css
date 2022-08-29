@@ -238,6 +238,13 @@
       .c-mobile-header__cta-icon svg {
         height: 22px; } }
 
+.woocommerce-checkout.woocommerce-page .col-ham,
+.woocommerce-checkout.woocommerce-page .mob-icon-search {
+  display: none; }
+
+.woocommerce-checkout.woocommerce-page .header-top-section .mobile-icon-row > .elementor-container {
+  justify-content: flex-end; }
+
 .c-range-menu__product {
   display: flex;
   margin: 0 -6px;

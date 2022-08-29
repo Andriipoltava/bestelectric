@@ -105,3 +105,10 @@
   }
 }
 
+.woocommerce-checkout.woocommerce-page .col-ham,
+.woocommerce-checkout.woocommerce-page .mob-icon-search {
+  display:none;
+}
+.woocommerce-checkout.woocommerce-page .header-top-section .mobile-icon-row > .elementor-container{
+  justify-content: flex-end;
+}
