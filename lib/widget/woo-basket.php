@@ -105,7 +105,7 @@ class CustomBasketWoo extends Widget_Base
                             " />
                     </svg>
                 </span>
-                <span class="с-cart-btn__count"><?php echo function_exists(' WC')? WC()->cart->get_cart_contents_count():''; ?></span>
+                <span class="с-cart-btn__count"><?php echo function_exists(' WC')&& is_object( WC()->cart )? WC()->cart->get_cart_contents_count():''; ?></span>
 
             </a>
             <?php if (function_exists('is_cart')&&!is_cart()) : ?>
