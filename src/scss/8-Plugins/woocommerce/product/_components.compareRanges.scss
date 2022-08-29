@@ -92,7 +92,7 @@
   color: palette(text, 600);
 
   sup {
-    @include font(m4-small, 16, 300);
+    @include font(m4-small, 16, 400);
     text-transform: uppercase;
   }
 }
