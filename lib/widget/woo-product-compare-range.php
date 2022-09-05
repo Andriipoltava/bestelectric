@@ -259,9 +259,9 @@ class CustomWooProductCompareRange extends Widget_Base
         $short_description = get_field('loop_short_description');
         $variations = $product->get_available_variations();
         $var = [];
-
-
-        if (isset($_GET)) {
+        $link = get_permalink();
+        $price = $product->get_price_html();
+        if (isset($_GET) && (isset($_GET['filter_wattage']) &&$_GET['filter_wattage']!=='')||( isset($_GET['filter_colour'] ) &&$_GET['filter_colour']!=='')|| (isset($_GET['filter_el_type']) &&$_GET['filter_el_type']!=='')) {
             foreach ($variations as $key => $variation) :
                 $var[$key] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html'])] ?? '';
                 foreach ($_GET as $name => $value) {
@@ -274,9 +274,9 @@ class CustomWooProductCompareRange extends Widget_Base
                             $attributes = $product->get_attributes();
                             $attribute = sanitize_title('pa' . str_replace('filter', '', $name));
                             $attribute_object = $attributes[$attribute];
-                            if ($attribute_object->is_taxonomy()) {
+                            if (is_object($attribute_object) && $attribute_object->is_taxonomy()) {
                                 $tax = wc_get_product_terms($product->get_id(), $attribute_object->get_name(), array('fields' => 'slugs'));
-                                $var[$key][$name] = count($tax) == 1 ? implode(', ', $tax) : '';
+                                $var[$key][$name]=  count($tax) == 1 ? implode(', ', $tax):'';
 
                             }
 
@@ -287,14 +287,12 @@ class CustomWooProductCompareRange extends Widget_Base
 
                 }
             endforeach;
-            $price = $product->get_price_html();
-            $link = get_permalink();
 
-//            var_dump($var);
+
             foreach ($var as $index => $item) {
                 $i = 0;
                 foreach ($_GET as $key => $value) {
-                    if ($item[$key] == $value || ($value == '' || $item[$key] == '' && $item[$key] !== null) && strpos($key, 'filter') !== false) $i++;
+                    if ((isset($item[$key]) && $item[$key] == $value) || (isset($item[$key])&&$value == '' || $item[$key] == '' && $item[$key] !== null) && strpos($key, 'filter') !== false) $i++;
                 }
                 if ($i !== count($_GET)) {
                     unset($var[$index]);
@@ -305,9 +303,9 @@ class CustomWooProductCompareRange extends Widget_Base
                 $price = (count($var) > 1 ? 'From: ' : '') . $product_variation->get_price_html();
                 $link = (count($var) > 1 ? $link : $product_variation->get_permalink());
             } else {
-                if (isset($_GET['filter_wattage']) || isset($_GET['filter_colour'] )|| isset($_GET['filter_el_type'])){
+
                     continue;
-                }
+
             }
         }
 
@@ -346,9 +344,6 @@ class CustomWooProductCompareRange extends Widget_Base
                             <?php echo twl_lazy_image($product_images_ids[0], 'woocommerce_thumbnail'); ?>
                         </div>
                     </a>
-                    <!--                    <div style="right: 0;    z-index: 11;    top: 0; position: absolute" class="c-compare-ranges__wishlist">-->
-                    <!--                        --><?php //echo do_shortcode('[yith_wcwl_add_to_wishlist product_id="' . $product->get_id() . '"]'); ?>
-                    <!--                    </div>-->
                 </div>
                 <div class="c-compare-ranges__body">
                     <a title="<?php echo  esc_html(get_the_title())?>" href="<?php the_permalink(); ?>" class="c-compare-ranges__title">
@@ -387,7 +382,7 @@ class CustomWooProductCompareRange extends Widget_Base
                 </div>
                 <?php foreach ($variations as $key => $variation) : ?>
                     <span class="c-compare-ranges__wattages JS--compare-ranges-wattages"
-                          data-attribute_pa_wattage="<?php echo $variation['attributes']['attribute_pa_wattage']; ?>"
+                          data-attribute_pa_wattage="<?php echo $variation['attributes']['attribute_pa_wattage']?:''; ?>"
                           data-price="<?php echo strip_tags($variation['price_html']); ?>"
                           style="display: none;"></span>
                 <?php endforeach; ?>
@@ -401,6 +396,9 @@ class CustomWooProductCompareRange extends Widget_Base
     }
 
 
+    public function render_plain_content()
+    {
+    }
 }
 
 global $widgets;

@@ -21,7 +21,7 @@ Enqueue scripts and styles.
 \*------------------------------------*/
 function script_version()
 {
-    return '2015202';
+    return '20220905';
 }
 
 function path_min()
@@ -374,37 +374,16 @@ add_filter('rocket_delay_js_exclusions', 'bestelectric_js_exclusions');
 
 function bestelectric_js_exclusions($exclusions)
 {
-    if (is_front_page() && wp_is_mobile()) {
-        $exclusions[] = 'widget.trustpilot.com/bootstrap';
-        $exclusions[] = 'widget.trustpilot.com';
-        $exclusions[] = '/wp-content/plugins/trustpilot-reviews/review/(.*)';
-        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/slider3image.js';
+
+    if (is_front_page() && is_product_category()) {
         $exclusions[] = '/wp-content/themes/bestelectric/assets/js/preload.js';
-        $exclusions[] = 'ElementorProFrontendConfig';
-        $exclusions[] = 'elementorFrontendConfig';
-        $exclusions[] = '/elementor/';
-        $exclusions[] = '/elementor-pro/';
-        $exclusions[] = '/wp-includes/js/underscore.min.js';
-        $exclusions[] = '/wp-includes/js/jquery/ui/core.min.js';
-        $exclusions[] = '/wp-includes/js/backbone.min.js';
-        $exclusions[] = 'elementorAdminBarConfig';
-        $exclusions[] = 'elementorCommonConfig';
-        $exclusions[] = 'elementorWebCliConfig';
-        $exclusions[] = 'elementorFrontend';
+
     }
-    if (is_front_page()) {
-        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/preload.js';
-    } else {
+    if (!is_front_page()) {
         $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/slider-icon-list.js';
         $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/slider-icon-list.min.js';
     }
-//    if (is_product_category()) {
-//        $exclusions[] = '/jquery-?[0-9.](.*)(.min|.slim|.slim.min)?.js';
-//        $exclusions[] = '/jquery-migrate(.min)?.js';
-//        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-compare-range.js';
-//        $exclusions[] = '/wp-content/themes/bestelectric/assets/js/widgets/product-compare-range.min.js';
-//
-//    }
+
     if (!is_product()) {
         return $exclusions;
     }
