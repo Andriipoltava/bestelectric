@@ -448,7 +448,7 @@
       width: 120%; } }
 
 .JS-compare-ranges-slider:not(.swiper-container-initialized) {
-  display: none; }
+  display: block; }
 
 @media screen and (min-width: 1400px) {
   .JS-compare-ranges-slider .s-compare-ranges__slider {

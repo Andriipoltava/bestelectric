@@ -136,7 +136,7 @@
   }
 
   &:not(.swiper-container-initialized) {
-    display: none;
+    display: block;
   }
 
   .s-compare-ranges__slider {
