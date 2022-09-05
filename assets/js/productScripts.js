@@ -713,11 +713,10 @@
                 $('.product_cat-electric-radiators .variations select').on('change', function () {
                     var _this = $(this);
                     setTimeout(function () {
-                        var newPrice = _this.closest('.variations_form').find('.woocommerce-variation-price .price').html();
-                        //var availabilityProduct = _this.closest('.variations_form').find('.woocommerce-variation-availability').html();
-                        //$('.JS--product-availability').html(availabilityProduct);
-                        $('.JS--top-product-price').html(newPrice);
-                        $('.variations_button__bottom .price .woocommerce-Price-amount').html(newPrice);
+                        var newPrice = _this.closest('.variations_form').find('.woocommerce-variation-price .price');
+
+                        $('.JS--top-product-price').html(newPrice.html());
+                        $('.variations_button__bottom .price .woocommerce-Price-amount').html(newPrice.find('.amount').html());
                     }, 30);
 
                 });

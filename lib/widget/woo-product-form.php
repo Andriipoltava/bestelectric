@@ -153,7 +153,7 @@ class CustomWooSingleProductFrom extends Widget_Base
                     <div class="o-product-top__product-description__bottom">
                         <?php if (get_field('description_btn_show_anchor_features', $id)): ?>
                             <a class="anchor"
-                               href="#features-columns-<?php echo $id ?>"><?php _e('See full description', 'bestelectric'); ?>
+                               href="#features"><?php _e('See full description', 'bestelectric'); ?>
                                 <i class="fa fa-arrow-down"></i>
                             </a>
                         <?php else: ?>

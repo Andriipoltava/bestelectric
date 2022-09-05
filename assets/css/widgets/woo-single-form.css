@@ -558,7 +558,7 @@
       @media screen and (min-width: 480px) {
         .single-product.woocommerce .single_variation_wrap .woocommerce-variation-add-to-cart .single_add_to_cart_button {
           flex: 1 1 auto !important;
-          margin: 0 6px 0 8px; } }
+          margin: 0 6px 0 18px; } }
 
 .single-product.woocommerce .woocommerce-variation-add-to-cart {
   flex-wrap: wrap !important; }
@@ -1036,6 +1036,20 @@
 
 .variation-dropdown-specification__bottom__list .cvy_tip {
   display: inline-block !important; }
+  .variation-dropdown-specification__bottom__list .cvy_tip .cvy_tip_content {
+    transition: opacity .5s;
+    z-index: -1;
+    visibility: hidden;
+    padding: 15px;
+    background: #E5E5E5;
+    border-radius: 0;
+    box-shadow: none;
+    left: calc(50% - 116px);
+    width: 222px; }
+    .variation-dropdown-specification__bottom__list .cvy_tip .cvy_tip_content p {
+      font-size: 14px !important; }
+  .variation-dropdown-specification__bottom__list .cvy_tip .cvy_insulation_info:hover + .cvy_tip_content {
+    visibility: visible; }
 
 .single-product .woocommerce-notices-wrapper {
   max-width: 1360px;
@@ -1413,7 +1427,10 @@
     animation: pulse 1.2s ease-in-out infinite;
     z-index: 9; }
   .o-product-top__trustpilot.is-loaded .o-product-top__trustpilot--loader {
-    display: none; }
+    display: block;
+    background: none;
+    animation: none;
+    cursor: pointer; }
 
 .o-product-top__from {
   font-size: 1.125rem;
@@ -1981,11 +1998,11 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
       transition: all 0.5s;
       content: '';
       position: absolute;
-      width: 5px;
-      height: 1px;
+      width: 8px;
+      height: 2px;
       background: black;
-      right: -10px;
-      top: 50%; }
+      right: -15px;
+      top: 46%; }
     .variation-dropdown-specification span:before {
       transform: rotate(90deg); }
   .variation-dropdown-specification.active span:before, .variation-dropdown-specification.active span:after {

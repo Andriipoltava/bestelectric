@@ -105,6 +105,13 @@ if (!function_exists('wvs_default_variable_item_filter')):
 
                         $data .= '<div class="variation-dropdown-price">' . get_woocommerce_currency_symbol() . $variation["display_price"] . '</div>';
 
+
+                        ?>
+                        <?php
+                        $area = get_post_meta($variation_id, '_cvy_area', true);
+                        $low_area = get_post_meta($variation_id, '_cvy_area_low', true);
+
+
                         if (!empty($area)) {
 
                             $data .= '<div class="cvy_property_field_wrapper cvy_property_area">
@@ -128,6 +135,68 @@ if (!function_exists('wvs_default_variable_item_filter')):
 									</span>
 									</div>';
                         $data .= '</div>';
+                        $data .= '<div class="variation-dropdown-specification"><span>Specification</span></div>';
+                        $data .= '<div class="variation-dropdown-specification__bottom">';
+                        ob_start();
+                        if (!empty($area)) :
+                            ?>
+                            <h4 class="variation-dropdown-specification__bottom-title">Room Sizes</h4>
+                            <div class="variation-dropdown-specification__bottom__list">
+                                <div>
+                                    <span class="variation-dropdown-specification__bottom__list--info">High/New Insulation</span>
+                                    <span>
+                                           <?php echo $area; ?>m2
+                                        <div class="cvy_tip">
+								<a href="javascript:void(0);" class="cvy_insulation_info" title="High/New">i</a>
+                                            <div class="cvy_tip_content">
+							<?php echo $product_tooltip?>
+								</div>
+                                        </div>
+                                    </span>
+
+                                </div>
+                                <div>
+                                    <span class="variation-dropdown-specification__bottom__list--info">Low/Old Insulation</span>
+                                    <?php if (!empty($low_area)) : ?>
+
+                                        <span>
+                                              <?php echo $low_area; ?>m2
+                                        <div class="cvy_tip">
+								<a href="javascript:void(0);" class="cvy_insulation_info" title="Low/Old">i</a>
+                                                <div class="cvy_tip_content">
+                                                <?php echo $product_tooltip?>
+                                            </div>
+                                        </div>
+                                    </span>
+
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+                        <h4 class="variation-dropdown-specification__bottom-title">Dimensions</h4>
+
+                        <div class="variation-dropdown-specification__bottom__list">
+                            <div>
+                                <span class="variation-dropdown-specification__bottom__list--info">Width</span>
+                                <?php echo $variation['dimensions']['length']; ?>mm
+                            </div>
+                            <div>
+                                <span class="variation-dropdown-specification__bottom__list--info">Height</span>
+                                <?php echo $variation['dimensions']['height']; ?>mm
+                            </div>
+                            <div>
+                                <span class="variation-dropdown-specification__bottom__list--info">Depth</span>
+                                <?php echo $variation['dimensions']['width']; ?>mm
+                            </div>
+                            <div>
+                                <span class="variation-dropdown-specification__bottom__list--info">Weight</span>
+                                <?php echo $variation['weight_html']; ?>
+                            </div>
+                        </div>
+                        <?php
+                        $data .= ob_get_clean();
+                        $data .= '</div>';
 
 
                         $data .= '</li>';
@@ -142,3 +211,4 @@ if (!function_exists('wvs_default_variable_item_filter')):
 
     add_filter('wvs_default_variable_item', 'wvs_default_variable_item_filter', 10, 5);
 endif;
+
