@@ -147,15 +147,13 @@ function get_wattage_icon()
 {
     $icon = '<svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53">
   <g id="Group_629" data-name="Group 629" transform="translate(-0.13 -0.269)">
-    <g id="Group_626" data-name="Group 626" transform="translate(0 0)">
+
       <rect id="Rectangle_902" data-name="Rectangle 902" width="53" height="53" transform="translate(0.13 0.269)" fill="none"/>
-    </g>
+   
     <path id="Path_567" data-name="Path 567" d="M21.791,0A21.843,21.843,0,0,1,40.3,10.279a21.552,21.552,0,0,1,3.285,11.511A21.791,21.791,0,1,1,21.791,0Z" transform="translate(4.861 4.816)" fill="none" stroke="#c6c6c6" stroke-linecap="round" stroke-width="2"/>
     <g id="Group_628" data-name="Group 628" transform="translate(17.81 8.952)">
-      <g id="Group_627" data-name="Group 627">
         <path id="Path_566" data-name="Path 566" d="M335.366,343.5l-11.345,22.588-.116-.031,1.733-13.983h-7.956l11.348-21.3.113.027-1.726,12.7Z" transform="translate(-317.682 -330.774)" fill="#c6c6c6"/>
-      </g>
-    </g>
+        </g>
   </g>
 </svg>';
 
@@ -212,7 +210,7 @@ function get_range_icon()
 
 function get_slider_next_arrow(){
     $icon = '<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 25.4 49.4" style="enable-background:new 0 0 25.4 49.4;" xml:space="preserve">
+	 viewBox="0 0 25.4 49.4"  width="25" height="49" style="enable-background:new 0 0 25.4 49.4;" xml:space="preserve">
 <g  transform="translate(0.707 48.707) rotate(-90)">
 	<line x1="0" y1="0" x2="24" y2="24" fill="none" stroke-width="2" style="stroke:currentColor;"/>
 	<line x1="24" y1="24" x2="48" y2="0" fill="none" stroke-width="2" style="stroke:currentColor;" />
@@ -224,7 +222,7 @@ function get_slider_next_arrow(){
 
 function get_slider_prev_arrow(){
     $icon = '<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 25.4 49.4" style="enable-background:new 0 0 25.4 49.4;" xml:space="preserve">
+	 viewBox="0 0 25.4 49.4"  width="25" height="49" style="enable-background:new 0 0 25.4 49.4;" xml:space="preserve">
 <g transform="translate(24.707 0.707) rotate(90)">
 	<line  x1="0" y1="0" x2="24" y2="24" fill="none" stroke-width="2" style="stroke:currentColor;"/>
 	<line  x1="24" y1="24" x2="48" y2="0" fill="none" stroke-width="2" style="stroke:currentColor;"/>

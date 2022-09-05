@@ -352,10 +352,18 @@
     padding: 0 !important; }
   .s-compare-ranges .swiper-slide {
     padding: 0 15px;
-    height: auto; }
-    @media screen and (min-width: 1200px) {
+    height: auto;
+    width: 70vw; }
+    @media screen and (min-width: 990px) {
       .s-compare-ranges .swiper-slide {
-        padding: 0 20px; } }
+        width: calc( 100vw / 2 + 30px); } }
+    @media screen and (min-width: 990px) {
+      .s-compare-ranges .swiper-slide {
+        width: calc((100vw - 1360px) * 2 + 100vw / 3); } }
+    @media screen and (min-width: 1440px) {
+      .s-compare-ranges .swiper-slide {
+        padding: 0 20px;
+        width: 340px; } }
   .s-compare-ranges .swiper-wrapper {
     padding: 30px 0; }
     @media screen and (min-width: 1440px) {

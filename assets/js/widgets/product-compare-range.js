@@ -38,7 +38,6 @@
                 update: function () {
                     let l= $scope.find('.swiper-wrapper .swiper-slide')?$scope.find('.swiper-wrapper .swiper-slide'):this.slides.length
 
-                    console.log()
                     $scope.find('.JS--compare-ranges-nav-fraction').text((this.realIndex + sliderIndexF(this)) + '/' + l.length)
                 },
 
@@ -68,8 +67,8 @@
 
         })
         setTimeout(function () {
-            $scope.find('.JS-compare-ranges-slider').css({display: 'block'})
-            swiper.update()
+            // $scope.find('.JS-compare-ranges-slider').css({display: 'block'})
+            // swiper.update()
             $scope.find('.JS--compare-ranges-nav-fraction').text((swiper.realIndex + sliderIndexF(swiper)) + '/' + swiper.slides.length)
         }, 300)
 
