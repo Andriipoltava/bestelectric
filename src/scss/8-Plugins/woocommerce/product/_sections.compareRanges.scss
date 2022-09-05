@@ -14,7 +14,7 @@
       width: calc( 100vw / 2 + 30px );
     }
     @include mq(990) {
-      width:calc(33vw + 30px) ;
+      width:calc(31vw + 30px) ;
     }
     @include mq(1440) {
       padding: 0 20px;
