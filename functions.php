@@ -193,7 +193,9 @@ function bestelectric_scripts()
     if (is_search()) {
         wp_enqueue_style('ber-woo-product');
     }
-
+    if (is_product_category( )|| is_front_page()) {
+        wp_enqueue_style('ber-css-compare-range');
+    }
 
     if (function_exists('is_woocommerce')) {
         if (!is_woocommerce() && !is_cart() && !is_checkout()) {
@@ -455,17 +457,17 @@ function bestelectric_js_exclusions($exclusions)
     return $exclusions;
 }
 
-add_filter('woocommerce_gallery_image_size',function ($size){
+add_filter('woocommerce_gallery_image_size', function ($size) {
 
-    if(wp_is_mobile()){
+    if (wp_is_mobile()) {
         return 'medium';
     }
     return $size;
 });
 
-add_filter('woocommerce_gallery_full_size',function ($size){
+add_filter('woocommerce_gallery_full_size', function ($size) {
 
-    if(wp_is_mobile()){
+    if (wp_is_mobile()) {
         return 'medium';
     }
     return $size;
