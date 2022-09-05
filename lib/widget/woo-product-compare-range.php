@@ -130,10 +130,10 @@ class CustomWooProductCompareRange extends Widget_Base
         $products_loop = new \WP_Query($products_args);
         ?>
         <?php if ($products_loop->have_posts()) : ?>
-        <section class="s-compare-ranges ">
+        <section class="s-compare-ranges " id="s-compare-ranges">
 
 
-            <div class="JS-compare-ranges-slider swiper-custom" style="display: none">
+            <div class="JS-compare-ranges-slider swiper-custom">
 
 
                 <div class="s-compare-ranges__intro <?php if (!$setting['widget_title']) echo 's-compare-ranges__notitle' ?>">
@@ -221,15 +221,10 @@ class CustomWooProductCompareRange extends Widget_Base
                             <div class="c-compare-ranges__colors 'c-compare-ranges__colors--reverses <?php //echo ($current_product_post_id == $id) ? 'c-compare-ranges__colors--reverse' : null; ?>">
                                 <?php foreach ($color_terms as $term) :
                                     $product_color = get_term_meta($term->term_id);
-
-                                    ?>
-
-                                    <a href="<?php the_permalink(); ?>?attribute_pa_colour=<?php echo $term->slug; ?>"
-                                       data-colour="<?php echo $term->slug; ?>"
-                                       class="c-compare-ranges__color-btn JS--compare-ranges-color"
-                                       style="background-color: <?php echo $product_color['product_attribute_color'][0]; ?>"></a>
-
-
+                                    ?><a href="<?php the_permalink(); ?>?attribute_pa_colour=<?php echo $term->slug; ?>"
+                                         data-colour="<?php echo $term->slug; ?>"
+                                         class="c-compare-ranges__color-btn JS--compare-ranges-color"
+                                         style="background-color: <?php echo $product_color['product_attribute_color'][0]; ?>"></a>
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; ?>
@@ -265,6 +260,7 @@ class CustomWooProductCompareRange extends Widget_Base
         $variations = $product->get_available_variations();
         $var = [];
 
+
         if (isset($_GET)) {
             foreach ($variations as $key => $variation) :
                 $var[$key] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html'])] ?? '';
@@ -280,7 +276,7 @@ class CustomWooProductCompareRange extends Widget_Base
                             $attribute_object = $attributes[$attribute];
                             if ($attribute_object->is_taxonomy()) {
                                 $tax = wc_get_product_terms($product->get_id(), $attribute_object->get_name(), array('fields' => 'slugs'));
-                                $var[$key][$name]=  count($tax) == 1 ? implode(', ', $tax):'';
+                                $var[$key][$name] = count($tax) == 1 ? implode(', ', $tax) : '';
 
                             }
 
@@ -309,9 +305,12 @@ class CustomWooProductCompareRange extends Widget_Base
                 $price = (count($var) > 1 ? 'From: ' : '') . $product_variation->get_price_html();
                 $link = (count($var) > 1 ? $link : $product_variation->get_permalink());
             } else {
-                continue;
+                if (isset($_GET['filter_wattage']) || isset($_GET['filter_colour'] )|| isset($_GET['filter_el_type'])){
+                    continue;
+                }
             }
         }
+
         ?>
         <div class="s-compare-ranges__slide swiper-slide">
             <div class="c-compare-ranges JS--compare-ranges-item">
@@ -347,9 +346,14 @@ class CustomWooProductCompareRange extends Widget_Base
                             <?php echo twl_lazy_image($product_images_ids[0], 'woocommerce_thumbnail'); ?>
                         </div>
                     </a>
+                    <!--                    <div style="right: 0;    z-index: 11;    top: 0; position: absolute" class="c-compare-ranges__wishlist">-->
+                    <!--                        --><?php //echo do_shortcode('[yith_wcwl_add_to_wishlist product_id="' . $product->get_id() . '"]'); ?>
+                    <!--                    </div>-->
                 </div>
                 <div class="c-compare-ranges__body">
-                    <div class="c-compare-ranges__title"><?php echo str_replace('Wifi', '<sup>wifi</sup>', get_the_title()); ?></div>
+                    <a title="<?php echo  esc_html(get_the_title())?>" href="<?php the_permalink(); ?>" class="c-compare-ranges__title">
+                        <?php echo str_replace('Wifi', '<sup>wifi</sup>', get_the_title()); ?>
+                    </a>
                     <div class="c-compare-ranges__description">
                         <?php
                         echo $short_description; ?>
@@ -397,9 +401,6 @@ class CustomWooProductCompareRange extends Widget_Base
     }
 
 
-    public function render_plain_content()
-    {
-    }
 }
 
 global $widgets;
