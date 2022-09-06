@@ -448,7 +448,7 @@
 
   sup {
     margin-right: 4px;
-    @include font(m2-small, 14, 300);
+    @include font(m2-small, 14, 400);
     text-transform: uppercase;
   }
 }
@@ -557,7 +557,10 @@
 
   &.is-loaded {
     .o-product-top__trustpilot--loader {
-      display: none;
+      display: block;
+      background: none;
+      animation: none;
+      cursor: pointer;
     }
   }
 }
