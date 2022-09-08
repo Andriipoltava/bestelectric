@@ -448,7 +448,7 @@
 
   sup {
     margin-right: 4px;
-    @include font(m2-small, 14, 400);
+    @include font(mid, 14, 400);
     text-transform: uppercase;
   }
 }

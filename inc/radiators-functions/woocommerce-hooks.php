@@ -126,7 +126,6 @@ function elr_display_quantity_plus()
 add_action('woocommerce_before_add_to_cart_quantity', 'elr_display_quantity_minus');
 function elr_display_quantity_minus()
 {
-    echo '<span class="product-cart-inc">inc. VAT</span>';
     echo '<button type="button" class="c-quantity-btn c-quantity-btn--minus JS--quantity-minus" >&ndash;</button>';
 }
 
@@ -139,13 +138,31 @@ function woocommerce_custom_single_add_to_cart_text() {
 }*/
 
 
-add_action('woocommerce_before_add_to_cart_quantity', 'add_to_btn_product_availability');
+add_action('woocommerce_after_add_end_cart_button', 'add_to_btn_product_availability');
 function add_to_btn_product_availability()
 {
     global $product;
     $product_availability = $product->get_availability();
+    if ($product_availability['availability']) { ?>
+        <div class="delivery__bottom product-availability  <?php echo $product_availability['class'] ?>">
 
-    echo '<span class="product-availability JS--product-availability">' . $product_availability["availability"] . '</span>';
+            <div class="delivery__bottom__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Delivery_icon" data-name="Delivery icon" width="44"
+                     height="44"
+                     viewBox="0 0 44 44">
+                    <circle id="Ellipse_458" data-name="Ellipse 458" cx="22" cy="22" r="22" fill="#fff"/>
+                    <path id="Path_2982" data-name="Path 2982"
+                          d="M23.156-2.969h-.594V-7.277a2.687,2.687,0,0,0-.783-1.889l-3.113-3.113a2.694,2.694,0,0,0-1.889-.783h-1.34v-1.484a2.079,2.079,0,0,0-2.078-2.078H2.078A2.079,2.079,0,0,0,0-14.547V-3.266A2.079,2.079,0,0,0,2.078-1.187h.3A3.563,3.563,0,0,0,5.937,2.375,3.563,3.563,0,0,0,9.5-1.187h4.75a3.563,3.563,0,0,0,3.562,3.562,3.563,3.563,0,0,0,3.562-3.562h1.781a.6.6,0,0,0,.594-.594v-.594A.6.6,0,0,0,23.156-2.969ZM5.937.594A1.782,1.782,0,0,1,4.156-1.187,1.782,1.782,0,0,1,5.937-2.969,1.782,1.782,0,0,1,7.719-1.187,1.782,1.782,0,0,1,5.937.594Zm7.719-3.562H9.006A3.542,3.542,0,0,0,5.937-4.75,3.542,3.542,0,0,0,2.869-2.969h-.79a.3.3,0,0,1-.3-.3V-14.547a.3.3,0,0,1,.3-.3H13.359a.3.3,0,0,1,.3.3Zm1.781-8.312h1.34a.912.912,0,0,1,.631.26l2.709,2.709H15.437ZM17.812.594a1.782,1.782,0,0,1-1.781-1.781,1.782,1.782,0,0,1,1.781-1.781,1.782,1.782,0,0,1,1.781,1.781A1.782,1.782,0,0,1,17.812.594Zm2.969-3.744a3.562,3.562,0,0,0-2.969-1.6,3.539,3.539,0,0,0-2.375.924V-6.531h5.344Z"
+                          transform="translate(11 29.625)" fill="#77a464"/>
+                </svg>
+            </div>
+            <div class="delivery__bottom__body">
+                <p>
+                <?php echo $product_availability['availability']; ?>
+                </p>
+            </div>
+        </div>
+    <?php };
 }
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
@@ -185,7 +202,7 @@ function remove_shop($link_output, $link)
 add_action('woocommerce_after_add_to_cart_form', function () {
     if (get_field('payment_logos', 'option')) {
         ?>
-        <div id="ppc-top-title"  class="hide" >
+        <div id="ppc-top-title" class="hide">
             <?php _e('or checkout with'); ?>
         </div>
         <?php

@@ -1347,8 +1347,8 @@
       margin-right: 0px; } }
   .o-product-top__title sup {
     margin-right: 4px;
-    font-size: 0.6875rem;
-    line-height: 1.27273;
+    font-size: 1.125rem;
+    line-height: 0.77778;
     font-weight: 400;
     text-transform: uppercase; }
 
@@ -2049,7 +2049,7 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
     .delivery__bottom__body {
       width: 100%; } }
   .delivery__bottom__body p {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
     font-size: 14px;
     color: #77A464;
     line-height: 20px; }
@@ -2065,3 +2065,9 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
     @media screen and (max-width: 1024px) {
       .delivery__bottom__icon {
         display: none; } }
+  .delivery__bottom.product-availability.available-on-backorder {
+    background: #FDF3E0; }
+    .delivery__bottom.product-availability.available-on-backorder .delivery__bottom__body p {
+      color: #fc9e4e; }
+    .delivery__bottom.product-availability.available-on-backorder svg path {
+      fill: #fc9e4e; }

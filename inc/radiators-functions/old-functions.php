@@ -278,7 +278,8 @@ function wcs_custom_get_availability($availability, $_product)
            $custom_in_stock_message = get_field('product_in_stock_message');
            $availability['availability'] = $custom_in_stock_message;
        }else{
-           $availability['availability'] = __('Order before 11 am for <strong>next day delivery!</strong>', 'woocommerce');
+           $availability['availability'] = __('<strong>24 hr Delivery</strong> | Order before 11am for delivery ' . date_delivery_24() . '</br><strong>FREE 48 hr Delivery </strong > | Order before 11am for delivery ' . date_delivery_48(), 'woocommerce');
+
        }
     }
     if ( $_product->managing_stock() && $availability["class"] == 'available-on-backorder') {
@@ -336,3 +337,38 @@ remove_action('woocommerce_before_subcategory_title', 'woocommerce_subcategory_t
  * Hide category product count in product archives
  */
 add_filter('woocommerce_subcategory_count_html', '__return_false');
+function date_delivery_24()
+{
+
+    $datetime = new DateTime('now');
+    $data = 'tomorrow, ' . date("jS M", strtotime("+1 day"));
+    if ($datetime->format('l') == 'Friday') {
+        $data = date("l, jS M", strtotime("+3 day"));
+    } elseif ($datetime->format('l') == 'Saturday') {
+        $data = date("l, jS M", strtotime("+3 day"));
+    } elseif ($datetime->format('l') == 'Sunday') {
+        $data = date("l, jS M", strtotime("+2 day"));
+    }
+
+    return $data;
+}
+
+;
+function date_delivery_48()
+{
+
+    $datetime = new DateTime('now');
+    $data = date("l, jS M", strtotime("+2 day"));
+    if ($datetime->format('l') == 'Thursday') {
+        $data = date("l, jS M", strtotime("+4 day"));
+    } elseif ($datetime->format('l') == 'Friday') {
+        $data = date("l, jS M", strtotime("+4 day"));
+    } elseif ($datetime->format('l') == 'Saturday') {
+        $data = date("l, jS M", strtotime("+4 day"));
+    } elseif ($datetime->format('l') == 'Sunday') {
+        $data = date("l, jS M", strtotime("+3 day"));
+    }
+
+    return $data;
+}
+

@@ -241,11 +241,14 @@ function css() {
     const wooMore = cssWidget('woo-single-more')
     const wooTech = cssWidget('woo-single-tech-tabs')
     const wooCompare = cssWidget('woo-compare')
+    const wooHeader = cssWidget('woo-product-header')
+
 
     //return all, print;
     return style,
         calcBanner,
         sliderKsp,
+        wooHeader,
         singleFrom,
         singleGalley,
         wooSummary,
@@ -384,9 +387,9 @@ function scripts() {
     const hereSlider= jsWatcherWidget('slider3image')
     const kspSlider= jsWatcherWidget('slider-icon-list')
     const wooBasket= jsWatcherWidget('woo-basket')
+    const wooHeader = jsWatcherWidget('product-header')
 
-
-    return globalScripts, productScripts, calculatorScripts, calcComp,megaMenu,wooFeaturesList,wooCompRang,wooFeatures,wooGallery,wooBasket,kspSlider,hereSlider,searchForm,wooTechTabs,wooForm;
+    return globalScripts,wooHeader, productScripts, calculatorScripts, calcComp,megaMenu,wooFeaturesList,wooCompRang,wooFeatures,wooGallery,wooBasket,kspSlider,hereSlider,searchForm,wooTechTabs,wooForm;
 };
 
 
