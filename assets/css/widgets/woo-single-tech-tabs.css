@@ -389,3 +389,47 @@
       font-size: 0.8125rem;
       line-height: 1.23077;
       font-weight: 900; }
+
+.c-product-tech-accordion__content__slider {
+  max-width: 100%; }
+  .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer {
+    display: block; }
+    .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__pagination {
+      padding: 10px; }
+      .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: #FFFFFF;
+        border: 2px solid #6d6e71;
+        opacity: 1; }
+        .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+          border: 2px solid #B8D048;
+          box-shadow: 0px 3px 6px #00000029; }
+    .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__item {
+      flex-direction: column;
+      justify-content: space-between;
+      height: auto;
+      display: flex; }
+      .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__item__counter {
+        width: 58px;
+        height: 58px;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F0F5D9;
+        font-size: 1.5rem;
+        line-height: 1.41667;
+        font-weight: 700;
+        border-radius: 50%; }
+      .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__item__text {
+        font-size: 1.5rem;
+        line-height: 1.375;
+        font-weight: 700;
+        margin: 10px 0;
+        text-align: center; }
+      .c-product-tech-accordion__content__slider .c-product-tech-accordion__installer__item__image img {
+        margin: 10px auto;
+        display: block;
+        max-width: 200px;
+        width: 100%; }
