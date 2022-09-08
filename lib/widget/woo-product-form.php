@@ -166,7 +166,7 @@ class CustomWooSingleProductFrom extends Widget_Base
                 </div>
 
 
-                <div class="summary entry-summary">
+                <div class="summary entry-summary" id="woocommerce_single_product_summary">
                     <?php
                     do_action('woocommerce_single_product_summary');
                     ?>
