@@ -105,9 +105,12 @@ class CustomWooProductTechSpecs extends Widget_Base
             return '';
         }
 
+        if (have_rows('product_technical_specs', $id) || have_rows('tech_specs_boxes', $id) || $product->get_upsell_ids()):
+            echo "<div id='techSpecs'>";
+        endif;
         if ($product->get_upsell_ids()) : ?>
 
-            <section class="up-sells upsells products elementor">
+            <section class="up-sells upsells products elementor" id="up-sells">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -116,12 +119,10 @@ class CustomWooProductTechSpecs extends Widget_Base
                             <?php woocommerce_product_loop_start(); ?>
                             <?php foreach ($product->get_upsell_ids() as $upsell) : ?>
 
-
                                 <?php
                                 $post_object = get_post($upsell);
                                 setup_postdata($GLOBALS['post'] =& $post_object);
                                 wc_get_template_part('content', 'product'); ?>
-
 
                             <?php endforeach; ?>
 
@@ -136,7 +137,7 @@ class CustomWooProductTechSpecs extends Widget_Base
         wp_reset_query();
 
         if (have_rows('product_technical_specs', $id) || have_rows('tech_specs_boxes', $id)): ?>
-            <section class="s-product-tech-specs">
+            <section class="s-product-tech-specs" id="tech-specs">
                 <div class="s-product-tech-specs__nav">
                     <div class="container">
                         <div class="row">
@@ -216,28 +217,64 @@ class CustomWooProductTechSpecs extends Widget_Base
                                         <?php endif; ?>
 
                                         <?php
-                                        $counter = 2;
-                                        while (have_rows('product_technical_specs', $id)): the_row();
 
-                                            $content = get_sub_field('product_technical_specs_content');
+                                        if (have_rows('product_technical_specs', $id)) {
+                                            $counter = 2;
+
+                                            while (have_rows('product_technical_specs', $id)) {
+                                                the_row();
+
+                                                $content = get_sub_field('product_technical_specs_content');
+                                                $cards = get_sub_field('product_technical_specs_card');
+
+                                                ?>
+                                                <div class="c-product-tech-accordion__content JS--product-specs-tab <?php echo (!$product_specification_title && $counter == 2) ? 'is-active' : null; ?><?php if (!get_sub_field('content_or_card') && $cards && count($cards)) echo ' c-product-tech-accordion__content__slider'?>"
+                                                     data-spec-tab="<?php echo $counter; ?>">
+
+                                                    <?php if ($content) {
+                                                        echo $content;
+                                                    } ?>
+                                                    <?php if (!get_sub_field('content_or_card') && $cards && count($cards)) { ?>
+                                                        <div class="c-product-tech-accordion__installer swiper-custom">
+                                                            <div class="swiper-wrapper c-product-tech-accordion__installer__wrapper">
+                                                                <?php foreach ($cards as $key => $card) { ?>
+                                                                    <div class="swiper-slide c-product-tech-accordion__installer__item">
+                                                                        <div class="c-product-tech-accordion__installer__item__counter">
+                                                                            <?php echo $key+1; ?>
+                                                                        </div>
+                                                                        <div class="c-product-tech-accordion__installer__item__text">
+                                                                            <?php echo $card['title']; ?>
+                                                                        </div>
+                                                                        <div class="c-product-tech-accordion__installer__item__image">
+                                                                            <?php echo wp_get_attachment_image($card['image']['id']); ?>
+                                                                        </div>
+
+                                                                    </div>
+                                                                <?php }; ?>
+                                                            </div>
+                                                            <div class="swiper-pagination c-product-tech-accordion__installer__pagination">
+                                                            </div>
+                                                        </div>
+                                                    <?php }; ?>
+                                                </div>
+                                                <?php $counter++;
+                                            }
+
                                             ?>
-                                            <div class="c-product-tech-accordion__content JS--product-specs-tab <?php echo (!$product_specification_title && $counter == 2) ? 'is-active' : null; ?>"
-                                                 data-spec-tab="<?php echo $counter; ?>">
-                                                <?= $content; ?>
-                                            </div>
+                                        <?php } ?>
 
-                                            <?php $counter++; endwhile; ?>
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
             </section>
         <?php endif;
+        if (have_rows('product_technical_specs', $id) || have_rows('tech_specs_boxes', $id) || $product->get_upsell_ids()):
+            echo "</div>";
+        endif;
 
 
     }

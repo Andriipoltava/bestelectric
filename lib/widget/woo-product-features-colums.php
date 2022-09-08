@@ -68,7 +68,7 @@ class CustomWooProductFeatureColumns extends Widget_Base
         if (have_rows('product_features_slider', $id)):
             ?>
 
-            <section class="s-product-features-columns" id="features-columns-<?php echo $id;?>">
+            <section class="s-product-features-columns" id="features">
                 <?php if ($slider_main_title) : ?>
                     <div class="s-product-features-columns__intro">
                         <div class="container">
