@@ -170,6 +170,12 @@ class CustomWooSingleProductFrom extends Widget_Base
                     <?php
                     do_action('woocommerce_single_product_summary');
                     ?>
+                    <?php if (get_field('payment_logos', 'option')) { ?>
+
+                        <div id="ppc-bottom-payment-logos" class="hide pt10">
+                            <?php echo wp_get_attachment_image(get_field('payment_logos','option')['id'],'full'); ?>
+                        </div>
+                    <?php }; ?>
                 </div>
                 <?php $top_icon = get_field('warranty_header_icon', $id); ?>
                 <div class="product-info">
