@@ -77,14 +77,14 @@ class CustomWooSingleProductFrom extends Widget_Base
             return '';
         }
 
-
+        $title = get_field('long_title_product', $id) ?: str_replace('Wifi', '<sup>wifi</sup>', get_the_title());
         ?>
         <div class="o-product-top">
             <div class="o-product-top__summary">
                 <?php if (get_field('label')) : ?>
                     <span class="o-product-top__label <?php echo (get_field('product_label_color') == 'blue') ? 'o-product-top__label--blue' : null; ?>"><?php the_field('label'); ?></span>
                 <?php endif; ?>
-                <h1 class="o-product-top__title"><?php echo str_replace('Wifi', '<sup>wifi</sup>', get_the_title()); ?></h1>
+                <h1 class="o-product-top__title"><?php echo $title ?></h1>
 
                 <?php if (get_field('top_description_new_design', $id)) { ?>
 
@@ -173,7 +173,7 @@ class CustomWooSingleProductFrom extends Widget_Base
                     <?php if (get_field('payment_logos', 'option')) { ?>
 
                         <div id="ppc-bottom-payment-logos" class="hide pt10">
-                            <?php echo wp_get_attachment_image(get_field('payment_logos','option')['id'],'full'); ?>
+                            <?php echo wp_get_attachment_image(get_field('payment_logos', 'option')['id'], 'full'); ?>
                         </div>
                     <?php }; ?>
                 </div>
