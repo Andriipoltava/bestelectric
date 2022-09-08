@@ -5,15 +5,11 @@ add_action('elementor/widgets/register', 'themes_widgets_registered');
 function themes_widgets_registered($widgets_manager)
 {
     if (defined('ELEMENTOR_PATH') && class_exists('Elementor\Widget_Base')) {
-
         global $widgets;
-
         $widgets = $widgets_manager;
         foreach (glob(get_stylesheet_directory() . "/lib/widget/*.php") as $filename) {
             include $filename;
         }
-
-
     }
 }
 
@@ -24,7 +20,7 @@ add_action('elementor/frontend/after_register_scripts', function () {
         $path_min = "";
     }
     wp_register_script('swiper', ELEMENTOR_ASSETS_URL . '/lib/swiper/swiper.min.js', array('jquery'), ELEMENTOR_VERSION, true);
-    wp_register_script('elementor-sticky', ELEMENTOR_PRO_URL . 'assets/lib/sticky/jquery.sticky'. $path_min . '.js', array('jquery'), ELEMENTOR_VERSION, true);
+    wp_register_script('elementor-sticky', ELEMENTOR_PRO_URL . 'assets/lib/sticky/jquery.sticky' . $path_min . '.js', array('jquery'), ELEMENTOR_VERSION, true);
     wp_register_script('ber-js-mego-menu', get_stylesheet_directory_uri() . '/assets/js/widgets/mega-menu' . $path_min . '.js', array('jquery', 'swiper'), $script_version, true);
     wp_register_script('ber-js-slider-3-image', get_stylesheet_directory_uri() . '/assets/js/widgets/slider3image' . $path_min . '.js', array('jquery', 'swiper'), $script_version, true);
     wp_register_script('ber-js-slider-ksp', get_stylesheet_directory_uri() . '/assets/js/widgets/slider-icon-list' . $path_min . '.js', array('jquery', 'swiper'), $script_version, true);
@@ -38,6 +34,7 @@ add_action('elementor/frontend/after_register_scripts', function () {
     wp_register_script('ber-js-product-gallery', get_stylesheet_directory_uri() . '/assets/js/widgets/product-gallery' . $path_min . '.js', array('jquery'), $script_version, true);
     wp_register_script('ber-js-calc-scripts', get_stylesheet_directory_uri() . '/assets/js/calculatorScripts' . $path_min . '.js', array('ber-scripts'), $script_version, true);
     wp_register_script('ber-js-single-form', get_stylesheet_directory_uri() . '/assets/js/widgets/product-single-form' . $path_min . '.js', array('jquery', 'swiper'), $script_version, true);
+    wp_register_script('ber-js-product-header', get_stylesheet_directory_uri() . '/assets/js/widgets/product-header.js', array('jquery'), $script_version, true);
 
 });
 
@@ -71,6 +68,7 @@ add_action('elementor/frontend/after_register_styles', function () {
     wp_register_style('ber-css-video', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-video' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-compare-range', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-compare-range' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-compare', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-compare' . $path_min . '.css', array(), $script_version);
+    wp_register_style('ber-css-woo-header', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-product-header' . $path_min . '.css', array(), $script_version);
 
 });
 
@@ -99,8 +97,8 @@ function get_edit_id_page()
 
 }
 
-add_action( 'elementor/widget/render_content', function( $content, $widget ) {
-    if ( 'custom-woo-single-slider' === $widget->get_name() ) {
+add_action('elementor/widget/render_content', function ($content, $widget) {
+    if ('custom-woo-single-slider' === $widget->get_name()) {
         // Run the hooks without outputting the code that `do_action` will want to do
         ob_start();
         do_action('woocommerce_before_main_content');
@@ -114,6 +112,5 @@ add_action( 'elementor/widget/render_content', function( $content, $widget ) {
     }
 
     return $content;
-}, 10, 2 );
-
+}, 10, 2);
 

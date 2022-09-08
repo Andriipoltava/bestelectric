@@ -1,0 +1,248 @@
+/**
+ *  Global color variables.
+ *	The underscore Never use them directly in the styles, only for functions and mixins.
+ */
+/**
+ *  Organize color variables in a Sass Map.
+ *  This way, the colors can be iterated, are more organized, and are more intuitive to reference.
+ */
+/* ==========================================================================
+   Config settings
+   ========================================================================== */
+/** =====================================================================================
+ *  Defines the typographic baseline.
+ *  We define every size in pixels, the underlying system converts the
+ *  respective units to the responsive REM value.
+ ===================================================================================== */
+/**
+ * Our base font-size and line-height
+ */
+/**
+ *	Here we assign short names for the font families
+ */
+/* ==========================================================================
+ * Font related functions
+ * ========================================================================== */
+/**
+ *  Calculate line-height ratio from font-size and line-height in px value
+ */
+/**
+ *  Mixin for setting font-size in REM through a Sass Map with all available sizes
+
+    USAGE:
+
+    .myClass {
+        @include font-size(x-large);
+    }
+
+ */
+/**
+ *	A simple function for accessing the font families from our mapping
+
+	USAGE:
+
+	span {
+		@include font-family(primary);
+	}
+
+ */
+/**
+ *  Font mixin for setting font-size, font-weight, and line-height
+
+    USAGE:
+
+    .myClass {
+        @include font(x-large, 34, 500);
+    }
+
+    .myClass {
+      @include font(medium, $weight: 300);
+    }
+
+ */
+/* Media query mixin for writing Mobile First
+ * ========================================== */
+/** =====================================================================================
+ *  Toolbox functions
+ ===================================================================================== */
+/**
+ *  Maths helpers.
+ *  Halve and double numbers, returning rounded integers.
+
+    USAGE:
+
+    .foo {
+        padding: halve(30px);
+    }
+
+ */
+/**
+ *  Remove the unit of a length
+ *  @param {Number} $number - Number to remove unit from
+ *  @return {Number} - Unitless number
+ */
+/* Check if value is number */
+/* Value to Em */
+/* Value to Rem */
+/**
+ *	A simple function for accessing the colors from our mapping
+ *	To access colors in our palette, we use a very simple custom Sass function
+
+	USAGE:
+
+	a {
+		color: palette(primary);
+
+		&:hover {
+			color: palette(primary, 400);
+		}
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent box-shadow
+
+	USAGE:
+
+	.card {
+		@include box-shadow();
+	}
+
+	.card--alt {
+		@include box-shadow(low);
+	}
+
+ */
+/**
+ *	A simple function for setting a consistent border-radius
+
+	USAGE:
+
+	.card {
+		@include border-radius;
+	}
+
+	.card--alt {
+		@include border-radius(large);
+	}
+
+ */
+/**
+ * Lobotomized Owl Selector mixin:
+ * - Set spacing for consecutive items with margin-top on all but the first item
+
+	USAGE:
+
+	.box {
+		@include owl-children;
+	}
+
+	.card__item {
+		@include owl;
+	}
+
+ */
+/**
+ *  Show hyphens for every browser supporting it
+ *  and will break lines in every other browser
+ */
+/*
+ *  Restrict an element to a max-width for creating gutters on the side
+ */
+.singleWooHeader__wrap {
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center; }
+
+.singleWooHeader__item {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center; }
+  .singleWooHeader__item__select {
+    display: block;
+    border: 0;
+    font-size: 1rem;
+    line-height: 3.3125;
+    font-weight: 700;
+    padding: 0 10px 0 0;
+    margin: 0 10px;
+    background-color: transparent;
+    border-radius: 0;
+    -webkit-appearance: menulist; }
+    @media screen and (min-width: 1025px) {
+      .singleWooHeader__item__select {
+        display: none; } }
+    .singleWooHeader__item__select:focus {
+      outline: none; }
+  .singleWooHeader__item__menu {
+    display: none; }
+    @media screen and (min-width: 1025px) {
+      .singleWooHeader__item__menu {
+        display: flex;
+        list-style: none; } }
+    .singleWooHeader__item__menu li {
+      padding: 10px 25px; }
+    .singleWooHeader__item__menu a {
+      font-size: 1.125rem;
+      line-height: 2.94444;
+      font-weight: 300;
+      color: #333333; }
+      .singleWooHeader__item__menu a:after {
+        display: block;
+        content: attr(title);
+        font-weight: bold;
+        height: 1px;
+        color: transparent;
+        overflow: hidden;
+        visibility: hidden; }
+      .singleWooHeader__item__menu a.active {
+        font-weight: bold; }
+  .singleWooHeader__item__buy {
+    background-color: #B8D048;
+    color: white;
+    border-radius: 0 !important;
+    box-shadow: 0 3px 6px 0 #00000028;
+    border: 0;
+    font-size: 0.9375rem;
+    line-height: 1.33333;
+    font-weight: 700;
+    padding: 10px 24px;
+    cursor: pointer; }
+    @media screen and (min-width: 1025px) {
+      .singleWooHeader__item__buy {
+        margin-right: 10px; } }
+    @media screen and (max-width: 1024px) {
+      .singleWooHeader__item__buy span {
+        display: none; } }
+  .singleWooHeader__item__price {
+    padding: 0 10px 0 0; }
+    @media screen and (min-width: 1025px) {
+      .singleWooHeader__item__price {
+        padding: 10px 25px; } }
+    .singleWooHeader__item__price .o-product-top__from {
+      font-size: 0.8125rem;
+      line-height: 1.53846;
+      font-weight: 400; }
+      @media screen and (min-width: 1025px) {
+        .singleWooHeader__item__price .o-product-top__from {
+          font-size: 1.125rem;
+          line-height: 2.22222;
+          font-weight: 400; } }
+    .singleWooHeader__item__price .woocommerce-Price-amount {
+      font-size: 1.25rem;
+      line-height: 2;
+      font-weight: 400; }
+      @media screen and (min-width: 1025px) {
+        .singleWooHeader__item__price .woocommerce-Price-amount {
+          font-size: 1.3125rem;
+          line-height: 1.90476;
+          font-weight: 400; } }
+    .singleWooHeader__item__price .o-product-top__price--inc {
+      display: none; }
+      @media screen and (min-width: 1025px) {
+        .singleWooHeader__item__price .o-product-top__price--inc {
+          display: inline-block;
+          font-size: 0.625rem;
+          line-height: 4;
+          font-weight: 400; } }

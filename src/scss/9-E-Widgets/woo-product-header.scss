@@ -1,0 +1,128 @@
+//Main setting
+
+@import '../1-Settings/settings';
+
+//Tools setting
+@import '../2-Tools/tools';
+
+
+.singleWooHeader {
+
+
+  &__wrap {
+
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__select {
+
+      display: block;
+      border: 0;
+      @include font(base, 53, 700);
+      padding: 0 10px 0 0;
+      margin: 0 10px;
+      background-color: transparent;
+      border-radius: 0;
+      -webkit-appearance: menulist;
+      @include mq(1025) {
+        display: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__menu {
+      display: none;
+      @include mq(1025) {
+        display: flex;
+        list-style: none;
+      }
+
+      li {
+        padding: 10px 25px;
+      }
+
+      a {
+        @include font(mid, 53, 300);
+        color: #333333;
+
+        &:after {
+          display: block;
+          content: attr(title);
+          font-weight: bold;
+          height: 1px;
+          color: transparent;
+          overflow: hidden;
+          visibility: hidden;
+        }
+
+        &.active {
+          font-weight: bold;
+
+        }
+
+      }
+    }
+
+    &__buy {
+      background-color: $_color-primary-500;
+      color: white;
+      border-radius: 0 !important;
+      box-shadow: 0 3px 6px 0 #00000028;
+      border: 0;
+      @include font(l-small, 20, 700);
+      padding: 10px 24px;
+      cursor: pointer;
+      @include mq(1025) {
+        margin-right: 10px;
+      }
+      @include mq(null,1025) {
+        span{
+          display: none;
+        }
+      }
+
+    }
+
+    &__price {
+      padding: 0 10px 0 0;
+      @include mq(1025) {
+        padding: 10px 25px;
+
+      }
+
+      .o-product-top__from {
+        @include font(m4-small, 20, 400);
+        @include mq(1025) {
+          @include font(mid, 40, 400);
+        }
+      }
+
+      .woocommerce-Price-amount {
+        @include font(mid-large, 40, 400);
+        @include mq(1025) {
+          @include font(sm-mid-large, 40, 400);
+        }
+      }
+
+      .o-product-top__price--inc {
+        display: none;
+        @include mq(1025) {
+          display: inline-block;
+          @include font(m-small, 40, 400);
+        }
+      }
+
+    }
+  }
+}
