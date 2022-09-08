@@ -24,11 +24,6 @@
 
 
         }
-        
-        $('form.variations_form').on('show_variation', function (event, data) {
-            $('.JS--product-availability').html(data.availability_html);
-            $('.JS--product-availability').addClass('is-loaded');
-        });
 
         $('body').on('click', '.cvy_tip', function (e) {
             if ($(window).width() <= 1024) {
@@ -143,7 +138,6 @@
                 setTimeout(function () {
                     var newPrice = _this.closest('.variations_form').find('.woocommerce-variation-price .price').html();
                     //var availabilityProduct = _this.closest('.variations_form').find('.woocommerce-variation-availability').html();
-                    //$('.JS--product-availability').html(availabilityProduct);
                     $('.JS--top-product-price').html(newPrice);
                     $('.JS--mobile-price').html(newPrice);
                     //$('<div class=" woocommerce-variation single_variation">'+newPrice+'</div>').insertBefore('.product-cart-inc');

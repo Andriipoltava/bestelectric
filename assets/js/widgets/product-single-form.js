@@ -1,20 +1,60 @@
 (function ($) {
-    $( ".variations_form" ).on( "woocommerce_variation_select_change", function () {
+    jQuery('.o-product-top__trustpilot').on('click', function () {
+        jQuery("html, body").animate({
+            scrollTop: jQuery('#reviews-section').offset().top,
+        }, 300);
+    })
+
+    $('form.cart').on('submit', function (e) {
+        e.preventDefault();
+
+        var form = $(this),
+            mainId = form.find('.single_add_to_cart_button').val(),
+            fData = form.serializeArray();
+
+        form.block({message: null, overlayCSS: {background: '#fff', opacity: 0.6}});
+
+        if (mainId === '') {
+            mainId = form.find('input[name="product_id"]').val();
+        }
+
+        if (typeof wc_add_to_cart_params === 'undefined')
+            return false;
+
+        $.ajax({
+            type: 'POST',
+            url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'custom_add_to_cart'),
+            data: {
+                'product_id': mainId,
+                'form_data': fData
+            },
+            success: function (response) {
+                $(document.body).trigger("wc_fragment_refresh");
+                $('.woocommerce-error,.woocommerce-message').remove();
+                $('input[name="quantity"]').val(1);
+                $('.woocommerce-notices-wrapper').append(response);
+                form.unblock();
+                // console.log(response);
+            },
+            error: function (error) {
+                form.unblock();
+                // console.log(error);
+            }
+        });
+    });
+    $(".variations_form").on("woocommerce_variation_select_change", function () {
         // Fires whenever variation selects are changed
         $('#ppc-top-title').addClass('hide')
         $('#ppc-bottom-payment-logos').addClass('hide')
-    } );
+    });
 
-    $( ".single_variation_wrap" ).on( "show_variation", function ( event, variation ) {
+    $(".single_variation_wrap").on("show_variation", function (event, variation) {
         // Fired when the user selects all the required dropdowns / attributes
         // and a final variation is selected / shown
         $('#ppc-top-title').removeClass('hide')
         $('#ppc-bottom-payment-logos').removeClass('hide')
-    } );
-
+    });
     const ProductForm = function ($scope, $) {
-
-
         $scope.find('.variation-dropdown-specification').on('click', function (e) {
             e.preventDefault()
             if (!$scope.find('.variation-dropdown-specification').hasClass('time')) {
@@ -28,9 +68,18 @@
 
 
         })
-        $scope.find('.product_upsells h3').on('click', function () {
-            $(this).next().toggleClass('ac_open')
+
+        $scope.find('.accordion__header').on('click', function () {
+            const _self = $(this)
+            if (!_self.parent().hasClass('time')) {
+                _self.parent().addClass('time')
+                _self.parent().toggleClass('show')
+            }
+            setTimeout(function () {
+                _self.parent().removeClass('time')
+            }, 200)
         })
+
         $scope.find('.anchor').on('click', function (e) {
             e.preventDefault();
             let id = $(this).attr('href')
@@ -42,8 +91,8 @@
         $scope.find('.JS-cvy_image_groups').fancybox({});
 
         $scope.find('.accordion__header').on('click', function () {
-            const _self= $(this)
-            if (! _self.parent().hasClass('time')) {
+            const _self = $(this)
+            if (!_self.parent().hasClass('time')) {
                 _self.parent().addClass('time')
                 _self.parent().toggleClass('show')
             }
@@ -108,9 +157,7 @@
                     setTimeout(function () {
                         jQuery('.variations_form').WooVariationSwatchesMod()
                         $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
-
                         swiper.update()
-
                         let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
 
                         $scope.find('.var-slider__nav-arrow-fr').text((swiper.realIndex + sliderIndexF(swiper)) + '/' + count.length)
@@ -143,13 +190,11 @@
 
                     }, 500)
                 } else {
-                    $(document).ready(function () {
+                    setTimeout(function () {
                         if ($('.JS--gallery-loader').length !== 0) {
                             $('.JS--gallery-loader').hide();
                         }
-
-                    })
-
+                    }, 500)
                 }
             })
         } else {
@@ -163,33 +208,9 @@
 
 
     };
-
-
-    $(document).ready(function () {
-
-        if ($('.elementor-widget-custom-woo-single-product-form')) {
-            $('.elementor-widget-custom-woo-single-product-form').each(function (item) {
-                const _self = $(this)
-
-                setTimeout(function () {
-                    console.log(5)
-                    ProductForm(_self, $)
-                }, 1000)
-            })
-
-        } else {
-            $(window).on('elementor/frontend/init', function () {
-                console.log(3)
-                elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-single-product-form.default', ProductForm);
-            });
-        }
-
-
-    })
     $(window).on('elementor/frontend/init', function () {
-
-
         elementorFrontend.hooks.addAction('frontend/element_ready/custom-woo-single-product-form.default', ProductForm);
+        console.log('frontend/element_ready/custom-woo-single-product-form.default')
 
     });
 
