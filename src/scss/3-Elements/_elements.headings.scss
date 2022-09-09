@@ -4,7 +4,7 @@ h1,h2,h3,h4,h5,h6,
 }
 
 h1,.h1{
-  @include font(sm-large,30,400);
+  @include font(sm-large,37.5,400);
   @include mq(768){
     @include font(l-large,35,400);
   }
