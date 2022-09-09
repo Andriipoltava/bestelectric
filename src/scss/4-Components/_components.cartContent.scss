@@ -201,21 +201,23 @@
 }
 
 .c-cart-content__btn--primary {
-  color: #fff;
-  background-color: palette(primary);
 
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.c-cart-content__btn--grey {
   color: palette(primary);
   background-color: transparent;
 
   &:hover {
     color: #fff;
     background-color: palette(primary);
+  }
+}
+
+.c-cart-content__btn--grey {
+  color: #fff;
+  background-color: palette(primary);
+
+  &:hover {
+    opacity: 0.8;
+
   }
 }
 

@@ -303,34 +303,12 @@ class CustomWooProductCompareRange extends Widget_Base
             <div class="c-compare-ranges JS--compare-ranges-item">
                 <div class="c-compare-ranges__thumb">
 
-                    <?php if ($color_terms) : ?>
-                        <div class="c-compare-ranges-terms">
-                            <div class="c-compare-ranges__colors 'c-compare-ranges__colors--reverses <?php //echo ($current_product_post_id == $id) ? 'c-compare-ranges__colors--reverse' : null; ?>">
-                                <?php foreach ($color_terms as $term) :
-                                    $product_color = get_term_meta($term->term_id);
-
-                                    ?>
-
-                                    <a href="<?php the_permalink(); ?>?attribute_pa_colour=<?php echo $term->slug; ?>"
-                                       data-colour="<?php echo $term->slug; ?>"
-                                       class="c-compare-ranges__color-btn JS--compare-ranges-color"
-                                       style="background-color: <?php echo $product_color['product_attribute_color'][0]; ?>"></a>
-
-
-                                <?php endforeach; ?>
-                            </div>
-                            <div class="c-compare-ranges__colors-label">Colours</div>
-                        </div>
-                    <?php endif; ?>
                     <a href="<?php the_permalink(); ?>" class="c-compare-ranges__thumb-link">
                         <?php if ($product_label) : ?>
                             <span class="c-compare-ranges__label <?php echo ($label_color == 'blue') ? 'c-compare-ranges__label--blue' : null; ?>"><?php echo $product_label; ?></span>
                         <?php endif; ?>
                         <div class="c-compare-ranges__thumb--main">
                             <?php echo twl_lazy_image(get_post_thumbnail_id($id), 'woocommerce_thumbnail'); ?>
-                        </div>
-                        <div class="c-compare-ranges__thumb--secondary JS--compare-ranges-thumb-secondary">
-                            <?php echo twl_lazy_image($product_images_ids[0], 'woocommerce_thumbnail'); ?>
                         </div>
                     </a>
                 </div>

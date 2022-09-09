@@ -458,7 +458,7 @@
           box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
           @include mq(480) {
             flex: 1 1 auto !important;
-            margin: 0 6px 0 8px;
+            margin: 0 6px 0 18px;
           }
           //@include mq(1200) {
           //  margin: 0 18px 0 20px;
@@ -1242,5 +1242,24 @@
   }
   .cvy_tip {
     display: inline-block !important;
+
+    .cvy_tip_content{
+      transition: opacity .5s;
+      z-index: -1;
+      visibility: hidden;
+      padding: 15px;
+      background: #E5E5E5;
+      border-radius: 0;
+      box-shadow: none;
+      left: calc(50% - 116px);
+      width: 222px;
+
+      p{
+        font-size: 14px!important;
+      }
+    }
+    .cvy_insulation_info:hover + .cvy_tip_content {
+      visibility: visible;
+    }
   }
 }

@@ -1,0 +1,56 @@
+.c-product-tech-accordion__content__slider {
+  max-width: 100%;
+
+  .c-product-tech-accordion__installer {
+    display:block;
+    &__pagination {
+      padding: 10px;
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: #FFFFFF ;
+        border: 2px solid #6d6e71;
+        opacity: 1;
+        &.swiper-pagination-bullet-active{
+          border: 2px solid #B8D048;
+          box-shadow: 0px 3px 6px #00000029;
+        }
+
+      }
+    }
+
+    &__item {
+      flex-direction: column;
+      justify-content: space-between;
+      height: auto;
+      display: flex;
+
+      &__counter {
+        width: 58px;
+        height: 58px;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F0F5D9;
+        @include font(large, 34, 700);
+        border-radius: 50%;
+      }
+
+      &__text {
+        @include font(large, 33, 700);
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      &__image {
+        img {
+          margin: 10px auto;
+          display: block;
+          max-width: 200px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
