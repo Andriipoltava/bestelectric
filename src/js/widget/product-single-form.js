@@ -34,7 +34,10 @@
                 $('input[name="quantity"]').val(1);
                 $('.woocommerce-notices-wrapper').append(response);
                 form.unblock();
-                // console.log(response);
+                jQuery("html, body").animate({
+                    scrollTop: 0,
+                }, 300);
+
             },
             error: function (error) {
                 form.unblock();
