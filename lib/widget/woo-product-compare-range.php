@@ -135,14 +135,11 @@ class CustomWooProductCompareRange extends Widget_Base
 
             <div class="JS-compare-ranges-slider ">
 
-
-                <div class="s-compare-ranges__intro <?php if (!$setting['widget_title']) echo 's-compare-ranges__notitle' ?>">
-                    <?php if ($setting['widget_title']) { ?>
+                <?php if ($setting['widget_title']) { ?>
+                    <div class="s-compare-ranges__intro">
                         <h2 class="s-compare-ranges__title"><?php echo $setting['widget_title']; ?></h2>
-                    <?php } ?>
-
-                </div>
-
+                    </div>
+                <?php } ?>
                 <div class="s-compare-ranges__slider ">
                     <?php
                     $this->style_list_2($products_loop);
@@ -253,7 +250,7 @@ class CustomWooProductCompareRange extends Widget_Base
         $var = [];
         $link = get_permalink();
         $price = $product->get_price_html();
-        if (isset($_GET) && (isset($_GET['filter_wattage']) &&$_GET['filter_wattage']!=='')||( isset($_GET['filter_colour'] ) &&$_GET['filter_colour']!=='')|| (isset($_GET['filter_el_type']) &&$_GET['filter_el_type']!=='')) {
+        if (isset($_GET) && (isset($_GET['filter_wattage']) && $_GET['filter_wattage'] !== '') || (isset($_GET['filter_colour']) && $_GET['filter_colour'] !== '') || (isset($_GET['filter_el_type']) && $_GET['filter_el_type'] !== '')) {
             foreach ($variations as $key => $variation) :
                 $var[$key] = ['id' => $variation['variation_id'], 'price_html' => strip_tags($variation['price_html'])] ?? '';
                 foreach ($_GET as $name => $value) {
@@ -268,7 +265,7 @@ class CustomWooProductCompareRange extends Widget_Base
                             $attribute_object = $attributes[$attribute];
                             if (is_object($attribute_object) && $attribute_object->is_taxonomy()) {
                                 $tax = wc_get_product_terms($product->get_id(), $attribute_object->get_name(), array('fields' => 'slugs'));
-                                $var[$key][$name]=  count($tax) == 1 ? implode(', ', $tax):'';
+                                $var[$key][$name] = count($tax) == 1 ? implode(', ', $tax) : '';
 
                             }
 
@@ -284,7 +281,7 @@ class CustomWooProductCompareRange extends Widget_Base
             foreach ($var as $index => $item) {
                 $i = 0;
                 foreach ($_GET as $key => $value) {
-                    if ((isset($item[$key]) && $item[$key] == $value) || (isset($item[$key])&&$value == '' || $item[$key] == '' && $item[$key] !== null) && strpos($key, 'filter') !== false) $i++;
+                    if ((isset($item[$key]) && $item[$key] == $value) || (isset($item[$key]) && $value == '' || $item[$key] == '' && $item[$key] !== null) && strpos($key, 'filter') !== false) $i++;
                 }
                 if ($i !== count($_GET)) {
                     unset($var[$index]);
@@ -296,7 +293,7 @@ class CustomWooProductCompareRange extends Widget_Base
                 $link = (count($var) > 1 ? $link : $product_variation->get_permalink());
             } else {
 
-                    continue;
+                continue;
 
             }
         }
@@ -338,7 +335,8 @@ class CustomWooProductCompareRange extends Widget_Base
                     </a>
                 </div>
                 <div class="c-compare-ranges__body">
-                    <a title="<?php echo  esc_html(get_the_title())?>" href="<?php the_permalink(); ?>" class="c-compare-ranges__title">
+                    <a title="<?php echo esc_html(get_the_title()) ?>" href="<?php the_permalink(); ?>"
+                       class="c-compare-ranges__title">
                         <?php echo str_replace('Wifi', '<sup>wifi</sup>', get_the_title()); ?>
                     </a>
                     <div class="c-compare-ranges__description">
@@ -374,7 +372,7 @@ class CustomWooProductCompareRange extends Widget_Base
                 </div>
                 <?php foreach ($variations as $key => $variation) : ?>
                     <span class="c-compare-ranges__wattages JS--compare-ranges-wattages"
-                          data-attribute_pa_wattage="<?php echo $variation['attributes']['attribute_pa_wattage']?:''; ?>"
+                          data-attribute_pa_wattage="<?php echo $variation['attributes']['attribute_pa_wattage'] ?: ''; ?>"
                           data-price="<?php echo strip_tags($variation['price_html']); ?>"
                           style="display: none;"></span>
                 <?php endforeach; ?>
