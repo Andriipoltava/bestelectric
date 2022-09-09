@@ -6,7 +6,8 @@ h1,h2,h3,h4,h5,h6,
 h1,.h1{
   @include font(sm-large,37.5,400);
   @include mq(768){
-    @include font(l-large,35,400);
+    font-size: 2.1875rem;
+    font-weight: 400;
   }
 }
 
@@ -17,7 +18,7 @@ h2 {
 h3{
   @include font(mid-large,28,400);
   @include mq(768){
-    @include font(large,35,400);
+    @include font(large,null,400);
   }
 }
 
