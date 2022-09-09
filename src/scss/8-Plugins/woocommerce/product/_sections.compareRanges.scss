@@ -9,12 +9,12 @@
   .swiper-slide {
     padding: 0 15px;
     height: auto;
-    width:  70vw ;
+    width: 70vw;
     @include mq(990) {
-      width: calc( 100vw / 2 + 30px );
+      width: calc(100vw / 2 + 30px);
     }
     @include mq(990) {
-      width:calc(31vw + 30px) ;
+      width: calc(31vw + 30px);
     }
     @include mq(1440) {
       padding: 0 20px;
@@ -23,19 +23,11 @@
   }
 
 
-  .swiper-wrapper {
-    padding: 30px 0;
-    @include mq(1440) {
-      justify-content: center;
-    }
-  }
 }
 
 .s-compare-ranges__title {
   @include font(large, 36, 300);
   text-align: left;
-
-
   @include mq(567, 1024) {
     @include font(m-large, 42, 300);
   }
@@ -46,10 +38,26 @@
 }
 
 .s-compare-ranges {
+  &__slider {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0 ;
+  }
+
   &__slide {
     display: block !important;
     //height: inherit;
     background-color: #fff;
+    max-width: 100%;
+    width: 100%;
+    padding: 15px;
+    @include mq(567, 1024) {
+      max-width: 49.9%;
+    }
+    @include mq(1024) {
+      max-width: 24.9%;
+
+    }
   }
 
   &__intro {
@@ -126,24 +134,4 @@
   }
 }
 
-.JS-compare-ranges-slider {
-  @include mq(null, 1025) {
-    max-width: 80%;
-    overflow: visible !important;
-    .s-compare-ranges__intro {
-      width: 120%;
-    }
-  }
-
-  &:not(.swiper-container-initialized) {
-    display: block;
-  }
-
-  .s-compare-ranges__slider {
-
-    @include mq(1400) {
-      transform: translate3d(0px, 0, 0) !important;
-    }
-  }
-}
 

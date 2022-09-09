@@ -6,7 +6,7 @@ class CustomWooProductCompareRange extends Widget_Base
 {
     public function get_script_depends()
     {
-        return ['swiper', 'ber-js-product-compare-range'];
+        return ['ber-js-product-compare-range'];
     }
 
     public function get_style_depends()
@@ -133,25 +133,17 @@ class CustomWooProductCompareRange extends Widget_Base
         <section class="s-compare-ranges " id="s-compare-ranges">
 
 
-            <div class="JS-compare-ranges-slider swiper-custom">
+            <div class="JS-compare-ranges-slider ">
 
 
                 <div class="s-compare-ranges__intro <?php if (!$setting['widget_title']) echo 's-compare-ranges__notitle' ?>">
                     <?php if ($setting['widget_title']) { ?>
                         <h2 class="s-compare-ranges__title"><?php echo $setting['widget_title']; ?></h2>
                     <?php } ?>
-                    <div class="s-compare-ranges__nav">
-                        <div class="s-compare-ranges__nav-arrow s-compare-ranges__nav-arrow-prev JS--compare-ranges-nav-prev">
-                            <?php echo get_slider_prev_arrow(); ?>
-                        </div>
-                        <div class="s-compare-ranges__nav-arrow-fr JS--compare-ranges-nav-fraction"></div>
-                        <div class="s-compare-ranges__nav-arrow  s-compare-ranges__nav-arrow-next JS--compare-ranges-nav-next">
-                            <?php echo get_slider_next_arrow(); ?>
-                        </div>
-                    </div>
+
                 </div>
 
-                <div class="s-compare-ranges__slider swiper-wrapper">
+                <div class="s-compare-ranges__slider ">
                     <?php
                     $this->style_list_2($products_loop);
 
@@ -182,7 +174,7 @@ class CustomWooProductCompareRange extends Widget_Base
         $short_description = get_field('loop_short_description');
 
         ?>
-        <div class="s-compare-ranges__slide swiper-slide">
+        <div class="s-compare-ranges__slide ">
             <div class="c-compare-ranges JS--compare-ranges-item">
                 <div class="c-compare-ranges__thumb">
                     <a href="<?php the_permalink(); ?>" class="c-compare-ranges__thumb-link">
@@ -310,7 +302,7 @@ class CustomWooProductCompareRange extends Widget_Base
         }
 
         ?>
-        <div class="s-compare-ranges__slide swiper-slide">
+        <div class="s-compare-ranges__slide">
             <div class="c-compare-ranges JS--compare-ranges-item">
                 <div class="c-compare-ranges__thumb">
 
