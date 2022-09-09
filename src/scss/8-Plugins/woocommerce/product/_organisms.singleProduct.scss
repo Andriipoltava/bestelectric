@@ -440,10 +440,11 @@
 }
 
 .o-product-top__title {
-  font-size: 28px;
+  font-size: 22px;
   margin-top: 10px;
   @include mq(1025) {
     margin-right: 0px;
+    font-size: 26px;
   }
 
   sup {
