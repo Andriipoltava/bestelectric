@@ -350,7 +350,7 @@ function date_delivery_24()
         $data = date("l, jS M", strtotime("+2 day"));
     }
 
-    return $data;
+    return '<span class="date_delivery_24">'.$data.'</span>';
 }
 
 ;
@@ -359,6 +359,7 @@ function date_delivery_48()
 
     $datetime = new DateTime('now');
     $data = date("l, jS M", strtotime("+2 day"));
+
     if ($datetime->format('l') == 'Thursday') {
         $data = date("l, jS M", strtotime("+4 day"));
     } elseif ($datetime->format('l') == 'Friday') {
@@ -369,6 +370,6 @@ function date_delivery_48()
         $data = date("l, jS M", strtotime("+3 day"));
     }
 
-    return $data;
+    return '<span class="date_delivery_48">'.$data.'</span>';
 }
 

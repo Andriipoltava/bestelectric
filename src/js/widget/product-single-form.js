@@ -5,6 +5,44 @@
         }, 300);
     })
 
+    if($('.date_delivery_48').length|| $('.date_delivery_24').length){
+        const months = ['Jan', 'Feb', 'Mar','Apr' ,'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        function getOrdinalNum(n) {
+            return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
+        }
+        let date_delivery_48 = new Date();
+        let date_delivery_24 = new Date();
+        date_delivery_48.setDate(date_delivery_48.getDate() + 2);
+        if(date_delivery_48.getDay()==6){
+            date_delivery_48.setDate(date_delivery_48.getDate() + 2);
+        }else if (date_delivery_48.getDay()==0){
+            date_delivery_48.setDate(date_delivery_48.getDate() + 2);
+        }else if (date_delivery_48.getDay()==1){
+            date_delivery_48.setDate(date_delivery_48.getDate() + 2);
+        }else if (date_delivery_48.getDay()==2){
+            date_delivery_48.setDate(date_delivery_48.getDate() + 1);
+        }
+
+        date_delivery_24.setDate(date_delivery_24.getDate() + 1);
+        let day_24 = 'tomorrow';
+        if(date_delivery_24.getDay()==6){
+            date_delivery_24.setDate(date_delivery_24.getDate() + 2);
+            day_24 = days[ date_delivery_24.getDay() ];
+        }else if (date_delivery_24.getDay()==0){
+            date_delivery_24.setDate(date_delivery_24.getDate() + 2);
+            day_24 = days[ date_delivery_24.getDay() ];
+        }else if (date_delivery_24.getDay()==1){
+            day_24 = days[ date_delivery_24.getDay() ];
+            date_delivery_24.setDate(date_delivery_24.getDate() + 1);
+        }
+        date_delivery_24 =  day_24+', '+ getOrdinalNum(date_delivery_24.getDate()) + ' ' + months[date_delivery_24.getMonth()]
+        date_delivery_48 =  days[ date_delivery_48.getDay() ]+', '+ getOrdinalNum(date_delivery_48.getDate()) + ' ' + months[date_delivery_48.getMonth()]
+        $('.date_delivery_48').text(date_delivery_48)
+        $('.date_delivery_24').text(date_delivery_24)
+    }
+
+
     $('form.cart').on('submit', function (e) {
         e.preventDefault();
 
