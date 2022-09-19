@@ -42,6 +42,35 @@
         $('.date_delivery_24').text(date_delivery_24)
     }
 
+    function upsell_options(upsellPrice, update = false) {
+        const oldPrice = document.querySelector('.variations_form .price').textContent.replace('£', '')
+        setTimeout(function () {
+            let newPrice = parseFloat(upsellPrice) + parseFloat(oldPrice),
+                newHtml = document.querySelector('.variations_form .price .amount').innerHTML.replace(oldPrice, newPrice.toFixed(2));
+            document.querySelector('.variations_form .price .amount').innerHTML = newHtml
+            document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount').innerHTML = newHtml
+            document.querySelector('.singleWooHeader__item__price .price .amount').innerHTML = newHtml
+            document.querySelector('.o-product-top__price .JS--top-product-price .amount').innerHTML = newHtml
+
+        }, 10);
+    }
+
+    jQuery('.o-product-top .upsell_options input').on('change', function (e) {
+        jQuery('.summary select').first().trigger('change').trigger('select.fs');
+    })
+
+    jQuery(".single_variation_wrap").on("show_variation", function (event, variation) {
+        setTimeout(function () {
+            let upsellPrice = 0
+            jQuery('.o-product-top .upsell_options input:checked').each(function (index, item) {
+                upsellPrice += parseFloat(jQuery(this).closest('li').find('.price-box .amount').text().replace('£', ''));
+            })
+            upsell_options(upsellPrice, true)
+        }, 30);
+    })
+
+
+
 
     $('form.cart').on('submit', function (e) {
         e.preventDefault();
