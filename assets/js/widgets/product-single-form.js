@@ -187,24 +187,22 @@
                         on: {
                             init: function (data) {
                                 $scope.find('.var-slider__nav').css({display: 'block'})
-                                let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + count.length)
+
+                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
                             },
                             slideChange: function (data) {
-                                let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
+                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
 
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + count.length)
 
                             },
                             resize: function () {
-                                $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
-                                let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + count.length)
+                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
+
 
                             },
                             update: function () {
-                                let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + count.length)
+                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
+
 
                             }
                         },
@@ -228,33 +226,10 @@
                         jQuery('.variations_form').WooVariationSwatchesMod()
                         $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
                         swiper.update()
-                        let count = jQuery('.woo-variation-items-wrapper li.cvy_variation_list_item:not(.no-match)')
-
-                        $scope.find('.var-slider__nav-arrow-fr').text((swiper.realIndex + sliderIndexF(swiper)) + '/' + count.length)
                         if ($('.JS--gallery-loader').length !== 0) {
                             $('.JS--gallery-loader').hide();
                         }
-                        let index = 0
-                        swiper.slides.each(function (i) {
-                            if ($(this).hasClass('selected') && !$(this).hasClass('no-match')) {
-                                index = i;
-                            }
-                        })
-                        if ($scope.find('.cvy_variation_list_item.selected:not(.no-match)'))
-                            swiper.slideTo(index)
-                        $('.variations_form').change(function () {
-                            setTimeout(function () {
-                                swiper.update()
-                            }, 100)
-                        })
-                        jQuery('.cvy_variation_list_item:not(.no-match)').each(function (i) {
-                            if ($(this).hasClass('selected')) {
-                                index = i;
-                            }
-                        })
                         setTimeout(function () {
-                            swiper.update()
-                            swiper.slideTo(index)
                             $scope.find('.variations-item.var_slider_wattage').addClass('is-loaded')
                         }, 500)
 

@@ -2071,3 +2071,111 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
       color: #fc9e4e; }
     .delivery__bottom.product-availability.available-on-backorder svg path {
       fill: #fc9e4e; }
+
+ul.iconic-wlv-terms.iconic-wlv-term--buttons {
+  margin: 0px 0; }
+
+li.iconic-wlv-terms__term.iconic-wlv-terms__term--white.iconic-wlv-terms__term--instock.iconic-wlv-terms__term--current.iconic-wlv-terms__term--image {
+  margin: 0 10px; }
+
+li.iconic-wlv-terms__term.iconic-wlv-terms__term--anthracite.iconic-wlv-terms__term--instock.iconic-wlv-terms__term--image {
+  margin: 0; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term:not(.iconic-wlv-terms__term--image):hover, .iconic-wlv-variations__row--pa_colour .iconic-wlv-terms__term--current:not(.iconic-wlv-terms__term--image) {
+  box-shadow: 0 0 0 3px #b8d048 !important; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-variations__selection {
+  display: none; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li:not(.iconic-wlv-terms__term--image) .iconic-wlv-terms__term-content, .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li:not(.iconic-wlv-terms__term--image) a.iconic-wlv-terms__term-content.iconic-wlv-terms__term-content--link {
+  font-size: 0;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  padding: 0; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term {
+  position: relative; }
+  .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term.iconic-wlv-terms__term--white.iconic-wlv-terms__term--instock.iconic-wlv-terms__term--current:not(.iconic-wlv-terms__term--image) > span, .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term.iconic-wlv-terms__term--white.iconic-wlv-terms__term--instock.iconic-wlv-terms__term--current:not(.iconic-wlv-terms__term--image) > a {
+    background: white; }
+  .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term.iconic-wlv-terms__term--anthracite.iconic-wlv-terms__term--instock:not(.iconic-wlv-terms__term--image) > span, .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term.iconic-wlv-terms__term--anthracite.iconic-wlv-terms__term--instock:not(.iconic-wlv-terms__term--image) > a {
+    background: black; }
+  .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term:not(.iconic-wlv-terms__term--image) {
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #0000004A;
+    padding: 2px;
+    margin: 4px 8px 4px 0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    transition: all .2s ease; }
+    .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term:not(.iconic-wlv-terms__term--image) > span:after, .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term:not(.iconic-wlv-terms__term--image) > a:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      box-shadow: inset 0 0 3px 0 #00000028; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons [data-iconic-wlv-term-label]:before {
+  min-width: 100px;
+  content: attr(data-iconic-wlv-term-label);
+  margin-bottom: 5px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding: 7px;
+  border-radius: 3px;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  box-sizing: inherit;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  z-index: 999;
+  box-shadow: 0 7px 15px #0000004C;
+  transition: opacity .3s linear,bottom .3s linear; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons [data-iconic-wlv-term-label]:after {
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid rgba(51, 51, 51, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  box-sizing: inherit;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  z-index: 999;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 7px 15px #0000004C;
+  transition: opacity .3s linear,bottom .3s linear; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term:hover:after, .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term:hover:before {
+  bottom: 120%;
+  visibility: visible;
+  opacity: 1; }
+
+.iconic-wlv-variations__row--pa_colour .iconic-wlv-terms.iconic-wlv-term--buttons {
+  overflow: visible; }
+
+.iconic-wlv-variations__row--pa_colour td.label.iconic-wlv-variations__label {
+  width: 150px !important; }
