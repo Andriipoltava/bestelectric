@@ -884,11 +884,9 @@
     .single-product .product_cat-electric-radiators .variations tbody tr:first-child .variations-item {
       display: flex;
       margin: 0 !important;
-      padding: 15px 10 !important; }
+      padding: 15px 10px !important; }
       .single-product .product_cat-electric-radiators .variations tbody tr:first-child .variations-item .label {
         padding: 0 10px; }
-      .single-product .product_cat-electric-radiators .variations tbody tr:first-child .variations-item .value {
-        width: auto !important; }
   .single-product .product_cat-electric-radiators .variations .variations-item {
     margin: 0; } }
 
@@ -964,10 +962,10 @@
         left: calc(100%); } }
     @media screen and (min-width: 340px) and (max-width: 459px) {
       .woo-variation-items-wrapper.swiper-custom:before, .woo-variation-items-wrapper.swiper-custom:after {
-        left: calc(100vw - 60px); } }
+        left: calc(100vw - 40px); } }
     @media screen and (max-width: 339px) {
       .woo-variation-items-wrapper.swiper-custom:before, .woo-variation-items-wrapper.swiper-custom:after {
-        left: calc(100vw - 60px); } }
+        left: calc(100vw - 40px); } }
   .woo-variation-items-wrapper.swiper-custom:after {
     left: -20px; }
 
