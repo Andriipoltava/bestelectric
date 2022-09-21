@@ -187,30 +187,22 @@
                         on: {
                             init: function (data) {
                                 $scope.find('.var-slider__nav').css({display: 'block'})
-
                                 $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
                             },
                             slideChange: function (data) {
                                 $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-
-
                             },
                             resize: function () {
                                 $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-
-
                             },
                             update: function () {
                                 $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-
-
                             }
                         },
                         breakpoints: {
                             // when window width is >= 320px
                             460: {
                                 slidesPerView: 2,
-
                             },
                         },
                         navigation: {
@@ -221,7 +213,9 @@
 
                     })
                     $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
-
+                    $(window).on('resize', function(){
+                        $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
+                    });
                     setTimeout(function () {
                         jQuery('.variations_form').WooVariationSwatchesMod()
                         $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
@@ -243,7 +237,6 @@
                 }
             })
         } else {
-
             setTimeout(function () {
                 if ($('.JS--gallery-loader').length !== 0) {
                     $('.JS--gallery-loader').hide();
