@@ -2198,3 +2198,7 @@ strong.iconic-wlv-variations__label {
 
 span.iconic-wlv-variations__colon {
   display: none; }
+
+.variations .swiper-custom .swiper-wrapper li.cvy_variation_list_item.variable-item.dropdown-variable-item.swiper-slide {
+  display: flex !important;
+  flex-direction: column; }
