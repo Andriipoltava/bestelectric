@@ -2177,3 +2177,24 @@ li.iconic-wlv-terms__term.iconic-wlv-terms__term--anthracite.iconic-wlv-terms__t
 
 .iconic-wlv-variations__row--pa_colour td.label.iconic-wlv-variations__label {
   width: 150px !important; }
+
+table.variations.iconic-wlv-variations {
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 10px 20px;
+  margin-bottom: 15px; }
+
+.single-product.woocommerce table.variations.iconic-wlv-variations .iconic-wlv-variations__row.iconic-wlv-variations__row--pa_colour {
+  display: flex !important; }
+
+.iconic-wlv-variations__row--pa_colour td.label.iconic-wlv-variations__label {
+  width: 150px !important; }
+
+strong.iconic-wlv-variations__label {
+  color: #282828;
+  font-size: 1rem;
+  line-height: 1.1875;
+  font-weight: 500; }
+
+span.iconic-wlv-variations__colon {
+  display: none; }
