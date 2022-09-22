@@ -863,9 +863,9 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-  @include mq(null,1025) {
+  @include mq(null,567) {
     background-color: #f7f7f7;
-    padding: 5px 20px;
+    padding: 5px 10px;
   }
 }
 
@@ -882,5 +882,11 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) {
 }
 
 .o-product-top__paymentLater__icons svg {
-  padding-left: 10px;
+  @include mq(567) {
+    padding-left: 10px;
+
+  }
+  @include mq(null,567) {
+    padding-left: 5px;
+  }
 }
