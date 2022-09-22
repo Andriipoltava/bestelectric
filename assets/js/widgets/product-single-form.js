@@ -51,6 +51,10 @@
             document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount').innerHTML = newHtml
             document.querySelector('.singleWooHeader__item__price .price .amount').innerHTML = newHtml
             document.querySelector('.o-product-top__price .JS--top-product-price .amount').innerHTML = newHtml
+            if(document.querySelector(' .o-product-top__paymentLater .priceLater')){
+                document.querySelector(' .o-product-top__paymentLater .priceLater').innerHTML =  (newPrice / 3).toFixed(2)
+
+            }
 
         }, 10);
     }

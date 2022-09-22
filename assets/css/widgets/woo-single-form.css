@@ -1480,7 +1480,7 @@
   margin: 0 0 20px; }
   @media screen and (min-width: 1025px) {
     .o-product-top__add {
-      margin: 0 0 20px; } }
+      margin: 0 0 5px; } }
 
 .o-product-top__price {
   display: none; }
@@ -1639,7 +1639,25 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
     padding: 15px 0 10px; }
   @media screen and (min-width: 1025px) {
     .o-product-top__product-description {
-      margin: 10px 0 20px; } }
+      margin: 0 0 20px; } }
+
+.o-product-top__paymentLater {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; }
+
+.o-product-top__paymentLater__content {
+  font-size: 12px;
+  font-weight: 700;
+  padding-right: 10px; }
+
+.o-product-top__paymentLater__icons {
+  display: flex;
+  align-items: center;
+  padding: 0 5px; }
+
+.o-product-top__paymentLater__icons svg {
+  padding-left: 10px; }
 
 .c-calc-button--desktop {
   display: none; }
