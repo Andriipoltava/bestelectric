@@ -1645,10 +1645,14 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
   display: flex;
   align-items: center;
   margin-bottom: 5px; }
+  @media screen and (max-width: 1024px) {
+    .o-product-top__paymentLater {
+      background-color: #f7f7f7;
+      padding: 5px 20px; } }
 
 .o-product-top__paymentLater__content {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 900;
   padding-right: 10px; }
 
 .o-product-top__paymentLater__icons {
