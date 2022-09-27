@@ -48,6 +48,7 @@
                 dots: true,
                 autoHeight: true,
                 // If we need pagination
+                spaceBetween: 1,
                 preloadImages: false,
                 lazy: true,
                 pagination: {
