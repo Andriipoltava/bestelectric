@@ -226,9 +226,6 @@
     position: absolute;
     z-index: 996;
     right: 15px;
-    @include mq(1025){
-      right: 50px;
-    }
     top: 15px;
     cursor: pointer;
     background-color: palette(primary, 400);
@@ -444,7 +441,7 @@
   margin-top: 10px;
   @include mq(1025) {
     margin-right: 0px;
-    font-size: 26px;
+    font-size: 24px;
   }
 
   sup {

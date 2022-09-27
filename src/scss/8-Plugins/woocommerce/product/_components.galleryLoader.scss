@@ -47,13 +47,12 @@
 
 .c-gallery__wrap{
   @include mq(1400) {
-    min-height: 549px;
-    max-width: 650px;
+    min-height: 519px;
   }
 }
 .c-gallery-loader__thumb--big {
 
   svg {
-    max-height: 549px;
+    max-height: 519px;
   }
 }

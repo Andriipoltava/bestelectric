@@ -1217,9 +1217,6 @@
   background-position: 20px center;
   background-repeat: no-repeat;
   box-shadow: 0px 3px 6px #00000029; }
-  @media screen and (min-width: 1025px) {
-    .single-product div.lot20 {
-      right: 50px; } }
   .single-product div.lot20 p {
     color: #282828;
     max-width: min-content;
@@ -1343,7 +1340,7 @@
   @media screen and (min-width: 1025px) {
     .o-product-top__title {
       margin-right: 0px;
-      font-size: 26px; } }
+      font-size: 24px; } }
   .o-product-top__title sup {
     margin-right: 4px;
     font-size: 1.125rem;
@@ -2062,7 +2059,7 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) fo
 
 .delivery__bottom {
   display: flex;
-  padding: 10px 50px;
+  padding: 10px 30px;
   background: #F0F5D9;
   width: 100%;
   align-items: center; }
