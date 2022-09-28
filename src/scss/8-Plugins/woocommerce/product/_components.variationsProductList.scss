@@ -1017,15 +1017,12 @@
             .variations-item {
               display: flex;
               margin: 0 !important;
-              padding: 15px 10 !important;
+              padding: 15px 10px !important;
 
               .label {
                 padding: 0 10px;
               }
 
-              .value {
-                width: auto !important;
-              }
             }
           }
         }
@@ -1132,10 +1129,10 @@
       left: calc(100%);
     }
     @include mq(340, 460) {
-      left: calc(100vw - 60px);
+      left: calc(100vw - 40px);
     }
     @include mq(null, 340) {
-      left: calc(100vw - 60px);
+      left: calc(100vw - 40px);
     }
 
     top: -20px;

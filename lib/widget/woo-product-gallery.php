@@ -89,24 +89,102 @@ class CustomWooSingleSlider extends Widget_Base
                     </div>
                 <?php endif; ?>
                 <div class="c-gallery__wrap">
-                    <?php
-                    /**
-                     * Hook: woocommerce_before_single_product_summary.
-                     *
-                     * @hooked woocommerce_show_product_sale_flash - 10
-                     * @hooked woocommerce_show_product_images - 20
-                     */
-                    do_action('woocommerce_before_single_product_summary');
-                    ?>
+                    <div class="gallery-vertical">
+                        <div class="swiper-button-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19.84" height="11.819"
+                                 viewBox="0 0 19.84 11.819">
+                                <g id="arrow" transform="translate(0.617 0.561)">
+                                    <path id="arrow-2" data-name="arrow"
+                                          d="M17.871.3a.51.51,0,0,0-.722,0L10.561,6.887l-1.008,1L1.763.3a.51.51,0,0,0-.722,0L.2,1.14a.51.51,0,0,0,0,.722l8.9,8.9a.51.51,0,0,0,.722,0l8.9-8.9Z"
+                                          transform="translate(18.712 10.906) rotate(180)" fill="#707070"
+                                          stroke="rgba(0,0,0,0)" stroke-width="1"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="swiper gallery-swiper-vertical" id="gallery-swiper-vertical">
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    <div class="swiper-slide">
+                                        <?php echo get_the_post_thumbnail($product->get_id(), 'woocommerce_gallery_thumbnail',[' loading'=>'lazy']); ?>
+                                    </div>
+                                    <?php $attachment_ids = $product->get_gallery_image_ids();
 
-                    <?php $this->btb_list(); ?>
+                                    foreach ($attachment_ids as $attachment_id) {
+                                        ?>
+                                        <div class="swiper-slide">
+
+                                            <?php
+                                            echo wp_get_attachment_image($attachment_id, 'woocommerce_gallery_thumbnail',null,[' loading'=>'lazy']); ?>
+                                        </div>
+                                    <?php }; ?>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19.84" height="11.819"
+                                 viewBox="0 0 19.84 11.819">
+                                <g id="arrow" transform="rotate(180) translate(-20 -10)">
+                                    <path id="arrow-2" data-name="arrow"
+                                          d="M17.871.3a.51.51,0,0,0-.722,0L10.561,6.887l-1.008,1L1.763.3a.51.51,0,0,0-.722,0L.2,1.14a.51.51,0,0,0,0,.722l8.9,8.9a.51.51,0,0,0,.722,0l8.9-8.9Z"
+                                          transform="translate(18.712 10.906) rotate(180)" fill="#707070"
+                                          stroke="rgba(0,0,0,0)" stroke-width="1"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper gallery-swiper-main" id="gallery-swiper-main">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide fancybox-trigger" data-id="0">
+                                <?php echo get_the_post_thumbnail($product->get_id(), 'woocommerce_single',[' loading'=>'lazy']); ?>
+                            </div>
+                            <?php $attachment_ids = $product->get_gallery_image_ids();
+
+                            foreach ($attachment_ids as $key=> $attachment_id) {
+                                ?>
+                                <div class="swiper-slide fancybox-trigger" data-id="<?php echo $key + 1 ?>">
+
+                                    <?php
+                                    echo wp_get_attachment_image($attachment_id, 'woocommerce_single',null,[' loading'=>'lazy']); ?>
+                                </div>
+                            <?php }; ?>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
+                <?php $this->btb_list(); ?>
+            </div>
+        </div>
+        <div id="lightbox" style="display:none;">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-id="0">
+                        <?php echo get_the_post_thumbnail($product->get_id(), 'full',[' loading'=>'lazy']); ?>
+                    </div>
+                    <?php $attachment_ids = $product->get_gallery_image_ids();
+                    foreach ($attachment_ids as $key => $attachment_id) {
+                        ?>
+                        <div class="swiper-slide" data-id="<?php echo $key + 1 ?>">
+                            <?php
+                            echo wp_get_attachment_image($attachment_id, 'full',null ,[' loading'=>'lazy']); ?>
+                        </div>
+                    <?php }; ?>
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
             </div>
         </div>
         <?php
     }
 
-    public function btb_list()
+    public
+    function btb_list()
     {
         $id = get_edit_id_page();
 
@@ -160,9 +238,6 @@ class CustomWooSingleSlider extends Widget_Base
     <?php endif;
     }
 
-    public function render_plain_content()
-    {
-    }
 
 
 }

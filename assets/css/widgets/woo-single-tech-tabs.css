@@ -433,3 +433,33 @@
         display: block;
         max-width: 200px;
         width: 100%; }
+
+@media screen and (min-width: 991px) {
+  .product_technical_specs_video .col-6, .product_technical_specs_guides .col-6 {
+    padding-left: 30px;
+    padding-right: 30px; }
+  .product_technical_specs_video, .product_technical_specs_guides {
+    margin-left: -30px;
+    margin-right: -30px; }
+  .product_technical_specs_guides {
+    padding-bottom: 30px; } }
+
+.product_guides__link {
+  font-size: 16px;
+  color: #333333;
+  text-decoration: underline;
+  text-align: center;
+  display: block;
+  padding-bottom: 30px;
+  font-weight: bold; }
+
+.product_guides__link img {
+  width: 100%; }
+
+.product_guides__title {
+  padding: 10px 0;
+  text-decoration: underline;
+  display: block; }
+
+.product_technical_specs_guides .product_guides__title {
+  padding: 15px 5px; }
