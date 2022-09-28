@@ -122,10 +122,11 @@ add_shortcode('the_term_thumbnail', function () {
         $thumbnail_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
     }
 
-    if ($thumbnail_id) {
-        echo wp_get_attachment_image($thumbnail_id,'full',null,['style'=>'    height: 100%;    object-fit: cover;    max-height: 379px;']);
+    if (isset($thumbnail_id)) {
+        echo wp_get_attachment_image($thumbnail_id,'woocommerce_single',null,['style'=>'height: 100%;object-fit: cover; max-height: 379px; width: 100%;','class'=>' no-lazy remove-lazy attachment-full size-full ext-hidden tablet:ext-block']);
+        echo wp_get_attachment_image($thumbnail_id,'woocommerce_thumbnail',null,['style'=>'height: 100%;object-fit: cover; max-height: 379px; width: 100%;','class'=>' no-lazy remove-lazy attachment-full size-full  tablet:ext-hidden ']);
     } else if (has_post_thumbnail()) {
-        echo get_the_post_thumbnail($post, 'full');
+        echo get_the_post_thumbnail($post, 'medium');
     }
     return ob_get_clean();
 });

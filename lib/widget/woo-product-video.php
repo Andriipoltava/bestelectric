@@ -68,9 +68,13 @@ class CustomWooProductVideo extends Widget_Base
         $video_url = get_field('youtube_video_url', $id);
         $title = get_field('video_bg_title', $id);
         $product_image = get_field('video_bg_product_image', $id);
+        $rm_image_id = attachment_url_to_postid($video_bg);
         ?>
         <?php if ($video_url && $video_bg) : ?>
-        <section class="s-product-video" style="background-image: url('<?php echo $video_bg; ?>')">
+        <section class="s-product-video">
+
+            <?php echo wp_get_attachment_image($rm_image_id, 'full', null, ['class' => 's-product-video__bg', 'style' => 'position: absolute; left: 0;top: 0; width: 100%;  height: 100%;object-fit: cover;object-position: 30% center;']); ?>
+
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-9 col-lg-7">
@@ -90,7 +94,7 @@ class CustomWooProductVideo extends Widget_Base
             </div>
             <?php if ($product_image) : ?>
                 <div class="s-product-video__image">
-                    <img src="<?php echo $product_image['url']; ?>" alt="<?php echo $product_image['alt']; ?>">
+                    <?php echo wp_get_attachment_image($product_image['id'],'full'); ?>
                 </div>
             <?php endif; ?>
         </section>

@@ -16,7 +16,7 @@ function preload_featured_image()
     }
 
 
-    if ($thumbnail_id) {
+    if (isset($thumbnail_id)) {
         if (wp_is_mobile()) {
             echo '<link rel="preload" as="image" href="' . wp_get_attachment_image_url($thumbnail_id, 'woocommerce_thumbnail') . '" />';
 

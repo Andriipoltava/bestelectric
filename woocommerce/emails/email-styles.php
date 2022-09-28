@@ -501,7 +501,6 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
 
     .order_item div {
     margin-left: 0 !important;
-    padding-top: 5px;
     }
 
     .order_item {
@@ -513,7 +512,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     #table_main_order {
-    margin-bottom: 15px !important;
+    padding-bottom:0 !important;
     }
 
     #template_footer {
@@ -528,13 +527,8 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     font-size: 21px !important;
     }
 
-    #table_main_order h3 {
-    margin: 30px 0 !important;
-    }
 
-    #table_main_order {
-    padding: 15px 0 !important;
-    }
+
 
     #category_email_template, #footer_optional_desktop {
     width: 100%;
@@ -560,6 +554,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
 
     .product_item_detail tr td {
     text-align: start !important;
+    padding-bottom: 0!important;
     }
 
     #table_main_order table tfoot th {

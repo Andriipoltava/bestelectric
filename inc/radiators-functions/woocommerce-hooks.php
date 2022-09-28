@@ -203,7 +203,7 @@ add_action('woocommerce_after_add_to_cart_form', function () {
     if (get_field('payment_logos', 'option')) {
         ?>
         <div id="ppc-top-title" class="hide">
-            <?php _e('payment options'); ?>
+            <?php _e('Payment options'); ?>
         </div>
         <?php
     }

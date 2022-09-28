@@ -21,7 +21,7 @@ Enqueue scripts and styles.
 \*------------------------------------*/
 function script_version()
 {
-    return '20220905';
+    return '20220928';
 }
 
 function path_min()
