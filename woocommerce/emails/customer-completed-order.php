@@ -22,12 +22,14 @@ if (!defined('ABSPATH')) {
 /*
  * @hooked WC_Emails::email_header() Output the email header
  */
-do_action('woocommerce_email_header', $email_heading, $email); ?>
+do_action('woocommerce_email_header', $email_heading, $email);
+$date_paid = $order->get_date_modified();
+?>
 
 <?php /* translators: %s: Customer first name */ ?>
     <p><?php printf(esc_html__('Dear %s,', 'woocommerce'), esc_html($order->get_billing_first_name() . ' ' . $order->get_billing_last_name())); ?></p>
     <p><?php esc_html_e('Your order number is ', 'woocommerce') ?>
-   <?php echo('     <strong>#' . $order->get_order_number() . ' </strong>'); ?>
+   <?php echo('     <strong>#' . $order->get_order_number()  .$date_paid->date(" (F j, Y)").' </strong>'); ?>
     </p>
 
     <p><?php esc_html_e('We have finished processing your order.', 'woocommerce'); ?></p>

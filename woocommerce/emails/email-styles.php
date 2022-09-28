@@ -67,8 +67,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
     #table_main_order{
 
-    background-color: <?php echo esc_attr($bg); ?>;
-    padding: 30px 30px 20px;
+
     }
 
 
@@ -122,23 +121,37 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     #body_content table td td {
-    padding: 12px;
+    padding: 12px 20px;
     color: #707070;
     }
+
+
 
     #body_content table td th {
-    padding: 12px;
+    padding: 12px 20px;
     color: #707070;
     }
 
-    #body_content td ul.wc-item-meta {
+    .email-order-items  tr td ,.email-order-items  tr th {
+    padding: 12px 0!important;
+    }
+    .email-order-items .order_item .td{
+
+    }
+
+    #body_content td .wc-item-meta {
     font-size: small;
     margin: 0 0 0.5em;
     padding: 0;
     list-style: none;
     }
+    a{
+    text-decoration:none !important;
+    text-decoration:none;
 
-    #body_content td ul.wc-item-meta li {
+    }
+
+    #body_content td .wc-item-meta div {
     margin: 0.5em 0 0;
 
     font-family: "Lato", sans-serif;
@@ -148,8 +161,9 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     padding: 0;
     }
 
-    #body_content td ul.wc-item-meta li p {
+    #body_content td .wc-item-meta div  p {
     margin: 0;
+    display: inline;
     }
 
     #body_content p {
@@ -157,23 +171,27 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     #body_content_inner {
-    color: <?php echo esc_attr($text_lighter_20); ?>;
+    color: < ? php echo esc_attr($ text_lighter_20);
+    ? >;
     font-size: 14px;
     line-height: 150%;
-    text-align: <?php echo is_rtl() ? 'right' : 'left'; ?>;
+    text-align: < ? php echo is_rtl() ? 'right': 'left';
+    ? >;
     }
 
     .td {
-    color: <?php echo esc_attr($text_lighter_20); ?>;
-    border:0;
+    color: < ? php echo esc_attr($ text_lighter_20);
+    ? >;
+    border: 0;
     vertical-align: middle;
     }
-    .order_item img{
+
+    .order_item img {
     margin-right: 0;
     }
 
     .address {
-
+    background-color: #f2f2f2;
     font-family: "Lato", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -181,17 +199,21 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     font-style: normal;
     letter-spacing: 0px;
     color: #707070;
+    border:none;
     }
-    .address a{
+
+    .address a {
     color: #707070;
     }
 
     .text {
-    color: <?php echo esc_attr($text); ?>;
+    color: < ? php echo esc_attr($ text);
+    ? >;
     }
 
     .link {
-    color: <?php echo esc_attr($link_color); ?>;
+    color: < ? php echo esc_attr($ link_color);
+    ? >;
 
     }
 
@@ -201,12 +223,13 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     h1 {
-    color: <?php echo esc_attr($base); ?>;
+    color: < ? php echo esc_attr($ base);
+    ? >;
     font-size: 50px;
     font-weight: 900;
     line-height: 150%;
     margin: 0;
-    text-align:center;
+    text-align: center;
     }
 
     h2 {
@@ -218,28 +241,29 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     font-weight: 300;
     line-height: 20px;
     line-height: 130%;
-    margin:0 ;
-    text-align: <?php echo is_rtl() ? 'right' : 'left'; ?>;
+    margin: 0;
+    text-align: < ? php echo is_rtl() ? 'right': 'left';
+    ? >;
 
     }
 
     h3 {
-
     display: block;
     font-family: "Lato", sans-serif;
     font-size: 22px;
     font-weight: 500;
-    line-height: 20px;
     color: #333333;
     line-height: 130%;
-    margin: 10px 0 18px;
-    text-align: <?php echo is_rtl() ? 'right' : 'left'; ?>;
+    margin:0!important;
+    text-align: < ? php echo is_rtl() ? 'right': 'left';
+    ? >;
     }
 
     a {
-    color: <?php echo esc_attr($link_color); ?>;
+    color: < ? php echo esc_attr($ link_color);
+    ? >;
     font-weight: bold;
-    text-decoration: unset;
+    text-decoration: none;
     }
 
     img {
@@ -252,37 +276,62 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     text-decoration: none;
     text-transform: capitalize;
     vertical-align: middle;
-    margin-<?php echo is_rtl() ? 'left' : 'right'; ?>: 10px;
+    margin- < ? php echo is_rtl() ? 'left': 'right';
+    ? >: 10px;
     max-width: 100%;
     height: auto;
     }
-    .top_header{
-    padding-top:30px;
+
+    ul{
+     padding: 0;
+     list-style: none;
     }
-    .top_header_link{
+    li {
+    text-indent: 0;
+    list-style-type: none;
+    }
+
+    .top_header {
+    padding-top: 30px;
+    }
+
+    .top_header_link {
     font-size: 16px;
     color: #707070;
     text-transform: uppercase;
-    padding: 0 15px;
-    text-decoration: unset;
+    text-decoration: none;
     }
-    .table_main_order_item{
-    margin-bottom: 30px;
+
+    .table_main_order_item {
+    background-color: #f2f2f2;
     }
-    .first_td{
+
+    .first_td {
     min-width: 117px;
-    padding: 0!important;
+    max-width: 117px;
+    padding: 0 !important;
     }
-    .product_item_detail td{
-    padding: 0!important;
+
+    .product_item_detail td {
+    padding: 0 !important;
     font-family: "Lato", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     }
-    .includes_tax{
-    display: block;
 
+    #table_main_order>*{
+    background-color: #f2f2f2;
+    }
+    #table_main_order td,
+    #table_main_order tr,
+    #table_main_order th{
+    background-color: #f2f2f2;
+    }
+
+
+    .includes_tax {
+    display: block;
     font-family: "Lato", sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -290,7 +339,8 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     letter-spacing: 0px;
     color: #707070;
     }
-    .order_total  td>span.woocommerce-Price-amount.amount{
+
+    .order_total td > span.woocommerce-Price-amount.amount {
     font-family: "Lato", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -298,7 +348,8 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     letter-spacing: 0px;
     color: #707070;
     }
-    .order_total th{
+
+    .order_total th {
     font-family: "Lato", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -309,7 +360,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
 
 
     #body_content_inner p,
-    #body_content_inner tfoot tr{
+    #body_content_inner tfoot tr {
     font-family: "Lato", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -317,59 +368,220 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     color: #333333;
 
     }
-    .note{
+
+    .note {
     border: 1px solid #707070;
-    padding:21px 50px;
-    margin:60px 0!important;
+    padding: 41px 50px;
     font-family: "Lato", sans-serif;
-    font-size: 14px!important;
+    font-size: 14px !important;
     color: #333333;
     }
-    .footer__content{
-    padding-top:30px;
+
+    .footer__content {
+    padding-top: 30px;
     font-family: "Lato", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     }
-    .accessories__item{
+
+    .accessories__item {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 35px #0000000D;
     border: 1px solid #fafafa;
     padding-bottom: 15px;
+    width: 215px;
     }
-    .accessories__item h5{
+
+    .accessories__item h5 {
     font-size: 13px;
     color: #333333;
     }
-    .accessories__item a.accessories__item__btn{
-    padding:5px 30px;
-    margin:10px;
+
+    .accessories__item .accessories__item__btn {
+
+    margin:10px 69px;
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 13px;
-    background: #B8D048 0% 0% no-repeat padding-box;
+    background: #B8D048;
+    background-color: #B8D048;
     box-shadow: 0px 3px 6px #00000029;
-    border: 1px solid #B8D048;
-    display: inline-block;
+    display: block;
+    max-width: 80px;
+    width: 80px;
+    height: 25px;
+    text-align:center;
     }
-    #template_footer table td{
-    padding:15px
+    .accessories__item .accessories__item__btn a{
+    color:white;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 80px;
+    padding:5px;
+    text-align:center;
     }
-    #template_footer .accessories__3  td {
+
+    #template_footer table td {
+    padding: 15px
+    }
+
+    #template_footer .accessories__3 td {
     width: 213px;
 
     }
-    #template_footer  .accessories__4  td {
+
+    #template_footer .accessories__4 td {
     width: 150px;
     padding: 5px;
 
     }
 
-    .accessories__item__image img{
+    .accessories__item__image img {
     margin: 0;
     max-height: 183px;
     object-fit: contain;
+    }
+
+    .accessories__item h5 {
+    text-align: center;
+    padding: 0 10px;
+    }
+
+
+    .desktop-hidden {
+    opacity: 0;
+    height: 0;
+    }
+
+    .link-site,.top-content a{
+    color:#B8CF40;
+    text-decoration: none;
+    }
+
+    @media screen and (max-device-width: 767px), screen and (max-width: 767px) {
+
+    .first_td {
+
+    max-width: 100% !important;
+    }
+
+    .product_item_detail tr > td:last-child {
+    text-align: left !important;
+    }
+
+    .order_item img {
+    float: left;
+    margin-right: 10px !important;
+    }
+
+    .desktop-hidden {
+    opacity: 1 !important;
+    height: auto !important;
+    }
+
+    .top_header_link {
+
+    display: block;
+    padding: 10px 15px !important;
+    }
+
+    #template_container, #template_container table, #template_footer {
+    max-width: 730px;
+    width: 100% !important;
+    }
+
+    #header_wrapper h1 {
+    font-size: 28px !important;
+    }
+
+    #template_body {
+    padding: 10px;
+    }
+
+    .order_item div {
+    margin-left: 0 !important;
+    padding-top: 5px;
+    }
+
+    .order_item {
+    padding-bottom: 15px;
+    }
+
+    .order_item .td:not(.first_td) {
+    padding:0 0 15px!important;
+    }
+
+    #table_main_order {
+    margin-bottom: 15px !important;
+    }
+
+    #template_footer {
+    padding: 0 15px;
+    }
+
+    .note {
+    padding: 21px !important;
+    }
+
+    .order_item h2 {
+    font-size: 21px !important;
+    }
+
+    #table_main_order h3 {
+    margin: 30px 0 !important;
+    }
+
+    #table_main_order {
+    padding: 15px 0 !important;
+    }
+
+    #category_email_template, #footer_optional_desktop {
+    width: 100%;
+    }
+
+    #category_email_template tr, #footer_optional_desktop tr, #table_main_order tr {
+    display: block !important;
+    }
+    .product_item_detail  td:last-child{
+    padding-top:10px!important;
+    }
+
+    .product_item_detail  td{
+    display: block !important;
+    margin: 0 auto;
+    }
+
+    #category_email_template tr td, #footer_optional_desktop tr td{
+    display: block !important;
+    margin: 0 auto;
+
+    }
+
+    .product_item_detail tr td {
+    text-align: start !important;
+    }
+
+    #table_main_order table tfoot th {
+    vertical-align: top !important;
+    width: 100%;
+    }
+
+    #table_main_order table tfoot td {
+    display: table-cell !important;
+    width: 50%;
+    min-width: 150px
+    }
+
+    }
+    @media screen and (max-device-width: 567px), screen and (max-width: 567px) {
+    .first_td {
+    max-width: 70px!important;
+    min-width: 70px!important;
+    padding-right: 15px!important;
+    padding-top: 15px!important;
+    vertical-align: top!important;
+    }
     }
 
 <?php

@@ -46,18 +46,20 @@ foreach ($items as $item_id => $item) :
             if ($show_image) {
                 echo wp_kses_post(apply_filters('woocommerce_order_item_thumbnail', $image, $item));
             }
+            $product_name=apply_filters('woocommerce_order_item_name', $item->get_name(), $item, false);
 
 
             ?>
+
         </td>
         <td class="td" colspan="2"
             style="text-align:<?php echo esc_attr($text_align); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
-            <div style="margin-left: 15px">
+            <div style="margin-left: 25px">
                 <div>
-                    <h2>
+                    <h2 class="mobile-hidden">
                         <?php
                         // Product name.
-                        echo wp_kses_post(apply_filters('woocommerce_order_item_name', $item->get_name(), $item, false)); ?>
+                        echo wp_kses_post($product_name); ?>
                     </h2>
 
                 </div>
@@ -74,12 +76,20 @@ foreach ($items as $item_id => $item) :
                                     // allow other plugins to add additional product information here.
                                     do_action('woocommerce_order_item_meta_start', $item_id, $item, $order, $plain_text);
 
-                                    wc_display_item_meta(
+                                 $item_meta=   wc_display_item_meta(
                                         $item,
                                         array(
-                                            'label_before' => '<strong class="wc-item-meta-label" style="    font-weight: 400;float: ' . esc_attr($text_align) . '; margin-' . esc_attr($margin_side) . ': .25em; clear: both">',
+                                            'autop'        => true,
+                                            'echo'        => false,
+                                            'label_after'  => '</strong> ',
+                                            'before'       => '<div class="wc-item-meta"><div>',
+                                            'after'        => '</div></div>',
+                                            'separator'    => '</div><div>',
+                                            'label_before' => '<strong class="wc-item-meta-label" style="    font-weight: 400;float: ' . esc_attr($text_align) . '; margin-' . esc_attr($margin_side) . ': .25em; clear: both;">',
                                         )
                                     );
+                                    $item_meta=str_replace('p>','b>',$item_meta);
+                                    echo $item_meta;
 
                                     // allow other plugins to add additional product information here.
                                     do_action('woocommerce_order_item_meta_end', $item_id, $item, $order, $plain_text); ?>

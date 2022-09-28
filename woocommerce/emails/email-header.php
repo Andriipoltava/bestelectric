@@ -25,17 +25,31 @@ if (!defined('ABSPATH')) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php bloginfo('charset'); ?>"/>
     <title><?php echo get_bloginfo('name', 'display'); ?></title>
+    <!--[if gte mso 9]>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            text-indent: -50px;
+            list-style-type: none;
+        }
+    </style>
+    <![endif]-->
 </head>
 <body <?php echo is_rtl() ? 'rightmargin' : 'leftmargin'; ?>="0" marginwidth="0" topmargin="0" marginheight="0" offset="
 0">
 <div id="wrapper" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
-    <table border="0" cellpadding="0" cellspacing="0"  width="100%">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td align="center" valign="top">
                 <div id="template_header_image">
                     <?php
                     if ($img = get_option('woocommerce_email_header_image')) {
-                        echo '<p style="margin-top:0;"><img src="' . esc_url($img) . '" alt="' . get_bloginfo('name', 'display') . '" /></p>';
+                        echo '<a href="' . home_url() . '"><img src="' . esc_url($img) . '" alt="' . get_bloginfo('name', 'display') . '" /></a>';
                     }
                     ?>
 
@@ -54,7 +68,11 @@ if (!defined('ABSPATH')) {
 
                                 <a class="top_header_link" href="<?php echo $link_url ?>"
                                    target="<?php echo esc_attr($link_target); ?>"
-                                   title="<?php echo esc_html($link_title); ?>"><?php echo esc_html($link_title); ?></a>
+                                   title="<?php echo esc_html($link_title); ?>">
+                                    <strong><span style="text-decoration:none">
+                                    <?php echo esc_html('&nbsp;' . $link_title . '&nbsp;'); ?>
+                                                </span><strong>
+                                </a>
 
                             <?php endwhile; ?>
 
