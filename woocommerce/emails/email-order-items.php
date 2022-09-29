@@ -53,8 +53,8 @@ foreach ($items as $item_id => $item) :
 
         </td>
         <td class="td" colspan="2"
-            style="text-align:<?php echo esc_attr($text_align); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;">
-            <div style="margin-left: 25px">
+            style="text-align:<?php echo esc_attr($text_align); ?>; vertical-align:middle; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; padding-left: 25px!important;">
+            <div >
                 <div>
                     <h2 class="mobile-hidden">
                         <?php
