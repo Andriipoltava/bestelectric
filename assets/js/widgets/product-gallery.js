@@ -131,7 +131,9 @@
             $scope.find('.galleryPopup').fancybox({});
 
 
-            $(document).on('click', '.fancybox-trigger', function (e) {
+            $(document).on('click touchstart', '.fancybox-trigger',fancyboxHandler );
+            function fancyboxHandler (e) {
+                console.log('click touchstart')
                 e.preventDefault();
                 jQuery('#lightbox .swiper-slide').each(function (index) {
                     jQuery(this).attr('data-id', index)
@@ -150,16 +152,15 @@
                         autoFocus: true,
                         touch: false,
                         afterLoad: function () {
-
                             mySwiper.init();
                             mySwiper.slideTo(thisTarget)
+                            mySwiper.update()
 
                         }
                     }
                 })
 
-            });
-
+            }
 
         };
 
