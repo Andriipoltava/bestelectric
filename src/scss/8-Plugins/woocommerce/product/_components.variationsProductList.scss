@@ -79,7 +79,7 @@
                 display: block;
                 margin-bottom: 8px;
                 color: palette(text, 500);
-                @include font(base, 19, 500);
+                @include font(base, 19, 700);
 
                 & + .woo-selected-variation-item-name {
                   display: none;

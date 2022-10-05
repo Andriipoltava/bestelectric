@@ -316,7 +316,7 @@
     color: #282828;
     font-size: 1rem;
     line-height: 1.1875;
-    font-weight: 500; }
+    font-weight: 700; }
     .single-product.woocommerce .product.product_cat-electric-radiators .variations tr .label label + .woo-selected-variation-item-name {
       display: none; }
   .single-product.woocommerce .product.product_cat-electric-radiators .variations tr td, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr th.label {
@@ -2252,8 +2252,7 @@ table.variations.iconic-wlv-variations {
 strong.iconic-wlv-variations__label {
   color: #282828;
   font-size: 1rem;
-  line-height: 1.1875;
-  font-weight: 500; }
+  line-height: 1.1875; }
 
 span.iconic-wlv-variations__colon {
   display: none; }
