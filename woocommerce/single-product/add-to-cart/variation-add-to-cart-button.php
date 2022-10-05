@@ -13,12 +13,9 @@ global $product;
 ?>
 <div class="woocommerce-variation-add-to-cart variations_button">
 
-
     <?php do_action('woocommerce_before_add_to_cart_button'); ?>
 
-    <div class="variations_button__bottom">
-
-        <?php
+    <?php
         do_action('woocommerce_before_add_to_cart_quantity'); ?>
         <?php
 
@@ -32,13 +29,6 @@ global $product;
 
         do_action('woocommerce_after_add_to_cart_quantity');
         ?>
-
-            <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-                <?php echo str_replace('From:', '', $product->get_price_html()); ?>
-                <span class="o-product-top__price--inc">inc. VAT</span>
-            </p>
-
-
         <button type="submit"
                 class="single_add_to_cart_button button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
 
@@ -47,7 +37,6 @@ global $product;
         <input type="hidden" name="add-to-cart" value="<?php echo absint($product->get_id()); ?>"/>
         <input type="hidden" name="product_id" value="<?php echo absint($product->get_id()); ?>"/>
         <input type="hidden" name="variation_id" class="variation_id" value="0"/>
-    </div>
-    <?php do_action('woocommerce_after_add_end_cart_button'); ?>
+        <?php do_action('woocommerce_after_add_end_cart_button'); ?>
 
 </div>

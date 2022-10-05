@@ -86,7 +86,12 @@ function woocommerce_template_description()
     } else {
         echo '<div class="c-product-loop-content">';
 
-        echo '<div class="c-product-loop-title"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div>';
+        echo '<div class="c-product-loop-title "><a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
+        if (is_cart()) {
+            echo '     <a class="c-product-loop-price" href="' . get_the_permalink() . '">' . $product->get_price_html() . ' </a>';
+
+        }
+        echo '</div>';
     }
 
 
@@ -158,7 +163,7 @@ function add_to_btn_product_availability()
             </div>
             <div class="delivery__bottom__body">
                 <p>
-                <?php echo $product_availability['availability']; ?>
+                    <?php echo $product_availability['availability']; ?>
                 </p>
             </div>
         </div>
@@ -208,3 +213,39 @@ add_action('woocommerce_after_add_to_cart_form', function () {
         <?php
     }
 });
+add_action('woocommerce_before_add_to_cart_button', function () {
+
+    ?>
+    <div class="variations_button__bottom">
+    <div class="variations_button__bottom__wrap">
+    <div class="variations_button__bottom__quantity">
+    <?php
+});
+add_action('woocommerce_after_add_to_cart_quantity', function (){
+    global $product;
+
+    $priceLater = (float)$product->get_price() / 3;
+    $priceLater = number_format((float)$priceLater, 2, '.', '');
+    $priceLater = get_woocommerce_currency_symbol() . '<span class="priceLater">' . $priceLater . '</span>';
+    ?>
+    <!-- end variations_button__bottom__quantity-->
+    </div>
+    <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
+        <?php echo str_replace('From:', '', $product->get_price_html()); ?>
+        <span class="o-product-top__price--inc">inc. VAT</span>
+    </p>
+    <div class="variations_button__bottom__paymentLater o-product-top__paymentLater__content o-product-top__paymentLater"> <?php echo __('Pay in 3 interest-free payments of ') . $priceLater.'.'; ?>
+
+    </div>
+    <!-- end variations_button__bottom__wrap-->
+    </div>
+
+    <?php
+}, 9999);
+add_action('woocommerce_after_add_to_cart_button', function () {
+    ?>
+    <!-- end variations_button__bottom-->
+    </div>
+
+    <?php
+}, 10);

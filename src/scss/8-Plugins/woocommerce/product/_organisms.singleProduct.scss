@@ -818,12 +818,8 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) {
 
 
 .mobile-variation-price {
-  order: 1;
-  padding-right: 4px;
-  @include mq(480) {
-    display: none !important;
-  }
 
+  padding-right: 4px;
   .woocommerce-Price-amount {
     @include font(large, 36, 400);
     color: #333;
@@ -885,5 +881,56 @@ body.single-product.woocommerce .product:not(.product_cat-electric-radiators) {
   }
   @include mq(null,567) {
     padding-left: 5px;
+  }
+}
+.variations_button__bottom__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  max-width: 300px;
+
+}
+
+.variations_button__bottom__quantity {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  max-width: 100px;
+}
+
+.variations_button__bottom__paymentLater {
+  padding-top: 5px;
+  font-weight: 700;
+}
+
+form.cart:not(.variations_form) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.variations_button__bottom__paymentLater.o-product-top__paymentLater__content{
+  display: inline;
+}
+.variations_button__bottom__paymentLater {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 567px) {
+  .variations_button__bottom__wrap {
+    justify-content: space-around;
+  }
+  .mobile-variation-price{
+    order: -1;
+  }
+
+
+}
+
+@media screen and (min-width: 1025px) {
+
+  form.cart:not(.variations_form) .variations_button__bottom {
+    background: transparent;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
