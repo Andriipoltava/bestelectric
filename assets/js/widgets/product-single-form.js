@@ -67,8 +67,11 @@
                     document.querySelector('.o-product-top__price .JS--top-product-price').innerHTML='<span class="woocommerce-Price-amount amount">'+newHtml+'</span>'
                 }
             }
-            if(document.querySelector(' .o-product-top__paymentLater .priceLater')){
-                document.querySelector(' .o-product-top__paymentLater .priceLater').innerHTML =  (newPrice / 3).toFixed(2)
+            if (document.querySelectorAll(' .o-product-top__paymentLater .priceLater').length) {
+                document.querySelectorAll(' .o-product-top__paymentLater .priceLater').forEach((e) => {
+                    e.innerHTML = (newPrice / 3).toFixed(2)
+                })
+
             }
 
         }, 10);

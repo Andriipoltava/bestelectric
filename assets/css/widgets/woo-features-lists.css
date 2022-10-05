@@ -256,6 +256,7 @@
     line-height: 1;
     font-weight: 900;
     transition: all 0.3s ease-in-out;
+    padding: 0 10px;
     position: static; }
     @media screen and (min-width: 768px) {
       .c-product-features-list__name:after {

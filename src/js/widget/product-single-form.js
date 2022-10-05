@@ -47,12 +47,30 @@
         setTimeout(function () {
             let newPrice = parseFloat(upsellPrice) + parseFloat(oldPrice),
                 newHtml = document.querySelector('.variations_form .price .amount').innerHTML.replace(oldPrice, newPrice.toFixed(2));
-            document.querySelector('.variations_form .price .amount').innerHTML = newHtml
-            document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount').innerHTML = newHtml
-            document.querySelector('.singleWooHeader__item__price .price .amount').innerHTML = newHtml
-            document.querySelector('.o-product-top__price .JS--top-product-price .amount').innerHTML = newHtml
-            if(document.querySelector(' .o-product-top__paymentLater .priceLater')){
-                document.querySelector(' .o-product-top__paymentLater .priceLater').innerHTML =  (newPrice / 3).toFixed(2)
+            if(document.querySelector(' .variations_form .price .amount')) {
+                document.querySelector('.variations_form .price .amount').innerHTML = newHtml
+            }
+            if(document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount')) {
+                document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount').innerHTML = newHtml
+            }
+            if(document.querySelector('.singleWooHeader__item__price .price .amount')) {
+                document.querySelector('.singleWooHeader__item__price .price .amount').innerHTML = newHtml
+            }else {
+                if( document.querySelector('.singleWooHeader__item__price .price')){
+                    document.querySelector('.singleWooHeader__item__price .price').innerHTML='<span class="woocommerce-Price-amount amount">'+newHtml+'</span>'
+                }
+            }
+            if(document.querySelector('.o-product-top__price .JS--top-product-price .amount')) {
+                document.querySelector('.o-product-top__price .JS--top-product-price .amount').innerHTML = newHtml
+            }else {
+                if( document.querySelector('.o-product-top__price .JS--top-product-price')){
+                    document.querySelector('.o-product-top__price .JS--top-product-price').innerHTML='<span class="woocommerce-Price-amount amount">'+newHtml+'</span>'
+                }
+            }
+            if (document.querySelectorAll(' .o-product-top__paymentLater .priceLater').length) {
+                document.querySelectorAll(' .o-product-top__paymentLater .priceLater').forEach((e) => {
+                    e.innerHTML = (newPrice / 3).toFixed(2)
+                })
 
             }
 

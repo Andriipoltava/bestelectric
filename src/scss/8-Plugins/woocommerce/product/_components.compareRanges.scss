@@ -14,15 +14,6 @@
     max-width: 100%;
     height: auto !important;
   }
-
-  .c-compare-ranges-terms {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    align-items: center;
-    z-index: 10;
-  }
 }
 
 
@@ -142,13 +133,10 @@
   bottom: 12px;
 }
 
-.c-compare-ranges__price, .c-compare-ranges__btn, .c-compare-ranges__colors {
+.c-compare-ranges__price, .c-compare-ranges__btn{
   //padding: 0 6px;
 }
 
-.c-compare-ranges__colors {
-  width: 100%;
-}
 
 .c-compare-ranges__product-link {
   display: inline-block;
@@ -178,40 +166,14 @@
   }
 }
 
-.c-compare-ranges__colors-label {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 6px;
-  @include font(x-small, 10, 300);
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-}
 
-.c-compare-ranges__colors {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 20px;
 
-  .c-compare-ranges__footer--calc & {
-    margin-bottom: 14px;
-  }
-}
+
 
 .c-compare-ranges__colors--reverse {
   flex-direction: row-reverse;
 }
 
-.c-compare-ranges__color-btn {
-  display: block;
-  width: 24px;
-  height: 24px;
-  margin: 0 3px;
-  border-radius: 50%;
-  border: 1px solid palette(text, 200);
-  outline: none;
-}
 
 .c-compare-ranges__thumb--secondary {
   position: absolute;
