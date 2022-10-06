@@ -10,4 +10,57 @@
 @import "8-Plugins/calculator/sections.productCalculator";
 
 @import "8-Plugins/calculator/organisms.calculator";
+
 @import "8-Plugins/woocommerce/product/organisms.popup";
+
+
+#trstModal {
+
+  display: flex;
+  max-width: 520px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #333;
+  padding: 10px 20px;
+  align-items: center;
+  width: 100%;
+
+}
+
+#trstModal p {
+  line-height: 1;
+}
+
+#trstModal svg {
+  display: block;
+  max-height: 19px;
+  padding-right: 15px;
+}
+
+@media (max-width: 567px) {
+  #trstModal svg {
+    padding-right: 8px;
+
+  }
+
+  #trstModal {
+
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  #trstModal #trLogo {
+    width: 25%;
+  }
+
+  #trstModal  #trStars {
+    width: 31%;
+  }
+}
+.cvy_radiator_variation_list_footer_actions .cvy_submit{
+  margin-bottom: 20px;
+}
+
+#trstModal  p {
+  margin-bottom: 0;
+}
