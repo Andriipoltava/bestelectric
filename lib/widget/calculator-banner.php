@@ -54,42 +54,43 @@ class CustomCalcBanner extends Widget_Base
         $description = get_field('calc_banner_description', 'options');
         $image = get_field('calc_banner_image', 'options');
         $is_product = is_product();
-        if ($is_product && !has_term(18, 'product_cat'))
-            return '';
+        if ($is_product && (has_term(18, 'product_cat') || has_term(162, 'product_cat'))) {
 
-        ?>
-        <?php if ($title || $image) : ?>
-        <section class="s-calc-banner">
-            <div class="s-calc-banner__container">
-                <div class="s-calc-banner__content">
-                    <div class="s-calc-banner__text">
-                        <?php if ($title) : ?>
-                            <div class="s-calc-banner__title"><?php echo $title; ?></div>
-                        <?php endif; ?>
-                        <?php if ($description) : ?>
-                            <div class="s-calc-banner__description">
-                                <?php echo $description; ?>
+            ?>
+            <?php if ($title || $image) : ?>
+                <section class="s-calc-banner">
+                    <div class="s-calc-banner__container">
+                        <div class="s-calc-banner__content">
+                            <div class="s-calc-banner__text">
+                                <?php if ($title) : ?>
+                                    <div class="s-calc-banner__title"><?php echo $title; ?></div>
+                                <?php endif; ?>
+                                <?php if ($description) : ?>
+                                    <div class="s-calc-banner__description">
+                                        <?php echo $description; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
-                        <?php endif; ?>
+                            <div class="s-calc-banner__button">
+                                <?php if ($is_product) { ?>
+                                    <a href="javascript:void(0);" class="JS--open-popup s-calc-banner__btn"
+                                       data-popup="calc"><?php _e('Use calculator', 'elr'); ?></a>
+                                <?php } else { ?>
+                                    <a href="<?php echo get_permalink(11676); ?>"
+                                       class="s-calc-banner__btn"><?php _e('Use calculator', 'elr'); ?></a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="s-calc-banner__image">
+                            <?php echo wp_get_attachment_image($image['id'], 'full'); ?>
+                        </div>
                     </div>
-                    <div class="s-calc-banner__button">
-                        <?php if ($is_product) { ?>
-                            <a href="javascript:void(0);" class="JS--open-popup s-calc-banner__btn"
-                               data-popup="calc"><?php _e('Use calculator', 'elr'); ?></a>
-                        <?php } else { ?>
-                            <a href="<?php echo get_permalink(11676); ?>"
-                               class="s-calc-banner__btn"><?php _e('Use calculator', 'elr'); ?></a>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="s-calc-banner__image">
-                    <?php echo wp_get_attachment_image($image['id'], 'full'); ?>
-                </div>
-            </div>
-        </section>
-    <?php endif;
+                </section>
+            <?php endif;
+        }
     }
 }
+
 global $widgets;
 
 $widgets->register(new \Elementor\CustomCalcBanner());

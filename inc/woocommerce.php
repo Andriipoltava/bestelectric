@@ -120,9 +120,10 @@ function get_gtin($value, $attr_field, $product)
 add_filter('trustpilot_inventory_attribute_value', 'get_gtin', 10, 3);
 
 add_filter('woocommerce_product_price_class', function ($class) {
-    if (!has_term(18, 'product_cat')) {
-        $class .= ' mobile-variation-price JS--mobile-price';
+    if (has_term(18, 'product_cat') || has_term(162, 'product_cat')) {
+        return $class;
     }
+    $class .= ' mobile-variation-price JS--mobile-price';
     return $class;
 });
 

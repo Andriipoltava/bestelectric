@@ -39,7 +39,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                 <?php foreach ($attributes as $attribute_name => $options) : ?>
                     <tr>
                         <td>
-                            <div class="variations-item <?php if (has_term(18, 'product_cat') && $attribute_name == 'pa_wattage') {
+                            <div class="variations-item <?php if ((has_term(18, 'product_cat') && $attribute_name == 'pa_wattage')||(has_term(162, 'product_cat') && $attribute_name == 'pa_wattage')) {
                                 echo 'var_slider_wattage';
                             }elseif (has_term(21, 'product_cat') && $attribute_name == 'pa_dimensions') {
                                 echo 'c-options-btns-label';
@@ -60,7 +60,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                                             </div>
                                         <?php }; ?>
                                     </label>
-                                    <?php if (has_term(18, 'product_cat') && $attribute_name == 'pa_wattage') {
+                                    <?php if ((has_term(18, 'product_cat') ||has_term(162, 'product_cat') )&& $attribute_name == 'pa_wattage') {
                                         ?>
                                         <div class="var-slider__nav" style="display: none">
                                             <div class="var-slider__nav__wrap">
@@ -80,8 +80,8 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                                 </div>
                                 <div class="value">
 
-                                    <?php if (has_term(18, 'product_cat') && $attribute_name == 'pa_wattage') {
-                                        echo '<div class="swiper-custom woo-variation-items-wrapper">';
+                                    <?php if ((has_term(18, 'product_cat') ||has_term(162, 'product_cat') )&& $attribute_name == 'pa_wattage') {
+                                        echo '<div class="swiper-custom woo-variation-items-wrapper" style="display: none;">';
                                     } ?>
                                     <?php
                                     wc_dropdown_variation_attribute_options(
@@ -93,13 +93,13 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                                     );
                                     echo end($attribute_keys) === $attribute_name ? wp_kses_post(apply_filters('woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__('Clear', 'woocommerce') . '</a>')) : '';
                                     ?>
-                                    <?php if (has_term(18, 'product_cat') && $attribute_name == 'pa_wattage') {
+                                    <?php if ((has_term(18, 'product_cat') ||has_term(162, 'product_cat') )&& $attribute_name == 'pa_wattage') {
                                         echo '</div>';
                                     } ?>
                                 </div>
                             </div>
 
-                            <?php if (has_term(18, 'product_cat') && $attribute_name == 'pa_wattage') {
+                            <?php if ((has_term(18, 'product_cat') ||has_term(162, 'product_cat') )&& $attribute_name == 'pa_wattage') {
                                 ?>
                                 <div class="calc-popup-block">
                                     <a href="javascript:void(0);"

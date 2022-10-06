@@ -714,7 +714,8 @@
 }
 
 
-body.single-product.woocommerce .product:not(.product_cat-electric-radiators) {
+body.single-product.woocommerce .product:not(.product_cat-electric-radiators) ,
+body.single-product.woocommerce .product:not(.product_cat-all-electric-radiators) {
 
   .o-product-top__summary {
     .summary {

@@ -625,19 +625,19 @@
         });
 
 
-	       if ($('.product_cat-electric-towel-rails').length !== 0) {
-	           var productPriceClone = $('.woocommerce-variation').clone();
-	           $('.JS--quantity-minus').before(productPriceClone);
-	           var wattageLabel = $(".variations tr:last-child label").attr("for", 'pa_wattage');
+        if ($('.product_cat-electric-towel-rails').length !== 0) {
+            var productPriceClone = $('.woocommerce-variation').clone();
+            $('.JS--quantity-minus').before(productPriceClone);
+            var wattageLabel = $(".variations tr:last-child label").attr("for", 'pa_wattage');
 
-	           var optionsButtons = '';
-	           wattageLabel.addClass('c-options-btns-label').append(optionsButtons);
-	           if (wattageLabel.length !== 0) {
-	               setTimeout(function () {
-	                   wattageLabel.addClass('is-loaded');
-	               }, 300);
-	           }
-	       }
+            var optionsButtons = '';
+            wattageLabel.addClass('c-options-btns-label').append(optionsButtons);
+            if (wattageLabel.length !== 0) {
+                setTimeout(function () {
+                    wattageLabel.addClass('is-loaded');
+                }, 300);
+            }
+        }
 
 
 
@@ -691,7 +691,7 @@
             }, 50);
         }
 
-        if ($('.product_cat-electric-radiators').length !== 0 || typeof ($('.product_cat-electric-radiators')) !== 'undefined') {
+        if (($('.product_cat-electric-radiators').length !== 0 || typeof ($('.product_cat-electric-radiators')) !== 'undefined') || ($('.product_cat-electric-radiators').length !== 0 || typeof ($('.product_cat-electric-radiators')) !== 'undefined')) {
             if ($('.variations').length !== 0) {
                 var rowLength = $('.variations').find('tr').length;
 
@@ -705,7 +705,7 @@
 
                 }, 300);
 
-                $('.product_cat-electric-radiators .variations select').on('change', function () {
+                $('.product_cat-electric-radiators .variations select,.product_cat-all-electric-radiators .variations select').on('change', function () {
                     var _this = $(this);
                     setTimeout(function () {
                         var newPrice = _this.closest('.variations_form').find('.woocommerce-variation-price .price');
@@ -725,7 +725,7 @@
 
 
 
-            $('.product:not(.product_cat-electric-radiators) .variations select').on('change', function () {
+            $('.product:not(.product_cat-electric-radiators):not(.product_cat-all-electric-radiators) .variations select').on('change', function () {
                 var _this = $(this);
                 setTimeout(function () {
                     var newPrice = _this.closest('.variations_form').find('.woocommerce-variation-price .price').html();

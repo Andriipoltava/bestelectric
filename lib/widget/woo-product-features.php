@@ -69,7 +69,7 @@ class CustomWooProductFeature extends Widget_Base
         ?>
         <div class="o-product-features" style="display: none">
 
-            <?php if (has_term(18, 'product_cat', $id)) : ?>
+            <?php if (has_term(18, 'product_cat', $id)||has_term(162, 'product_cat', $id)) : ?>
                 <?php $this->tabs_nav(); ?>
             <?php endif; ?>
 
