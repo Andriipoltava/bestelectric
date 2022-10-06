@@ -601,14 +601,7 @@ class CustomCalcForm extends Widget_Base
                                                         <div class="cvy_field_groups">
                                                             <div class="cvy_property_field">
 						<span class="cvy_type">
-							<?php foreach ($variation['attributes'] as $attr_tax => $attr_slug) {
-                                $attr_tax = str_replace('attribute_', '', $attr_tax);
-                                $term = get_term_by('slug', $attr_slug, $attr_tax);
-
-                                echo $term->name;
-
-                                break;
-                            } ?>
+							<?php echo $product->get_attribute('pa_colour') ?>
 						</span>
 
                                                                 <span class="cvy_wattage">
