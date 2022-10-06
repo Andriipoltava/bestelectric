@@ -38,9 +38,9 @@ $shipping = $order->get_formatted_shipping_address();
             <address class="address">
 
                 <?php echo $order->billing_first_name; ?>  <?php echo $order->billing_last_name; ?>,
-                <br> <?php echo $order->billing_address_1; ?>, <?php echo $order->billing_address_2; ?>
-                , <?php echo $order->billing_city; ?>, <?php echo $order->billing_state; ?>,
-                <?php echo $order->billing_postcode; ?>, <?php echo $order->billing_country; ?>
+                <br> <?php echo $order->billing_address_1?$order->billing_address_1.',':''; ?> <?php echo $order->billing_address_2?$order->billing_address_2.',':''; ?>
+                 <?php echo $order->billing_city?$order->billing_city.',':''; ?> <?php echo $order->billing_state ?$order->billing_state.',':''; ?>
+                <?php echo $order->billing_postcode?$order->billing_postcode.',':''; ?> <?php echo $order->billing_country; ?>
                 <?php if ($order->get_billing_phone()) : ?>
                     <br/>
 
@@ -70,9 +70,9 @@ $shipping = $order->get_formatted_shipping_address();
                 <br>
                 <address class="address">
                     <?php echo $order->shipping_first_name; ?>  <?php echo $order->shipping_last_name; ?>,
-                    <br> <?php echo $order->billing_address_1; ?>, <?php echo $order->shipping_address_2; ?>
-                    , <?php echo $order->shipping_city; ?>, <?php echo $order->shipping_state; ?>,
-                    <?php echo $order->shipping_postcode; ?>, <?php echo $order->shipping_country; ?>
+                    <br> <?php echo $order->shipping_address_1?$order->shipping_address_1.', ':''; ?><?php echo $order->shipping_address_2?$order->shipping_address_2.',':''; ?>
+                     <?php echo $order->shipping_city?$order->shipping_city.',':''; ?> <?php echo $order->shipping_state?$order->shipping_state.',':''; ?>
+                    <?php echo $order->shipping_postcode?$order->shipping_postcode.',':''; ?> <?php echo $order->shipping_country?$order->shipping_country.'':''; ?>
 
                     <?php if ($order->get_shipping_phone()) : ?>
                         <br/><?php echo wc_make_phone_clickable($order->get_shipping_phone()); ?>
