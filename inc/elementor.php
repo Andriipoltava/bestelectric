@@ -51,7 +51,7 @@ add_action('elementor/frontend/after_register_styles', function () {
     wp_register_style('ber-icon', get_stylesheet_directory_uri() . '/fonts/fontello/css/ber-icons.css', [], $script_version);
     wp_register_style('woocommerce-layout', get_stylesheet_directory_uri() . '/assets/css/woocommerce-layout' . $path_min . '.css', array(), $script_version);
     wp_register_style('woocommerce-general', get_stylesheet_directory_uri() . '/assets/css/woocommerce-general' . $path_min . '.css', array(), $script_version);
-    wp_register_style('ber-css-calculator', get_stylesheet_directory_uri() . '/assets/css/calculator' . $path_min . '.css', $script_version);
+    wp_register_style('ber-css-calculator', get_stylesheet_directory_uri() . '/assets/css/calculator' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-mego-menu', get_stylesheet_directory_uri() . '/assets/css/widgets/mega-menu' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-woo-basket', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-basket' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-swiper', get_stylesheet_directory_uri() . '/assets/css/widgets/swiper' . $path_min . '.css', array(), $script_version);
