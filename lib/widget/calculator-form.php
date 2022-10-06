@@ -759,7 +759,7 @@ class CustomCalcForm extends Widget_Base
                                                         </svg>
 
                                                         <p>
-                                                            <?php echo get_field('product_tooltip_content', 'option')?:'Rated 4.8 out of 5 Based on <b>1000+ Reviews</b>'; ?>
+                                                            <?php echo get_field('top_trustpilot_code', 'option')?:'Rated 4.8 out of 5 Based on <b>1000+ Reviews</b>'; ?>
                                                         </p>
                                                     </a>
 
