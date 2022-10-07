@@ -92,8 +92,6 @@
     })
 
 
-
-
     $('form.cart').on('submit', function (e) {
         e.preventDefault();
 
@@ -149,15 +147,27 @@
     const ProductForm = function ($scope, $) {
         $scope.find('.variation-dropdown-specification').on('click', function (e) {
             e.preventDefault()
-            if (!$scope.find('.variation-dropdown-specification').hasClass('time')) {
-                $scope.find('.variation-dropdown-specification').toggleClass('active')
-                $scope.find('.variation-dropdown-specification').addClass('time')
-                $scope.find('.variation-dropdown-specification__bottom').toggleClass('show')
-            }
-            setTimeout(function () {
-                $scope.find('.variation-dropdown-specification').removeClass('time')
-            }, 200)
+            if (window.innerWidth <= 768) {
+                if (!$scope.find('.variation-dropdown-specification').hasClass('time')) {
+                    $scope.find('.variation-dropdown-specification').toggleClass('active')
+                    $scope.find('.variation-dropdown-specification').addClass('time')
+                    $scope.find('.variation-dropdown-specification__bottom').toggleClass('show')
+                }
+                setTimeout(function () {
+                    $scope.find('.variation-dropdown-specification').removeClass('time')
+                }, 200)
+            }else {
+                const btn=$(this)
+                if (!btn.hasClass('time')) {
+                    btn.toggleClass('active')
+                    btn.addClass('time')
+                    btn.closest('.cvy_variation_list_item').find('.variation-dropdown-specification__bottom').toggleClass('show')
+                }
+                setTimeout(function () {
+                    btn.removeClass('time')
+                }, 200)
 
+            }
 
         })
 
@@ -200,48 +210,71 @@
                     lists.addClass('swiper-wrapper')
                     lists.closest('.variations-item').addClass('variations-item__slider')
                     lists.parent().show()
-                    const swiper = new Swiper(lists.parent(), {
-                        loop: false,
-                        init: true,
-                        dots: false,
-                        spaceBetween: 20,
-                        slidesPerView: 1,
-                        on: {
-                            init: function (data) {
-                                $scope.find('.var-slider__nav').css({display: 'block'})
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-                            },
-                            slideChange: function (data) {
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-                            },
-                            resize: function () {
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-                            },
-                            update: function () {
-                                $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
-                            }
-                        },
-                        breakpoints: {
-                            // when window width is >= 320px
-                            460: {
-                                slidesPerView: 2,
-                            },
-                        },
-                        navigation: {
-                            prevEl: '.var-slider__nav-arrow-prev',
-                            nextEl: '.var-slider__nav-arrow-next'
-                        },
-                        slideContent: '.swiper-wrapper',
+                    var init = false;
+                    function sliderMain() {
+                        if (window.innerWidth <= 768) {
+                            if (!init) {
+                                init = true;
+                                const swiper = new Swiper(lists.parent(), {
+                                    loop: false,
+                                    init: true,
+                                    dots: false,
+                                    spaceBetween: 20,
+                                    slidesPerView: 1,
+                                    on: {
+                                        init: function (data) {
+                                            $scope.find('.var-slider__nav').css({display: 'block'})
+                                            $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
+                                        },
+                                        slideChange: function (data) {
+                                            $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
+                                        },
+                                        resize: function () {
+                                            $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
+                                        },
+                                        update: function () {
+                                            $scope.find('.var-slider__nav-arrow-fr').text((this.realIndex + sliderIndexF(this)) + '/' + this.slides.length)
+                                        }
+                                    },
+                                    breakpoints: {
+                                        // when window width is >= 320px
+                                        460: {
+                                            slidesPerView: 2,
+                                        },
+                                    },
+                                    navigation: {
+                                        prevEl: '.var-slider__nav-arrow-prev',
+                                        nextEl: '.var-slider__nav-arrow-next'
+                                    },
+                                    slideContent: '.swiper-wrapper',
 
-                    })
-                    $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
-                    $(window).on('resize', function(){
-                        $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
-                    });
+                                })
+                                $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
+                                $(window).on('resize', function () {
+                                    $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
+                                });
+                                setTimeout(function () {
+                                    jQuery('.variations_form').WooVariationSwatchesMod()
+                                    $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
+                                    swiper.update()
+
+
+                                }, 500)
+                            }
+                        }else {
+                            jQuery('.woo-variation-items-wrapper').css({display: 'block'})
+                            jQuery('.variations .var-slider__nav').css({display: 'none'})
+                            if( jQuery('.woo-variation-items-wrapper')[0].swiper){
+                                jQuery('.woo-variation-items-wrapper')[0].swiper.destroy()
+                                init = false;
+                            }
+                        }
+                    }
+
+                    sliderMain();
+                    window.addEventListener("resize", sliderMain);
                     setTimeout(function () {
                         jQuery('.variations_form').WooVariationSwatchesMod()
-                        $scope.find('.variations-item__slider').css({width: $scope.find('.variations_form').width()})
-                        swiper.update()
                         if ($('.JS--gallery-loader').length !== 0) {
                             $('.JS--gallery-loader').hide();
                         }

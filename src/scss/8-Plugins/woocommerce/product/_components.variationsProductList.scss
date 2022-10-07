@@ -35,7 +35,7 @@
     }
 
     .product {
-      &.product_cat-all-electric-radiators ,
+      &.product_cat-all-electric-radiators,
       &.product_cat-electric-radiators {
         .variations {
 
@@ -134,6 +134,9 @@
               @include mq(1025) {
                 padding: 20px;
               }
+              @include mq(767) {
+                margin-top: 15px;
+              }
               margin-bottom: 14px;
 
 
@@ -219,6 +222,116 @@
                   list-style-type: none;
                   outline: none;
 
+                  @include mq(767) {
+                    padding: 0 !important;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    box-shadow: 0 0 10px #00000029;
+                    .variation-dropdown-specification__bottom.show{
+                      padding: 10px 10px 5px;
+                    }
+                    border: 1px solid #F7F7F7;
+                    &:not(:last-child){
+                      margin-bottom: 15px !important;
+                    }
+                    .cvy_image_groups {
+                      max-width: 73px;
+                      width: 100%;
+
+                      padding: 5px 10px;
+                    }
+                    .cvy_field_groups {
+                      flex-wrap: nowrap !important;
+                      max-width: calc(100% - 73px);
+                      height: 100%;
+                      max-height: 63px;
+                      width: 100%;
+                      padding: 0 0 0 10px;
+                      justify-content: space-between;
+                      .cvy_wattage{
+                        min-width: 85px!important;
+                        text-align: start!important;
+                      }
+
+                      .variation-dropdown-price {
+                        flex: none;
+                        order: 9;
+                        padding-right: 50px !important;
+                        padding-left: 20px !important;
+                        background: #f7f7f7;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                      }
+
+                      .cvy_property_field {
+                        max-width: unset !important;
+                        width: unset !important;
+
+                      }
+
+                      .cvy_tip {
+                        margin-left: -10px;
+                      }
+                    }
+                    .cvy_property_field_wrapper.cvy_property_area {
+                      padding: 0 5px !important;
+                    }
+                    .variation-dropdown-specification {
+                      width: 100%;
+                      text-align: center;
+                      max-width: 80px;
+                      margin: 3px auto 0;
+                      ;
+                    }
+                    .cvy_property_field.cvy_dimensions {
+                      max-width: 160px !important;
+                      min-width: 100px;
+                      @include font(m3-small, 13, 400);
+                    }
+                    .variation-dropdown-specification__bottom {
+                      .cvy_tip .cvy_tip_content {
+                        left: calc(50% - 197px);
+
+                        &:after {
+                          left: calc(86% - 5px);
+                        }
+                      }
+
+                    }
+
+
+                  }
+                  @include mq(1024, 1200) {
+
+                    .cvy_field_groups {
+                      padding-left: 0!important;
+                      .cvy_property_field .cvy_area,
+                      .variation-dropdown-price {
+                        font-size: 18px !important;
+                      }
+
+                      .cvy_property_field {
+                        .cvy_wattage {
+                          min-width: 69px !important;
+                          font-size: 22px !important;
+                        }
+
+                        &.cvy_dimensions {
+                          font-size: 10px !important;
+                        }
+                      }
+                    }
+                    .variation-dropdown-specification {
+                      width: 100%;
+
+
+
+                      span {
+                        font-size: 10px !important;
+                      }
+                    }
+                  }
                   @include mq(340) {
                     padding: 1px 1px 1px 0;
                   }
@@ -226,6 +339,20 @@
 
                   &.no-match {
                     display: none;
+                  }
+                  @include mq(767) {
+                    &:after {
+                      content: '';
+                      position: absolute;
+                      right: 10px;
+                      width: 27px;
+                      height: 27px;
+                      top: 20px;
+                      border: 2px solid #B8D048;
+                      background-color: white;
+                      box-shadow: 0 0 10px #00000029;
+
+                    }
                   }
 
                   &.selected {
@@ -246,6 +373,17 @@
                       background-position: center;
                       background-repeat: no-repeat;
                       background-color: white;
+                      @include mq(767) {
+                        box-shadow: 0 0 10px #00000029;
+                        right: 10px;
+                        width: 27px;
+                        height: 27px;
+                        top: 20px;
+                        background-image: url("../../../img/icons/white-checkbox-icon.svg");
+                        border-radius: 0;
+                        background-color: #B8D048;;
+
+                      }
                     }
 
                     //background-color: palette(secondary, 160);
@@ -331,11 +469,16 @@
                     }
 
                     .variation-dropdown-price {
-                      max-width: 49%;
-                      width: 100%;
+                      padding: 0 5px;
+                      @include mq(null, 767) {
+                        max-width: 49%;
+                        width: 100%;
+                        padding: 15px 0;
+                      }
                       margin: 0;
-                      padding: 15px 0;
-                      @include font(m-mid-large, 20, 700);
+                      @include font(mid-large, 20, 700);
+
+                      //@include font(m-mid-large, 20, 700);
 
                     }
 
@@ -349,7 +492,7 @@
                         color: palette(text, 600);
                         text-align: center;
                         min-width: 100%;
-                        @include font(s1-large, 20, 300);
+                        @include font(s-large, 20, 300);
                       }
 
                       .cvy_area_label {
@@ -364,7 +507,9 @@
                       .cvy_area {
                         color: palette(text, 600);
 
-                        @include font(m-mid-large, 20, 300);
+                        @include font(mid-large, 34, 400);
+
+                        //@include font(m-mid-large, 20, 300);
 
 
                         sup {
@@ -826,18 +971,15 @@
 }
 
 
-.single-product.woocommerce .product:not(.product_cat-electric-radiators) table.variations tr:last-child td.label label:after ,
 .single-product.woocommerce .product:not(.product_cat-electric-radiators) table.variations tr:last-child td.label label:after {
   display: none;
 }
 
-.woo-variation-swatches.wvs-show-label .product:not(.product_cat-all-electric-radiators) .variations td .woo-selected-variation-item-name, .woo-variation-swatches.wvs-show-label .product:not(.product_cat-all-electric-radiators) .variations td label ,
 .woo-variation-swatches.wvs-show-label .product:not(.product_cat-electric-radiators) .variations td .woo-selected-variation-item-name, .woo-variation-swatches.wvs-show-label .product:not(.product_cat-electric-radiators) .variations td label {
   display: inline;
   color: palette(text, 500);
 }
 
-.woo-variation-swatches.wvs-show-label .product:not(.product_cat-all-electric-radiators) .variations td.label + .woo-variation-items-wrapper ,
 .woo-variation-swatches.wvs-show-label .product:not(.product_cat-electric-radiators) .variations td.label + .woo-variation-items-wrapper {
   margin: 20px 0;
 }
@@ -928,17 +1070,13 @@
       cursor: pointer;
     }
   }
-
-  .cvy_variation_list_item {
-
-  }
 }
 
 .single-product .o-product-top__summary {
   overflow: hidden;
 }
 
-.single-product .product_cat-electric-radiators ,
+.single-product .product_cat-electric-radiators,
 .single-product .product_cat-all-electric-radiators {
 
   .variations {
@@ -1039,6 +1177,20 @@
     }
 
   }
+  @include mq(767, 990) {
+
+    .variations {
+      tbody {
+        tr {
+          &:first-child {
+            .variations-item {
+              padding: 15px 20px !important;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .variations-item.var_slider_wattage {
@@ -1078,7 +1230,7 @@
   }
 }
 
-.woo-variation-items-wrapper.swiper-custom {
+.woo-variation-items-wrapper.swiper-custom.swiper-container-initialized {
   position: relative;
   overflow: visible !important;
   max-width: 100%;
@@ -1099,20 +1251,21 @@
   }
 
   .swiper-wrapper {
-    flex-wrap: nowrap;
+
+    @include mq(null, 767) {
+      flex-wrap: nowrap;
+    }
+
 
     .swiper-slide {
-      //width: 210px !important;
       display: flex !important;
-      flex-direction: column;
-      //max-width: 212px;
+      @include mq(null, 767) {
+        flex-direction: column;
+      }
 
 
     }
 
-    .swiper-slide.no-match {
-      display: none !important;
-    }
   }
 
   .cvy_field_groups {
@@ -1175,21 +1328,22 @@
   }
 
   &__zoom {
-    &:before {
-      content: '';
-      position: absolute;
-      right: -16px;
-      top: 0;
-      width: 24px;
-      height: 22px;
-      @include mq(null, 767) {
-        width: 34px;
-        height: 32px;
-      }
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23707070' d='M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z'%3E%3C/path%3E%3C/svg%3E");
-    }
+    display: none;
+    //&:before {
+    //  content: '';
+    //  position: absolute;
+    //  right: -16px;
+    //  top: 0;
+    //  width: 24px;
+    //  height: 22px;
+    //  @include mq(null, 767) {
+    //    width: 34px;
+    //    height: 32px;
+    //  }
+    //  background-position: center;
+    //  background-repeat: no-repeat;
+    //  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23707070' d='M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z'%3E%3C/path%3E%3C/svg%3E");
+    //}
   }
 }
 
@@ -1199,8 +1353,6 @@
   }
 
   .swiper-custom .swiper-wrapper {
-    flex-wrap: nowrap;
-
     .swiper-slide {
       .cvy_field_groups {
         .cvy_property_field:first-child {
@@ -1222,12 +1374,6 @@
       }
 
 
-      display: flex !important;
-      flex-direction: column;
-
-      &.no-match {
-        display: none !important;
-      }
     }
   }
 }
@@ -1239,13 +1385,15 @@
     height: 14px;
     margin: 0px 0 0 4px;
   }
+
   span {
     pointer-events: auto !important;
   }
+
   .cvy_tip {
     display: inline-block !important;
 
-    .cvy_tip_content{
+    .cvy_tip_content {
       transition: opacity .5s;
       z-index: -1;
       visibility: hidden;
@@ -1256,10 +1404,11 @@
       left: calc(50% - 116px);
       width: 222px;
 
-      p{
-        font-size: 14px!important;
+      p {
+        font-size: 14px !important;
       }
     }
+
     .cvy_insulation_info:hover + .cvy_tip_content {
       visibility: visible;
     }

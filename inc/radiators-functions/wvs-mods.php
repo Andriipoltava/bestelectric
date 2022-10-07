@@ -95,7 +95,7 @@ if (!function_exists('wvs_default_variable_item_filter')):
 						 			caption="' . $variation['image']['caption'] . '"
 						 			alt="' . $variation['image']['alt'] . '"
 						 			srcset="' . $variation['image']['srcset'] . '"
-						 		/><a class="cvy_image_groups__zoom JS-cvy_image_groups"  href="' . $variation['image']['full_src'] . '"></a></div>
+						 		/></div>
 						 	';
                         $data .= '<div class="cvy_field_groups">';
                         $data .= '<div class="cvy_property_field">';
@@ -132,9 +132,10 @@ if (!function_exists('wvs_default_variable_item_filter')):
                             $variation['dimensions']['height'] . 'mm  x ' .
                             $variation['dimensions']['width'] . 'mm' . '
 									</span>
+                                     <div class="variation-dropdown-specification destop"><span>View Full spec</span></div>
 									</div>';
                         $data .= '</div>';
-                        $data .= '<div class="variation-dropdown-specification"><span>Specification</span></div>';
+                        $data .= '<div class="variation-dropdown-specification mobile"><span>View Full spec</span></div>';
                         $data .= '<div class="variation-dropdown-specification__bottom">';
                         ob_start();
                         if (!empty($area)) :
@@ -210,4 +211,3 @@ if (!function_exists('wvs_default_variable_item_filter')):
 
     add_filter('wvs_default_variable_item', 'wvs_default_variable_item_filter', 10, 5);
 endif;
-

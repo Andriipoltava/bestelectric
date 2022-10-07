@@ -1,5 +1,17 @@
 .variation-dropdown-specification {
   width: 100%;
+  &.destop{
+    display: none;
+  }
+  @include mq(767) {
+    &.destop{
+      display: block;
+    }
+    &.mobile{
+      display: none;
+    }
+
+  }
 
   span {
     font-size: 12px;
@@ -44,7 +56,7 @@
 
     &.show {
       opacity: 1;
-      height: 100%;
+      height: auto;
       visibility: visible;
     }
 
