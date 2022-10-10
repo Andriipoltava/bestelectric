@@ -44,6 +44,13 @@
 
   .swiper-slide {
     height: 80px !important;
+    &.swiper-slide-thumb-active:before {
+      content: '';
+      border: 3px solid #b8d048;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
 
     img {
       height: 80px;
