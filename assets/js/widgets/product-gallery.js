@@ -16,6 +16,10 @@
                 watchOverflow: true,
                 watchSlidesVisibility: true,
                 watchSlidesProgress: true,
+                freeMode: true,
+                mousewheel: {
+                    releaseOnEdges: true,
+                },
                 lazy: true,
                 spaceBetween: 10,
                 navigation: {
@@ -120,28 +124,27 @@
 
             }
 
-            swiperMain.on('slideChangeTransitionStart', function () {
-                swiperVertical.slideTo(swiperMain.activeIndex);
-            });
-
-            swiperVertical.on('transitionStart', function () {
-                swiperMain.slideTo(swiperVertical.activeIndex);
-            });
-
             $scope.find('.galleryPopup').fancybox({});
 
+            swiperMain.on('click', function (swiper, event) {
+                console.log(swiper, event);
+                $(swiper.target).closest('.fancybox-trigger')
+                fancyboxHandler($(swiper.target).closest('.fancybox-trigger'))
 
-            $(document).on('click touchstart', '.fancybox-trigger',fancyboxHandler );
-            function fancyboxHandler (e) {
+
+            });
+            // $(document).on('click', '.fancybox-trigger', fancyboxHandler);
+
+            function fancyboxHandler(item) {
                 console.log('click touchstart')
-                e.preventDefault();
+
                 jQuery('#lightbox .swiper-slide').each(function (index) {
                     jQuery(this).attr('data-id', index)
                 })
                 jQuery('#gallery-swiper-main .swiper-slide').each(function (index) {
                     jQuery(this).attr('data-id', index)
                 })
-                var thisTarget = $(this).attr('data-id');
+                var thisTarget = $(item).attr('data-id');
 
                 $.fancybox.open({
                     src: "#lightbox",
