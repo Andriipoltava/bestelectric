@@ -16,12 +16,10 @@
  */
 
 defined('ABSPATH') || exit;
+//global $order;
+
 ?>
-</div>
-</td>
-</tr>
-</table>
-<!-- End Content -->
+
 </td>
 </tr>
 </table>
@@ -41,49 +39,9 @@ defined('ABSPATH') || exit;
                         <tr>
                             <td colspan="2" valign="middle" id="credit">
                                 <?php
-                                $accessories = get_field('accessories_email_template', 'options');
-                                if ($accessories) {
-                                    ; ?>
-                                    <div id="footer_optional_desktop" style="text-align: center ;margin: 10px 0 50px;">
-                                        <h3 style="text-align: center;font-size: 24px;font-weight: 300">Optional
-                                            Extras</h3>
-                                        <table width="100%" class="accessories__<?php echo count($accessories); ?>">
-                                            <tbody>
-                                            <tr>
-                                                <?php foreach ($accessories as $post) :; ?>
-                                                    <td colspan="1" style="vertical-align: top;">
-                                                        <div class="accessories__item">
-                                                            <div class="accessories__item__image">
-                                                                <a href="<?php echo get_the_permalink($post->ID) ?>">
-                                                                    <strong><span style="text-decoration:none">
-                                                                            <img src="<?php echo get_the_post_thumbnail_url($post->ID,[218,183]) ?: ''; ?>"
-                                                                                 alt="" width="218" height="181">
-                                                                        </span></strong>
-                                                                </a>
-                                                            </div>
-                                                            <h5 style="margin: 20px 15px; padding: 0">
-                                                                <?php echo get_the_title($post->ID); ?>
-                                                            </h5>
-                                                            <div style="text-align: center" class="accessories__item__btn">
-                                                            <a class="" href="<?php echo get_the_permalink($post->ID) ?>">
-                                                                <strong><span style="text-decoration:none"><?php _e('Shop'); ?></span></strong></a>
-                                                            </div>
-
-                                                        </div>
-                                                    </td>
-                                                <?php endforeach; ?>
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
 
 
-                                    <?php
-                                } ?>
 
-
-                                <?php
                                 $accessories = get_field('category_email_template', 'options');
                                 if ($accessories) {
                                     ; ?>
