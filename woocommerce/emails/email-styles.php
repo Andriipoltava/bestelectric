@@ -116,7 +116,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     #body_content table td {
-    padding: 48px 0 32px;
+    padding: 48px 0 82px;
     color: #707070;
     }
 
@@ -124,7 +124,6 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     padding: 12px 20px;
     color: #707070;
     }
-
 
 
     #body_content table td th {
@@ -283,8 +282,8 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     ul{
-     padding: 0;
-     list-style: none;
+    padding: 0;
+    list-style: none;
     }
     li {
     text-indent: 0;
@@ -389,8 +388,8 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 35px #0000000D;
     border: 1px solid #fafafa;
-    padding-bottom: 15px;
-    width: 215px;
+    margin: 15px;
+    max-width: 230px;
     }
 
     .accessories__item h5 {
@@ -400,7 +399,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
 
     .accessories__item .accessories__item__btn {
 
-    margin:10px 69px;
+    margin:10px 72px;
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 13px;
@@ -410,7 +409,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     display: block;
     max-width: 80px;
     width: 80px;
-    height: 25px;
+    padding: 5px 0;
     text-align:center;
     }
     .accessories__item .accessories__item__btn a{
@@ -454,6 +453,9 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     height: 0;
     }
 
+    .top-content .note p{
+        margin-bottom:0!important;
+    }
     .link-site,.top-content a{
     color:#B8CF40;
     text-decoration: none;
@@ -512,7 +514,7 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     }
 
     #table_main_order {
-    padding-bottom:0 !important;
+    padding-bottom:40px!important;
     }
 
     #template_footer {
@@ -526,9 +528,6 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     .order_item h2 {
     font-size: 21px !important;
     }
-
-
-
 
     #category_email_template, #footer_optional_desktop {
     width: 100%;
@@ -549,7 +548,12 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     #category_email_template tr td, #footer_optional_desktop tr td{
     display: block !important;
     margin: 0 auto;
+    padding-bottom:0!important;
+    padding-top:20px!important;
 
+    }
+    .accessories__item__btn{
+    margin: 10px 69px!important;
     }
 
     .product_item_detail tr td {
