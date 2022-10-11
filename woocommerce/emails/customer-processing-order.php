@@ -25,6 +25,33 @@ if (!defined('ABSPATH')) {
 do_action('woocommerce_email_header', $email_heading, $email);
 
 $date_paid = $order->get_date_modified();
+
+function textReplace($text)
+{
+    $text = str_replace(' {site_url}', wp_parse_url(home_url(), PHP_URL_HOST), $text);
+    return $text;
+}
+
+
+$additional_contentRad = false;
+$additional_contentTow = false;
+$additional_content = null;
+$ComfortContro = false;
+foreach ($order->get_items() as $item) {
+    if ($item['product_id'] == 19422||$item['product_id'] == 94) {
+        $ComfortContro = true;
+    }
+    if (has_term('162', 'product_cat', $item['product_id'])) {
+        $additional_contentRad = true;
+    }
+    if (has_term('21', 'product_cat', $item['product_id'])) {
+        $additional_contentTow = true;
+    }
+
+}
+
+
+
 ?>
 
 <?php /* translators: %s: Customer first name */ ?>
@@ -34,9 +61,17 @@ $date_paid = $order->get_date_modified();
         <?php echo('     <strong>#' . $order->get_order_number() . $date_paid->date(" (F j, Y)") . ' </strong>'); ?>
     </p>
     <div class="top-content">
-        <?php if ($additional_content) {
-            echo wp_kses_post(wpautop(wptexturize($additional_content)));
-        }; ?>
+        <p><?php echo 'Thanks for using ' . wp_parse_url(home_url(), PHP_URL_HOST); ?>!</p>
+
+            <?php if ($ComfortContro) {
+                echo '      <div class="note">'. wp_kses_post(wpautop(wptexturize(textReplace(get_field('additional_content_one_product', 'options'))))).' </div>';
+            }; ?>
+        <?php if ($additional_contentRad && $additional_contentTow) {
+
+                echo '<div class="note" '.($ComfortContro?'style="margin-top:20px"':'').'>';
+                echo  wp_kses_post(wpautop(wptexturize(textReplace(get_field('additional_content_multiple_product', 'options'))))).' </div>';
+            }; ?>
+
     </div>
 <?php
 
