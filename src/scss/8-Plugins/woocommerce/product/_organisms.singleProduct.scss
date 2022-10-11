@@ -222,52 +222,6 @@
     display: none;
   }
 
-  div.lot20 {
-    position: absolute;
-    z-index: 996;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
-    background-color: palette(primary, 400);
-    background-image: url(../../../img/icons/lot20-compliant-icon.svg);
-    background-position: 20px center;
-    background-repeat: no-repeat;
-    box-shadow: 0px 3px 6px #00000029;
-
-    p {
-      color: palette(text, 500);
-      max-width: min-content;
-      font-size: 14px;
-      line-height: 17px;
-      margin: 0;
-      padding: 15px 15px 15px 60px;
-
-      span {
-        color: palette(text, 200);
-        display: block;
-        font-weight: 600;
-      }
-    }
-
-    @include mq($max: 768) {
-      right: 10px;
-      width: 100px;
-      top: 10px;
-      background-position: 20px center;
-      background-size: 21px 36px;
-
-      p {
-        font-size: 9px;
-        line-height: 11px;
-        padding: 11px 11px 11px 40px;
-      }
-    }
-  }
-
-  .lot20 .o-popup__close {
-
-  }
-
   .added_to_cart.wc-forward {
     display: none !important;
   }

@@ -38,10 +38,6 @@
                 elementorProFrontend.modules.popup.showPopup( { id: 17247 } );
             }
 
-            if (dataPopup == 'lot20') {
-                elementorProFrontend.modules.popup.showPopup( { id: 17250 } );
-            }
-
         });
 
 

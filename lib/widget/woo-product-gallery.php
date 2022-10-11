@@ -83,11 +83,6 @@ class CustomWooSingleSlider extends Widget_Base
                         <?php echo get_big_loader_square(); ?>
                     </div>
                 </div>
-                <?php if (get_field('lot20_compliant', $id)): ?>
-                    <div class="lot20"><a href="javascript:void(0);" class="JS--open-popup c-options-btns__item--lot20"
-                                          data-popup="lot20"><?php echo '<img class="lot20__img" src="' . get_stylesheet_directory_uri() . '/img/lot20.svg" alt="LOT20" width="141" height="82" loading="lazy" />'; ?></a>
-                    </div>
-                <?php endif; ?>
                 <div class="c-gallery__wrap">
                     <div class="gallery-vertical">
                         <div class="swiper-button-prev">
