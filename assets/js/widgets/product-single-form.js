@@ -92,8 +92,6 @@
     })
 
 
-
-
     $('form.cart').on('submit', function (e) {
         e.preventDefault();
 

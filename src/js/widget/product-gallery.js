@@ -6,7 +6,6 @@
                 $scope.css('--swiper-navigation-color', '#333333')
 
             }
-
             const swiperVertical = new Swiper($scope.find('#gallery-swiper-vertical'), {
                 loop: false,
                 init: true,
@@ -46,6 +45,16 @@
                 },
 
             })
+
+            document.querySelector('.gallery-vertical').addEventListener('wheel', preventScroll, {passive: false});
+            function preventScroll(e){
+                e.preventDefault();
+                e.stopPropagation();
+
+                return false;
+            }
+
+
             const swiperMain = new Swiper($scope.find('#gallery-swiper-main'), {
                 loop: false,
                 init: true,
