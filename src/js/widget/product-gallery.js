@@ -136,7 +136,6 @@
             $scope.find('.galleryPopup').fancybox({});
 
             swiperMain.on('click', function (swiper, event) {
-                console.log(swiper, event);
                 $(swiper.target).closest('.fancybox-trigger')
                 fancyboxHandler($(swiper.target).closest('.fancybox-trigger'))
 
@@ -145,7 +144,6 @@
             // $(document).on('click', '.fancybox-trigger', fancyboxHandler);
 
             function fancyboxHandler(item) {
-                console.log('click touchstart')
 
                 jQuery('#lightbox .swiper-slide').each(function (index) {
                     jQuery(this).attr('data-id', index)
