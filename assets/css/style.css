@@ -477,6 +477,9 @@ body .elementor-location-header .header-top-section {
   .JS--menu-ranges-slider .swiper-pagination {
     display: none; } }
 
+.o-product-top .c-gallery__wrap img {
+  cursor: pointer; }
+
 .o-product-top .c-gallery__wrap .swiper-button-prev, .o-product-top .c-gallery__wrap .swiper-container-rtl .swiper-button-next, .o-product-top .c-gallery__wrap .swiper-button-next, .o-product-top .c-gallery__wrap .swiper-container-rtl .swiper-button-prev {
   background-image: none !important; }
   @media screen and (max-width: 766px) {
@@ -498,6 +501,16 @@ body .elementor-location-header .header-top-section {
 
 .swiper-custom.swiper-container-initialized .swiper-pagination-bullet {
   margin: 5px; }
+
+@keyframes paymant-loading {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.cvy_variation_list_item {
+  overflow: visible !important;
+  will-change: auto !important; }
 
 .fancybox-container .fancybox-button {
   color: white;

@@ -27,6 +27,9 @@
 
 .o-product-top{
   .c-gallery__wrap{
+    img{
+      cursor: pointer;
+    }
     .swiper-button-prev, .swiper-container-rtl .swiper-button-next, .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
       background-image: none !important;
       @include mq(null,767){
@@ -60,4 +63,13 @@
 
 .swiper-custom.swiper-container-initialized .swiper-pagination-bullet {
   margin: 5px;
+}
+
+@keyframes paymant-loading {
+  0% {opacity: 0}
+  100% {opacity: 1 } }
+
+.cvy_variation_list_item{
+  overflow:visible!important;
+  will-change: auto!important;
 }
