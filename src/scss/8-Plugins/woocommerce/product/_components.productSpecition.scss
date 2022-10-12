@@ -1,17 +1,16 @@
 .variation-dropdown-specification {
   width: 100%;
-  &.destop{
+  &.mobile{
     display: none;
   }
-  @include mq(767) {
-    &.destop{
-      display: block;
+  @include mq(null,767){
+    padding-top: 7px;
+    padding-bottom: 10px;
+    span{
+      text-decoration: underline;
     }
-    &.mobile{
-      display: none;
-    }
-
   }
+
 
   span {
     font-size: 12px;
