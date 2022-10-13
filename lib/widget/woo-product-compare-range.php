@@ -123,7 +123,14 @@ class CustomWooProductCompareRange extends Widget_Base
                     'terms' => $parent_category,
                     'operator' => 'IN',
                     'include_children' => false
-                )
+                ),
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field' => 'name',
+                    'terms' => 'exclude-from-catalog',
+                    'operator' => 'NOT IN',
+                ),
             )
         );
 
