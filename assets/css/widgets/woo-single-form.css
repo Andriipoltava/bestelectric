@@ -182,6 +182,14 @@
   @media screen and (min-width: 1025px) {
     .product-info .accordion__header {
       padding: 20px 20px 20px 15px; } }
+  .product-info .accordion__header .sub_text {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #707070;
+    font-weight: 400;
+    padding-top: 10px;
+    max-width: 364px; }
   .product-info .accordion__header__title {
     display: flex;
     align-items: center;
@@ -210,6 +218,13 @@
       background: black; }
     .product-info .accordion__header__plus:before {
       transform: rotate(90deg); }
+  .product-info .accordion__header.warranty {
+    align-items: flex-start; }
+    .product-info .accordion__header.warranty .accordion__header__title {
+      align-items: flex-start; }
+    .product-info .accordion__header.warranty img {
+      transform: scale(1);
+      width: 70px; }
 
 .product-info .features-list {
   padding-bottom: 15px;
@@ -351,9 +366,6 @@
   @media screen and (min-width: 1025px) {
     .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr .calc-popup-block, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr .calc-popup-block {
       padding: 20px; } }
-  @media screen and (min-width: 767px) {
-    .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr .calc-popup-block, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr .calc-popup-block {
-      margin-top: 15px; } }
   .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr .calc-popup-block .c-options-btns__item:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr .calc-popup-block .c-options-btns__item:after {
     display: none !important; }
   .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr .calc-popup-block .c-options-btns__item--wattage, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr .calc-popup-block .c-options-btns__item--wattage {

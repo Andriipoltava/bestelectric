@@ -253,11 +253,17 @@ class CustomWooSingleProductFrom extends Widget_Base
 
                         <?php if (get_field('warranty_body', $id)) { ?>
                             <div class="accordion__item">
-                                <div class="accordion__header">
+                                <div class="accordion__header <?php if (get_field('warranty_header_sub_text', $id)) { ?> warranty  <?php }; ?>">
                                     <div class="accordion__header__title">
                                         <?php echo isset($top_icon['id']) ? wp_get_attachment_image($top_icon['id']) : ''; ?>
-
-                                        <?php echo get_field('warranty_header_text', $id) ?: 'Warranty'; ?>
+                                        <div class="wrap">
+                                            <span class="text"><?php echo get_field('warranty_header_text', $id) ?: 'Warranty'; ?></span>
+                                            <?php if (get_field('warranty_header_sub_text', $id)) { ?>
+                                                <span class="sub_text">
+                                                    <?php echo get_field('warranty_header_sub_text', $id) ; ?>
+                                                </span>
+                                            <?php }; ?>
+                                        </div>
                                     </div>
 
                                     <span class="acc-plus accordion__header__plus"></span>

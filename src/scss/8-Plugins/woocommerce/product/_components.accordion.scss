@@ -54,6 +54,15 @@
       justify-content: space-between;
       flex-wrap: nowrap;
       align-items: center;
+      .sub_text{
+        display: block;
+        font-size:16px;
+        letter-spacing: 0px;
+        color: #707070;
+        font-weight: 400;
+        padding-top: 10px;
+        max-width: 364px;
+      }
 
       &__title {
         display: flex;
@@ -89,6 +98,17 @@
 
         &:before {
           transform: rotate(90deg);
+        }
+      }
+      &.warranty{
+        align-items: flex-start;
+        .accordion__header__title{
+          align-items: flex-start;
+
+        }
+        img{
+          transform: scale(1);
+          width: 70px;
         }
       }
     }
