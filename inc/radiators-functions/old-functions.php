@@ -373,3 +373,31 @@ function date_delivery_48()
     return '<span class="date_delivery_48">'.$data.'</span>';
 }
 
+
+add_filter('nav_menu_item_title', function ($title, $menu_item, $args, $depth) {
+
+    if ($args->container_id=='thumbnailCats') {
+        $thumbnail_id = get_term_meta($menu_item->object_id, 'thumbnail_id', true);
+        $image = wp_get_attachment_image($thumbnail_id, 'full');
+        $svg='<svg class="main-svg" xmlns="http://www.w3.org/2000/svg" width="16.351" height="40.83" viewBox="0 0 16.351 40.83"><path d="M182.2,413.638l16.351-12.207v-6.223L182.2,407.415Z" transform="translate(-182.197 -372.808)" fill="#fff"/><path d="M182.2,341.733v6.223l16.351-12.207v-6.223Z" transform="translate(-182.197 -318.325)" fill="#fff"/><path d="M182.2,282.273l16.351-12.207v-6.223L182.2,276.05Z" transform="translate(-182.197 -263.843)" fill="#fff"/></svg>';
+        $title = "<div class='nav-thumbnail__wrap'>$image <div class='nav-thumbnail__wrap'>$svg<p class='title'>$title</p><span class='shop'>Shop Now <svg aria-hidden='true' class='e-font-icon-svg e-fas-chevron-down'><use xlink:href='#fas-chevron-right'></use></svg></span></div></div>";
+    }
+    return $title;
+}, 10, 4);
+
+add_filter('elementor/widgets/wordpress/widget_args', function ($default_widget_args, $class) {
+    if ($class->get_settings('_element_id')) {
+        $default_widget_args['thumbnailCat'] = $class->get_settings('_element_id');
+    }
+
+    return $default_widget_args;
+}, 10, 2);
+
+add_filter('widget_nav_menu_args', function ($nav_menu_args, $nav_menu, $args, $instance) {
+    if (isset($args['thumbnailCat'])) {
+        $nav_menu_args['container_id']=$args['thumbnailCat'].'s';
+    }
+
+    return $nav_menu_args;
+
+}, 10, 4);
