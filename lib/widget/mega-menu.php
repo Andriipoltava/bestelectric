@@ -179,6 +179,14 @@ class CustomMegaMenu extends Widget_Base
             ]
         );
         $this->add_control(
+            'radiators-top-link-title',
+            [
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label' => esc_html__('Top Link', 'bestelectric'),
+                'default' => 'All Electric Radiators'
+            ]
+        );
+        $this->add_control(
             'radiators-top-link',
             [
                 'label' => esc_html__('Top Link', 'bestelectric'),
@@ -412,6 +420,9 @@ class CustomMegaMenu extends Widget_Base
         <div class="o-header__ranges-slider">
             <?php if ($products): ?>
                 <div class="c-range-menu">
+                    <span class="o-header__ranges-slider__title">
+                        <?php echo 'Most Popular'; ?>
+                    </span>
                     <div class="c-range-menu-over JS--menu-ranges-slider swiper-custom">
                         <div class="c-range-menu__list swiper-wrapper">
                             <?php foreach ($products as $post): // variable must be called $post (IMPORTANT) ?>

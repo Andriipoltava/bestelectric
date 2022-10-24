@@ -2241,13 +2241,15 @@ form.cart:not(.variations_form) {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s;
+    display: none;
     background: #F7F7F7;
     width: 100%;
     padding: 0 5px; }
     .variation-dropdown-specification__bottom.show {
       opacity: 1;
       height: auto;
-      visibility: visible; }
+      visibility: visible;
+      display: block; }
     .variation-dropdown-specification__bottom-title {
       font-size: 12px;
       text-align: start;

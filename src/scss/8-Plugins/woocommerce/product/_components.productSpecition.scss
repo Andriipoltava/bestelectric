@@ -52,11 +52,13 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.5s;
+    display: none;
 
     &.show {
       opacity: 1;
       height: auto;
       visibility: visible;
+      display: block;
     }
 
     background: #F7F7F7;
