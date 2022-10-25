@@ -291,6 +291,23 @@ class CustomWooSingleProductFrom extends Widget_Base
                                 </div>
                             </div>
                         <?php }; ?>
+                        <?php $bot_icon = get_field('returns_header_icon', $id) ?>
+                        <?php if (get_field('returns_body', $id)) { ?>
+                            <div class="accordion__item returns_body">
+                                <div class="accordion__header">
+
+                                    <div class="accordion__header__title">
+                                        <?php echo isset($bot_icon['id']) ? wp_get_attachment_image($bot_icon['id']) : ''; ?>
+
+                                        <?php echo get_field('returns_header_text', $id) ?: '30 Day Returns'; ?>
+                                    </div>
+                                    <span class="acc-plus accordion__header__plus"></span>
+                                </div>
+                                <div class="accordion__body">
+                                    <?php echo get_field('returns_body', $id) ?: ''; ?>
+                                </div>
+                            </div>
+                        <?php }; ?>
 
                     </div>
                     <div>
