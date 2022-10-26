@@ -402,12 +402,13 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args, $nav_menu, $args, $
 
 }, 10, 4);
 
-if (function_exists('WC')) {
+if (function_exists('WC')&&class_exists('WCPM\Classes\Pixels\Pixel_Manager')) {
     add_action('wp_head', 'remove_Pixel_Manager_actions');
     function remove_Pixel_Manager_actions()
     {
         if (is_cart()) {
-            remove_action('woocommerce_after_shop_loop_item', ['WCPM\Classes\Pixels\Pixel_Manager', 'action_woocommerce_after_shop_loop_item'], 10, 1);
+            $class=WCPM\Classes\Pixels\Pixel_Manager::get_instance();
+            remove_action('woocommerce_after_shop_loop_item', [$class, 'action_woocommerce_after_shop_loop_item'], 10, 1);
         }
     }
 }
