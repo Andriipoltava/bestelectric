@@ -401,3 +401,13 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args, $nav_menu, $args, $
     return $nav_menu_args;
 
 }, 10, 4);
+
+if (function_exists('WC')) {
+    add_action('wp_head', 'remove_Pixel_Manager_actions');
+    function remove_Pixel_Manager_actions()
+    {
+        if (is_cart()) {
+            remove_action('woocommerce_after_shop_loop_item', ['WCPM\Classes\Pixels\Pixel_Manager', 'action_woocommerce_after_shop_loop_item'], 10, 1);
+        }
+    }
+}
