@@ -314,9 +314,9 @@ jQuery(document).ready(function ($) {
     var init = false;
 
     function sliderMain() {
-        if (window.innerWidth <= 1225) {
-            if (!init) {
-                init = true;
+        // if (window.innerWidth <= 1225) {
+        //     if (!init) {
+        //         init = true;
                 $('.product_cat_electricRadiators .swiper').each(function () {
                     const swiper = new Swiper($(this), {
                         loop: false,
@@ -328,6 +328,7 @@ jQuery(document).ready(function ($) {
                             prevEl: $(this).find('.swiper-button-prev'),
                             nextEl: $(this).find('.swiper-button-next')
                         },
+
                         slideContent: '.swiper-wrapper',
 
                     })
@@ -336,20 +337,10 @@ jQuery(document).ready(function ($) {
                     }, 1000)
                 })
 
-            }
-        } else {
-            $('.product_cat_electricRadiators .swiper').each(function () {
-                $(this)
-                if ($(this)[0].swiper) {
-                    $(this)[0].swiper.destroy()
-                    init = false;
-                }
-            })
-        }
+
     }
 
     sliderMain();
-    window.addEventListener("resize", sliderMain);
 
 
 });

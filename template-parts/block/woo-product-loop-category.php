@@ -73,12 +73,7 @@ foreach ($product->get_attributes() as $attribute) {
         <div class="product_titleMob">
             <a href="<?php echo get_the_permalink($id) ?>"
                class="product_title">   <?php echo get_the_title($id); ?></a>
-            <?php if (get_field('description_bottom_right_icon', $id)): ?>
-                <div class="product__wrapPopupWarrant__Warrant"><?php
-                    echo wp_get_attachment_image(get_field('description_bottom_right_icon', $id)['id']); ?>
-                </div>
-            <?php
-            endif; ?>
+
         </div>
         <?php if (get_field('top_trustpilot_code', $id)) { ?>
             <div class="product__reviews">
@@ -101,12 +96,6 @@ foreach ($product->get_attributes() as $attribute) {
             </div>
 
 
-            <?php if (get_field('description_bottom_right_icon', $id)): ?>
-                <div class="product__wrapPopupWarrant__Warrant"><?php
-                    echo wp_get_attachment_image(get_field('description_bottom_right_icon', $id)['id']); ?>
-                </div>
-            <?php
-            endif; ?>
         </div>
         <?php
         $product_features_keys = get_field('product_ksps_list', $id);
@@ -119,12 +108,13 @@ foreach ($product->get_attributes() as $attribute) {
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-        <div class="swiper">
+        <div class="swiper <?php echo count($product->get_available_variations())>=6?'slider-desktop':''?>">
             <div class="swiper-button-prev">
 
                 <?php echo $icon_prev_html; ?>
                 More
             </div>
+
             <ul class="product__variations swiper-wrapper">
                 <?php
 
@@ -282,15 +272,15 @@ foreach ($product->get_attributes() as $attribute) {
                     Free delivery available
                 </div>
                 <?php
-                if (get_field('number_of_purchases_per_day', $id) && get_field('pereiod_purchases_per_day', $id) && (int) get_order_count_by($id, '-' . get_field('number_of_purchases_per_day', $id) . ' days') > 19) {
+                if (get_field('number_of_purchases_per_day', $id) && get_field('pereiod_purchases_per_day', $id) && (int)get_order_count_by($id, '-' . get_field('number_of_purchases_per_day', $id) . ' days') > 19) {
 
-                    $date= get_field('number_of_purchases_per_day', $id);
-                    $count = get_order_count_by($id, '-' .$date.' days') ;
+                    $date = get_field('number_of_purchases_per_day', $id);
+                    $count = get_order_count_by($id, '-' . $date . ' days');
                     ?>
                     <div class="product__delivery_white">
                         Popular item. Bought
                         <b><?php echo $count; ?>+ times</b>
-                        <?php echo get_field('pereiod_purchases_per_day', $id) ; ?>
+                        <?php echo get_field('pereiod_purchases_per_day', $id); ?>
                     </div>
                 <?php }; ?>
 

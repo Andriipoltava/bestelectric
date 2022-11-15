@@ -380,7 +380,8 @@
                     right: 10px;
                     width: 27px;
                     height: 27px;
-                    top: 14px;
+                    top: 50%;
+                    transform: translate(0, -50%);
                     border: 2px solid #B8D048;
                     background-color: white;
                     box-shadow: 0 0 10px #00000029;
@@ -418,7 +419,8 @@
                       right: 10px;
                       width: 27px;
                       height: 27px;
-                      top: 14px;
+                      top: 50%;
+                      transform: translate(0, -50%);
                       background-image: url("../../../img/icons/white-checkbox-icon.svg");
                       border-radius: 0;
                       background-color: #B8D048;;

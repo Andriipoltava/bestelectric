@@ -76,15 +76,7 @@ class CustomWooProductLoopCategory extends Widget_Base
 
             ]
         );
-        $this->add_control(
-            'parent_id',
-            [
-                'label' => esc_html__('Parent Term Id', 'bestelectric'),
-                'placeholder' => esc_html__('18', 'bestelectric'),
-                'type' => \Elementor\Controls_Manager::TEXT,
 
-            ]
-        );
 
 
         $this->end_controls_section();
@@ -145,7 +137,7 @@ class CustomWooProductLoopCategory extends Widget_Base
             $parent_category[] = $setting['ids'];
 
 
-        $parent_category=  array_unique($parent_category);
+
 
         $cat_args = array(
             'product_cat' => array(
@@ -163,17 +155,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 'operator' => 'NOT IN',
             ),
         );
-        if( $setting['parent_id']){
-            $cat_args['product_parent'] = array(
 
-                    'taxonomy' => 'product_cat',
-                    'field' => 'term_id',
-                    'terms' => $setting['parent_id'],
-                    'operator' => 'IN',
-                    'include_children' => false
-
-            );
-        }
         $query_args = array(
             'status' => 'publish',
             'limit' => -1,
@@ -307,6 +289,11 @@ class CustomWooProductLoopCategory extends Widget_Base
                 line-height: 42px;
                 font-weight: 300;
                 color: #333333;
+            }
+            .product_cat_electricRadiators__main .swiper.swiper-container-initialized{
+                overflow: hidden;
+                padding: 10px 5px 20px;
+                position: relative;
             }
 
             .product_cat_electricRadiators__main .variable {
@@ -684,8 +671,8 @@ class CustomWooProductLoopCategory extends Widget_Base
                 font-size: 10px;
             }
 
-            .product_cat_electricRadiators__wrap .swiper .swiper-button-prev,
-            .product_cat_electricRadiators__wrap .swiper .swiper-button-next {
+            .product_cat_electricRadiators__wrap .swiper:not(.slider-desktop) .swiper-button-prev,
+            .product_cat_electricRadiators__wrap .swiper:not(.slider-desktop) .swiper-button-next {
                 display: none;
             }
 
@@ -912,6 +899,9 @@ class CustomWooProductLoopCategory extends Widget_Base
             }
 
             @media screen and (min-width: 1025px) {
+                  .product_col__main  .swiper:not(.slider-desktop) .product__variations.swiper-wrapper{
+                      transform: translate3d(0px, 0px, 0px)!important;
+                  }
                 .product_cat_electricRadiators__filter__sticky {
                     position: sticky;
                     top: 30px;
