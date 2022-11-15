@@ -87,8 +87,8 @@ class CustomWooSingleProductFrom extends Widget_Base
                     <span class="o-product-top__label <?php echo (get_field('product_label_color') == 'blue') ? 'o-product-top__label--blue' : null; ?>"><?php the_field('label'); ?></span>
                 <?php endif; ?>
                 <h1 class="o-product-top__title">
-                    <span class="desktop"><?php echo $title ?></span>
-                    <span class="mobile"> <?php echo get_the_title($id); ?></span></h1>
+                   <?php echo $title ?>
+                    </h1>
 
                 <?php if (get_field('top_description_new_design', $id)) { ?>
 
