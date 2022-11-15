@@ -76,6 +76,15 @@ class CustomWooProductLoopCategory extends Widget_Base
 
             ]
         );
+        $this->add_control(
+            'parent_id',
+            [
+                'label' => esc_html__('Parent Term Id', 'bestelectric'),
+                'placeholder' => esc_html__('18', 'bestelectric'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+
+            ]
+        );
 
 
         $this->end_controls_section();
@@ -109,12 +118,13 @@ class CustomWooProductLoopCategory extends Widget_Base
 
         $id = get_edit_id_page();
         $setting = $this->get_settings();
+       ;
 
 
         global $product;
 
         $cat = get_queried_object();
-        $parent_category = $cat->term_id ?: $setting['ids'];
+        $parent_category []= $cat->term_id ?: $setting['ids'];
         // If the product object is not defined, we get it from the product ID
         if (!is_a($product, 'WC_Product') && get_post_type($id) === 'product') {
             $product = wc_get_product($id);
@@ -125,15 +135,17 @@ class CustomWooProductLoopCategory extends Widget_Base
             $cat = get_the_terms($product->get_id(), 'product_cat');
             foreach ($cat as $categoria) {
                 if ($categoria->parent == 0) {
-                    $parent_category = $categoria->term_taxonomy_id;
+                    $parent_category[] = $categoria->term_taxonomy_id;
                 }
             }
         }
 
 
         if ($setting['ids'])
-            $parent_category = $setting['ids'];
+            $parent_category[] = $setting['ids'];
 
+
+        $parent_category=  array_unique($parent_category);
 
         $cat_args = array(
             'product_cat' => array(
@@ -151,10 +163,21 @@ class CustomWooProductLoopCategory extends Widget_Base
                 'operator' => 'NOT IN',
             ),
         );
+        if( $setting['parent_id']){
+            $cat_args['product_parent'] = array(
+
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id',
+                    'terms' => $setting['parent_id'],
+                    'operator' => 'IN',
+                    'include_children' => false
+
+            );
+        }
         $query_args = array(
             'status' => 'publish',
             'limit' => -1,
-            'category' => array($cat->name),
+            'category' => $parent_category,
         );
 
         $data = [];
@@ -230,7 +253,6 @@ class CustomWooProductLoopCategory extends Widget_Base
             ),
             "svg ");
 
-
         ?>
         <style>
             .product_cat_electricRadiators__main .product_cat_electricRadiators {
@@ -255,6 +277,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 max-width: 47%;
                 width: 100%;
                 padding: 30px 10px 30px 10px;
+                overflow: hidden;
             }
 
             .product_cat_electricRadiators .product_col__price {
@@ -739,7 +762,7 @@ class CustomWooProductLoopCategory extends Widget_Base
             }
 
             .product__filters__checkbox input:checked ~ span:before {
-                background-image: url("https://staging-bestelectricradiators.kinsta.cloud/wp-content/themes/bestelectric/img/icons/black-checkbox-icon.svg");
+                background-image: url("<?php echo home_url()?>/wp-content/themes/bestelectric/img/icons/black-checkbox-icon.svg");
                 background-size: auto;
                 background-position: center;
                 background-repeat: no-repeat;
