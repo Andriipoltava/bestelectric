@@ -35,6 +35,7 @@ add_action('elementor/frontend/after_register_scripts', function () {
     wp_register_script('ber-js-calc-scripts', get_stylesheet_directory_uri() . '/assets/js/calculatorScripts' . $path_min . '.js', array('ber-scripts'), $script_version, true);
     wp_register_script('ber-js-single-form', get_stylesheet_directory_uri() . '/assets/js/widgets/product-single-form' . $path_min . '.js', array('jquery', 'swiper'), $script_version, true);
     wp_register_script('ber-js-product-header', get_stylesheet_directory_uri() . '/assets/js/widgets/product-header.js', array('jquery'), $script_version, true);
+    wp_register_script('ber-js-product-loop-category', get_stylesheet_directory_uri() . '/assets/js/widgets/woo-product-loop-category.js', array('jquery'), $script_version, true);
 
 });
 
@@ -69,6 +70,7 @@ add_action('elementor/frontend/after_register_styles', function () {
     wp_register_style('ber-css-compare-range', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-compare-range' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-compare', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-compare' . $path_min . '.css', array(), $script_version);
     wp_register_style('ber-css-woo-header', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-product-header' . $path_min . '.css', array(), $script_version);
+    wp_register_style('ber-css-product-loop-category', get_stylesheet_directory_uri() . '/assets/css/widgets/woo-product-loop-category.css', array(), $script_version);
 
 });
 

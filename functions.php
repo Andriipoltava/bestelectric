@@ -256,7 +256,7 @@ function remove_variations_swiper()
 
 {
     if (function_exists('is_product_category')) {
-        if(is_singular('product')){
+        if (is_singular('product')) {
             wp_dequeue_script('smart-variations-images-swiper');
             wp_dequeue_style('smart-variations-images-swiper');
             wp_dequeue_style('smart-variations-images');
@@ -405,7 +405,6 @@ function bestelectric_js_exclusions($exclusions)
     $exclusions[] = '/wp-content/plugins/trustpilot-reviews/review/(.*)';
 
 
-
     $exclusions[] = '/jquery-?[0-9.](.*)(.min|.slim|.slim.min)?.js';
     $exclusions[] = '/jquery-migrate(.min)?.js';
     $exclusions[] = 'swiper-bundle.min.js';
@@ -446,3 +445,25 @@ add_filter('wpseo_breadcrumb_single_link', function ($link, $breadcrumb) {
     }
     return $link;
 }, 10, 2);
+
+function get_order_count_by($product_id, $day = '-1 week', $status = 'wc-completed')
+{
+    global $wpdb;
+
+    $date_to = date('Y-m-d H:i:s', strtotime('now'));
+    $date_from = date('Y-m-d H:i:s', strtotime($day));
+
+    return $wpdb->get_var($wpdb->prepare("
+        SELECT DISTINCT count(o.ID)
+        FROM {$wpdb->prefix}posts o
+        INNER JOIN {$wpdb->prefix}woocommerce_order_items oi
+            ON o.ID = oi.order_id
+        INNER JOIN {$wpdb->prefix}woocommerce_order_itemmeta oim
+            ON oi.order_item_id = oim.order_item_id
+        WHERE o.post_status = '%s'
+            AND o.post_date >= '%s'
+            AND o.post_date < '%s'
+            AND oim.meta_key IN ('_product_id','_variation_id')
+            AND oim.meta_value = %d
+    ", $status, $date_from, $date_to, $product_id));
+}

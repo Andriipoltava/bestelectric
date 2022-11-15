@@ -273,31 +273,33 @@ function wcs_custom_get_availability($availability, $_product)
 {
 
     // Change In Stock Text
-   if ($_product->is_in_stock() && $availability["class"] !== 'available-on-backorder') {
-       if(get_field('product_in_stock_message')){
-           $custom_in_stock_message = get_field('product_in_stock_message');
-           $availability['availability'] = $custom_in_stock_message;
-       }else{
-           $availability['availability'] = __('<strong>24 hr Delivery</strong> | Order before 11am for delivery ' . date_delivery_24() . '</br><strong>FREE 48 hr Delivery </strong > | Order before 11am for delivery ' . date_delivery_48(), 'woocommerce');
+    if ($_product->is_in_stock() && $availability["class"] !== 'available-on-backorder') {
+        if (get_field('product_in_stock_message')) {
+            $custom_in_stock_message = get_field('product_in_stock_message');
+            $availability['availability'] = $custom_in_stock_message;
+        } else {
+            $availability['availability'] = __('<strong>24 hr Delivery</strong> | Order before 11am for delivery ' . date_delivery_24() . '</br><strong>FREE 48 hr Delivery </strong > | Order before 11am for delivery ' . date_delivery_48(), 'woocommerce');
 
-       }
+        }
     }
-    if ( $_product->managing_stock() && $availability["class"] == 'available-on-backorder') {
-        $back_order_message = get_field('product_backorder_message','option');
+    if ($_product->managing_stock() && $availability["class"] == 'available-on-backorder') {
+        $back_order_message = get_field('product_backorder_message', 'option');
         $availability['availability'] = $back_order_message;
     }
 
     return $availability;
 }
 
-function woocommerce_custom_cart_item_name( $_product_title, $cart_item, $cart_item_key ) {
-    $altmessage = get_field('product_backorder_message','option');
-    if ( $cart_item['data']->backorders_require_notification() && $cart_item['data']->is_on_backorder( $cart_item['quantity'] ) ) {
-        $_product_title .=  __( '<p class="backorder_notification custom-backorder_notification">'. $altmessage, 'woocommerce'.'</p>' ) ;
+function woocommerce_custom_cart_item_name($_product_title, $cart_item, $cart_item_key)
+{
+    $altmessage = get_field('product_backorder_message', 'option');
+    if ($cart_item['data']->backorders_require_notification() && $cart_item['data']->is_on_backorder($cart_item['quantity'])) {
+        $_product_title .= __('<p class="backorder_notification custom-backorder_notification">' . $altmessage, 'woocommerce' . '</p>');
     }
     return $_product_title;
 }
-add_filter( 'woocommerce_cart_item_name', 'woocommerce_custom_cart_item_name', 10, 3);
+
+add_filter('woocommerce_cart_item_name', 'woocommerce_custom_cart_item_name', 10, 3);
 
 add_action('wp_footer', function ($content) {
 
@@ -341,45 +343,81 @@ function date_delivery_24()
 {
 
     $datetime = new DateTime('now');
-    $data = 'tomorrow, ' . date("jS M", strtotime("+1 day"));
-    if ($datetime->format('l') == 'Friday') {
-        $data = date("l, jS M", strtotime("+3 day"));
-    } elseif ($datetime->format('l') == 'Saturday') {
-        $data = date("l, jS M", strtotime("+3 day"));
-    } elseif ($datetime->format('l') == 'Sunday') {
-        $data = date("l, jS M", strtotime("+2 day"));
+
+
+    if (( int)$datetime->format('G') >= 11) {
+
+        $data =  date("l, jS M", strtotime("+2 day"));
+
+        if ($datetime->format('l') == 'Friday') {
+            $data = date("l, jS M", strtotime("+4 day"));
+        } elseif ($datetime->format('l') == 'Saturday') {
+            $data = date("l, jS M", strtotime("+4 day"));
+        } elseif ($datetime->format('l') == 'Sunday') {
+            $data = date("l, jS M", strtotime("+3 day"));
+        }
+
+    }else{
+        $data = 'tomorrow, ' . date("jS M", strtotime("+1 day"));
+        if ($datetime->format('l') == 'Friday') {
+            $data = date("l, jS M", strtotime("+3 day"));
+        } elseif ($datetime->format('l') == 'Saturday') {
+            $data = date("l, jS M", strtotime("+3 day"));
+        } elseif ($datetime->format('l') == 'Sunday') {
+            $data = date("l, jS M", strtotime("+2 day"));
+        }
     }
 
-    return '<span class="date_delivery_24">'.$data.'</span>';
+
+
+
+    return '<span class="date_delivery_24">' . $data . '</span>';
 }
 
-;
+add_shortcode('date_delivery_24','date_delivery_24');
+
 function date_delivery_48()
 {
 
     $datetime = new DateTime('now');
-    $data = date("l, jS M", strtotime("+2 day"));
 
-    if ($datetime->format('l') == 'Thursday') {
-        $data = date("l, jS M", strtotime("+4 day"));
-    } elseif ($datetime->format('l') == 'Friday') {
-        $data = date("l, jS M", strtotime("+4 day"));
-    } elseif ($datetime->format('l') == 'Saturday') {
-        $data = date("l, jS M", strtotime("+4 day"));
-    } elseif ($datetime->format('l') == 'Sunday') {
-        $data = date("l, jS M", strtotime("+3 day"));
+    if (( int)$datetime->format('G') >= 11) {
+        $data =  date("l, jS M", strtotime("+3 day"));
+        if ($datetime->format('l') == 'Thursday') {
+            $data = date("l, jS M", strtotime("+5 day"));
+        } elseif ($datetime->format('l') == 'Friday') {
+            $data = date("l, jS M", strtotime("+5 day"));
+        } elseif ($datetime->format('l') == 'Saturday') {
+            $data = date("l, jS M", strtotime("+5 day"));
+        } elseif ($datetime->format('l') == 'Sunday') {
+            $data = date("l, jS M", strtotime("+4 day"));
+        }
+
+    }else {
+        $data =  date("l, jS M", strtotime("+2 day"));
+        if ($datetime->format('l') == 'Thursday') {
+            $data = date("l, jS M", strtotime("+4 day"));
+        } elseif ($datetime->format('l') == 'Friday') {
+            $data = date("l, jS M", strtotime("+4 day"));
+        } elseif ($datetime->format('l') == 'Saturday') {
+            $data = date("l, jS M", strtotime("+4 day"));
+        } elseif ($datetime->format('l') == 'Sunday') {
+            $data = date("l, jS M", strtotime("+3 day"));
+        }
     }
 
-    return '<span class="date_delivery_48">'.$data.'</span>';
+
+
+    return '<span class="date_delivery_48">' . $data . '</span>';
 }
 
-
+add_shortcode('date_delivery_48','date_delivery_48');
 add_filter('nav_menu_item_title', function ($title, $menu_item, $args, $depth) {
 
-    if ($args->container_id=='thumbnailCats') {
+    if ($args->container_id == 'thumbnailCats') {
         $thumbnail_id = get_term_meta($menu_item->object_id, 'thumbnail_id', true);
-        $image = wp_get_attachment_image($thumbnail_id, [315,250]);
-        $svg='<svg class="main-svg" xmlns="http://www.w3.org/2000/svg" width="16.351" height="40.83" viewBox="0 0 16.351 40.83"><path d="M182.2,413.638l16.351-12.207v-6.223L182.2,407.415Z" transform="translate(-182.197 -372.808)" fill="#fff"/><path d="M182.2,341.733v6.223l16.351-12.207v-6.223Z" transform="translate(-182.197 -318.325)" fill="#fff"/><path d="M182.2,282.273l16.351-12.207v-6.223L182.2,276.05Z" transform="translate(-182.197 -263.843)" fill="#fff"/></svg>';
+        $image = wp_get_attachment_image($thumbnail_id, [315, 250]);
+        $svg = '<svg class="main-svg" xmlns="http://www.w3.org/2000/svg" width="16.351" height="40.83" viewBox="0 0 16.351 40.83"><path d="M182.2,413.638l16.351-12.207v-6.223L182.2,407.415Z" transform="translate(-182.197 -372.808)" fill="#fff"/><path d="M182.2,341.733v6.223l16.351-12.207v-6.223Z" transform="translate(-182.197 -318.325)" fill="#fff"/><path d="M182.2,282.273l16.351-12.207v-6.223L182.2,276.05Z" transform="translate(-182.197 -263.843)" fill="#fff"/></svg>';
         $title = "<div class='nav-thumbnail__wrap'>$image <div class='nav-thumbnail__wrap'>$svg<p class='title'>$title</p><span class='shop'>Shop Now <svg aria-hidden='true' class='e-font-icon-svg e-fas-chevron-down'><use xlink:href='#fas-chevron-right'></use></svg></span></div></div>";
     }
     return $title;
@@ -395,19 +433,19 @@ add_filter('elementor/widgets/wordpress/widget_args', function ($default_widget_
 
 add_filter('widget_nav_menu_args', function ($nav_menu_args, $nav_menu, $args, $instance) {
     if (isset($args['thumbnailCat'])) {
-        $nav_menu_args['container_id']=$args['thumbnailCat'].'s';
+        $nav_menu_args['container_id'] = $args['thumbnailCat'] . 's';
     }
 
     return $nav_menu_args;
 
 }, 10, 4);
 
-if (function_exists('WC')&&class_exists('WCPM\Classes\Pixels\Pixel_Manager')) {
+if (function_exists('WC') && class_exists('WCPM\Classes\Pixels\Pixel_Manager')) {
     add_action('wp_head', 'remove_Pixel_Manager_actions');
     function remove_Pixel_Manager_actions()
     {
         if (is_cart()) {
-            $class=WCPM\Classes\Pixels\Pixel_Manager::get_instance();
+            $class = WCPM\Classes\Pixels\Pixel_Manager::get_instance();
             remove_action('woocommerce_after_shop_loop_item', [$class, 'action_woocommerce_after_shop_loop_item'], 10, 1);
         }
     }

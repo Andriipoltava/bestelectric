@@ -80,31 +80,32 @@ class CustomWooSingleProductFrom extends Widget_Base
         $title = get_field('long_title_product', $id) ?: str_replace('Wifi', '<sup>wifi</sup>', get_the_title());
         ?>
         <div class="o-product-top">
-            <div class="o-product-top__summary">
+            <div class="o-product-top__summary     <?php if (get_field('top_description_new_design', $id)) { ?> top_description_new_design <?php } ?>">
+
+
                 <?php if (get_field('label')) : ?>
                     <span class="o-product-top__label <?php echo (get_field('product_label_color') == 'blue') ? 'o-product-top__label--blue' : null; ?>"><?php the_field('label'); ?></span>
                 <?php endif; ?>
-                <h1 class="o-product-top__title"><?php echo $title ?></h1>
+                <h1 class="o-product-top__title">
+                    <span class="desktop"><?php echo $title ?></span>
+                    <span class="mobile"> <?php echo get_the_title($id); ?></span></h1>
 
                 <?php if (get_field('top_description_new_design', $id)) { ?>
 
-                    <div class="o-product-top__add o-product-top__new">
 
-                        <div class="o-product-top__price">
-                            <span class="o-product-top__from"><?php _e('From  '); ?></span>
-                            <span class=" JS--top-product-price">
+                    <div class="o-product-top__price">
+                        <span class="o-product-top__from"><?php _e('From  '); ?></span>
+                        <span class=" JS--top-product-price">
                                     <?php $this->widget_pricing($product) ?>
                                 </span>
-                            <span class="o-product-top__price--inc"><?php _e('inc. VAT', 'bestelectric'); ?></span>
-                        </div>
-
-                        <div class="o-product-top__trustpilot JS--tustpilot-loader">
-                            <div class="o-product-top__trustpilot--loader"></div>
-                            <?php the_field('top_trustpilot_code', $id); ?>
-                        </div>
-
-
+                        <span class="o-product-top__price--inc"><?php _e('inc. VAT', 'bestelectric'); ?></span>
                     </div>
+
+                    <div class="o-product-top__trustpilot JS--tustpilot-loader">
+                        <div class="o-product-top__trustpilot--loader"></div>
+                        <?php the_field('top_trustpilot_code', $id); ?>
+                    </div>
+
 
                 <?php } else { ?>
 
@@ -150,7 +151,9 @@ class CustomWooSingleProductFrom extends Widget_Base
                 ?>
 
                 <div class="o-product-top__paymentLater">
-                    <div class="o-product-top__paymentLater__content"> <?php echo __('Pay in 3 interest-free payments of ') . $priceLater; ?>.</div>
+                    <div class="o-product-top__paymentLater__content"> <?php echo __('Pay in 3 interest-free payments of ') . $priceLater; ?>
+                        .
+                    </div>
                     <div class="o-product-top__paymentLater__icons">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 45 25" height="45"
                              width="80">
@@ -210,6 +213,12 @@ class CustomWooSingleProductFrom extends Widget_Base
                     </div>
 
                 </div>
+                <?php if (get_field('gold_standard_banner', $id)) { ?>
+                    <div class="gold_standard__Popup">
+                        <?php echo get_gold_standard(); ?>
+                    </div>
+                <?php }; ?>
+
 
                 <?php if ($product->get_short_description()) : ?>
                 <div class="o-product-top__product-description">
@@ -260,7 +269,7 @@ class CustomWooSingleProductFrom extends Widget_Base
                                             <span class="text"><?php echo get_field('warranty_header_text', $id) ?: 'Warranty'; ?></span>
                                             <?php if (get_field('warranty_header_sub_text', $id)) { ?>
                                                 <span class="sub_text">
-                                                    <?php echo get_field('warranty_header_sub_text', $id) ; ?>
+                                                    <?php echo get_field('warranty_header_sub_text', $id); ?>
                                                 </span>
                                             <?php }; ?>
                                         </div>

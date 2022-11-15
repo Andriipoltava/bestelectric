@@ -237,7 +237,7 @@
                       max-width: 73px;
                       width: 100%;
 
-                      padding: 5px 10px;
+                      padding: 0 10px;
                     }
                     .cvy_field_groups {
                       flex-wrap: nowrap !important;
@@ -380,7 +380,7 @@
                     right: 10px;
                     width: 27px;
                     height: 27px;
-                    top: 20px;
+                    top: 14px;
                     border: 2px solid #B8D048;
                     background-color: white;
                     box-shadow: 0 0 10px #00000029;
@@ -1505,4 +1505,104 @@
       visibility: visible;
     }
   }
+}
+
+.o-product-top__summary.top_description_new_design {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  .o-product-top__trustpilot, .o-product-top__price {
+    max-width: 49.9%;
+    width: 100%;
+  }
+
+  .o-product-top__trustpilot {}
+
+  .o-product-top__product-description {
+    width: 100%;
+  }
+}
+
+.o-product-top__title .mobile {
+  display: none;
+}
+
+@media screen and (max-width: 756px) {
+  .o-product-top__summary.top_description_new_design {
+    .o-product-top__price {
+      max-width: 100%;
+    }
+
+    .o-product-top__trustpilot {
+      min-width: 200px;
+    }
+  }
+
+  .o-product-top__paymentLater__content {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .o-product-top__img .c-product-buttons {
+    margin-bottom: 0;
+  }
+
+  .gold_standard__Popup svg {
+    margin: 5px 0 !important;
+  }
+
+  .o-product-top__price {
+    .o-product-top__from {
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .woocommerce-Price-amount.amount {
+      font-size: 24px;
+    }
+  }
+
+  .o-product-top__title {
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+  }
+
+  .o-product-top__summary.top_description_new_design {
+    .trustpilot-widget {
+      background-color: #f7f7f7;
+      padding-top: 10px;
+    }
+
+    .o-product-top__label {
+      padding: 8px 12px;
+      order: -1;
+    }
+
+    .o-product-top__price {
+      display: block;
+      padding-top: 5px;
+    }
+
+    .o-product-top__trustpilot {
+      margin: 0;
+      order: -1;
+    }
+
+    .o-product-top__paymentLater {
+      width: 100%;
+    }
+  }
+}
+.single-product .o-product-top .cart:not(.variations_form){
+  padding: 0 20px!important;
+  margin-bottom: 0!important;
+  background: #F7F7F7;
 }

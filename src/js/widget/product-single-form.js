@@ -5,6 +5,11 @@
         }, 300);
     })
 
+    $('.o-product-top .gold_standard__Popup').on('click', function (e) {
+        e.preventDefault()
+        elementorProFrontend.modules.popup.showPopup({id: 19816});
+    })
+
     if($('.date_delivery_48').length|| $('.date_delivery_24').length){
         const months = ['Jan', 'Feb', 'Mar','Apr' ,'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];

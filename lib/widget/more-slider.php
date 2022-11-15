@@ -110,20 +110,12 @@ class CustomMoreSlider extends Widget_Base
     protected function render()
     {
 
-        $id = get_edit_id_page();
-        ?>
-
-        <?php $this->more_slider(); ?>
-        <?php
-
-
+        $this->more_slider();
     }
 
     public function more_slider()
     {
-        $id = get_edit_id_page();
         $settings = $this->get_settings_for_display();
-
         if ($settings['list']): ?>
             <section class="o-product-featuresr ">
                 <section class="s-product-more-slider ">
@@ -159,10 +151,14 @@ class CustomMoreSlider extends Widget_Base
                                         </div>
                                     <?php endif; ?>
                                     <div class="s-product-more-slider__content">
-                                        <h3 class="s-product-more-slider__subtitle"><?php echo $title; ?></h3>
-                                        <div class="s-product-more-slider__description">
-                                            <?php echo $content; ?>
-                                        </div>
+                                        <?php if ($title) { ?>
+                                            <h3 class="s-product-more-slider__subtitle"><?php echo $title; ?></h3>
+                                        <?php }; ?>
+                                        <?php if ($content) { ?>
+                                            <div class="s-product-more-slider__description">
+                                                <?php echo $content; ?>
+                                            </div>
+                                        <?php }; ?>
                                     </div>
                                 </div>
                             </div>
