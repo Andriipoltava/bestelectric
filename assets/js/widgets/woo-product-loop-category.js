@@ -114,7 +114,6 @@ jQuery(document).ready(function ($) {
 
 
         }
-        console.log(baseUrl)
 
         $('.product_cat_electricRadiators__main .count').text(count)
         $('.product_cat_electricRadiators__main .reset').show()
@@ -181,10 +180,13 @@ jQuery(document).ready(function ($) {
                     item.show()
                 }
                 for (let key in newSelect) {
-                    let chars = [...newSelect[key], ...item.attr(key).split(',')]
-                    newSelect[key] = chars.filter((c, index) => {
-                        return chars.indexOf(c) === index;
-                    })
+                    if(item.attr(key)){
+                        let chars = [...newSelect[key], ...item.attr(key).split(',')]
+                        newSelect[key] = chars.filter((c, index) => {
+                            return chars.indexOf(c) === index;
+                        })
+                    }
+
                 }
                 count++
             }
@@ -278,6 +280,7 @@ jQuery(document).ready(function ($) {
         $('.btn-find .count').text($('.product_cat_electricRadiators__wrap .product_cat_electricRadiators').length)
 
         $('.product_cat_electricRadiatorsMobileModal .btn-reset').addClass('hide')
+        $('.product_cat_electricRadiators__main .count').text($('.product_cat_electricRadiators').length)
 
         $(".product__filters__checkbox input").each(function () {
             $(this).prop('checked', false)
@@ -317,25 +320,25 @@ jQuery(document).ready(function ($) {
         // if (window.innerWidth <= 1225) {
         //     if (!init) {
         //         init = true;
-                $('.product_cat_electricRadiators .swiper').each(function () {
-                    const swiper = new Swiper($(this), {
-                        loop: false,
-                        init: true,
-                        dots: false,
-                        spaceBetween: 5,
-                        slidesPerView: 'auto',
-                        navigation: {
-                            prevEl: $(this).find('.swiper-button-prev'),
-                            nextEl: $(this).find('.swiper-button-next')
-                        },
+        $('.product_cat_electricRadiators .swiper').each(function () {
+            const swiper = new Swiper($(this), {
+                loop: false,
+                init: true,
+                dots: false,
+                spaceBetween: 5,
+                slidesPerView: 'auto',
+                navigation: {
+                    prevEl: $(this).find('.swiper-button-prev'),
+                    nextEl: $(this).find('.swiper-button-next')
+                },
 
-                        slideContent: '.swiper-wrapper',
+                slideContent: '.swiper-wrapper',
 
-                    })
-                    setTimeout(function () {
-                        swiper.update()
-                    }, 1000)
-                })
+            })
+            setTimeout(function () {
+                swiper.update()
+            }, 1000)
+        })
 
 
     }

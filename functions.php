@@ -256,7 +256,7 @@ function remove_variations_swiper()
 
 {
     if (function_exists('is_product_category')) {
-        if (is_singular('product')) {
+        if(is_singular('product')){
             wp_dequeue_script('smart-variations-images-swiper');
             wp_dequeue_style('smart-variations-images-swiper');
             wp_dequeue_style('smart-variations-images');
@@ -397,12 +397,21 @@ function bestelectric_js_exclusions($exclusions)
     }
 
     if (!is_product()) {
-
+        $exclusions[] = 'google-analytics\.com/analytics\.js';
+        $exclusions[] = "/gtag/";
+        $exclusions[] = "/gtm\.js";
+        $exclusions[] = "/gtm-";
+        $exclusions[] = "ga\( '";
+        $exclusions[] = "ga\('";
+        $exclusions[] = "gtag\(";
         return $exclusions;
     }
+
+
     $exclusions[] = 'widget.trustpilot.com/bootstrap';
     $exclusions[] = 'widget.trustpilot.com';
     $exclusions[] = '/wp-content/plugins/trustpilot-reviews/review/(.*)';
+
 
 
     $exclusions[] = '/jquery-?[0-9.](.*)(.min|.slim|.slim.min)?.js';

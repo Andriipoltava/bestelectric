@@ -62,19 +62,11 @@ foreach ($product->get_attributes() as $attribute) {
             </div>
         <?php endif; ?>
     </div>
-    <div class="product_col__main">
+    <div class="product_col__main   <?php if (!$label) echo ' no-label' ?>">
 
         <?php if ($label) {
             echo '<div class="product__label ' . __($label_color == 'blue' ? 'cvy_label--blue' : null) . '">' . $label . '</div>';
         } ?>
-
-        <a class="product_title product_titleDes" href="<?php echo get_the_permalink($id) ?>">
-            <?php echo $title; ?></a>
-        <div class="product_titleMob">
-            <a href="<?php echo get_the_permalink($id) ?>"
-               class="product_title">   <?php echo get_the_title($id); ?></a>
-
-        </div>
         <?php if (get_field('top_trustpilot_code', $id)) { ?>
             <div class="product__reviews">
                 <a class="product__reviews__link" href="<?php echo get_the_permalink($id) ?>#reviews">
@@ -87,16 +79,26 @@ foreach ($product->get_attributes() as $attribute) {
 
             </div>
         <?php }; ?>
-        <div class="product__wrapPopupWarrant">
 
-            <div class="product__Popup">
-                <?php if (get_field('gold_standard_banner', $id)) { ?>
-                    <?php echo get_gold_standard(); ?>
-                <?php }; ?>
-            </div>
-
+        <a class="product_title product_titleDes" href="<?php echo get_the_permalink($id) ?>">
+            <?php echo $title; ?></a>
+        <div class="product_titleMob">
+            <a href="<?php echo get_the_permalink($id) ?>"
+               class="product_title">   <?php echo get_the_title($id); ?></a>
 
         </div>
+        <?php if (get_field('gold_standard_banner', $id)) { ?>
+            <div class="product__wrapPopupWarrant">
+
+                <div class="product__Popup">
+
+                    <?php echo get_gold_standard(); ?>
+
+                </div>
+
+
+            </div>
+        <?php }; ?>
         <?php
         $product_features_keys = get_field('product_ksps_list', $id);
         if ($product_features_keys) : ?>
@@ -108,7 +110,7 @@ foreach ($product->get_attributes() as $attribute) {
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-        <div class="swiper <?php echo count($product->get_available_variations())>=6?'slider-desktop':''?>">
+        <div class="swiper <?php echo count($product->get_available_variations()) >= 6 ? 'slider-desktop' : '' ?>">
             <div class="swiper-button-prev">
 
                 <?php echo $icon_prev_html; ?>

@@ -412,7 +412,7 @@
       padding: 0 !important;
       justify-content: space-between !important;
       width: 100%;
-      height: auto;
+      height: 100%;
       text-align: center;
       cursor: pointer;
       list-style-type: none;
@@ -420,6 +420,7 @@
       box-shadow: 0 0 10px #00000029; }
       @media screen and (min-width: 767px) {
         .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item {
+          height: auto;
           padding: 0 !important;
           flex-direction: row;
           flex-wrap: wrap;
@@ -521,8 +522,7 @@
         right: 10px;
         width: 27px;
         height: 27px;
-        top: 50%;
-        transform: translate(0, -50%);
+        top: 13px;
         border: 2px solid #B8D048;
         background-color: white;
         box-shadow: 0 0 10px #00000029; }
@@ -554,8 +554,7 @@
           right: 10px;
           width: 27px;
           height: 27px;
-          top: 50%;
-          transform: translate(0, -50%);
+          top: 13px;
           background-image: url("../../../img/icons/white-checkbox-icon.svg");
           border-radius: 0;
           background-color: #B8D048; }
