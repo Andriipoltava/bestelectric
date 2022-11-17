@@ -373,7 +373,7 @@
                   }
 
                   @include mq(null, 767) {
-                    &:after {
+                    .cvy_wrap_groups:after {
                       display: none !important;
                     }
                   }
@@ -403,6 +403,11 @@
                       left: 0;
                       position: relative;
                       background-size: 12px;
+                    }
+                  }
+                  .variation-dropdown-price:after {
+                    @include mq(null, 767) {
+                      transform: none;
                     }
                   }
 
@@ -443,6 +448,7 @@
                       @include mq(null, 767) {
                         width: 100%;
                         justify-content: center;
+                        display: flex;
                         &.cvy_dimensions {
                           padding-top: 10px;
                         }
@@ -576,6 +582,8 @@
                         flex: 1 1 100%;
                         order: 9;
                         justify-content: center;
+                        align-items: baseline;
+                        flex-direction: row;
                       }
                       margin: 0;
                       @include font(mid-large, 20, 700);
@@ -599,6 +607,9 @@
 
                         min-width: 65px ;
                         text-align: start ;
+                        @include mq(null, 767) {
+                          text-align: center;
+                        }
                         @include font(mid-m, 20, 300);
                       }
 
