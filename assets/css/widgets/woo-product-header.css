@@ -217,6 +217,10 @@
         display: none; } }
   .singleWooHeader__item__price {
     padding: 0 10px 0 0; }
+    .singleWooHeader__item__price ins {
+      text-decoration: none; }
+    .singleWooHeader__item__price del, .singleWooHeader__item__price .save {
+      display: none; }
     @media screen and (min-width: 1025px) {
       .singleWooHeader__item__price {
         padding: 10px 25px; } }
@@ -226,8 +230,8 @@
       font-weight: 400; }
       @media screen and (min-width: 1025px) {
         .singleWooHeader__item__price .o-product-top__from {
-          font-size: 1.125rem;
-          line-height: 2.22222;
+          font-size: 1rem;
+          line-height: 2.5;
           font-weight: 400; } }
     .singleWooHeader__item__price .woocommerce-Price-amount {
       font-size: 1.25rem;

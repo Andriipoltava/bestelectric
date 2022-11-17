@@ -441,11 +441,6 @@
             width: 100%;
             padding: 0 0 0 10px;
             justify-content: space-between; }
-            .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_wattage, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_wattage {
-              min-width: 85px !important;
-              text-align: start !important;
-              font-size: 1.625rem !important;
-              line-height: 0.76923 !important; }
             .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price {
               flex: none;
               order: 9;
@@ -465,14 +460,22 @@
           .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-specification, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-specification {
             width: 100%;
             text-align: center;
-            max-width: 80px;
             margin: 3px auto 0; }
           .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions {
-            max-width: 160px !important;
-            min-width: 100px;
             font-size: 0.75rem;
             line-height: 1.08333;
-            font-weight: 400; }
+            font-weight: 400; } }
+    @media screen and (min-width: 767px) and (min-width: 1200px) {
+      .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions {
+        max-width: 160px !important;
+        min-width: 150px; } }
+    @media screen and (min-width: 767px) and (min-width: 1024px) and (max-width: 1199px) {
+      .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions {
+        min-width: 120px; } }
+    @media screen and (min-width: 767px) and (min-width: 756px) and (max-width: 1023px) {
+      .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_property_field.cvy_dimensions {
+        min-width: 100px; } }
+      @media screen and (min-width: 767px) {
           .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-specification__bottom .cvy_tip .cvy_tip_content, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-specification__bottom .cvy_tip .cvy_tip_content {
             left: calc(50% - 197px); }
             .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-specification__bottom .cvy_tip .cvy_tip_content:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-specification__bottom .cvy_tip .cvy_tip_content:after {
@@ -516,23 +519,24 @@
       @media screen and (max-width: 766px) {
         .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after {
           display: none !important; } }
-      .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after {
+      .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after {
         content: '';
         position: absolute;
-        right: 10px;
-        width: 27px;
-        height: 27px;
-        top: 13px;
+        right: 15px;
+        width: 23px;
+        height: 23px;
+        top: 50%;
+        transform: translateY(-50%);
         border: 2px solid #B8D048;
         background-color: white;
         box-shadow: 0 0 10px #00000029; }
         @media screen and (min-width: 1024px) and (max-width: 1199px) {
-          .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after {
+          .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after {
             width: 20px;
             height: 20px;
-            top: 15px; } }
+            right: 10px; } }
         @media screen and (max-width: 766px) {
-          .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after {
+          .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .variation-dropdown-price:after {
             margin-left: 15px;
             top: 0;
             width: 20px;
@@ -543,35 +547,18 @@
       .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected {
         border: 1px solid #000000;
         padding: 10px; }
-        .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after {
-          content: '';
-          position: absolute;
-          display: block;
-          border: 2px solid #B8D048;
+        .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .cvy_wrap_groups:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after {
+          background-image: url("../../../img/icons/white-checkbox-icon.svg");
           background-position: center;
           background-repeat: no-repeat;
-          box-shadow: 0 0 10px #00000029;
-          right: 10px;
-          width: 27px;
-          height: 27px;
-          top: 13px;
-          background-image: url("../../../img/icons/white-checkbox-icon.svg");
-          border-radius: 0;
           background-color: #B8D048; }
-          @media screen and (min-width: 1024px) and (max-width: 1199px) {
-            .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after {
-              width: 20px;
-              height: 20px;
-              top: 15px; } }
-          @media screen and (max-width: 766px) {
-            .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected:after, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected:after, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item.selected .variation-dropdown-price:after {
-              margin-left: 15px;
-              top: 0;
-              width: 20px;
-              height: 20px;
-              left: 0;
-              position: relative;
-              background-size: 12px; } }
+      .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_wrap_groups {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        position: relative; }
       .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_field, .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_area, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_field, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_area {
         padding: 0 4px; }
         @media screen and (max-width: 766px) {
@@ -649,10 +636,13 @@
         .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_area .cvy_tip, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_area .cvy_tip {
           display: inline-block; }
       .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price {
-        padding: 15px 20px 15px 20px !important;
+        flex-direction: column;
+        text-align: start;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 8px 15px 8px 15px !important;
         background: #f7f7f7;
         display: flex;
-        align-items: center;
         min-width: 125px;
         margin: 0;
         font-size: 1.25rem;
@@ -660,8 +650,11 @@
         font-weight: 700; }
         @media screen and (min-width: 1024px) and (max-width: 1199px) {
           .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price {
-            padding: 15px 10px 15px 10px !important;
+            padding: 8px 10px 8px 10px !important;
             min-width: 95px; } }
+        @media screen and (min-width: 767px) {
+          .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price {
+            min-height: 54px; } }
         @media screen and (max-width: 766px) {
           .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .variation-dropdown-price {
             max-width: 100%;
@@ -678,11 +671,10 @@
         .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_field .cvy_wattage, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_field .cvy_wattage {
           display: inline-block;
           color: #333333;
-          text-align: end;
-          padding-right: 5px;
-          min-width: 100%;
-          font-size: 1.25rem;
-          line-height: 1;
+          min-width: 65px;
+          text-align: start;
+          font-size: 1.1875rem;
+          line-height: 1.05263;
           font-weight: 300; }
         .single-product.woocommerce .product.product_cat-all-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_field .cvy_area_label, .single-product.woocommerce .product.product_cat-electric-radiators .variations tr:last-child .button-variable-wrapper .cvy_variation_list_item .cvy_field_groups .cvy_property_field .cvy_area_label {
           display: inline-block;
@@ -1272,7 +1264,8 @@
     order: -1; }
   .o-product-top__summary.top_description_new_design .o-product-top__price {
     display: block;
-    padding-top: 5px; }
+    padding-top: 5px;
+    padding-bottom: 10px; }
   .o-product-top__summary.top_description_new_design .o-product-top__trustpilot {
     margin: 0;
     order: -1; }
@@ -1563,10 +1556,7 @@
   @media screen and (min-width: 480px) {
     .o-product-top__label {
       margin-bottom: 2px;
-      padding: 7px 17px;
-      font-size: 1rem;
-      line-height: 1;
-      font-weight: 400; } }
+      padding: 7px 17px; } }
 
 .o-product-top__label--blue {
   background-color: #21A1BC; }
@@ -1614,7 +1604,12 @@
   overflow: hidden; }
   @media screen and (min-width: 480px) {
     .o-product-top__trustpilot {
-      margin: 26px 0 22px; } }
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: flex-end; } }
+  .o-product-top__trustpilot .trustpilot-widget {
+    background-color: #F7F7F7;
+    padding-top: 8px; }
   .o-product-top__trustpilot .o-product-top__trustpilot--loader {
     position: absolute;
     height: 100%;
@@ -1678,7 +1673,7 @@
   margin: 0 0 20px; }
   @media screen and (min-width: 1025px) {
     .o-product-top__add {
-      margin: 0 0 5px; } }
+      margin: 10px 0 5px; } }
 
 .o-product-top__price {
   display: none; }
@@ -1856,10 +1851,10 @@ body.single-product.woocommerce .product:not(.product_cat-all-electric-radiators
     line-height: 1.71429;
     font-weight: 700;
     text-decoration: underline;
-    padding: 15px 0 10px; }
+    padding: 15px 0 5px; }
   @media screen and (min-width: 1025px) {
     .o-product-top__product-description {
-      margin: 0 0 20px; } }
+      margin: 0 0 15px; } }
 
 .o-product-top__paymentLater {
   display: flex;
@@ -1926,6 +1921,41 @@ form.cart:not(.variations_form) {
     background: transparent;
     padding-left: 0 !important;
     padding-right: 0 !important; } }
+
+.o-product-top .variations_button__bottom__wrap del .woocommerce-Price-amount.amount,
+.o-product-top .o-product-top__price del .woocommerce-Price-amount.amount {
+  color: #333333;
+  opacity: 0.5;
+  font-size: 18px;
+  line-height: 40px; }
+
+.o-product-top .singleWooHeader__item__price ins,
+.o-product-top .variations_button__bottom__wrap ins,
+.o-product-top .o-product-top__price ins {
+  text-decoration: none; }
+
+.singleWooHeader__item__price .price .save,
+.singleWooHeader__item__price .price del {
+  display: none; }
+
+.o-product-top__price .save,
+.price .save {
+  color: #D9182B;
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 40px;
+  margin-left: 6px; }
+
+.o-product-top__price del,
+.price del {
+  margin-right: 6px; }
+
+.variation-dropdown-price del {
+  font-size: 14px;
+  color: #333333;
+  opacity: 0.5;
+  text-align: left;
+  margin-right: 6px; }
 
 .c-calc-button--desktop {
   display: none; }

@@ -162,9 +162,16 @@ function add_to_btn_product_availability()
                 </svg>
             </div>
             <div class="delivery__bottom__body">
-                <p>
-                    <?php echo $product_availability['availability']; ?>
-                </p>
+                <?php if (get_field('product_delivery_condition', $product->get_id())) {
+                    $text = get_field('product_delivery_condition', $product->get_id());
+                    $text = str_replace('[date_delivery_24]', date_delivery_24(), $text);
+                    $text = str_replace('[date_delivery_48]', date_delivery_48(), $text);
+                    echo $text;
+                } else { ?>
+                    <p>
+                        <?php echo $product_availability['availability']; ?>
+                    </p>
+                <?php }; ?>
             </div>
         </div>
     <?php };
@@ -231,8 +238,8 @@ add_action('woocommerce_after_add_to_cart_quantity', function (){
     <!-- end variations_button__bottom__quantity-->
     </div>
     <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-        <?php echo str_replace('From:', '', $product->get_price_html()); ?>
-        <span class="o-product-top__price--inc">inc. VAT</span>
+        <?php echo str_replace('From:', '', $product->get_price_html()) ; ?>
+
     </p>
     <div class="variations_button__bottom__paymentLater o-product-top__paymentLater__content o-product-top__paymentLater"> <?php echo __('Pay in 3 interest-free payments of ') . $priceLater.'.'; ?>
 
@@ -249,3 +256,32 @@ add_action('woocommerce_after_add_to_cart_button', function () {
 
     <?php
 }, 10);
+
+add_action('woocommerce_after_add_to_cart_form', function () {
+    global $product;
+    if($product->get_type() =='simple'){
+
+        add_to_btn_product_availability();
+
+    };
+}, 5);
+
+
+add_filter('woocommerce_format_sale_price', function ($price, $regular_price, $sale_price) {
+
+    $save = $regular_price - $sale_price;
+    return $price.'<span class="save">' . __('Save ') . get_woocommerce_currency_symbol() . $save . '</span>';
+}, 10, 3);
+
+
+
+add_filter('woocommerce_price_trim_zeros', 'wc_hide_trailing_zeros');
+function wc_hide_trailing_zeros($trim)
+{
+// set to true to hide trailing zeros
+    if (is_product()) {
+        return true;
+
+    }
+    return $trim;
+}

@@ -355,10 +355,11 @@ class CustomWooProductCompareRange extends Widget_Base
                         </div>
                     </div>
                 </div>
-                <?php foreach ($variations as $key => $variation) : ?>
+                <?php foreach ($variations as $key => $variation) :
+                    ?>
                     <span class="c-compare-ranges__wattages JS--compare-ranges-wattages"
                           data-attribute_pa_wattage="<?php echo $variation['attributes']['attribute_pa_wattage'] ?: ''; ?>"
-                          data-price="<?php echo strip_tags($variation['price_html']); ?>"
+                          data-price="<?php echo  get_woocommerce_currency_symbol() . strip_tags($variation['display_price']); ?>"
                           style="display: none;"></span>
                 <?php endforeach; ?>
             </div>

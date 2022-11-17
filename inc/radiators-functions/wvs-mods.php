@@ -49,7 +49,7 @@ if (!function_exists('wvs_default_variable_item_filter')):
         $show_archive_tooltip = (bool)woo_variation_swatches()->get_option('show_tooltip_on_archive');
 
         if (!empty($options)) {
-            if ($product && taxonomy_exists($attribute) && !$product->get_attribute('pa_control-type')) {
+            if ($product && taxonomy_exists($attribute) && has_term('162', 'product_cat',$product->get_id()) ) {
 
 
                 if ($attribute == "pa_wattage") {
@@ -88,7 +88,7 @@ if (!function_exists('wvs_default_variable_item_filter')):
 
                         }
 
-                        $data .= '<div class="cvy_image_groups">
+                        $data .= '<div class="cvy_wrap_groups"><div class="cvy_image_groups">
 						 		<img class="cvy_product_thumbnail"
 						 			src="' . $variation['image']['thumb_src'] . '"
 						 			title="' . $variation['image']['title'] . '"
@@ -102,7 +102,11 @@ if (!function_exists('wvs_default_variable_item_filter')):
                         $data .= '<span class="cvy_wattage">' . $variation['attributes']['attribute_pa_wattage'] . 'w</span>';
                         $data .= '</div>';
 
-                        $data .= '<div class="variation-dropdown-price">' . get_woocommerce_currency_symbol() . $variation["display_price"] . '</div>';
+                        $sale='';
+                        if($variation['display_regular_price']!==$variation["display_price"]){
+                            $sale='<del>'.get_woocommerce_currency_symbol().$variation['display_regular_price'].'</del>';
+                        }
+                        $data .= '<div class="variation-dropdown-price">'.$sale . get_woocommerce_currency_symbol() . $variation["display_price"] . '</div>';
 
 
                         ?>
@@ -126,16 +130,10 @@ if (!function_exists('wvs_default_variable_item_filter')):
                         }
 
                         $data .= '<div class="cvy_property_field cvy_dimensions">
-									<span>
-										' .
-                            $variation['dimensions']['length'] . 'mm x ' .
-                            $variation['dimensions']['height'] . 'mm  x ' .
-                            $variation['dimensions']['width'] . 'mm' . '
-									</span>
-                                     <div class="variation-dropdown-specification destop"><span>View Full spec</span></div>
+                                     <div class="variation-dropdown-specification destop"><span>View specifications</span></div>
 									</div>';
                         $data .= '</div>';
-                        $data .= '<div class="variation-dropdown-specification mobile"><span>View Full spec</span></div>';
+                        $data .= '<div class="variation-dropdown-specification mobile"><span>View Full spec</span></div></div>';
                         $data .= '<div class="variation-dropdown-specification__bottom">';
                         ob_start();
                         if (!empty($area)) :

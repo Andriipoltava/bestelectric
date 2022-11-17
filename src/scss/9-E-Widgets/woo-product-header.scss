@@ -96,6 +96,12 @@
 
     &__price {
       padding: 0 10px 0 0;
+      ins{
+        text-decoration: none;
+      }
+      del,.save{
+        display: none;
+      }
       @include mq(1025) {
         padding: 10px 25px;
 
@@ -104,7 +110,7 @@
       .o-product-top__from {
         @include font(m4-small, 20, 400);
         @include mq(1025) {
-          @include font(mid, 40, 400);
+          @include font(base, 40, 400);
         }
       }
 

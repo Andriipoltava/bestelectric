@@ -417,7 +417,7 @@
   @include mq(480) {
     margin-bottom: 2px;
     padding: 7px 17px;
-    @include font(base, 16, 400);
+
   }
 
 }
@@ -489,10 +489,16 @@
   overflow: hidden;
 
   @include mq(480) {
-    margin: 26px 0 22px;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: flex-end;
   }
   @include mq(1025) {
     //margin: 26px 0 20px 22px;
+  }
+  .trustpilot-widget{
+    background-color: $_color-secondary-100;
+    padding-top: 8px;
   }
 
   .o-product-top__trustpilot--loader {
@@ -585,7 +591,7 @@
     //justify-content: space-between;
     margin: 0 0 20px;
     @include mq(1025) {
-      margin: 0 0 5px;
+      margin: 10px 0 5px;
     }
   }
 }
@@ -810,11 +816,11 @@ body.single-product.woocommerce .product:not(.product_cat-all-electric-radiators
     color: palette(text, 600);
     @include font(small, 24, 700);
     text-decoration: underline;
-    padding: 15px 0 10px;
+    padding: 15px 0 5px;
   }
 
   @include mq(1025) {
-    margin: 0 0 20px ;
+    margin: 0 0 15px ;
   }
 }
 
@@ -899,4 +905,47 @@ form.cart:not(.variations_form) {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+}
+
+.o-product-top .variations_button__bottom__wrap del .woocommerce-Price-amount.amount,
+.o-product-top .o-product-top__price del .woocommerce-Price-amount.amount {
+  color: #333333;
+  opacity: 0.5;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.o-product-top .singleWooHeader__item__price ins,
+.o-product-top .variations_button__bottom__wrap ins,
+.o-product-top .o-product-top__price ins {
+  text-decoration: none;
+}
+
+.singleWooHeader__item__price .price .save,
+.singleWooHeader__item__price .price del {
+  display: none;
+}
+
+.o-product-top__price .save,
+.price .save {
+  color: #D9182B;
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 40px;
+  margin-left: 6px;
+}
+
+.o-product-top__price del,
+.price del {
+
+  margin-right: 6px;
+}
+
+
+.variation-dropdown-price del {
+  font-size: 14px;
+  color: #333333;
+  opacity: 0.5;
+  text-align: left;
+  margin-right: 6px;
 }

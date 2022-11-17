@@ -262,6 +262,12 @@
   flex-wrap: wrap;
   width: 100%;
   text-align: left; }
+  .c-compare-ranges__footer del .amount {
+    display: none; }
+  .c-compare-ranges__footer .save {
+    display: none; }
+  .c-compare-ranges__footer ins {
+    text-decoration: none; }
 
 .c-compare-ranges__footer--calc {
   bottom: 12px; }

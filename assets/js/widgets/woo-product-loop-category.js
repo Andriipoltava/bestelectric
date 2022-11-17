@@ -125,8 +125,16 @@ jQuery(document).ready(function ($) {
         $(`.product_cat_electricRadiators`).each(function () {
             let first = $(this).find('.product__variations .variable.active').length ? $(this).find('.product__variations .variable.active') : $(this).find('.product__variations .variable'),
                 price = first.first().data('price')
+
             if (first && price) {
-                $(this).find('.product__price .amount bdi').text('£' + first.first().data('price'))
+                if($(this).find('.product__price .amount ins')){
+                    first.first().data('price_reg')?  $(this).find('.product__price del .amount bdi').text('£' + first.first().data('price_reg')).show():$(this).find('.product__price del .amount bdi').hide()
+                    $(this).find('.product__price ins .amount bdi').text('£' + first.first().data('price'))
+
+                }else {
+                    $(this).find('.product__price .amount bdi').text('£' + first.first().data('price'))
+                }
+
                 $(this).find('.product__payLater .priceLater').text((first.first().data('price') / 3).toFixed(2))
             }
         })

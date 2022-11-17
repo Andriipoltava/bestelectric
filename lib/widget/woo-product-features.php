@@ -141,13 +141,14 @@ class CustomWooProductFeature extends Widget_Base
 
     public function tabs_nav()
     {
+        global $product;
         ?>
         <div class="c-product-tabs-nav">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="c-product-tabs-nav__buttons">
-                            <div class="c-product-tabs-nav__btn">
+                            <div class="c-product-tabs-nav__btn  <?php if($product->get_type()==='simple') echo 'full'?>">
                                 <a href="javascript:void(0);" data-popup="features"
                                    class="c-product-tabs-nav__item c-product-tabs-nav__item--default JS--open-popup">
                             <span class="c-product-tabs-nav__text">
@@ -156,15 +157,17 @@ class CustomWooProductFeature extends Widget_Base
                             </span>
                                 </a>
                             </div>
-                            <div class="c-product-tabs-nav__btn">
-                                <a href="javascript:void(0);" data-popup="sizes"
-                                   class="c-product-tabs-nav__item c-product-tabs-nav__item--dark JS--open-popup">
-                            <span class="c-product-tabs-nav__text">
-                                 <span class="c-product-tabs-nav__icon icon-compare-sizes"></span>
-                                <?php _e('Compare Sizes', 'elr'); ?>
-                            </span>
-                                </a>
-                            </div>
+                            <?php if($product->get_type()!=='simple'){ ?>
+                                <div class="c-product-tabs-nav__btn ">
+                                    <a href="javascript:void(0);" data-popup="sizes"
+                                       class="c-product-tabs-nav__item c-product-tabs-nav__item--dark JS--open-popup">
+                                <span class="c-product-tabs-nav__text">
+                                     <span class="c-product-tabs-nav__icon icon-compare-sizes"></span>
+                                    <?php _e('Compare Sizes', 'elr'); ?>
+                                </span>
+                                    </a>
+                                </div>
+                            <?php }; ?>
                         </div>
                     </div>
                 </div>

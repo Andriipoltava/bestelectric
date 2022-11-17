@@ -117,6 +117,12 @@
       @include font(mid-large, 40, 400);
       color: palette(text, 600);
     }
+    del,.save{
+      display: none;
+    }
+    ins{
+      text-decoration: none;
+    }
   }
 }
 

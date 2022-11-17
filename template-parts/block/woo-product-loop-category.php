@@ -134,8 +134,10 @@ foreach ($product->get_attributes() as $attribute) {
                             $js_attrs_string = '';
                             $term_id = get_term_by('slug', $variation['attributes']['attribute_pa_wattage'], 'pa_wattage')->term_id;
                             $area = get_post_meta($variation_id, '_cvy_area', true);
+                           $display_regular_price= $variation['display_price']!=$variation['display_regular_price']? 'data-price_reg="' . $variation['display_regular_price'] . '" ':'';
 
-                            $data .= '<li class="swiper-slide variable out-stock-' . ((!$variation["is_in_stock"]) ? 'yes' : 'no') . ' " ' . $js_attrs_string . ' data-price="' . $variation['display_price'] . '" data-pa_wattage="' . $term_id . '" >';
+
+                            $data .= '<li class="swiper-slide variable out-stock-' . ((!$variation["is_in_stock"]) ? 'yes' : 'no') . ' " ' . $js_attrs_string . ' data-price="' . $variation['display_price'] . '"  data-pa_wattage="' . $term_id . '" '.$display_regular_price.' >';
 
                             $data .= '<a href="' . get_permalink($variation_id) . '" >';
                             $data .= '<img
@@ -199,8 +201,7 @@ foreach ($product->get_attributes() as $attribute) {
         <div class="product_col__price_col">
             <div class="product_col__price_col-1">
                 <div class="product__price">
-                    <span class="product-price__from"><?php _e('From  '); ?></span>
-                    &nbsp; <?php echo str_replace('.00', '', wc_price($product->get_price()));; ?>
+                    <?php echo str_replace('.00', '', iconic_variable_price_format($product->get_price(),$product)); ?>
                 </div>
                 <div class="product__payLater">
                     <?php echo __('Pay in 3 interest-free payments of ') . $priceLater; ?>

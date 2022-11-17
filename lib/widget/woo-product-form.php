@@ -87,8 +87,8 @@ class CustomWooSingleProductFrom extends Widget_Base
                     <span class="o-product-top__label <?php echo (get_field('product_label_color') == 'blue') ? 'o-product-top__label--blue' : null; ?>"><?php the_field('label'); ?></span>
                 <?php endif; ?>
                 <h1 class="o-product-top__title">
-                   <?php echo $title ?>
-                    </h1>
+                    <?php echo $title ?>
+                </h1>
 
                 <?php if (get_field('top_description_new_design', $id)) { ?>
 
@@ -97,8 +97,7 @@ class CustomWooSingleProductFrom extends Widget_Base
                         <span class="o-product-top__from"><?php _e('From  '); ?></span>
                         <span class=" JS--top-product-price">
                                     <?php $this->widget_pricing($product) ?>
-                                </span>
-                        <span class="o-product-top__price--inc"><?php _e('inc. VAT', 'bestelectric'); ?></span>
+                        </span>
                     </div>
 
                     <div class="o-product-top__trustpilot JS--tustpilot-loader">
@@ -122,9 +121,8 @@ class CustomWooSingleProductFrom extends Widget_Base
                             <span class="o-product-top__from"><?php _e('From  '); ?></span>
                             <span class=" JS--top-product-price">
                                     <?php $this->widget_pricing($product) ?>
-                                </span>
+                            </span>
 
-                            <span class="o-product-top__price--inc"><?php _e('inc. VAT', 'bestelectric'); ?></span>
                         </div>
 
                         <?php
@@ -360,6 +358,10 @@ class CustomWooSingleProductFrom extends Widget_Base
 
     public function widget_pricing($product)
     {
+        $price = floatval($product->get_regular_price());
+        $sale_price = floatval($product->get_sale_price());
+
+
         if (isset($_GET['attribute_pa_wattage'])) :
             $variations = $product->get_available_variations();
 
@@ -375,7 +377,7 @@ class CustomWooSingleProductFrom extends Widget_Base
                 endif;
             endforeach;
         else :
-            echo wc_price($product->get_price());
+            echo str_replace('From:', '', $product->get_price_html());;
         endif;
     }
 

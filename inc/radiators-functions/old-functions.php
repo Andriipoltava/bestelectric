@@ -169,10 +169,11 @@ function iconic_variable_price_format($price, $product)
     $min_price_sale = $product->get_variation_sale_price('min', true);
     $max_price = $product->get_variation_price('max', true);
     $min_price = $product->get_variation_price('min', true);
+    $save = $min_price_regular - $min_price_sale;
 
     $price = ($min_price_sale == $min_price_regular) ?
         wc_price($min_price_regular) :
-        '<del>' . wc_price($min_price_regular) . '</del>' . '<ins>' . wc_price($min_price_sale) . '</ins>';
+        '<del>' . wc_price($min_price_regular) . '</del>' . '<ins>' . wc_price($min_price_sale) . '</ins>'.'<span class="save">' . __('Save ') . get_woocommerce_currency_symbol() . $save . '</span>';
 
     return ($min_price == $max_price) ?
         $price :
@@ -278,7 +279,13 @@ function wcs_custom_get_availability($availability, $_product)
             $custom_in_stock_message = get_field('product_in_stock_message');
             $availability['availability'] = $custom_in_stock_message;
         } else {
-            $availability['availability'] = __('<strong>24 hr Delivery</strong> | Order before 11am for delivery ' . date_delivery_24() . '</br><strong>FREE 48 hr Delivery </strong > | Order before 11am for delivery ' . date_delivery_48(), 'woocommerce');
+            $datetime = new DateTime('now');
+            if (( int)$datetime->format('G') >= 11) {
+                $text='Order today for delivery ';
+            }else{
+                $text = 'Order before 11am for delivery ';
+            }
+            $availability['availability'] = __('<strong>24 hr Delivery</strong> | <span class="beforeAfter">'.$text.'</span> ' . date_delivery_24() . '</br><strong>FREE 48 hr Delivery </strong > |  <span class="beforeAfter">'.$text.'</span> ' . date_delivery_48(), 'woocommerce');
 
         }
     }

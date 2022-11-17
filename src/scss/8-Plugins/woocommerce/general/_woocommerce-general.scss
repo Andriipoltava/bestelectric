@@ -666,14 +666,18 @@
 .woocommerce ul.products li.product .price del {
     color: inherit;
     opacity: .5;
-    display: inline-block
+    display: none;
 }
 
 .woocommerce ul.products li.product .price ins {
     background: 0 0;
     font-weight: 700;
-    display: inline-block
+    display: inline-block;
+    text-decoration: none;
 }
+.woocommerce ul.products li.product .price .save {
+    display: none;
+ }
 
 .woocommerce ul.products li.product .price .from {
     font-size: .67em;

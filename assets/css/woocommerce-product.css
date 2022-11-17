@@ -686,6 +686,12 @@
   font-weight: 400;
   color: #333333; }
 
+.c-compare-sizes-form__price .price del, .c-compare-sizes-form__price .price .save {
+  display: none; }
+
+.c-compare-sizes-form__price .price ins {
+  text-decoration: none; }
+
 .c-compare-sizes-product__colors {
   display: flex;
   align-items: center;
@@ -2777,6 +2783,10 @@
 .cvy_radiator_variation_list .cvy_price {
   position: relative;
   bottom: -4px; }
+  .cvy_radiator_variation_list .cvy_price del, .cvy_radiator_variation_list .cvy_price .save {
+    display: none; }
+  .cvy_radiator_variation_list .cvy_price ins {
+    text-decoration: none; }
   .cvy_radiator_variation_list .cvy_price .available-on-backorder {
     margin: 0 !important;
     font-size: 12px;

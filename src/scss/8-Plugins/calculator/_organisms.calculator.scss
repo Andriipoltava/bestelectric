@@ -762,6 +762,12 @@
 .cvy_radiator_variation_list .cvy_price {
   position: relative;
   bottom: -4px;
+  del,.save{
+    display: none;
+  }
+  ins{
+    text-decoration: none;
+  }
   .available-on-backorder{
     margin: 0 !important;
     font-size: 12px;

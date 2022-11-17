@@ -127,6 +127,15 @@
   flex-wrap: wrap;
   width: 100%;
   text-align: left;
+  del .amount{
+    display: none;
+  }
+  .save{
+    display: none;
+  }
+  ins{
+    text-decoration: none;
+  }
 }
 
 .c-compare-ranges__footer--calc {

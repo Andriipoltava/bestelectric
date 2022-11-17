@@ -1058,6 +1058,10 @@
 .cvy_radiator_variation_list .cvy_price {
   position: relative;
   bottom: -4px; }
+  .cvy_radiator_variation_list .cvy_price del, .cvy_radiator_variation_list .cvy_price .save {
+    display: none; }
+  .cvy_radiator_variation_list .cvy_price ins {
+    text-decoration: none; }
   .cvy_radiator_variation_list .cvy_price .available-on-backorder {
     margin: 0 !important;
     font-size: 12px;
