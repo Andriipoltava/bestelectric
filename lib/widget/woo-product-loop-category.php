@@ -962,11 +962,11 @@ class CustomWooProductLoopCategory extends Widget_Base
                     padding: 0 15px;
                 }
             }
-
+            .product__price >.woocommerce-Price-amount:first-child{
+                margin-left: 5px;
+            }
             @media screen and (min-width: 1025px) {
-                .product__price >.woocommerce-Price-amount:first-child{
-                    margin-left: 5px;
-                }
+
 
                 .product_col__main .swiper:not(.slider-desktop) .product__variations.swiper-wrapper {
                     transform: translate3d(0px, 0px, 0px) !important;
@@ -1112,6 +1112,8 @@ class CustomWooProductLoopCategory extends Widget_Base
                     padding-left: 8px;
                     margin-bottom: 5px;
                     flex-wrap: nowrap;
+                    justify-content: flex-start;
+
                 }
 
                 .product_cat_electricRadiators__main .product_title {
