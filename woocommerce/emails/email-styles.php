@@ -461,6 +461,10 @@ $text_lighter_40 = wc_hex_lighter($text, 40);
     text-decoration: none;
     }
 
+    #table_main_order  table{
+    width: 100%;
+    }
+
     @media screen and (max-device-width: 767px), screen and (max-width: 767px) {
 
     .first_td {

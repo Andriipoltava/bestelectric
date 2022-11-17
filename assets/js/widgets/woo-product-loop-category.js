@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
     }
     $('.product__wrapPopupWarrant .product__Popup').on('click', function (e) {
         e.preventDefault()
-        elementorProFrontend.modules.popup.showPopup({id: 19816});
+        elementorProFrontend.modules.popup.showPopup({id: 20488});
     })
     if( $('.date_delivery_24').length){
         const months = ['Jan', 'Feb', 'Mar','Apr' ,'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
