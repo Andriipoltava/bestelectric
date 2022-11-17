@@ -197,6 +197,14 @@ class CustomWooProductLoopCategory extends Widget_Base
 
 
         $data = [];
+        $newTerm=[];
+        foreach( wc_get_attribute_taxonomies() as $values ) {
+            // Get the array of term names for each product attribute
+            $term_names = get_terms( array('taxonomy' => 'pa_' . $values->attribute_name) );
+            foreach ($term_names as $term){
+                $data[$term->taxonomy][$term->term_id]=[];
+            }
+        }
         $products_loop = new \WP_Query($products_args);
         if ($products_loop->have_posts()) :
             while ($products_loop->have_posts()) : $products_loop->the_post();
@@ -208,7 +216,6 @@ class CustomWooProductLoopCategory extends Widget_Base
                         $data[$taxonomy][$term->term_id]['name'] = $term->name;
                         $data[$taxonomy][$term->term_id]['slug'] = $term->slug;
                         $data[$taxonomy][$term->term_id]['id'] = $term->term_id;
-
                     }
                 }
             endwhile;
@@ -1416,9 +1423,12 @@ class CustomWooProductLoopCategory extends Widget_Base
 
                                     foreach ($data as $keyD => $datum) {
 
-                                        usort($datum, function ($item1, $item2) {
-                                            return $item1['slug'] <=> $item2['slug'];
-                                        });
+
+                                        foreach ($datum as $termID => $term) {
+                                            if(empty($term['name'])){
+                                                unset($datum[$termID]);
+                                            }
+                                        }
 
                                         if (count($datum) >= 1) {
                                             echo '<div class="product__filters__checkbox dropdown_layered_nav_' . esc_attr($keyD) . '" name="' . esc_attr($keyD) . '">';
