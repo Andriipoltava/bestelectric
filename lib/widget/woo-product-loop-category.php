@@ -279,7 +279,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 line-height: 15px;
                 color: #D9182B;
                 margin-left: 5px;
-                font-weight: 400;
+                font-weight: 700;
                 display: flex;
                 flex-direction: column-reverse;
                 text-align: start;
@@ -291,7 +291,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 font-size: 16px;
                 font-weight: 300;
                 display: flex;
-                align-items: center;
+                align-items: baseline;
                 justify-content: center;
                 flex-wrap: wrap;
                 text-transform: lowercase;
