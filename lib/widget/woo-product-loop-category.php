@@ -78,7 +78,6 @@ class CustomWooProductLoopCategory extends Widget_Base
         );
 
 
-
         $this->end_controls_section();
 
 
@@ -109,14 +108,13 @@ class CustomWooProductLoopCategory extends Widget_Base
     {
 
         $id = get_edit_id_page();
-        $setting = $this->get_settings();
-        ;
+        $setting = $this->get_settings();;
 
 
         global $product;
 
         $cat = get_queried_object();
-        $parent_category []= $cat->term_id ?: $setting['ids'];
+        $parent_category [] = $cat->term_id ?: $setting['ids'];
         // If the product object is not defined, we get it from the product ID
         if (!is_a($product, 'WC_Product') && get_post_type($id) === 'product') {
             $product = wc_get_product($id);
@@ -135,8 +133,6 @@ class CustomWooProductLoopCategory extends Widget_Base
 
         if ($setting['ids'])
             $parent_category[] = $setting['ids'];
-
-
 
 
         $cat_args = array(
@@ -269,7 +265,6 @@ class CustomWooProductLoopCategory extends Widget_Base
             .product_cat_electricRadiators .product_col__price {
                 max-width: 26%;
                 width: 100%;
-
                 background: #f2f2f2;
                 padding: 30px 0 0;
                 display: flex;
@@ -278,27 +273,46 @@ class CustomWooProductLoopCategory extends Widget_Base
 
             }
 
-            .product_cat_electricRadiators__main .product__price .save{
-                display: none;
+            .product_cat_electricRadiators__main .product__price .save {
+                text-transform: none;
+                font-size: 14px;
+                line-height: 15px;
+                color: #D9182B;
+                margin-left: 5px;
+                font-weight: 400;
+                display: flex;
+                flex-direction: column-reverse;
+                text-align: start;
             }
+
             .product_cat_electricRadiators__main .product__price {
                 text-align: center;
                 padding-bottom: 16px;
                 font-size: 16px;
                 font-weight: 300;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                text-transform: lowercase;
             }
 
-            .product_cat_electricRadiators__main .product__price  del{
-                font-size: 22px;
-                line-height: 27px;
+            .product_cat_electricRadiators__main .product__price del {
+                font-size: 14px;
+                line-height: 15px;
                 font-weight: 400;
                 color: #333333;
                 opacity: 0.5;
-                margin: 0 6px;
+
+            }
+            .product_cat_electricRadiators__main .product__price> del:first-child {
+                display: none;
             }
 
-            .product_cat_electricRadiators__main  ins{
+
+            .product_cat_electricRadiators__main ins {
                 text-decoration: none;
+                margin-left: 5px;
             }
 
 
@@ -308,7 +322,8 @@ class CustomWooProductLoopCategory extends Widget_Base
                 font-size: 20px;
                 color: #333333;
             }
-            .product_cat_electricRadiators__main .swiper{
+
+            .product_cat_electricRadiators__main .swiper {
                 overflow: hidden;
                 padding: 15px 5px 20px;
                 position: relative;
@@ -326,7 +341,8 @@ class CustomWooProductLoopCategory extends Widget_Base
                 overflow: visible;
                 will-change: auto;
             }
-            .product_cat_electricRadiators__main .cvy_product_thumbnail{
+
+            .product_cat_electricRadiators__main .cvy_product_thumbnail {
                 min-height: 67px;
                 max-width: 67px;
                 max-height: 67px;
@@ -361,14 +377,16 @@ class CustomWooProductLoopCategory extends Widget_Base
             .product_cat_electricRadiators__main .product_col__main.no-label .product__reviews {
                 width: 100%;
             }
+
             .product_cat_electricRadiators__main .product__reviews {
                 max-width: 150px;
                 margin-bottom: 10px;
             }
 
-            .product_cat_electricRadiators__main .product__wrapPopupWarrant  .product__Popup{
+            .product_cat_electricRadiators__main .product__wrapPopupWarrant .product__Popup {
                 margin-top: 0;
             }
+
             .product_cat_electricRadiators__main .product__wrapPopupWarrant {
                 display: flex;
                 align-items: center;
@@ -379,9 +397,10 @@ class CustomWooProductLoopCategory extends Widget_Base
 
             .product_cat_electricRadiators__main .product__features-list {
                 column-count: 2;
-                padding: 0 0 ;
+                padding: 0 0;
                 width: 100%;
             }
+
             .product_col__main.no-label {
                 justify-content: flex-end;
             }
@@ -426,7 +445,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 color: #FFFFFF;
                 background-color: #FC9E4E;
                 padding: 7px 17px;
-                font-size:14px;
+                font-size: 14px;
                 line-height: 1;
                 font-weight: 400;
                 width: auto;
@@ -500,7 +519,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 color: #333333;
                 text-align: center;
                 max-width: 200px;
-                margin: 0  auto 5px;
+                margin: 0 auto 5px;
                 font-weight: 600;
             }
 
@@ -516,6 +535,9 @@ class CustomWooProductLoopCategory extends Widget_Base
             .product_cat_electricRadiators__main .product__deliveryFooter svg {
                 max-width: 30px;
                 margin-right: 10px;
+            }
+            .product_cat_electricRadiators__main .product__deliveryFooter p{
+                margin-bottom: 0;
             }
 
             .product_cat_electricRadiators__main .product__deliveryFooter {
@@ -561,12 +583,13 @@ class CustomWooProductLoopCategory extends Widget_Base
                 text-transform: uppercase;
                 color: white;
             }
-            .product_cat_electricRadiators__main .product__learnMore:hover{
+
+            .product_cat_electricRadiators__main .product__learnMore:hover {
                 color: white;
-                background-color:  #333333;;
+                background-color: #333333;;
             }
 
-            .product_cat_electricRadiators__main .product__learnMore{
+            .product_cat_electricRadiators__main .product__learnMore {
                 display: block;
                 padding: 10px;
                 border: 1px solid #333333;
@@ -941,10 +964,12 @@ class CustomWooProductLoopCategory extends Widget_Base
             }
 
             @media screen and (min-width: 1025px) {
+                .product__price >.woocommerce-Price-amount:first-child{
+                    margin-left: 5px;
+                }
 
-
-                .product_col__main  .swiper:not(.slider-desktop) .product__variations.swiper-wrapper{
-                    transform: translate3d(0px, 0px, 0px)!important;
+                .product_col__main .swiper:not(.slider-desktop) .product__variations.swiper-wrapper {
+                    transform: translate3d(0px, 0px, 0px) !important;
                 }
 
 
@@ -1067,8 +1092,8 @@ class CustomWooProductLoopCategory extends Widget_Base
 
 
             @media screen and (min-width: 756px) {
-                .product_cat_electricRadiators__main  ins .amount ,
-                .product_cat_electricRadiators__main  .product__price > .amount {
+                .product_cat_electricRadiators__main ins .amount,
+                .product_cat_electricRadiators__main .product__price > .amount {
                     font-weight: bold;
                     font-size: 30px;
                     line-height: 36px;
@@ -1076,15 +1101,19 @@ class CustomWooProductLoopCategory extends Widget_Base
 
                 }
             }
+
             @media screen and (max-width: 756px) {
                 .product_cat_electricRadiators__wrap .swiper:not(.slider-desktop) .swiper-button-next {
                     display: flex;
                 }
-                .product_cat_electricRadiators__main .product__price{
+
+                .product_cat_electricRadiators__main .product__price {
                     text-align: left;
                     padding-left: 8px;
                     margin-bottom: 5px;
+                    flex-wrap: nowrap;
                 }
+
                 .product_cat_electricRadiators__main .product_title {
                     margin-bottom: 0;
                 }
@@ -1094,11 +1123,12 @@ class CustomWooProductLoopCategory extends Widget_Base
                 }
 
                 .product_cat_electricRadiators__main .product__label,
-                .product_cat_electricRadiators__main .product_titleMob{
+                .product_cat_electricRadiators__main .product_titleMob {
                     order: 0;
                 }
+
                 .product_cat_electricRadiators__main .product__reviews {
-                    order:1;
+                    order: 1;
                 }
 
                 .product_cat_electricRadiators__main .cvy_tip_content {
@@ -1124,17 +1154,19 @@ class CustomWooProductLoopCategory extends Widget_Base
                 .product_cat_electricRadiators__main .product__delivery_white {
                     font-size: 10px;
                     line-height: 13px;
-                    margin: 7px 15px;
+                    margin: 7px 15px 7px 5px;
                     padding: 4px 18px;
                 }
-                .product_cat_electricRadiators__main .product__learnMore{
+
+                .product_cat_electricRadiators__main .product__learnMore {
                     font-size: 10px;
                     line-height: 10px;
                     font-weight: 400;
 
-                    margin: 4px 15px 4px;
+                    margin: 4px 15px 4px 5px;
                     padding: 8px;
                 }
+
                 .product_cat_electricRadiators__main.product__button {
                     font-size: 12px;
                     line-height: 13px;
@@ -1144,11 +1176,11 @@ class CustomWooProductLoopCategory extends Widget_Base
                 }
 
                 .product_cat_electricRadiators__main .product_col__price_col-2 {
-                    max-width: 59.9%;
+                    max-width: 53.9%;
                 }
 
                 .product_cat_electricRadiators__main .product_col__price_col-1 {
-                    max-width: 39.9%;
+                    max-width: 45.9%;
                 }
 
                 .product_cat_electricRadiators__main .product__variations {
@@ -1194,7 +1226,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 }
 
                 .product_cat_electricRadiators__main .product__button {
-                    margin: 8px 15px 8px;
+                    margin: 8px 15px 8px 5px;
                     padding: 10px;
                     font-size: 12px;
                     line-height: 10px;
@@ -1238,13 +1270,24 @@ class CustomWooProductLoopCategory extends Widget_Base
                     line-height: 22px;
                     font-weight: bold;
                 }
-                .product_cat_electricRadiators__main .product__price del  ,
+
+                .product_cat_electricRadiators__main .product__price del,
                 .product_cat_electricRadiators__main .product__price del .amount {
-                    font-size: 14px;
+                    font-size: 12px;
+                    line-height: 12px;
+                    height: 14px;
                 }
-                .product_cat_electricRadiators__main .product__price del{
+
+                .product_cat_electricRadiators__main .product__price .save {
+                    font-size: 12px;
+                    line-height: 12px;
+                }
+
+                .product_cat_electricRadiators__main .product__price del {
                     margin: 0 5px 0 0;
                 }
+
+
                 .product_cat_electricRadiators__main .product__payLater {
                     font-size: 12px;
                     line-height: 14px;
@@ -1257,7 +1300,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                     max-width: 100%;
                     display: flex;
                     flex-direction: column;
-                    padding:30px 15px 0;
+                    padding: 30px 15px 0;
                     overflow: hidden;
                     margin-right: 0;
                 }

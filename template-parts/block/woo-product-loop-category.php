@@ -134,10 +134,10 @@ foreach ($product->get_attributes() as $attribute) {
                             $js_attrs_string = '';
                             $term_id = get_term_by('slug', $variation['attributes']['attribute_pa_wattage'], 'pa_wattage')->term_id;
                             $area = get_post_meta($variation_id, '_cvy_area', true);
-                           $display_regular_price= $variation['display_price']!=$variation['display_regular_price']? 'data-price_reg="' . $variation['display_regular_price'] . '" ':'';
+                            $display_regular_price = $variation['display_price'] != $variation['display_regular_price'] ? 'data-price_reg="' . $variation['display_regular_price'] . '" ' : '';
 
 
-                            $data .= '<li class="swiper-slide variable out-stock-' . ((!$variation["is_in_stock"]) ? 'yes' : 'no') . ' " ' . $js_attrs_string . ' data-price="' . $variation['display_price'] . '"  data-pa_wattage="' . $term_id . '" '.$display_regular_price.' >';
+                            $data .= '<li class="swiper-slide variable out-stock-' . ((!$variation["is_in_stock"]) ? 'yes' : 'no') . ' " ' . $js_attrs_string . ' data-price="' . $variation['display_price'] . '"  data-pa_wattage="' . $term_id . '" ' . $display_regular_price . ' >';
 
                             $data .= '<a href="' . get_permalink($variation_id) . '" >';
                             $data .= '<img
@@ -201,7 +201,7 @@ foreach ($product->get_attributes() as $attribute) {
         <div class="product_col__price_col">
             <div class="product_col__price_col-1">
                 <div class="product__price">
-                    <?php echo str_replace('.00', '', iconic_variable_price_format($product->get_price(),$product)); ?>
+                    <?php echo str_replace('.00', '', iconic_variable_price_format($product->get_price(), $product)); ?>
                 </div>
                 <div class="product__payLater">
                     <?php echo __('Pay in 3 interest-free payments of ') . $priceLater; ?>
@@ -305,8 +305,15 @@ foreach ($product->get_attributes() as $attribute) {
                       d="M23.156-2.969h-.594V-7.277a2.687,2.687,0,0,0-.783-1.889l-3.113-3.113a2.694,2.694,0,0,0-1.889-.783h-1.34v-1.484a2.079,2.079,0,0,0-2.078-2.078H2.078A2.079,2.079,0,0,0,0-14.547V-3.266A2.079,2.079,0,0,0,2.078-1.187h.3A3.563,3.563,0,0,0,5.937,2.375,3.563,3.563,0,0,0,9.5-1.187h4.75a3.563,3.563,0,0,0,3.562,3.562,3.563,3.563,0,0,0,3.562-3.562h1.781a.6.6,0,0,0,.594-.594v-.594A.6.6,0,0,0,23.156-2.969ZM5.937.594A1.782,1.782,0,0,1,4.156-1.187,1.782,1.782,0,0,1,5.937-2.969,1.782,1.782,0,0,1,7.719-1.187,1.782,1.782,0,0,1,5.937.594Zm7.719-3.562H9.006A3.542,3.542,0,0,0,5.937-4.75,3.542,3.542,0,0,0,2.869-2.969h-.79a.3.3,0,0,1-.3-.3V-14.547a.3.3,0,0,1,.3-.3H13.359a.3.3,0,0,1,.3.3Zm1.781-8.312h1.34a.912.912,0,0,1,.631.26l2.709,2.709H15.437ZM17.812.594a1.782,1.782,0,0,1-1.781-1.781,1.782,1.782,0,0,1,1.781-1.781,1.782,1.782,0,0,1,1.781,1.781A1.782,1.782,0,0,1,17.812.594Zm2.969-3.744a3.562,3.562,0,0,0-2.969-1.6,3.539,3.539,0,0,0-2.375.924V-6.531h5.344Z"
                       transform="translate(11 29.625)" fill="#77a464"></path>
             </svg>
-            <span>
+            <span class="">
+                <?php if (get_field('delivery_text__for_product_list', $id)) {
+                    $text = get_field('delivery_text__for_product_list', $id);
+                    $text = str_replace('[date_delivery_24]', date_delivery_24(), $text);
+                    $text = str_replace('[date_delivery_48]', date_delivery_48(), $text);
+                    echo $text;
+                }else{ ?>
                 <strong>Available</strong> | Get it  <?php echo date_delivery_24(); ?></span>
+            <?php }; ?>
         </div>
     </div>
 </div>

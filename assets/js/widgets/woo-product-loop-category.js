@@ -120,6 +120,11 @@ jQuery(document).ready(function ($) {
 
 
     });
+    $('.product__price').each(function () {
+        if($(this).find('del')){
+            $(this).find('.save').append($(this).find('del'))
+        }
+    })
     const priceHandler = () => {
 
         $(`.product_cat_electricRadiators`).each(function () {
