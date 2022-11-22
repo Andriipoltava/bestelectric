@@ -76,6 +76,28 @@ class CustomWooProductLoopCategory extends Widget_Base
 
             ]
         );
+        $this->add_control(
+            'sale-badge',
+            [
+                'label' => esc_html__('Sale Badge', 'bestelectric'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    '' => esc_html__( 'False', 'elementor' ),
+                    'true' => esc_html__( 'True', 'elementor' ),
+
+                ],
+
+            ]
+        );
+        $this->add_control(
+            'sale-badge-image',
+            [
+                'label' => esc_html__('Sale Badge Image', 'bestelectric'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+
+
+            ]
+        );
 
 
         $this->end_controls_section();
@@ -90,10 +112,10 @@ class CustomWooProductLoopCategory extends Widget_Base
 
     }
 
-    protected function renderTemplateItemHtml()
+    protected function renderTemplateItemHtml($args)
     {
 
-        get_template_part('template-parts/block/woo-product-loop-category');
+        get_template_part('template-parts/block/woo-product-loop-category',null,$args);
 
     }
 
@@ -255,6 +277,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                position: relative;
 
             }
 
@@ -943,6 +966,12 @@ class CustomWooProductLoopCategory extends Widget_Base
                 top: 0;
                 height: 100%;
             }
+            .product_featured__image .bl-fr{
+                position: absolute;
+                right: 30px;
+                top: 40px;
+                max-width: 70px;
+            }
 
             @keyframes bg-pulse {
                 0%, 100% {
@@ -1110,6 +1139,11 @@ class CustomWooProductLoopCategory extends Widget_Base
             }
 
             @media screen and (max-width: 756px) {
+                .product_featured__image .bl-fr{
+
+                    right: 20px;
+                    top: 20px;
+                }
                 .product_cat_electricRadiators__wrap .swiper:not(.slider-desktop) .swiper-button-next {
                     display: flex;
                 }
@@ -1463,7 +1497,7 @@ class CustomWooProductLoopCategory extends Widget_Base
                 <?php if ($products_loop->have_posts()) :
                     while ($products_loop->have_posts()) : $products_loop->the_post();
 
-                        $this->renderTemplateItemHtml();
+                        $this->renderTemplateItemHtml($setting);
                     endwhile;endif;
 
                 wp_reset_postdata();; ?>

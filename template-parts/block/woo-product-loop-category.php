@@ -35,7 +35,6 @@ $title = get_field('long_title_product', $id) ?: str_replace('Wifi', '<sup>wifi<
 $priceLater = (float)$product->get_price() / 3;
 $priceLater = number_format((float)$priceLater, 2, '.', '');
 $priceLater = get_woocommerce_currency_symbol() . '<span class="priceLater">' . $priceLater . '</span>';
-
 ?>
 
 <div class="product_cat_electricRadiators" <?php
@@ -47,6 +46,10 @@ foreach ($product->get_attributes() as $attribute) {
         <div class="product_featured__image">
             <a class="" href="<?php echo get_the_permalink($id) ?>">
                 <?php echo get_the_post_thumbnail($id); ?>
+                <?php if (isset($args) && isset($args['sale-badge'])&&$args['sale-badge']!=''&& isset($args['sale-badge-image'])) { ?>
+                    <img src="<?php echo $args['sale-badge-image']['url']?>"
+                         class="bl-fr" alt="">
+                <?php }; ?>
             </a>
         </div>
         <?php if (get_field('lot20_compliant', $id)): ?>
