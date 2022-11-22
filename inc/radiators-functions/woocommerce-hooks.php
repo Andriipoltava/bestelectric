@@ -147,6 +147,22 @@ add_action('woocommerce_after_add_end_cart_button', 'add_to_btn_product_availabi
 function add_to_btn_product_availability()
 {
     global $product;
+    $id=$product->get_id();
+    if (get_field('number_of_purchases_per_day', $id) && get_field('pereiod_purchases_per_day', $id) && (int)get_order_count_by($id, '-' . get_field('number_of_purchases_per_day', $id) . ' days') > 19) {
+
+        $date = get_field('number_of_purchases_per_day', $id);
+        $count = get_order_count_by($id, '-' . $date . ' days');
+        ?>
+        <div class="product__delivery_white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18.884" height="16.785" viewBox="0 0 18.884 16.785">
+                <path id="trophy-solid" d="M18.1,2.1h-3.41V.787A.785.785,0,0,0,13.9,0H4.983A.785.785,0,0,0,4.2.787V2.1H.787A.785.785,0,0,0,0,2.885V4.721a4.278,4.278,0,0,0,2.029,3.3A7.68,7.68,0,0,0,5.636,9.389,7.252,7.252,0,0,0,7.868,11.8v2.36H6.295A1.892,1.892,0,0,0,4.2,16v.393a.4.4,0,0,0,.393.393h9.7a.4.4,0,0,0,.393-.393V16a1.892,1.892,0,0,0-2.1-1.836H11.015V11.8a7.252,7.252,0,0,0,2.233-2.413,7.654,7.654,0,0,0,3.606-1.367,4.287,4.287,0,0,0,2.029-3.3V2.885A.785.785,0,0,0,18.1,2.1ZM3.255,6.321A2.412,2.412,0,0,1,2.1,4.721V4.2H4.2a11.775,11.775,0,0,0,.42,2.826A5.283,5.283,0,0,1,3.255,6.321Zm13.53-1.6a2.519,2.519,0,0,1-1.157,1.6,5.3,5.3,0,0,1-1.37.7,11.775,11.775,0,0,0,.42-2.826h2.108Z" fill="#707070"/>
+            </svg>
+            <span>
+            Popular item. Bought
+            <b><?php echo $count; ?>+ times</b>
+            <?php echo get_field('pereiod_purchases_per_day', $id); ?></span>
+        </div>
+    <?php };
     $product_availability = $product->get_availability();
     if ($product_availability['availability']) { ?>
         <div class="delivery__bottom product-availability  <?php echo $product_availability['class'] ?>">
@@ -238,10 +254,10 @@ add_action('woocommerce_after_add_to_cart_quantity', function (){
     <!-- end variations_button__bottom__quantity-->
     </div>
     <p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-        <?php echo str_replace('From:', '', $product->get_price_html()) ; ?>
+        <?php echo str_replace('From:', '', $product->get_price_html()); ?>
 
     </p>
-    <div class="variations_button__bottom__paymentLater o-product-top__paymentLater__content o-product-top__paymentLater"> <?php echo __('Pay in 3 interest-free payments of ') . $priceLater.'.'; ?>
+    <div class="variations_button__bottom__paymentLater o-product-top__paymentLater__content o-product-top__paymentLater"> <?php echo __('Pay in 3 interest-free payments of ') . $priceLater . '.'; ?>
 
     </div>
     <!-- end variations_button__bottom__wrap-->
@@ -259,7 +275,7 @@ add_action('woocommerce_after_add_to_cart_button', function () {
 
 add_action('woocommerce_after_add_to_cart_form', function () {
     global $product;
-    if($product->get_type() =='simple'){
+    if ($product->get_type() == 'simple') {
 
         add_to_btn_product_availability();
 
@@ -270,9 +286,8 @@ add_action('woocommerce_after_add_to_cart_form', function () {
 add_filter('woocommerce_format_sale_price', function ($price, $regular_price, $sale_price) {
 
     $save = $regular_price - $sale_price;
-    return $price.'<span class="save">' . __('Save ') . get_woocommerce_currency_symbol() . $save . '</span>';
+    return $price . '<span class="save">' . __('Save ') . get_woocommerce_currency_symbol() . $save . '</span>';
 }, 10, 3);
-
 
 
 add_filter('woocommerce_price_trim_zeros', 'wc_hide_trailing_zeros');
