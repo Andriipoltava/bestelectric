@@ -300,3 +300,42 @@ function wc_hide_trailing_zeros($trim)
     }
     return $trim;
 }
+
+function get_order_count_by($product_id, $day = '-1 week', $status = 'wc-completed')
+{
+    global $wpdb;
+
+    $date_to = date('Y-m-d H:i:s', strtotime('now'));
+    $date_from = date('Y-m-d H:i:s', strtotime($day));
+
+    return $wpdb->get_var($wpdb->prepare("
+        SELECT DISTINCT count(o.ID)
+        FROM {$wpdb->prefix}posts o
+        INNER JOIN {$wpdb->prefix}woocommerce_order_items oi
+            ON o.ID = oi.order_id
+        INNER JOIN {$wpdb->prefix}woocommerce_order_itemmeta oim
+            ON oi.order_item_id = oim.order_item_id
+        WHERE o.post_status = '%s'
+            AND o.post_date >= '%s'
+            AND o.post_date < '%s'
+            AND oim.meta_key IN ('_product_id','_variation_id')
+            AND oim.meta_value = %d
+    ", $status, $date_from, $date_to, $product_id));
+}
+
+add_action('wp_head', function () {
+    $terms = get_terms('pa_colour');
+
+    if (!empty($terms)&& is_product()) {
+        echo '<style id="pa_colour">';
+        foreach ($terms as $term) {
+            if (get_term_meta($term->term_id, 'product_attribute_color', true)) {
+                echo '.iconic-wlv-terms__term--' . $term->slug . ' > a {background:' . get_term_meta($term->term_id, 'product_attribute_color', true) . '}';
+                echo '.iconic-wlv-terms__term--' . $term->slug . ' > a:hover {background:' . get_term_meta($term->term_id, 'product_attribute_color', true) . '}';
+                echo ' .iconic-wlv-variations__row--pa_colour .iconic-wlv-term--buttons li.iconic-wlv-terms__term.iconic-wlv-terms__term--' . $term->slug . '.iconic-wlv-terms__term--instock:not(.iconic-wlv-terms__term--image) > span {background:' . get_term_meta($term->term_id, 'product_attribute_color', true) . '}';
+            }
+        }
+        echo '</style>';
+    }
+
+});
