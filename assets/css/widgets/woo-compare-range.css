@@ -162,6 +162,13 @@
     width: 100%;
     max-width: 100%;
     height: auto !important; }
+  .c-compare-ranges__thumb .bl-fr {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 80px; }
 
 .c-compare-ranges__thumb-link {
   display: block;

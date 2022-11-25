@@ -72,6 +72,28 @@ class CustomWooProductCompareRange extends Widget_Base
 
             ]
         );
+        $this->add_control(
+            'sale-badge',
+            [
+                'label' => esc_html__('Sale Badge', 'bestelectric'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    '' => esc_html__( 'False', 'elementor' ),
+                    'true' => esc_html__( 'True', 'elementor' ),
+
+                ],
+
+            ]
+        );
+        $this->add_control(
+            'sale-badge-image',
+            [
+                'label' => esc_html__('Sale Badge Image', 'bestelectric'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+
+
+            ]
+        );
 
 
         $this->end_controls_section();
@@ -149,7 +171,7 @@ class CustomWooProductCompareRange extends Widget_Base
                 <?php } ?>
                 <div class="s-compare-ranges__slider ">
                     <?php
-                    $this->style_list_2($products_loop);
+                    $this->style_list_2($products_loop,$setting);
 
                     ?>
                 </div>
@@ -241,7 +263,7 @@ class CustomWooProductCompareRange extends Widget_Base
         <?php
     }
 
-    public function style_list_2($products_loop)
+    public function style_list_2($products_loop,$setting)
     {
         ?>
         <?php while ($products_loop->have_posts()) : $products_loop->the_post();
@@ -316,6 +338,10 @@ class CustomWooProductCompareRange extends Widget_Base
                         <?php endif; ?>
                         <div class="c-compare-ranges__thumb--main">
                             <?php echo twl_lazy_image(get_post_thumbnail_id($id), 'woocommerce_thumbnail'); ?>
+                            <?php if (isset($setting) && isset($setting['sale-badge'])&&$setting['sale-badge']!=''&& isset($setting['sale-badge-image'])) { ?>
+                                <img src="<?php echo $setting['sale-badge-image']['url']?>"
+                                     class="bl-fr" alt="Sale Badge">
+                            <?php }; ?>
                         </div>
                     </a>
                 </div>
