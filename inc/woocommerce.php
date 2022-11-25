@@ -141,14 +141,23 @@ function wpse223576_search_woocommerce_only($query)
 
     }
     if (!is_admin() && is_search() && $query->is_main_query()) {
-        $posts = get_posts([
-            'post_type' => 'product',
-            'post_status' => 'publish',
-            's' => $_GET['s'],
-        ]);
 
-        $ids = array_column($posts, 'ID');
-        $p = get_posts([
+        $args = array(
+            'post_type' => array('product', ),
+            'post_status' => 'publish',
+            's' =>get_search_query()
+        );
+        $the_query = new WP_Query( $args );
+        $ids=[];
+        $p_ids=[];
+        if ( $the_query->have_posts() ) {
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                $ids[]=get_the_ID();
+            }
+        }
+        wp_reset_postdata();
+        $p_args = [
             'post_status' => 'publish',
             'post_type' => array('product', 'product_variation'),
             'posts_per_page' => -1,
@@ -162,9 +171,17 @@ function wpse223576_search_woocommerce_only($query)
                 ber_query_term('pa_brand'), ber_query_term('pa_dimensions'), ber_query_term('pa_control-type'), ber_query_term('pa_colour'), ber_query_term('pa_capacity'),
 
             ),
-        ]);
-        if (count($p))
-            $ids = array_merge($ids, array_column($p, 'ID'));
+        ];
+        $p = new WP_Query( $p_args );
+        if ( $p->have_posts() ) {
+            while ( $p->have_posts() ) {
+                $p->the_post();
+                $p_ids[]=get_the_ID();
+            }
+        }
+        wp_reset_postdata();
+        if (count($p_ids))
+            $ids = array_merge($ids, $p_ids);
         $query->set('post__in', $ids);
         $query->set('s', ' ');
     }
