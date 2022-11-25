@@ -421,11 +421,21 @@ function date_delivery_48()
 add_shortcode('date_delivery_48','date_delivery_48');
 add_filter('nav_menu_item_title', function ($title, $menu_item, $args, $depth) {
 
+    // add label product category
+    if(($menu_item->object=='product_cat')){
+        if (get_term_meta($menu_item->object_id, 'label', true)){
+            $labelColor=get_term_meta($menu_item->object_id, 'label_color', true);
+            $label=get_term_meta($menu_item->object_id, 'label', true);
+            $label='<span class="label label-color-'.$labelColor.'">'.$label.'</span>';
+            $title='<span class="wrap-label">'.$title.' '.$label.'</span>';
+        }
+    }
+    //home banner
     if ($args->container_id == 'thumbnailCats') {
         $thumbnail_id = get_term_meta($menu_item->object_id, 'thumbnail_id', true);
         $image = wp_get_attachment_image($thumbnail_id, [315, 250]);
         $svg = '<svg class="main-svg" xmlns="http://www.w3.org/2000/svg" width="16.351" height="40.83" viewBox="0 0 16.351 40.83"><path d="M182.2,413.638l16.351-12.207v-6.223L182.2,407.415Z" transform="translate(-182.197 -372.808)" fill="#fff"/><path d="M182.2,341.733v6.223l16.351-12.207v-6.223Z" transform="translate(-182.197 -318.325)" fill="#fff"/><path d="M182.2,282.273l16.351-12.207v-6.223L182.2,276.05Z" transform="translate(-182.197 -263.843)" fill="#fff"/></svg>';
-        $title = "<div class='nav-thumbnail__wrap'>$image <div class='nav-thumbnail__wrap'>$svg<p class='title'>$title</p><span class='shop'>Shop Now <svg aria-hidden='true' class='e-font-icon-svg e-fas-chevron-down'><use xlink:href='#fas-chevron-right'></use></svg></span></div></div>";
+        $title = "<div class='nav-thumbnail__wrap'>$image <div class='nav-thumbnail__wrap'>$svg<p class='title'>$title </p><span class='shop'>Shop Now <svg aria-hidden='true' class='e-font-icon-svg e-fas-chevron-down'><use xlink:href='#fas-chevron-right'></use></svg></span></div></div>";
     }
     return $title;
 }, 10, 4);

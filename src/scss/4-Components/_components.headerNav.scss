@@ -1,22 +1,22 @@
 .c-header-nav {
-  @include mq($max:1025) {
+  @include mq($max: 1025) {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     z-index: 999;
-    padding:8px 0 20px;
+    padding: 8px 0 20px;
     background-color: palette(secondary, 150);
     box-shadow: 0 14px 20px -2px rgba(0, 0, 0, .16);
   }
-  @include mq(1025){
-    display:block !important;
+  @include mq(1025) {
+    display: block !important;
   }
 }
 
 .c-header-nav__primary {
-  @include mq($max:1025){
+  @include mq($max: 1025) {
     .menu {
       width: 100%;
 
@@ -96,7 +96,7 @@
               padding: 4px 0;
               @include font(l-small, 16, 400);
               color: palette(text, 200);
-              text-transform:none;
+              text-transform: none;
             }
           }
         }
@@ -119,15 +119,18 @@
                 }
               }
             }
-            &.c-megamenu-radiators__column--wide{
+
+            &.c-megamenu-radiators__column--wide {
               background: #fff;
               padding: 7px 0;
               margin-top: 12px;
-              .c-mega-sub-menu__body{
-                background:#fff;
+
+              .c-mega-sub-menu__body {
+                background: #fff;
               }
             }
-            &.c-megamenu-radiators__column--gray{
+
+            &.c-megamenu-radiators__column--gray {
               margin-bottom: 20px;
             }
           }
@@ -220,23 +223,27 @@
               }
             }
           }
-          .c-megamenu-radiators__column--gray{
-            .c-mega-sub-menu__body{
+
+          .c-megamenu-radiators__column--gray {
+            .c-mega-sub-menu__body {
               padding: 0 0 28px;
             }
-           .c-mega-sub-menu{
-             .c-mega-sub-menu__header{
-               //background-color: palette(secondary, 150);
-               padding: 12px 40px 20px 0;
-               .c-mega-sub-menu__title{
-                 @include font(base, 26, 400);
-                 text-transform:uppercase;
-               }
-               &:after{
-                 top: calc(50% - 4px);
-               }
-             }
-           }
+
+            .c-mega-sub-menu {
+              .c-mega-sub-menu__header {
+                //background-color: palette(secondary, 150);
+                padding: 12px 40px 20px 0;
+
+                .c-mega-sub-menu__title {
+                  @include font(base, 26, 400);
+                  text-transform: uppercase;
+                }
+
+                &:after {
+                  top: calc(50% - 4px);
+                }
+              }
+            }
           }
         }
       }
@@ -368,3 +375,31 @@
   }
 
 }
+
+.menu-item {
+  .wrap-label {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .label {
+    font-size: 10px;
+    background-color: #D9182B;
+    border-radius: 15px;
+    padding: 2px 6px;
+    font-weight: bold;
+    line-height: 12px;
+    margin-bottom: 3px;
+    color: white;
+    margin-left: 5px;
+
+    &.label-color-purple {
+      background: #9834D1;
+    }
+
+    &.label-color-red {
+      background-color: #D9182B;
+    }
+  }
+}
+

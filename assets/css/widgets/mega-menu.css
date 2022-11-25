@@ -734,6 +734,25 @@
     .c-header-nav__primary .menu .menu-item.c-mega-menu-item {
       position: static !important; } }
 
+.menu-item .wrap-label {
+  display: flex;
+  align-items: flex-start; }
+
+.menu-item .label {
+  font-size: 10px;
+  background-color: #D9182B;
+  border-radius: 15px;
+  padding: 2px 6px;
+  font-weight: bold;
+  line-height: 12px;
+  margin-bottom: 3px;
+  color: white;
+  margin-left: 5px; }
+  .menu-item .label.label-color-purple {
+    background: #9834D1; }
+  .menu-item .label.label-color-red {
+    background-color: #D9182B; }
+
 @media screen and (min-width: 1025px) {
   .c-megamenu-radiators {
     background: #fff;
