@@ -457,13 +457,22 @@ add_filter('widget_nav_menu_args', function ($nav_menu_args, $nav_menu, $args, $
 
 }, 10, 4);
 
-if (function_exists('WC') && class_exists('WCPM\Classes\Pixels\Pixel_Manager')) {
-    add_action('wp_head', 'remove_Pixel_Manager_actions');
-    function remove_Pixel_Manager_actions()
-    {
-        if (is_cart()) {
+
+if (function_exists('url_to_postid') && function_exists('WC') && class_exists('WCPM\Classes\Pixels\Pixel_Manager')) {
+    add_action('woocommerce_init', function () {
+        $scheme = (!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] === "off") ? "http" : "https";
+        $url = "$scheme://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $current_id = url_to_postid($url);
+        $card_id = wc_get_page_id('cart');
+        if (isset($current_id) && isset($card_id) && $current_id == $card_id) {
             $class = WCPM\Classes\Pixels\Pixel_Manager::get_instance();
             remove_action('woocommerce_after_shop_loop_item', [$class, 'action_woocommerce_after_shop_loop_item'], 10, 1);
         }
+    });
+    if ( ! empty( $_REQUEST['wc-ajax'] ) && 'get_refreshed_fragments' === $_REQUEST['wc-ajax'] ) {
+        $class = WCPM\Classes\Pixels\Pixel_Manager::get_instance();
+        remove_action('woocommerce_after_shop_loop_item', [$class, 'action_woocommerce_after_shop_loop_item'], 10, 1);
     }
 }
+
+

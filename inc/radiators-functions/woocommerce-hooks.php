@@ -51,7 +51,7 @@ remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pro
 add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_description', 5);
 function woocommerce_template_description()
 {
-    $product = wc_get_product(get_the_ID());
+    global $product;
     if (is_product_category('electric-radiators') && $product->get_parent_id()) {
 
         $parent_id = $product->get_parent_id();
@@ -87,7 +87,8 @@ function woocommerce_template_description()
         echo '<div class="c-product-loop-content">';
 
         echo '<div class="c-product-loop-title "><a href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
-        if (is_cart()) {
+
+        if (is_cart() || isset($_GET['wc-ajax']) && isset($_GET['elementor_page_id']) && $_GET['elementor_page_id'] == '9') {
             echo '     <a class="c-product-loop-price" href="' . get_the_permalink() . '">' . $product->get_price_html() . ' </a>';
 
         }
