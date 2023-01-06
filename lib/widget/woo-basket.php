@@ -89,6 +89,19 @@ class CustomBasketWoo extends Widget_Base
 
     protected function render()
     {
+
+        $items_count    = 0; // Initializing
+
+        if(isset( WC()->cart)) {
+            // Loop through cart items
+            foreach (WC()->cart->get_cart() as $item) {
+                // Excluding some product category from the count
+                $items_count += $item['quantity'];
+
+            }
+        }
+
+
         $settings = $this->get_settings_for_display();
         ?>
         <div class="o-header__cart">
@@ -105,7 +118,7 @@ class CustomBasketWoo extends Widget_Base
                             " />
                     </svg>
                 </span>
-                <span class="с-cart-btn__count"><?php echo function_exists(' WC')&& is_object( WC()->cart )? WC()->cart->get_cart_contents_count():''; ?></span>
+                <span class="с-cart-btn__count"><?php echo $items_count; ?></span>
 
             </a>
             <?php if (function_exists('is_cart')&&!is_cart()) : ?>
