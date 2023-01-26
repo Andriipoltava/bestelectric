@@ -126,6 +126,10 @@
     })
 
     jQuery(".single_variation_wrap").on("show_variation", function (event, variation) {
+        jQuery('.onbackorder')?.removeClass('show').closest('.delivery__bottom').removeClass('available-on-backorder')
+        if (variation?.variation_id === jQuery('.onbackorder')?.data('id')) {
+            jQuery('.onbackorder[data-id="' + variation.variation_id + '"]')?.addClass('show').closest('.delivery__bottom').addClass('available-on-backorder')
+        }
         setTimeout(function () {
             let upsellPrice = 0
             jQuery('.o-product-top .upsell_options input:checked').each(function (index, item) {

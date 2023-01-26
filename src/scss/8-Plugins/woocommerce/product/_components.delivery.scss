@@ -9,15 +9,31 @@
     text-align: center;
   }
   &__body {
-    @include mq(null,1025) {
+    @include mq(null, 1025) {
       width: 100%;
     }
+
     p {
-      margin-bottom: 0!important;
+      margin-bottom: 0 !important;
       font-size: 14px;
       color: #77A464;
       line-height: 20px;
     }
+
+    .onbackorder {
+      display: none;
+
+      &.show {
+        display: block;
+        & ~ p {
+          display: none;
+        }
+      }
+
+
+    }
+
+
   }
   &__icon {
     border-radius: 50%;

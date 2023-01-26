@@ -179,12 +179,29 @@ function add_to_btn_product_availability()
                 </svg>
             </div>
             <div class="delivery__bottom__body">
-                <?php if (get_field('product_delivery_condition', $product->get_id())) {
-                    $text = get_field('product_delivery_condition', $product->get_id());
-                    $text = str_replace('[date_delivery_24]', date_delivery_24(), $text);
-                    $text = str_replace('[date_delivery_48]', date_delivery_48(), $text);
-                    echo $text;
-                } else { ?>
+
+                <?php
+                if ($product->get_type() === 'variable') {
+
+                    foreach ($product->get_available_variations('object') as $variation_obj) {
+                        if ($variation_obj->get_stock_status() == 'onbackorder') {
+                            echo '<p class="onbackorder" data-id="' . $variation_obj->get_id() . '">' . get_field('product_backorder_message', 'option') . '</p>';
+                        }
+
+                    }
+
+                }
+
+                $product_delivery_condition = get_field('product_delivery_condition', $product->get_id());
+
+                if ($product_delivery_condition) {
+
+                    $product_delivery_condition = str_replace('[date_delivery_24]', date_delivery_24(), $product_delivery_condition);
+                    $product_delivery_condition = str_replace('[date_delivery_48]', date_delivery_48(), $product_delivery_condition);
+                    echo $product_delivery_condition;
+
+                } else {
+                    ?>
                     <p>
                         <?php echo $product_availability['availability']; ?>
                     </p>

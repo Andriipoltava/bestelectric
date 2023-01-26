@@ -7,7 +7,7 @@
 
     $('.o-product-top .gold_standard__Popup').on('click', function (e) {
         e.preventDefault()
-        elementorProFrontend.modules.popup.showPopup({id: 20488});
+        elementorProFrontend.modules.popup.showPopup({id: 19816});
     })
 
     if ($('.date_delivery_48').length || $('.date_delivery_24').length) {
@@ -30,14 +30,13 @@
         date_delivery_48 = changeTimezone(date_delivery_48, "Europe/London");
         let date_delivery_24 = new Date();
         date_delivery_24 = changeTimezone(date_delivery_24, "Europe/London");
-        let textBeforeAfter = 'Order before 11am for delivery ';
+
         let day_24 = 'tomorrow';
         if (date_delivery_48.getHours() >= 11) {
             date_delivery_48.setDate(date_delivery_48.getDate() + 3);
-            if (date_delivery_48.getDay() == 1 || date_delivery_48.getDay() == 0) {
+            if (date_delivery_48.getDay() == 1||date_delivery_48.getDay() == 0) {
                 date_delivery_48.setDate(date_delivery_48.getDate() + 1);
             }
-            textBeforeAfter = 'Order today for delivery ';
 
         } else {
             date_delivery_48.setDate(date_delivery_48.getDate() + 2);
@@ -52,10 +51,11 @@
         } else if (date_delivery_48.getDay() == 2) {
             date_delivery_48.setDate(date_delivery_48.getDate() + 1);
         }
-        $('.delivery__bottom__body .beforeAfter').text(textBeforeAfter)
 
 
-        if (date_delivery_24.getHours() >= 11) {
+
+
+        if (date_delivery_24.getHours() >= 11 ) {
             date_delivery_24.setDate(date_delivery_24.getDate() + 2);
             if (date_delivery_24.getDay() == 1) {
                 date_delivery_24.setDate(date_delivery_24.getDate() + 1);
@@ -87,27 +87,29 @@
     }
 
     function upsell_options(upsellPrice, update = false) {
-        let oldPriceHtml=document.querySelector('.variations_form .price .amount')
-        if(document.querySelector('.variations_form .price ins')){
-            oldPriceHtml=document.querySelector('.variations_form .price ins .amount')
-        }
-        const oldPrice = oldPriceHtml.textContent.replace('£', '').replace(',', '')
-
+        const oldPrice = document.querySelector('.variations_form .price').textContent.replace('£', '')
         setTimeout(function () {
             let newPrice = parseFloat(upsellPrice) + parseFloat(oldPrice),
-                newHtml = document.querySelector('.variations_form .price').innerHTML.replace(oldPrice, newPrice.toFixed(0));
-
-            if (document.querySelector(' .variations_form .price ')) {
-                $('.variations_form .price ').html(newHtml)
+                newHtml = document.querySelector('.variations_form .price .amount').innerHTML.replace(oldPrice, newPrice.toFixed(2));
+            if (document.querySelector(' .variations_form .price .amount')) {
+                document.querySelector('.variations_form .price .amount').innerHTML = newHtml
             }
-            if (document.querySelector('.single_variation_wrap .variations_button__bottom  .price ')) {
+            if (document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount')) {
+                document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount').innerHTML = newHtml
             }
-            if (document.querySelector('.singleWooHeader__item__price .price ')) {
-                $('.singleWooHeader__item__price .price').html(newHtml)
-
+            if (document.querySelector('.singleWooHeader__item__price .price .amount')) {
+                document.querySelector('.singleWooHeader__item__price .price .amount').innerHTML = newHtml
+            } else {
+                if (document.querySelector('.singleWooHeader__item__price .price')) {
+                    document.querySelector('.singleWooHeader__item__price .price').innerHTML = '<span class="woocommerce-Price-amount amount">' + newHtml + '</span>'
+                }
             }
-            if (document.querySelector('.o-product-top__price .JS--top-product-price ')) {
-                $('.o-product-top__price .JS--top-product-price').html(newHtml)
+            if (document.querySelector('.o-product-top__price .JS--top-product-price .amount')) {
+                document.querySelector('.o-product-top__price .JS--top-product-price .amount').innerHTML = newHtml
+            } else {
+                if (document.querySelector('.o-product-top__price .JS--top-product-price')) {
+                    document.querySelector('.o-product-top__price .JS--top-product-price').innerHTML = '<span class="woocommerce-Price-amount amount">' + newHtml + '</span>'
+                }
             }
             if (document.querySelectorAll(' .o-product-top__paymentLater .priceLater').length) {
                 document.querySelectorAll(' .o-product-top__paymentLater .priceLater').forEach((e) => {
@@ -116,7 +118,7 @@
 
             }
 
-        }, 40);
+        }, 10);
     }
 
     jQuery('.o-product-top .upsell_options input').on('change', function (e) {
@@ -124,6 +126,10 @@
     })
 
     jQuery(".single_variation_wrap").on("show_variation", function (event, variation) {
+        jQuery('.onbackorder')?.removeClass('show').closest('.delivery__bottom').removeClass('available-on-backorder')
+        if (variation?.variation_id === jQuery('.onbackorder')?.data('id')) {
+            jQuery('.onbackorder[data-id="' + variation.variation_id + '"]')?.addClass('show').closest('.delivery__bottom').addClass('available-on-backorder')
+        }
         setTimeout(function () {
             let upsellPrice = 0
             jQuery('.o-product-top .upsell_options input:checked').each(function (index, item) {
@@ -194,7 +200,7 @@
                     $scope.find('.variation-dropdown-specification').toggleClass('active')
                     $scope.find('.variation-dropdown-specification').addClass('time')
                     $scope.find('.variation-dropdown-specification__bottom').toggleClass('show')
-                    if ($scope.find('.variations .var_slider_wattage .swiper-container-initialized')) {
+                    if($scope.find('.variations .var_slider_wattage .swiper-container-initialized')){
                         $scope.find('.variations .var_slider_wattage .swiper-container-initialized')[0].swiper.update()
 
                     }

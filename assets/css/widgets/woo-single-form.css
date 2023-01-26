@@ -2408,6 +2408,12 @@ form.cart:not(.variations_form) {
     font-size: 14px;
     color: #77A464;
     line-height: 20px; }
+  .delivery__bottom__body .onbackorder {
+    display: none; }
+    .delivery__bottom__body .onbackorder.show {
+      display: block; }
+      .delivery__bottom__body .onbackorder.show ~ p {
+        display: none; }
   .delivery__bottom__icon {
     border-radius: 50%;
     width: 44px;
