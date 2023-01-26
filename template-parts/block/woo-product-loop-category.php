@@ -113,37 +113,38 @@ foreach ($product->get_attributes() as $attribute) {
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-        <div class="swiper <?php echo count($product->get_available_variations()) >= 6 ? 'slider-desktop' : '' ?>">
-            <div class="swiper-button-prev">
+        <?php if ($product->is_type('variable')) { ?>
+            <div class="swiper <?php echo count($product->get_available_variations()) >= 6 ? 'slider-desktop' : '' ?>">
+                <div class="swiper-button-prev">
 
-                <?php echo $icon_prev_html; ?>
-                More
-            </div>
+                    <?php echo $icon_prev_html; ?>
+                    More
+                </div>
 
-            <ul class="product__variations swiper-wrapper">
-                <?php
+                <ul class="product__variations swiper-wrapper">
+                    <?php
 
-                $data = '';
-                $product_tooltip = get_field('product_tooltip_content', 'option');
-                foreach ($product->get_attributes() as $attribute) {
-                    ?>
-                    <?php if ($attribute->get_name() == "pa_wattage") {
-
-
-                        $variations = $product->get_available_variations();
-                        foreach ($variations as $key => $variation) {
-
-                            $variation_id = $variation['variation_id'];
-                            $js_attrs_string = '';
-                            $term_id = get_term_by('slug', $variation['attributes']['attribute_pa_wattage'], 'pa_wattage')->term_id;
-                            $area = get_post_meta($variation_id, '_cvy_area', true);
-                            $display_regular_price = $variation['display_price'] != $variation['display_regular_price'] ? 'data-price_reg="' . $variation['display_regular_price'] . '" ' : '';
+                    $data = '';
+                    $product_tooltip = get_field('product_tooltip_content', 'option');
+                    foreach ($product->get_attributes() as $attribute) {
+                        ?>
+                        <?php if ($attribute->get_name() == "pa_wattage") {
 
 
-                            $data .= '<li class="swiper-slide variable out-stock-' . ((!$variation["is_in_stock"]) ? 'yes' : 'no') . ' " ' . $js_attrs_string . ' data-price="' . $variation['display_price'] . '"  data-pa_wattage="' . $term_id . '" ' . $display_regular_price . ' >';
+                            $variations = $product->get_available_variations();
+                            foreach ($variations as $key => $variation) {
 
-                            $data .= '<a href="' . get_permalink($variation_id) . '" >';
-                            $data .= '<img
+                                $variation_id = $variation['variation_id'];
+                                $js_attrs_string = '';
+                                $term_id = get_term_by('slug', $variation['attributes']['attribute_pa_wattage'], 'pa_wattage')->term_id;
+                                $area = get_post_meta($variation_id, '_cvy_area', true);
+                                $display_regular_price = $variation['display_price'] != $variation['display_regular_price'] ? 'data-price_reg="' . $variation['display_regular_price'] . '" ' : '';
+
+
+                                $data .= '<li class="swiper-slide variable out-stock-' . ((!$variation["is_in_stock"]) ? 'yes' : 'no') . ' " ' . $js_attrs_string . ' data-price="' . $variation['display_price'] . '"  data-pa_wattage="' . $term_id . '" ' . $display_regular_price . ' >';
+
+                                $data .= '<a href="' . get_permalink($variation_id) . '" >';
+                                $data .= '<img
 						 			class="cvy_product_thumbnail"
 						 			src="' . $variation['image']['thumb_src'] . '"
 						 			title="' . $variation['image']['title'] . '"
@@ -153,17 +154,17 @@ foreach ($product->get_attributes() as $attribute) {
 						 		>';
 
 
-                            $data .= '<div class="cvy_field_groups">';
+                                $data .= '<div class="cvy_field_groups">';
 
-                            $data .= '<div class="cvy_property_field">';
+                                $data .= '<div class="cvy_property_field">';
 
 
-                            $data .= '<span class="cvy_wattage">' . $variation['attributes']['attribute_pa_wattage'] . 'w</span>';
+                                $data .= '<span class="cvy_wattage">' . $variation['attributes']['attribute_pa_wattage'] . 'w</span>';
 
-                            $data .= '</div>';
+                                $data .= '</div>';
 
-                            if (!empty($area)) {
-                                $data .= '<div class="cvy_property_field_wrapper cvy_property_area">
+                                if (!empty($area)) {
+                                    $data .= '<div class="cvy_property_field_wrapper cvy_property_area">
                                             <div class="cvy_property_field">
                                                 <span class="cvy_area">
                                                     ' . $area . 'm<sup>2</sup>
@@ -178,33 +179,38 @@ foreach ($product->get_attributes() as $attribute) {
                                                 </div>
                                             </div>	';
 
+                                    $data .= '</div>';
+                                }
+
                                 $data .= '</div>';
+                                $data .= '</a>';
+                                $data .= '</li>';
                             }
 
-                            $data .= '</div>';
-                            $data .= '</a>';
-                            $data .= '</li>';
-                        }
+                        }; ?>
+                    <?php };
 
-                    }; ?>
-                <?php };
+                    echo $data; ?>
+                </ul>
+                <!-- If we need navigation buttons -->
 
-                echo $data; ?>
-            </ul>
-            <!-- If we need navigation buttons -->
+                <div class="swiper-button-next">
 
-            <div class="swiper-button-next">
-
-                <?php echo $icon_next_html; ?>
-                More
+                    <?php echo $icon_next_html; ?>
+                    More
+                </div>
             </div>
-        </div>
+        <?php }; ?>
     </div>
     <div class="product_col__price">
         <div class="product_col__price_col">
             <div class="product_col__price_col-1">
                 <div class="product__price">
-                    <?php echo str_replace('.00', '', iconic_variable_price_format($product->get_price(), $product)); ?>
+                    <?php if ($product->is_type('variable')) {
+                        echo str_replace('.00', '', iconic_variable_price_format($product->get_price(), $product));
+                    } else {
+                    echo str_replace('.00', '', $product->get_price_html());
+                    }; ?>
                 </div>
                 <div class="product__payLater">
                     <?php echo __('Pay in 3 interest-free payments of ') . $priceLater; ?>
@@ -221,7 +227,6 @@ foreach ($product->get_attributes() as $attribute) {
                         </g>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink"
                          width="70"
                          height="40" viewBox="0 0 452.51 151.93" version="1.1">
                         <defs>

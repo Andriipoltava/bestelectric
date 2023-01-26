@@ -15,7 +15,7 @@
                 $('<span class="c-mobile-menu__toggle JS--children-mega-menu-toggle"></span>').appendTo(this);
             });
 
-            mobileMenuBtn.on('click', function (e) {
+            mobileMenuBtn.on('click touchstart', function (e) {
                 e.preventDefault();
                 $(this).find('.JS--open-mobile-menu-btn').toggleClass('open');
                 //mobileMenu.fadeToggle(400);
@@ -114,8 +114,6 @@
 
             })
             $scope.find('.o-header__megamenu-holder').attr('style','')
-
-
         };
         $(window).on('elementor/frontend/init', function () {
             elementorFrontend.hooks.addAction('frontend/element_ready/custom-mega-menu.default', WidgetMegaMenu);
