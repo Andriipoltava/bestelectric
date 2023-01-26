@@ -86,26 +86,40 @@
         $('.date_delivery_24').text(date_delivery_24)
     }
 
-    function upsell_options(upsellPrice, update = false) {
-        const oldPrice = document.querySelector('.variations_form .price').textContent.replace('£', '')
+    function upsell_options(upsellPrice, variation) {
+        const oldPrice = variation.display_price
+        console.log()
         setTimeout(function () {
-            let newPrice = parseFloat(upsellPrice) + parseFloat(oldPrice),
-                newHtml = document.querySelector('.variations_form .price .amount').innerHTML.replace(oldPrice, newPrice.toFixed(2));
-            if (document.querySelector(' .variations_form .price .amount')) {
-                document.querySelector('.variations_form .price .amount').innerHTML = newHtml
+            let newPrice = parseFloat(upsellPrice) + parseFloat(oldPrice);
+            let newHtml = variation.price_html?variation.price_html:document.querySelector('.variations_form .price ').innerHTML
+            if (oldPrice == variation.display_regular_price) {
+                newPrice = newPrice.toFixed(2)
+            } else {
+                let display_regular_price=parseFloat(upsellPrice) + parseFloat(variation.display_regular_price)
+                newPrice=newPrice.toFixed(0)
+                display_regular_price=display_regular_price.toFixed(0)
+                newHtml = newHtml.replace(variation.display_regular_price, display_regular_price)
             }
-            if (document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount')) {
-                document.querySelector('.single_variation_wrap .variations_button__bottom  .price .amount').innerHTML = newHtml
+            // console.log(newHtml)
+            newHtml = newHtml.replace(oldPrice, newPrice)
+            newHtml = newHtml.replace(/^<span[^>]*>|<\/span>$/g, '');
+            // console.log(newHtml)
+
+            if (document.querySelector(' .variations_form .price  ')) {
+                document.querySelector('.variations_form .price ').innerHTML = newHtml
             }
-            if (document.querySelector('.singleWooHeader__item__price .price .amount')) {
-                document.querySelector('.singleWooHeader__item__price .price .amount').innerHTML = newHtml
+            if (document.querySelector('.single_variation_wrap .variations_button__bottom  .price ')) {
+                document.querySelector('.single_variation_wrap .variations_button__bottom  .price ').innerHTML = newHtml
+            }
+            if (document.querySelector('.singleWooHeader__item__price .price ')) {
+                document.querySelector('.singleWooHeader__item__price .price ').innerHTML = newHtml
             } else {
                 if (document.querySelector('.singleWooHeader__item__price .price')) {
                     document.querySelector('.singleWooHeader__item__price .price').innerHTML = '<span class="woocommerce-Price-amount amount">' + newHtml + '</span>'
                 }
             }
-            if (document.querySelector('.o-product-top__price .JS--top-product-price .amount')) {
-                document.querySelector('.o-product-top__price .JS--top-product-price .amount').innerHTML = newHtml
+            if (document.querySelector('.o-product-top__price .JS--top-product-price ')) {
+                document.querySelector('.o-product-top__price .JS--top-product-price ').innerHTML = newHtml
             } else {
                 if (document.querySelector('.o-product-top__price .JS--top-product-price')) {
                     document.querySelector('.o-product-top__price .JS--top-product-price').innerHTML = '<span class="woocommerce-Price-amount amount">' + newHtml + '</span>'
@@ -119,6 +133,7 @@
             }
 
         }, 10);
+
     }
 
     jQuery('.o-product-top .upsell_options input').on('change', function (e) {
@@ -127,15 +142,16 @@
 
     jQuery(".single_variation_wrap").on("show_variation", function (event, variation) {
         jQuery('.onbackorder')?.removeClass('show').closest('.delivery__bottom').removeClass('available-on-backorder')
-        if (variation?.variation_id === jQuery('.onbackorder')?.data('id')) {
-            jQuery('.onbackorder[data-id="' + variation.variation_id + '"]')?.addClass('show').closest('.delivery__bottom').addClass('available-on-backorder')
+
+        if (jQuery('.onbackorder[data-id="' + variation.variation_id + '"]')) {
+            jQuery('.delivery__bottom__body .onbackorder[data-id="' + variation.variation_id + '"]')?.addClass('show').closest('.delivery__bottom').addClass('available-on-backorder')
         }
         setTimeout(function () {
             let upsellPrice = 0
             jQuery('.o-product-top .upsell_options input:checked').each(function (index, item) {
                 upsellPrice += parseFloat(jQuery(this).closest('li').find('.price-box .amount').text().replace('£', ''));
             })
-            upsell_options(upsellPrice, true)
+            upsell_options(upsellPrice, variation)
         }, 30);
     })
 

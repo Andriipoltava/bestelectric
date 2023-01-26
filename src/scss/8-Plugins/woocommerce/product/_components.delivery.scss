@@ -5,19 +5,29 @@
   width: 100%;
   align-items: center;
   @include mq(null, 1025) {
-    padding: 5px 10px;
-    text-align: center;
+    padding: 10px 10px;
+    //text-align: center;
+
   }
   &__body {
     @include mq(null, 1025) {
       width: 100%;
     }
-
+    .mb-1{
+      display: block;
+      margin-bottom:5px ;
+      @include mq(null, 1025) {
+      margin-bottom:10px ;
+      }
+    }
     p {
       margin-bottom: 0 !important;
       font-size: 14px;
       color: #77A464;
       line-height: 20px;
+      @include mq(null, 1025) {
+        line-height: 16px;
+      }
     }
 
     .onbackorder {
@@ -45,7 +55,7 @@
     justify-content: center;
     margin-right: 15px;
     @include mq(null, 1025) {
-      display: none;
+      //display: none;
     }
   }
   &.product-availability.available-on-backorder {
