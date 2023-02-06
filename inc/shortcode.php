@@ -123,10 +123,81 @@ add_shortcode('the_term_thumbnail', function () {
     }
 
     if (isset($thumbnail_id)) {
-        echo wp_get_attachment_image($thumbnail_id,'woocommerce_single',null,['style'=>'height: 100%;object-fit: cover; max-height: 379px; width: 100%;','class'=>' no-lazy remove-lazy attachment-full size-full ext-hidden tablet:ext-block']);
-        echo wp_get_attachment_image($thumbnail_id,'woocommerce_thumbnail',null,['style'=>'height: 100%;object-fit: cover; max-height: 379px; width: 100%;','class'=>' no-lazy remove-lazy attachment-full size-full  tablet:ext-hidden ']);
+        echo wp_get_attachment_image($thumbnail_id, 'woocommerce_single', null, ['style' => 'height: 100%;object-fit: cover; max-height: 379px; width: 100%;', 'class' => ' no-lazy remove-lazy attachment-full size-full ext-hidden tablet:ext-block']);
+        echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail', null, ['style' => 'height: 100%;object-fit: cover; max-height: 379px; width: 100%;', 'class' => ' no-lazy remove-lazy attachment-full size-full  tablet:ext-hidden ']);
     } else if (has_post_thumbnail()) {
         echo get_the_post_thumbnail($post, 'medium');
     }
+    return ob_get_clean();
+});
+
+add_shortcode('the_category_subtitle', function () {
+    ob_start();
+    global $post;
+
+    $term = "";
+
+    if (is_product_category()) {
+        $term = get_queried_object();
+    }
+    if (get_field('sub-title', $term)) {
+
+        $textFull = get_field('sub-title', $term);
+        if (strpos($textFull, '[see-more]') !== false) {
+            $textFull = str_replace('[see-more]', '<span class="link-more">..</br><a class="btn-more">See more</a></span><p class="hide" >', $textFull);
+            echo "<div class='readmore'>" . $textFull . '</br><a class="btn-more" >See less</a></p></div>';
+        } else {
+            echo $textFull;
+        }
+    }
+    ?>
+    <style>
+
+        .readmore {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .readmore .btn-more {
+            color: #333333;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .readmore .hide {
+            display: none;
+            height: 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        .readmore.less .link-more {
+            display: none;
+        }
+
+        .readmore.less .hide {
+            display: inline;
+            height: auto;
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <script>
+        document.querySelectorAll('.btn-more').forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                event.preventDefault()
+                const cl = item.closest('.readmore').classList
+                const is_less = cl.contains('less');
+                if (is_less) cl.remove('less');
+                else cl.add('less');
+            })
+        })
+
+
+    </script>
+    <?php
+
+
     return ob_get_clean();
 });
